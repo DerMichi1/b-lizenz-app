@@ -27,19 +27,15 @@ FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # {"47": {"page":14,"clip":[...]}
 
 
 def cfg(path: str, default: str = "") -> str:
-    """
-    Read config from Streamlit secrets only.
-    Path format: "section.key".
+    """Read config from Streamlit secrets only.
 
-    Note: st.secrets is a mapping-like object (not necessarily a dict),
-    so do NOT use isinstance(..., dict) checks here.
+    Works with Streamlit's secrets object (mapping-like), not assuming plain dict.
+    Path format: "section.key".
     """
     parts = path.split(".")
     cur: Any = st.secrets
     for p in parts:
         try:
-            if p not in cur:
-                return default
             cur = cur[p]
         except Exception:
             return default
@@ -311,6 +307,68 @@ def load_figure_map() -> Dict[str, Any]:
         return {}
 
 
+@st.cache_data(show_spinner=False)
+def infer_clip_from_pdf_by_figure(pdf_path: str, page_1based: int, figure_no: int) -> Optional[List[float]]:
+    """Best-effort clip inference when figure_map has no clip.
+
+    Strategy:
+      - Find the text 'Abbildung {figure_no}' on the page.
+      - Crop full page width between this label and the next 'Abbildung' label below it.
+      - If this is the last figure on the page, crop until page bottom.
+    Returns clip as [x0,y0,x1,y1] in PDF points (PyMuPDF), or None.
+    """
+    try:
+        import fitz  # PyMuPDF
+    except Exception:
+        return None
+
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        with fitz.open(str(p)) as doc:
+            if doc.page_count <= 0:
+                return None
+            page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+            page = doc.load_page(page_index)
+
+            label = f"Abbildung {int(figure_no)}"
+            hits = page.search_for(label)
+            if not hits:
+                return None
+
+            # Use the lowest hit in case header repeats
+            cur_rect = sorted(hits, key=lambda r: (r.y0, r.x0))[-1]
+
+            # Find the next 'Abbildung' label below current label
+            next_hits = page.search_for("Abbildung")
+            below = [r for r in next_hits if r.y0 > cur_rect.y0 + 1]
+            next_rect = sorted(below, key=lambda r: (r.y0, r.x0))[0] if below else None
+
+            page_rect = page.rect
+            margin_x = 18.0
+            pad_y = 12.0
+
+            x0 = float(page_rect.x0 + margin_x)
+            x1 = float(page_rect.x1 - margin_x)
+
+            y0 = float(cur_rect.y1 + pad_y)
+            y1 = float((next_rect.y0 - pad_y) if next_rect else (page_rect.y1 - pad_y))
+
+            # Guard: ensure positive height
+            if y1 <= y0 + 20:
+                return None
+
+            # Keep within page bounds
+            y0 = max(float(page_rect.y0), y0)
+            y1 = min(float(page_rect.y1), y1)
+
+            return [x0, y0, x1, y1]
+    except Exception:
+        return None
+
+
 def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
     figs = q.get("figures")
     if isinstance(figs, list) and figs:
@@ -379,12 +437,26 @@ def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
         )
 
         if png:
+            # If we have no explicit clip, try to infer a clip from the PDF text layout.
+            # This fixes the common case where the desired figure is the LAST one on the page.
+            inferred = None
+            if not clip:
+                inferred = infer_clip_from_pdf_by_figure(str(BILDER_PDF), page_1based, fig_no_int)
+                if inferred:
+                    png2 = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=inferred)
+                    if png2:
+                        png = png2
+                        clip = inferred
+
+            # Final fallback: remove white margins (only helps if the page doesn't contain multiple figures)
             if not clip:
                 png = autocrop_png(png, margin=14)
 
             cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
             cap += " · Ausschnitt" if clip else " · Auto-Crop"
-            st.image(png, caption=cap, use_container_width=True)
+
+            # Streamlit deprecates use_container_width; use width='stretch'
+            st.image(png, caption=cap, width="stretch")
             shown += 1
 
 

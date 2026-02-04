@@ -1108,7 +1108,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
         c1, c2 = st.columns([1, 1])
         start = c1.button("Session starten", type="primary")
-        if c2.button("Zur Übersicht"):
+        if c2.button("Zur Übersicht", key="exam_result_to_dashboard"):
             st.session_state.page = "dashboard"
             _reset_learning_state()
             st.rerun()
@@ -1346,7 +1346,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
             st.session_state.exam_answers = {}
             st.session_state.exam_deadline_ts = float(time.time()) + float(EXAM_DURATION_SEC)
             st.rerun()
-        if c2.button("Zur Übersicht"):
+        if c2.button("Zur Übersicht", key="exam_start_to_dashboard"):
             st.session_state.page = "dashboard"
             _reset_exam_state()
             st.rerun()
@@ -1368,15 +1368,15 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     top1, top2, top3, top4 = st.columns([1, 1, 1, 1])
     with top1:
         st.markdown(f"<div class='pp-pill'>⏱️ Restzeit {_fmt_hhmmss(remaining)}</div>", unsafe_allow_html=True)
-    if top2.button("Prüfung abbrechen"):
+    if top2.button("Prüfung abbrechen", key="exam_abort"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top3.button("Neu starten"):
+    if top3.button("Neu starten", key="exam_restart"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top4.button("Zur Übersicht"):
+    if top4.button("Zur Übersicht", key="exam_top_to_dashboard"):
         st.session_state.page = "dashboard"
         st.session_state.exam_started = False
         _reset_exam_state()

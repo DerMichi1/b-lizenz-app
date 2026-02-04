@@ -95,8 +95,10 @@ def get_cookies():
         st.session_state.cookies_mgr = EncryptedCookieManager(prefix="bliz_", password=COOKIE_PASSWORD)
 
     cookies = st.session_state.cookies_mgr
-    if not cookies.ready():
-        st.stop()
+   if not cookies.ready():
+    st.markdown("## B-Lizenz Lernapp")
+    st.info("Initialisiere Login-Session… (einmalig) – Seite lädt neu.")
+    st.stop()
     return cookies
 
 # =============================================================================

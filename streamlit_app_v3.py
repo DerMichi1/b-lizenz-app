@@ -92,13 +92,18 @@ def get_cookies():
         from streamlit_cookies_manager import EncryptedCookieManager
         if not COOKIE_PASSWORD:
             raise RuntimeError("COOKIE_PASSWORD fehlt in Streamlit Secrets.")
-        st.session_state.cookies_mgr = EncryptedCookieManager(prefix="bliz_", password=COOKIE_PASSWORD)
+        st.session_state.cookies_mgr = EncryptedCookieManager(
+            prefix="bliz_",
+            password=COOKIE_PASSWORD
+        )
 
     cookies = st.session_state.cookies_mgr
-   if not cookies.ready():
-    st.markdown("## B-Lizenz Lernapp")
-    st.info("Initialisiere Login-Session… (einmalig) – Seite lädt neu.")
-    st.stop()
+
+    if not cookies.ready():
+        st.markdown("## B-Lizenz Lernapp")
+        st.info("Initialisiere Login-Session – Seite lädt neu …")
+        st.stop()
+
     return cookies
 
 # =============================================================================

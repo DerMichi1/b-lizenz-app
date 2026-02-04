@@ -1,12 +1,12 @@
 import json
 import random
+import re
 import uuid
 from pathlib import Path
-from typing import Dict, List, Tuple, Any, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import streamlit as st
-from supabase import create_client, Client
-
+from supabase import Client, create_client
 
 # =============================================================================
 # CONFIG / FILES
@@ -14,7 +14,7 @@ from supabase import create_client, Client
 APP_DIR = Path(__file__).parent
 QUESTIONS_PATH = APP_DIR / "questions.json"
 BILDER_PDF = APP_DIR / "Bilder.pdf"  # PDF with figures (page numbers referenced by questions[*].figures[*].bilder_page)
-FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # optional: {"1": 12, "2": 13, ...} (figure -> Bilder.pdf page)
+FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # supports {"47": 14} OR {"47": {"page":14,"clip":[...] }}
 
 
 def cfg(path: str, default: str = "") -> str:
@@ -38,7 +38,6 @@ SUPABASE_ANON_KEY = cfg("supabase.anon_key")
 
 OPENAI_API_KEY = cfg("openai.api_key")
 OPENAI_MODEL = cfg("openai.model", "gpt-4.1-mini")
-
 
 # =============================================================================
 # REQUIRED CLUSTERING (display/progress structure)
@@ -88,7 +87,6 @@ REQUIRED: Dict[str, Dict[str, int]] = {
     },
 }
 
-
 # =============================================================================
 # SUPABASE CLIENT (DB only)
 # =============================================================================
@@ -105,7 +103,6 @@ def supa() -> Client:
 
     return create_client(SUPABASE_URL, key)
 
-
 # =============================================================================
 # QUESTIONS / WIKI / AI (single source of truth: questions.json)
 # =============================================================================
@@ -116,8 +113,6 @@ def load_questions() -> List[Dict[str, Any]]:
     Important: The app can override this file at runtime via the sidebar uploader.
     The override is stored in st.session_state (not on disk).
     """
-
-    # Runtime override (sidebar upload)
     override = st.session_state.get("questions_override")
     if isinstance(override, list) and override:
         return override
@@ -132,14 +127,23 @@ def load_questions() -> List[Dict[str, Any]]:
 
 
 def get_wiki(q: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Supports both keys:
+      wiki.links  (old)
+      wiki.nachlesen (new)
+    """
     w = q.get("wiki")
     if isinstance(w, dict):
+        links = w.get("links")
+        if not isinstance(links, list):
+            links = w.get("nachlesen") or []
         return {
             "explanation": (w.get("explanation") or "").strip(),
             "merksatz": (w.get("merksatz") or "").strip(),
-            "links": w.get("links") or [],
+            "links": links if isinstance(links, list) else [],
+            "reliability_note": (w.get("reliability_note") or "").strip(),
         }
-    return {"explanation": "", "merksatz": "", "links": []}
+    return {"explanation": "", "merksatz": "", "links": [], "reliability_note": ""}
 
 
 def get_ai_cfg(q: Dict[str, Any]) -> Dict[str, Any]:
@@ -149,15 +153,13 @@ def get_ai_cfg(q: Dict[str, Any]) -> Dict[str, Any]:
             "allowed": bool(a.get("allowed", True)),
             "context": (a.get("context") or "").strip(),
             "system_hint": (a.get("system_hint") or "").strip()
-            or "Antworte strikt faktenbasiert. Wenn unsicher, sag es. Verweise auf offizielle Quellen/Links.",
+            or "Antworte strikt faktenbasiert. Wenn unsicher, sag es.",
         }
     return {"allowed": True, "context": "", "system_hint": "Antworte strikt faktenbasiert. Wenn unsicher, sag es."}
 
 
 def validate_questions(questions: List[Dict[str, Any]]) -> Dict[str, int]:
-    """
-    Hard validation to avoid silent errors in production.
-    """
+    """Hard validation to avoid silent errors in production."""
     missing_id = 0
     bad_correct = 0
     bad_opts = 0
@@ -198,36 +200,22 @@ def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], Li
         idx.setdefault((cat, sub), []).append(q)
     return idx
 
-
 # =============================================================================
-# PDF IMAGE RENDER (Bilder.pdf)
+# PDF IMAGE RENDER (Bilder.pdf) with CLIP support
 # =============================================================================
-import re
-
 @st.cache_data(show_spinner=False)
-def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> Optional[bytes]:
+def render_pdf_page_png(
+    pdf_path: str,
+    page_1based: int,
+    zoom: float = 2.0,
+    clip: Optional[List[float]] = None,
+) -> Optional[bytes]:
+    """
+    Render a PDF page (or clipped region) to PNG bytes using PyMuPDF.
+    clip = [x0, y0, x1, y1] in PDF points (PyMuPDF).
+    """
     try:
         import fitz  # PyMuPDF
-    except Exception:
-        return None
-
-    p = Path(pdf_path)
-    if not p.exists():
-        return None
-
-    try:
-        doc = fitz.open(str(p))
-        if doc.page_count <= 0:
-            return None
-
-        page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
-        page = doc.load_page(page_index)
-
-        mat = fitz.Matrix(float(zoom), float(zoom))
-@st.cache_data(show_spinner=False)
-def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0, clip: Optional[List[float]] = None) -> Optional[bytes]:
-    try:
-        import fitz
     except Exception:
         return None
 
@@ -255,9 +243,19 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0, clip
         return None
 
 
-
 @st.cache_data(show_spinner=False)
 def load_figure_map() -> Dict[str, Any]:
+    """
+    Supports BOTH formats:
+
+    Old:
+      { "47": 14 }
+
+    New:
+      {
+        "47": { "page": 14, "clip": [x0,y0,x1,y1] }
+      }
+    """
     if not FIGURE_MAP_PATH.exists():
         return {}
     try:
@@ -298,27 +296,29 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
         except Exception:
             continue
 
+        # page priority: explicit bilder_page > figure_map
         try:
             page_1based = int(f.get("bilder_page") or 0)
         except Exception:
             page_1based = 0
 
+        clip = None
+
         if page_1based <= 0:
-entry = fig_map.get(str(fig_no_int))
-page_1based = 0
-clip = None
+            entry = fig_map.get(str(fig_no_int))
+            if isinstance(entry, int):
+                page_1based = int(entry)
+            elif isinstance(entry, dict):
+                try:
+                    page_1based = int(entry.get("page") or 0)
+                except Exception:
+                    page_1based = 0
+                clip = entry.get("clip")
 
-if isinstance(entry, int):
-    page_1based = entry
-elif isinstance(entry, dict):
-    page_1based = int(entry.get("page") or 0)
-    clip = entry.get("clip")
+        if page_1based <= 0:
+            continue
 
-if page_1based <= 0:
-    continue
-
-png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=clip)
-
+        png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=clip)
         if png:
             st.image(
                 png,
@@ -327,12 +327,12 @@ png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, cl
             )
             shown += 1
 
-
 # =============================================================================
 # AUTH (Streamlit built-in OIDC: Google)
 # =============================================================================
 def require_login() -> None:
-    if not getattr(st.user, "is_logged_in", False):
+    # st.user exists only when Streamlit auth is configured; guard with getattr
+    if not getattr(getattr(st, "user", None), "is_logged_in", False):
         st.title("B-Lizenz Lernapp")
         st.caption("Bitte mit Google anmelden.")
         st.button("Mit Google anmelden", on_click=st.login, use_container_width=True)
@@ -340,10 +340,11 @@ def require_login() -> None:
 
 
 def user_claims() -> Dict[str, str]:
+    u = getattr(st, "user", None)
     return {
-        "email": (getattr(st.user, "email", "") or "").strip(),
-        "name": (getattr(st.user, "name", "") or "").strip(),
-        "sub": (getattr(st.user, "sub", "") or "").strip(),
+        "email": (getattr(u, "email", "") or "").strip(),
+        "name": (getattr(u, "name", "") or "").strip(),
+        "sub": (getattr(u, "sub", "") or "").strip(),
     }
 
 
@@ -379,7 +380,6 @@ def ensure_user_registered(claims: Dict[str, str]) -> None:
             "name": claims.get("name") or None,
         }
     ).execute()
-
 
 # =============================================================================
 # DB: progress + notes + exam_runs
@@ -469,7 +469,6 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
     except Exception:
         return []
 
-
 # =============================================================================
 # APP STATE
 # =============================================================================
@@ -504,7 +503,6 @@ def _reset_exam_state():
         "ai_draft",
     ]:
         st.session_state.pop(k, None)
-
 
 # =============================================================================
 # QUEUES
@@ -545,7 +543,6 @@ def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[
     base = list(questions)
     random.shuffle(base)
     return base[:n]
-
 
 # =============================================================================
 # PROGRESS / STATS
@@ -616,7 +613,6 @@ def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: i
     rows.sort(key=lambda r: (r["accuracy"], -r["attempts"]))
     return rows[:topn]
 
-
 # =============================================================================
 # AI (OpenAI)
 # =============================================================================
@@ -624,7 +620,7 @@ def ai_available() -> bool:
     if not OPENAI_API_KEY:
         return False
     try:
-        import openai  # noqa: F401
+        from openai import OpenAI  # noqa: F401
         return True
     except Exception:
         return False
@@ -632,7 +628,7 @@ def ai_available() -> bool:
 
 def ai_ask_question(q: Dict[str, Any], user_text: str) -> str:
     """
-    Grounded assistant: includes question, options, correctIndex, wiki, figures.
+    Grounded assistant: includes question, options, correctIndex, wiki.
     Note: this is for "Rückfragen" AFTER answering; it can reveal correct answer.
     """
     ai_cfg = get_ai_cfg(q)
@@ -644,10 +640,8 @@ def ai_ask_question(q: Dict[str, Any], user_text: str) -> str:
         opts.append("")
 
     w = get_wiki(q)
-    prompt = f"""
-SYSTEM:
-{system_hint}
 
+    prompt = f"""
 KONTEXT:
 {context}
 
@@ -711,8 +705,12 @@ def render_ai_chat(q: Dict[str, Any], qid: str):
         with st.chat_message(role):
             st.markdown(content)
 
-    st.session_state.setdefault("ai_draft", "")
-    user_text = st.text_area("Deine Rückfrage", key=f"ai_draft_{qid}", height=90, placeholder="Warum ist Antwort D korrekt? Bitte kurz erklären.")
+    user_text = st.text_area(
+        "Deine Rückfrage",
+        key=f"ai_draft_{qid}",
+        height=90,
+        placeholder="Warum ist Antwort D korrekt? Bitte kurz erklären.",
+    )
     c1, c2 = st.columns([1, 1])
     send = c1.button("Senden", key=f"ai_send_{qid}", type="primary")
     clear = c2.button("Chat leeren", key=f"ai_clear_{qid}")
@@ -730,7 +728,6 @@ def render_ai_chat(q: Dict[str, Any], qid: str):
         answer = ai_ask_question(q, user_text)
         history.append({"role": "assistant", "content": answer})
         st.rerun()
-
 
 # =============================================================================
 # UI / STYLES
@@ -784,11 +781,6 @@ def nav_sidebar(claims: Dict[str, str]):
         _reset_learning_state()
         st.rerun()
 
-    # ---------------------------------------------------------------------
-    # Daten (Runtime Override)
-    # - helps avoid the "I downloaded a file but nothing changed" trap.
-    # - does NOT write to disk (safe for Streamlit Cloud).
-    # ---------------------------------------------------------------------
     with st.sidebar.expander("Daten", expanded=False):
         st.caption("Optional: questions.json zur Laufzeit überschreiben (ohne Speicherung).")
         up = st.file_uploader("questions.json hochladen", type=["json"], key="upload_questions")
@@ -798,7 +790,6 @@ def nav_sidebar(claims: Dict[str, str]):
                 if not isinstance(data, list):
                     raise ValueError("JSON muss eine Liste von Fragen sein.")
                 st.session_state.questions_override = data
-                # reset sessions so the new data is used immediately
                 _reset_learning_state()
                 _reset_exam_state()
                 st.success(f"Geladen: {len(data)} Fragen")
@@ -811,7 +802,6 @@ def nav_sidebar(claims: Dict[str, str]):
             _reset_learning_state()
             _reset_exam_state()
             st.rerun()
-
 
 # =============================================================================
 # DASHBOARD
@@ -957,7 +947,6 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
 
-
 # =============================================================================
 # LEARN
 # =============================================================================
@@ -969,7 +958,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     if "learn_started" not in st.session_state:
         st.session_state.learn_started = False
 
-    # PRE-START
     if not st.session_state.learn_started:
         plan = st.session_state.learn_plan
 
@@ -1032,7 +1020,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
         st.stop()
 
-    # IN SESSION
     plan = st.session_state.learn_plan
     queue: List[Dict[str, Any]] = st.session_state.get("queue", [])
     idx: int = int(st.session_state.get("idx", 0))
@@ -1105,7 +1092,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if corr_i is not None and 0 <= int(corr_i) < len(options):
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
-        # Wiki (from questions.json)
         w = get_wiki(q)
         with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):
             if w["explanation"]:
@@ -1129,12 +1115,16 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                         continue
                     title = (li.get("title") or "Link").strip()
                     url = (li.get("url") or "").strip()
+                    locator = (li.get("locator") or "").strip()
                     if url:
-                        st.markdown(f"- [{title}]({url})")
+                        extra = f" — {locator}" if locator else ""
+                        st.markdown(f"- [{title}]({url}){extra}")
             else:
                 st.caption("Keine Links hinterlegt.")
 
-        # AI follow-up
+            if w.get("reliability_note"):
+                st.caption(w["reliability_note"])
+
         with st.expander("KI-Nachfrage zur Frage", expanded=False):
             render_ai_chat(q, qid)
 
@@ -1170,7 +1160,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             st.session_state.idx = 0
             st.session_state.answered = False
             st.rerun()
-
 
 # =============================================================================
 # EXAM
@@ -1303,7 +1292,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             if 0 <= ci < len(options):
                 st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
-        # Optional: AI in exam too (after answering)
         with st.expander("KI-Nachfrage zur Frage", expanded=False):
             render_ai_chat(q, qid)
 
@@ -1312,7 +1300,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             st.session_state.exam_answered = False
             st.session_state.exam_last_ok = None
             st.rerun()
-
 
 # =============================================================================
 # MAIN

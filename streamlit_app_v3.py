@@ -303,16 +303,21 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
         except Exception:
             continue
 
-        # page priority: explicit bilder_page > figure_map
+        # Preferred sources:
+        # - figures[*].bilder_page (page)
+        # - figures[*].clip (crop)
+        # - else: figure_map.json entry for that figure (page + optional clip)
         try:
             page_1based = int(f.get("bilder_page") or 0)
         except Exception:
             page_1based = 0
 
-        clip = None
+        clip = f.get("clip") if isinstance(f.get("clip"), list) else None
 
+        entry = fig_map.get(str(fig_no_int))
+
+        # Page from figure_map if missing
         if page_1based <= 0:
-            entry = fig_map.get(str(fig_no_int))
             if isinstance(entry, int):
                 page_1based = int(entry)
             elif isinstance(entry, dict):
@@ -320,19 +325,30 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
                     page_1based = int(entry.get("page") or 0)
                 except Exception:
                     page_1based = 0
-                clip = entry.get("clip")
+
+        # Clip from figure_map even when page is explicit
+        if clip is None and isinstance(entry, dict):
+            c = entry.get("clip")
+            if isinstance(c, list) and len(c) == 4:
+                clip = c
 
         if page_1based <= 0:
             continue
 
-        png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=clip)
+        png = render_pdf_page_png(
+            str(BILDER_PDF),
+            page_1based=page_1based,
+            zoom=2.0,
+            clip=clip,
+        )
+
         if png:
-            st.image(
-                png,
-                caption=f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})",
-                use_container_width=True,
-            )
+            cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
+            if clip:
+                cap += " · Ausschnitt"
+            st.image(png, caption=cap, use_container_width=True)
             shown += 1
+
 
 
 # =============================================================================
@@ -766,15 +782,14 @@ def _reset_exam_state():
         "exam_queue",
         "exam_idx",
         "exam_started",
-        "exam_phase",          # "taking" | "review" | "result"
-        "exam_start_ts",
-        "exam_deadline_ts",
-        "exam_answers",        # {qid: int|None}
+        "exam_done",
         "exam_submitted",
-        "exam_score",
-        "exam_correct_count",
-        "exam_passed",
-        "exam_auto_submit",
+        "exam_answers",
+        "exam_result",
+        "exam_start_ts",
+        # clean up in case older versions stored these
+        "ai_chat",
+        "ai_draft",
     ]:
         st.session_state.pop(k, None)
 
@@ -1243,19 +1258,28 @@ def _exam_submit(final_reason: str = "manual"):
         pass
 
 
+def _fmt_mmss(seconds_left: int) -> str:
+    seconds_left = max(0, int(seconds_left))
+    mm = seconds_left // 60
+    ss = seconds_left % 60
+    return f"{mm:02d}:{ss:02d}"
+
+
 def page_exam(uid: str, questions: List[Dict[str, Any]]):
     st.title("Prüfungssimulation (40)")
 
-    st.session_state.uid = uid  # for submit helper
+    EXAM_DURATION_SEC = 60 * 60  # 60 Minuten (gesamt)
 
+    # -----------------------------------------------------------------------------
+    # Start / Reset
+    # -----------------------------------------------------------------------------
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
 
-    # Start screen
     if not st.session_state.exam_started:
         st.markdown(
-            f"""<div class="pp-card2"><b>Regeln</b>
-<div class="pp-muted">40 zufällige Fragen · Zeitlimit {int(EXAM_DURATION_SEC/60)} Minuten · Keine Lösungen während der Prüfung · Am Ende prüfen & abschicken.</div></div>""",
+            """<div class="pp-card2"><b>Regeln</b>
+<div class="pp-muted">40 zufällige Fragen · 60 Minuten Gesamtzeit · Antworten frei ändern · Abgabe am Ende.</div></div>""",
             unsafe_allow_html=True,
         )
         c1, c2 = st.columns([1, 1])
@@ -1264,12 +1288,11 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             st.session_state.exam_queue = build_exam_queue(questions, n=40)
             st.session_state.exam_idx = 0
             st.session_state.exam_started = True
-            st.session_state.exam_phase = "taking"
+            st.session_state.exam_done = False
             st.session_state.exam_submitted = False
             st.session_state.exam_answers = {}
-            st.session_state.exam_start_ts = time.time()
-            st.session_state.exam_deadline_ts = float(st.session_state.exam_start_ts) + float(EXAM_DURATION_SEC)
-            st.session_state.exam_auto_submit = False
+            import time as _time
+            st.session_state.exam_start_ts = float(_time.time())
             st.rerun()
         if c2.button("Zur Übersicht"):
             st.session_state.page = "dashboard"
@@ -1277,103 +1300,123 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             st.rerun()
         st.stop()
 
-    # Global top controls
-    top1, top2, top3 = st.columns([1, 1, 1])
-    if top1.button("Prüfung abbrechen"):
+    # -----------------------------------------------------------------------------
+    # Timer (läuft NICHT pro Frage neu an)
+    # -----------------------------------------------------------------------------
+    import time as _time
+    start_ts = float(st.session_state.get("exam_start_ts") or _time.time())
+    elapsed = _time.time() - start_ts
+    remaining = int(EXAM_DURATION_SEC - elapsed)
+
+    # Live countdown (if available)
+    if not st.session_state.get("exam_done", False):
+        if hasattr(st, "autorefresh"):
+            st.autorefresh(interval=1000, limit=None, key="exam_timer_refresh")
+
+    # When time runs out: auto-submit once
+    if remaining <= 0 and not st.session_state.get("exam_submitted", False):
+        st.session_state.exam_submitted = True
+        st.session_state.exam_done = True
+
+    top1, top2, top3, top4 = st.columns([1, 1, 1, 1])
+    with top1:
+        st.markdown(f"<div class='pp-pill'>⏱️ Restzeit {_fmt_mmss(remaining)}</div>", unsafe_allow_html=True)
+    if top2.button("Prüfung abbrechen"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top2.button("Neu starten"):
+    if top3.button("Neu starten"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top3.button("Zur Übersicht"):
+    if top4.button("Zur Übersicht"):
         st.session_state.page = "dashboard"
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
 
-    # Timer line
-    left = _exam_time_left()
-    st.markdown(f"<div class='pp-timer'><b>Restzeit:</b> {_fmt_mmss(left)}</div>", unsafe_allow_html=True)
-
-    # Auto-submit if time is up
-    _exam_auto_submit_if_needed()
-
-    phase = str(st.session_state.get("exam_phase") or "taking")
-    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", [])
+    qlist: List[Dict[str, Any]] = st.session_state.exam_queue
+    i = int(st.session_state.get("exam_idx", 0))
     total = len(qlist)
 
-    if not total:
-        st.error("Keine Prüfungsfragen verfügbar.")
-        st.session_state.exam_started = False
-        return
+    def _evaluate_exam() -> Dict[str, Any]:
+        answers: Dict[str, Optional[int]] = dict(st.session_state.get("exam_answers") or {})
+        correct = 0
+        details = []
+        for q in qlist:
+            qid = str(q.get("id"))
+            sel = answers.get(qid, None)
+            ci = int(q.get("correctIndex", -1))
+            is_ok = (sel is not None and int(sel) == ci)
+            if is_ok:
+                correct += 1
+            details.append({"qid": qid, "selected": sel, "correct": ci, "ok": is_ok, "q": q})
+        pct = int(round((correct / total) * 100)) if total else 0
+        passed = pct >= PASS_PCT
+        return {"correct": correct, "total": total, "pct": pct, "passed": passed, "details": details}
 
-    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
+    # -----------------------------------------------------------------------------
+    # Results
+    # -----------------------------------------------------------------------------
+    if st.session_state.get("exam_done", False):
+        result = st.session_state.get("exam_result")
+        if not isinstance(result, dict):
+            result = _evaluate_exam()
+            st.session_state.exam_result = result
 
-    # Helper metrics
-    answered_count = sum(1 for v in answers.values() if v is not None)
-    st.caption(f"Beantwortet: {answered_count}/{total}")
-
-    # RESULT SCREEN
-    if phase == "result" or bool(st.session_state.get("exam_submitted")):
-        pct = int(st.session_state.get("exam_score") or 0)
-        correct = int(st.session_state.get("exam_correct_count") or 0)
-        passed = bool(st.session_state.get("exam_passed"))
-        auto = bool(st.session_state.get("exam_auto_submit"))
+        correct = int(result["correct"])
+        pct = int(result["pct"])
+        passed = bool(result["passed"])
 
         st.markdown(
             f"""<div class="pp-card"><div><b>Ergebnis</b></div>
-<div class="pp-muted">{pct}% ({correct}/{total}) — {'BESTANDEN' if passed else 'NICHT bestanden'} (Schwelle {int(PASS_PCT)}%)</div>
-<div class="pp-muted">{'Automatisch abgegeben (Zeit abgelaufen).' if auto else ''}</div>
-</div>""",
+<div class="pp-muted">{pct}% ({correct}/{total}) — {'BESTANDEN' if passed else 'NICHT bestanden'} (Schwelle {int(PASS_PCT)}%)</div></div>""",
             unsafe_allow_html=True,
         )
 
-        st.write("")
-        st.markdown("## Auswertung: Richtige Lösungen + Erklärungen")
-        labels = ["A", "B", "C", "D"]
+        c1, c2 = st.columns([1, 1])
+        if c1.button("Ergebnis speichern", type="primary"):
+            db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
+            st.success("Gespeichert")
+        if c2.button("Zur Übersicht"):
+            st.session_state.page = "dashboard"
+            st.session_state.exam_started = False
+            _reset_exam_state()
+            st.rerun()
 
-        for idx_q, q in enumerate(qlist, start=1):
-            qid = str(q.get("id"))
-            question = (q.get("question") or "").strip()
+        st.write("")
+        st.markdown("## Lösungen & Erklärungen")
+        st.caption("Aufklappen, um richtige Lösung + Wiki-Erklärung zu sehen.")
+
+        labels = ["A", "B", "C", "D"]
+        for d in result["details"]:
+            q = d["q"]
+            qid = d["qid"]
+            sel = d["selected"]
+            ci = int(d["correct"])
             opts = q.get("options") or []
             while len(opts) < 4:
                 opts.append("")
-            try:
-                ci = int(q.get("correctIndex", -1))
-            except Exception:
-                ci = -1
 
-            sel = answers.get(qid)
-            sel_txt = "-" if sel is None else f"{labels[int(sel)]}) {opts[int(sel)]}"
-            corr_txt = "-" if ci < 0 or ci > 3 else f"{labels[int(ci)]}) {opts[int(ci)]}"
-            ok = (sel is not None and ci == int(sel))
-
-            title = f"{idx_q}/{total} · {qid} · {'✅' if ok else '❌'}"
+            title = f"{qid} · {'✅' if d['ok'] else '❌'}"
             with st.expander(title, expanded=False):
-                st.markdown(f"**Frage:** {question}")
-                st.caption(f"{q.get('category','')} · {q.get('subchapter','')}")
+                st.markdown(f"**Frage:** {(q.get('question') or '').strip()}")
                 render_figures(q, max_n=2)
 
-                st.markdown(f"**Deine Antwort:** {sel_txt}")
-                st.markdown(f"**Richtig:** {corr_txt}")
+                your = "-" if sel is None else f"{labels[int(sel)]}) {opts[int(sel)]}"
+                corr = "-" if ci < 0 else f"{labels[ci]}) {opts[ci]}"
+                st.markdown(f"**Deine Antwort:** {your}")
+                st.markdown(f"**Richtig:** {corr}")
 
-                # Explanation from Learn (Wiki block)
                 w = get_wiki(q)
-                st.write("")
-                st.markdown("**Erklärung (Wiki):**")
-                if w["explanation"]:
+                if w.get("explanation"):
+                    st.markdown("---")
                     st.markdown(w["explanation"])
-                else:
-                    st.caption("Keine Erklärung hinterlegt.")
-
                 if w.get("merksatz"):
                     st.markdown(f"**Merksatz:** {w['merksatz']}")
-
                 links = w.get("links") or []
                 if links:
-                    st.markdown("**Weiterlesen (offizielle Quellen):**")
+                    st.markdown("**Weiterlesen:**")
                     for li in links:
                         if not isinstance(li, dict):
                             continue
@@ -1385,63 +1428,16 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
                             st.markdown(f"- [{title2}]({url}){extra}")
                 if w.get("reliability_note"):
                     st.caption(w["reliability_note"])
-
         return
 
-    # REVIEW SCREEN (no correct answers)
-    if phase == "review":
-        st.markdown(
-            """<div class="pp-card2"><b>Antworten prüfen</b>
-<div class="pp-muted">Hier kannst du deine Antworten kontrollieren und zu Fragen springen. Lösungen werden erst nach dem Abschicken angezeigt.</div></div>""",
-            unsafe_allow_html=True,
-        )
+    # -----------------------------------------------------------------------------
+    # Exam UI (no immediate solutions, vor/zurück, submit at end)
+    # -----------------------------------------------------------------------------
+    if total:
+        st.progress(min(1.0, i / total))
 
-        # jump to question
-        ids = [str(q.get("id")) for q in qlist]
-        labels = ["A", "B", "C", "D"]
-
-        jump = st.selectbox(
-            "Zu Frage springen",
-            options=list(range(1, total + 1)),
-            format_func=lambda n: f"{n}/{total} · {ids[n-1]} · {'✓' if answers.get(ids[n-1]) is not None else '—'}",
-        )
-        if st.button("Öffnen"):
-            st.session_state.exam_idx = int(jump) - 1
-            st.session_state.exam_phase = "taking"
-            st.rerun()
-
-        st.write("")
-        st.markdown("### Übersicht")
-        for n in range(1, total + 1):
-            qid = ids[n-1]
-            sel = answers.get(qid)
-            sel_txt = "—"
-            if sel is not None:
-                try:
-                    sel_txt = f"{labels[int(sel)]}"
-                except Exception:
-                    sel_txt = "—"
-            st.caption(f"{n:02d}/{total} · {qid} · Antwort: {sel_txt}")
-
-        st.write("")
-        c1, c2, c3 = st.columns([1, 1, 2])
-        if c1.button("Zurück zur Prüfung"):
-            st.session_state.exam_phase = "taking"
-            st.rerun()
-
-        confirm = c2.checkbox("Ich möchte jetzt abschicken", value=False, key="exam_confirm_submit")
-        if c3.button("Abschicken", type="primary", disabled=not confirm):
-            _exam_submit(final_reason="manual")
-            st.rerun()
-
-        st.stop()
-
-    # TAKING SCREEN
-    i = int(st.session_state.get("exam_idx") or 0)
     i = max(0, min(i, total - 1))
     st.session_state.exam_idx = i
-
-    st.progress(min(1.0, (i) / total))
 
     q = qlist[i]
     qid = str(q.get("id"))
@@ -1459,43 +1455,36 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
 
     render_figures(q, max_n=2)
 
-    # Answer input (allows "no selection")
+    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers") or {}
+    current = answers.get(qid, None)
+
     labels = ["A", "B", "C", "D"]
-    choice_labels = ["— keine Auswahl —"] + [f"{labels[idx]} ) {options[idx]}" for idx in range(4)]
-    prev = answers.get(qid)
-    prev_idx = 0 if prev is None else int(prev) + 1
-    prev_idx = max(0, min(prev_idx, len(choice_labels) - 1))
+    radio_opts = [f"{labels[j]}) {options[j]}" for j in range(4)]
+    idx_default = int(current) if current is not None else 0
 
-    picked = st.radio(
-        "Deine Antwort",
-        options=list(range(len(choice_labels))),
-        format_func=lambda k: choice_labels[int(k)],
-        index=prev_idx,
-        key=f"exam_pick_{qid}",
-    )
-    picked = int(picked)
-    if picked == 0:
-        answers[qid] = None
-    else:
-        answers[qid] = picked - 1
-    st.session_state.exam_answers = answers
+    sel_idx = st.radio("Antwort wählen", radio_opts, index=idx_default, key=f"exam_radio_{qid}")
+    st.session_state.exam_answers[qid] = int(sel_idx)
 
-    st.write("")
-    nav1, nav2, nav3, nav4 = st.columns([1, 1, 1, 2])
-    if nav1.button("Zurück", disabled=(i <= 0)):
+    cA, cB, cC = st.columns([1, 1, 1])
+    if cA.button("◀ Zurück", use_container_width=True, disabled=(i == 0)):
         st.session_state.exam_idx = max(0, i - 1)
         st.rerun()
-    if nav2.button("Weiter", disabled=(i >= total - 1)):
+    if cB.button("Weiter ▶", use_container_width=True, disabled=(i >= total - 1)):
         st.session_state.exam_idx = min(total - 1, i + 1)
         st.rerun()
-    if nav3.button("Antworten prüfen"):
-        st.session_state.exam_phase = "review"
+    if cC.button("Antwort löschen", use_container_width=True):
+        st.session_state.exam_answers[qid] = None
+        st.session_state.pop(f"exam_radio_{qid}", None)
         st.rerun()
 
-    # quick jump by number
-    jump_to = nav4.number_input("Springen zu Nr.", min_value=1, max_value=total, value=i + 1, step=1, key="exam_jump_to")
-    if nav4.button("Springen"):
-        st.session_state.exam_idx = int(jump_to) - 1
+    st.write("")
+    answered_cnt = sum(1 for v in (st.session_state.exam_answers or {}).values() if v is not None)
+    st.caption(f"Beantwortet: {answered_cnt}/{total}")
+
+    if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
+        st.session_state.exam_submitted = True
+        st.session_state.exam_result = _evaluate_exam()
+        st.session_state.exam_done = True
         st.rerun()
 
 

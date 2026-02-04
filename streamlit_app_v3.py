@@ -1,10 +1,12 @@
 import os
 import json
 import random
+import time
 from pathlib import Path
 from typing import Dict, List, Tuple, Any, Optional
 
 import streamlit as st
+import streamlit.components.v1 as components
 from supabase import create_client, Client
 
 # =============================================================================
@@ -16,6 +18,12 @@ BILDER_PDF = APP_DIR / "Bilder_v2.pdf"
 WIKI_PATH = APP_DIR / "wiki_content.json"  # static shared content (maintain manually)
 
 PASS_PCT = float(os.getenv("PASS_PCT", "75"))  # exam pass threshold in percent (default 75%)
+COOKIE_DAYS = int(os.getenv("COOKIE_DAYS", "30"))  # remember-me lifetime
+
+# Cookie names (prefix avoids clashes on shared domains)
+CK_EMAIL = "bliz_email"
+CK_ACCESS = "bliz_access"
+CK_REFRESH = "bliz_refresh"
 
 def get_secret(name: str, default: str = "") -> str:
     if name in st.secrets:
@@ -25,7 +33,6 @@ def get_secret(name: str, default: str = "") -> str:
 
 SUPABASE_URL = get_secret("SUPABASE_URL")
 SUPABASE_ANON_KEY = get_secret("SUPABASE_ANON_KEY")
-COOKIE_PASSWORD = get_secret("COOKIE_PASSWORD", "")  # REQUIRED for remember-me
 
 # =============================================================================
 # REQUIRED CLUSTERING (display/progress structure)
@@ -85,44 +92,52 @@ def supa() -> Client:
     return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 # =============================================================================
-# COOKIE MANAGER (SINGLETON)
+# COOKIE HELPERS (no custom component; uses browser cookies + st.context.cookies)
 # =============================================================================
-def get_cookies():
-    if "cookies_mgr" not in st.session_state:
-        from streamlit_cookies_manager import EncryptedCookieManager
-        if not COOKIE_PASSWORD:
-            raise RuntimeError("COOKIE_PASSWORD fehlt in Streamlit Secrets.")
-        st.session_state.cookies_mgr = EncryptedCookieManager(prefix="bliz_", password=COOKIE_PASSWORD)
+def _js_set_cookie(name: str, value: str, days: int):
+    # sets cookie on current origin (Streamlit Cloud custom domain/app domain)
+    # value is URI-encoded
+    safe_name = name.replace('"', '\\"')
+    safe_val = (value or "").replace("\\", "\\\\").replace('"', '\\"')
+    components.html(
+        f"""
+<script>
+(function(){{
+  function setCookie(name,value,days) {{
+    var expires = "";
+    if (days) {{
+      var date = new Date();
+      date.setTime(date.getTime() + (days*24*60*60*1000));
+      expires = "; expires=" + date.toUTCString();
+    }}
+    document.cookie = name + "=" + encodeURIComponent(value||"") + expires + "; path=/; SameSite=Lax; Secure";
+  }}
+  setCookie("{safe_name}","{safe_val}",{int(days)});
+}})();
+</script>
+""",
+        height=0,
+    )
 
-    cookies = st.session_state.cookies_mgr
+def _js_erase_cookie(name: str):
+    safe_name = name.replace('"', '\\"')
+    components.html(
+        f"""
+<script>
+(function(){{
+  document.cookie = "{safe_name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT; SameSite=Lax; Secure";
+}})();
+</script>
+""",
+        height=0,
+    )
 
-    # Handshake nur einmal blockieren (verhindert "blank screen")
-    if not cookies.ready():
-        if not st.session_state.get("_cookie_bootstrap_done"):
-            st.session_state["_cookie_bootstrap_done"] = True
-            st.markdown("## B-Lizenz Lernapp")
-            st.info("Initialisiere Login-Session – einmaliger Reload …")
-            st.stop()
-
-    return cookies
-
-def cookie_safe_get(cookies, key: str, default: str = "") -> str:
+def get_cookie(name: str) -> str:
     try:
-        return (cookies.get(key, default) or default)
+        v = st.context.cookies.get(name)
+        return (v if v is not None else "").strip()
     except Exception:
-        return default
-
-def cookie_safe_set(cookies, key: str, value: str) -> None:
-    try:
-        cookies[key] = value
-    except Exception:
-        pass
-
-def cookie_safe_save(cookies) -> None:
-    try:
-        cookies.save()
-    except Exception:
-        pass
+        return ""
 
 # =============================================================================
 # QUESTIONS / WIKI
@@ -178,9 +193,10 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
 # =============================================================================
 def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     r = supa().table("progress").select("*").eq("user_id", uid).execute()
-    return {x["question_id"]: x for x in (r.data or [])}
+    return {str(x["question_id"]): x for x in (r.data or [])}
 
 def db_upsert_progress(uid: str, qid: str, ok: bool):
+    qid = str(qid)
     s = supa()
     r = s.table("progress").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
     if r.data:
@@ -200,6 +216,7 @@ def db_upsert_progress(uid: str, qid: str, ok: bool):
         }).execute()
 
 def db_get_note(uid: str, qid: str) -> str:
+    qid = str(qid)
     try:
         r = supa().table("notes").select("note_text").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
         if r.data:
@@ -209,6 +226,7 @@ def db_get_note(uid: str, qid: str) -> str:
     return ""
 
 def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
+    qid = str(qid)
     try:
         s = supa()
         note_text = (note_text or "").strip()
@@ -247,25 +265,50 @@ def _set_session_tokens(access: str, refresh: str):
     st.session_state.sb_refresh = refresh
     supa().auth.set_session(access, refresh)
 
-def _restore_session_from_cookie(cookies):
-    access = cookie_safe_get(cookies, "access", "")
-    refresh = cookie_safe_get(cookies, "refresh", "")
-    if access and refresh and "user" not in st.session_state:
-        try:
-            supa().auth.set_session(access, refresh)
-            user = supa().auth.get_user().user
-            if user:
-                st.session_state.user = user
-                _set_session_tokens(access, refresh)
-        except Exception:
-            pass
+def _try_restore_from_browser_cookies() -> bool:
+    if "user" in st.session_state:
+        return True
 
-def auth_ui(cookies):
+    access = get_cookie(CK_ACCESS)
+    refresh = get_cookie(CK_REFRESH)
+    if not access or not refresh:
+        return False
+
+    try:
+        supa().auth.set_session(access, refresh)
+        u = supa().auth.get_user().user
+        if u:
+            st.session_state.user = u
+            _set_session_tokens(access, refresh)
+            return True
+    except Exception:
+        pass
+
+    # access token may be expired -> try refresh session
+    try:
+        # supabase-py v2 supports refresh_session(refresh_token=...)
+        refreshed = supa().auth.refresh_session(refresh)
+        if refreshed and getattr(refreshed, "session", None):
+            sess = refreshed.session
+            st.session_state.user = refreshed.user
+            _set_session_tokens(sess.access_token, sess.refresh_token)
+
+            # rewrite cookies with new tokens
+            _js_set_cookie(CK_ACCESS, sess.access_token, COOKIE_DAYS)
+            _js_set_cookie(CK_REFRESH, sess.refresh_token, COOKIE_DAYS)
+            time.sleep(0.2)
+            return True
+    except Exception:
+        pass
+
+    return False
+
+def auth_ui():
     st.sidebar.markdown("## Account")
     tab_login, tab_register = st.sidebar.tabs(["Login", "Registrieren"])
 
     with tab_login:
-        saved_email = cookie_safe_get(cookies, "email", "")
+        saved_email = get_cookie(CK_EMAIL)
         email = st.text_input("E-Mail", value=saved_email, key="login_email")
         pw = st.text_input("Passwort", type="password", key="login_pw")
         remember = st.checkbox("Angemeldet bleiben", value=True, key="remember_me")
@@ -276,17 +319,18 @@ def auth_ui(cookies):
             st.session_state.user = res.user
             _set_session_tokens(res.session.access_token, res.session.refresh_token)
 
-            cookie_safe_set(cookies, "email", email)
+            # persist email always (UX), tokens only if remember
+            _js_set_cookie(CK_EMAIL, email, COOKIE_DAYS)
             if remember:
-                cookie_safe_set(cookies, "access", res.session.access_token)
-                cookie_safe_set(cookies, "refresh", res.session.refresh_token)
+                _js_set_cookie(CK_ACCESS, res.session.access_token, COOKIE_DAYS)
+                _js_set_cookie(CK_REFRESH, res.session.refresh_token, COOKIE_DAYS)
             else:
-                cookie_safe_set(cookies, "access", "")
-                cookie_safe_set(cookies, "refresh", "")
-            cookie_safe_save(cookies)
+                _js_erase_cookie(CK_ACCESS)
+                _js_erase_cookie(CK_REFRESH)
 
             _reset_app_state(hard=True)
             st.session_state.page = "dashboard"
+            time.sleep(0.2)
             st.rerun()
 
         if col2.button("Logout", use_container_width=True):
@@ -294,10 +338,10 @@ def auth_ui(cookies):
                 supa().auth.sign_out()
             except Exception:
                 pass
-            cookie_safe_set(cookies, "access", "")
-            cookie_safe_set(cookies, "refresh", "")
-            cookie_safe_save(cookies)
+            _js_erase_cookie(CK_ACCESS)
+            _js_erase_cookie(CK_REFRESH)
             st.session_state.clear()
+            time.sleep(0.2)
             st.rerun()
 
     with tab_register:
@@ -313,24 +357,24 @@ def auth_ui(cookies):
                 st.success("Registrierung erstellt. Bitte einloggen.")
 
 def require_login() -> str:
-    cookies = get_cookies()
-    _restore_session_from_cookie(cookies)
+    _try_restore_from_browser_cookies()
 
     if "user" not in st.session_state:
-        auth_ui(cookies)
+        auth_ui()
         st.stop()
 
+    # hard check: ensure supabase sees user as authenticated for this run
     try:
         u = supa().auth.get_user().user
         if u:
             st.session_state.user = u
         else:
             st.session_state.pop("user", None)
-            auth_ui(cookies)
+            auth_ui()
             st.stop()
     except Exception:
         st.session_state.pop("user", None)
-        auth_ui(cookies)
+        auth_ui()
         st.stop()
 
     return str(st.session_state.user.id)
@@ -366,6 +410,7 @@ def build_learning_queue(
     only_wrong: bool,
 ) -> List[Dict[str, Any]]:
     qset = list(questions)
+
     if category != "Alle":
         qset = [q for q in qset if (q.get("category") or "") == category]
     if subchapter != "Alle":
@@ -715,7 +760,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
 
         if st.button("Ergebnis speichern"):
             db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
-            st.success("Gespeichert.")
+            st.success("Gespeichert (falls exam_runs Tabelle vorhanden).")
 
         st.write("")
         st.markdown("## Verlauf (letzte 10)")
@@ -727,8 +772,8 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
                 t = int(r.get("total") or 0)
                 c = int(r.get("correct") or 0)
                 p = int(round((c / t) * 100)) if t else 0
-                ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
-                st.caption(f"{p}% ({c}/{t}) — {ok}")
+                ok2 = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
+                st.caption(f"{p}% ({c}/{t}) — {ok2}")
         return
 
     if i >= total:
@@ -748,6 +793,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     )
     st.write("")
 
+    # image if matched
     figs = q.get("figures") or []
     if figs:
         f0 = figs[0]
@@ -781,6 +827,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             if 0 <= ci < len(options):
                 st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
+        # optional: show static wiki (does not affect score)
         wiki_key = (q.get("wiki_key") or "").strip()
         w = None
         if qid and qid in wiki:

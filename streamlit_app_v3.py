@@ -244,6 +244,94 @@ def render_pdf_page_png(
 
 
 @st.cache_data(show_spinner=False)
+
+
+@st.cache_data(show_spinner=False)
+def infer_clip_for_figure(pdf_path: str, page_1based: int, figure_no: int) -> Optional[List[float]]:
+    """Try to crop a single 'Abbildung <n>' area from a PDF page.
+
+    Heuristic:
+    - Find the text sequence 'Abbildung' + <n> on the page (word-level).
+    - Find the next 'Abbildung' label below it on the same page.
+    - Clip from current label's top to next label's top (or page bottom), full width.
+    Returns clip rect as [x0, y0, x1, y1] in PDF coordinates, or None if not found.
+    """
+    try:
+        import fitz  # PyMuPDF
+    except Exception:
+        return None
+
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        doc = fitz.open(str(p))
+        if doc.page_count <= 0:
+            return None
+
+        page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+        page = doc.load_page(page_index)
+
+        words = page.get_text("words") or []
+        if not words:
+            return None
+
+        # sort by reading order
+        words = sorted(words, key=lambda w: (w[1], w[0]))
+
+        # collect all occurrences of: 'Abbildung' + <number>
+        labels = []  # list of (fig_no:int, rect:fitz.Rect)
+        i = 0
+        while i < len(words) - 1:
+            w = words[i][4]
+            w2 = words[i + 1][4]
+            if str(w).lower() == "abbildung" and str(w2).isdigit():
+                fig = int(w2)
+                r1 = fitz.Rect(words[i][0], words[i][1], words[i][2], words[i][3])
+                r2 = fitz.Rect(words[i + 1][0], words[i + 1][1], words[i + 1][2], words[i + 1][3])
+                labels.append((fig, r1 | r2))
+                i += 2
+                continue
+            i += 1
+
+        if not labels:
+            return None
+
+        # find current
+        labels_sorted = sorted(labels, key=lambda t: (t[1].y0, t[1].x0))
+        cur = None
+        for fig, r in labels_sorted:
+            if fig == int(figure_no):
+                cur = (fig, r)
+                break
+        if not cur:
+            return None
+
+        cur_rect = cur[1]
+        # next label below current
+        next_rect = None
+        for fig, r in labels_sorted:
+            if r.y0 > cur_rect.y0 + 1:
+                next_rect = r
+                break
+
+        page_rect = page.rect
+        margin_top = 6  # PDF points
+        margin_bottom = 6
+
+        y0 = max(page_rect.y0, cur_rect.y0 - margin_top)
+        y1 = (next_rect.y0 - margin_bottom) if next_rect else page_rect.y1
+
+        # safety clamp
+        if y1 <= y0 + 10:
+            y1 = min(page_rect.y1, y0 + (page_rect.y1 - y0))
+
+        # full width crop
+        return [float(page_rect.x0), float(y0), float(page_rect.x1), float(y1)]
+    except Exception:
+        return None
+
 def load_figure_map() -> Dict[str, Any]:
     """
     Supports BOTH formats:
@@ -304,6 +392,10 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
 
         clip = None
 
+        # optional per-question clip (PDF coords): figures[*].clip = [x0,y0,x1,y1]
+        if isinstance(f.get("clip"), list) and len(f.get("clip")) == 4:
+            clip = f.get("clip")
+
         if page_1based <= 0:
             entry = fig_map.get(str(fig_no_int))
             if isinstance(entry, int):
@@ -317,6 +409,9 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
 
         if page_1based <= 0:
             continue
+        if clip is None:
+            clip = infer_clip_for_figure(str(BILDER_PDF), page_1based=page_1based, figure_no=fig_no_int)
+
 
         png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=clip)
         if png:

@@ -138,19 +138,30 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
 # AUTH (Streamlit built-in OIDC: Google)
 # =============================================================================
 def require_login() -> Dict[str, Any]:
-    # Streamlit manages persistence via its auth cookie.
+    # Auth-API vorhanden?
+    if not hasattr(st, "user"):
+        st.error("Streamlit Auth ist hier nicht verfügbar (st.user fehlt). Prüfe Streamlit-Version/Deployment.")
+        st.stop()
+
+    # Auth konfiguriert? (is_logged_in existiert nur dann)
+    if not hasattr(st.user, "is_logged_in"):
+        st.error(
+            "Streamlit Auth ist nicht (oder nicht korrekt) konfiguriert: "
+            "st.user.is_logged_in fehlt. Prüfe deinen [auth]-Block in secrets.toml."
+        )
+        st.stop()
+
     if not st.user.is_logged_in:
-        st.markdown("## B‑Lizenz Lernapp")
+        st.markdown("## B-Lizenz Lernapp")
+        # direkt starten ist oft stabiler als Button+on_click
         st.button("Mit Google anmelden", on_click=st.login, use_container_width=True)
         st.stop()
 
-    # st.user fields (typical): email, name, sub
-    u = {
+    return {
         "email": getattr(st.user, "email", "") or "",
         "name": getattr(st.user, "name", "") or "",
         "sub": getattr(st.user, "sub", "") or "",
     }
-    return u
 
 def stable_user_id(user: Dict[str, Any]) -> str:
     """

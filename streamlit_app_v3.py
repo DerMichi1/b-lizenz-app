@@ -209,31 +209,54 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
     except Exception:
         return None
 
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        doc = fitz.open(str(p))
+        if doc.page_count <= 0:
+            return None
+
+        # clamp page index
+        page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+        page = doc.load_page(page_index)
+
+        mat = fitz.Matrix(float(zoom), float(zoom))
+        pix = page.get_pixmap(matrix=mat, alpha=False)
+        return pix.tobytes("png")
+    except Exception:
+        return None
+
 
 @st.cache_data(show_spinner=False)
 def load_figure_map() -> Dict[str, int]:
-    """Optional helper to map 'Abbildung N' -> Bilder.pdf page.
+    """Optional mapping of figure number -> Bilder.pdf page (1-based).
 
-    Use when questions.json doesn't contain figures[*].bilder_page.
-    Expected format:
+    This avoids having to duplicate bilder_page on every question.
+    Expected file: figure_map.json
       {
-        "1": 12,
-        "2": 13,
-        ...
+        "47": 14,
+        "48": 14,
+        "49": 15
       }
+    Returns {} if file missing or invalid.
     """
     if not FIGURE_MAP_PATH.exists():
         return {}
+
     try:
-        raw = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
-        if not isinstance(raw, dict):
+        data = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
+        if not isinstance(data, dict):
             return {}
+
         out: Dict[str, int] = {}
-        for k, v in raw.items():
+        for k, v in data.items():
             try:
                 out[str(k).strip()] = int(v)
             except Exception:
                 continue
+
         return out
     except Exception:
         return {}

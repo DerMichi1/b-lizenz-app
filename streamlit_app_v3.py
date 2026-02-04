@@ -1,4 +1,3 @@
-
 import os
 import json
 import random
@@ -9,6 +8,7 @@ from typing import Dict, List, Tuple, Any, Optional
 import streamlit as st
 from supabase import create_client, Client
 
+
 # =============================================================================
 # CONFIG / FILES
 # =============================================================================
@@ -17,16 +17,27 @@ QUESTIONS_PATH = APP_DIR / "questions.json"
 BILDER_PDF = APP_DIR / "Bilder_v2.pdf"
 WIKI_PATH = APP_DIR / "wiki_content.json"  # static shared content (maintain manually)
 
-PASS_PCT = float(os.getenv("PASS_PCT", "75"))  # exam pass threshold in percent (default 75%)
 
 def get_secret(name: str, default: str = "") -> str:
-    if name in st.secrets:
-        v = st.secrets.get(name)
-        return (str(v) if v is not None else "").strip()
+    """
+    Reads from Streamlit secrets first, then environment variables.
+    Always returns a stripped string.
+    """
+    try:
+        if name in st.secrets:
+            v = st.secrets.get(name)
+            return (str(v) if v is not None else "").strip()
+    except Exception:
+        # st.secrets might not be available in some contexts
+        pass
     return os.getenv(name, default).strip()
+
+
+PASS_PCT = float(get_secret("PASS_PCT", "75"))  # exam pass threshold in percent (default 75%)
 
 SUPABASE_URL = get_secret("SUPABASE_URL")
 SUPABASE_ANON_KEY = get_secret("SUPABASE_ANON_KEY")
+
 
 # =============================================================================
 # REQUIRED CLUSTERING (display/progress structure)
@@ -76,6 +87,7 @@ REQUIRED: Dict[str, Dict[str, int]] = {
     },
 }
 
+
 # =============================================================================
 # SUPABASE CLIENT (DB only)
 # =============================================================================
@@ -84,6 +96,7 @@ def supa() -> Client:
     if not SUPABASE_URL or not SUPABASE_ANON_KEY:
         raise RuntimeError("Supabase Secrets fehlen: SUPABASE_URL / SUPABASE_ANON_KEY")
     return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+
 
 # =============================================================================
 # QUESTIONS / WIKI
@@ -94,6 +107,7 @@ def load_questions() -> List[Dict[str, Any]]:
         raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
     return json.loads(QUESTIONS_PATH.read_text("utf-8"))
 
+
 @st.cache_data(show_spinner=False)
 def load_wiki() -> Dict[str, Any]:
     if not WIKI_PATH.exists():
@@ -103,6 +117,7 @@ def load_wiki() -> Dict[str, Any]:
     except Exception:
         return {}
 
+
 def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], List[Dict[str, Any]]]:
     idx: Dict[Tuple[str, str], List[Dict[str, Any]]] = {}
     for q in questions:
@@ -110,6 +125,7 @@ def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], Li
         sub = (q.get("subchapter") or "").strip()
         idx.setdefault((cat, sub), []).append(q)
     return idx
+
 
 # =============================================================================
 # PDF IMAGE RENDER (Bilder_v2.pdf)
@@ -134,29 +150,38 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
     except Exception:
         return None
 
+
 # =============================================================================
 # AUTH (Streamlit built-in OIDC: Google)
 # =============================================================================
 def require_login() -> Dict[str, Any]:
-    # Auth-API vorhanden?
+    """
+    Requires Streamlit built-in auth to be configured in secrets.toml:
+      [auth]
+      [auth.google]
+    """
     if not hasattr(st, "user"):
         st.error("Streamlit Auth ist hier nicht verfügbar (st.user fehlt). Prüfe Streamlit-Version/Deployment.")
         st.stop()
 
-    # Auth konfiguriert? (is_logged_in existiert nur dann)
+    # exists only when auth is configured correctly
     if not hasattr(st.user, "is_logged_in"):
         st.error(
             "Streamlit Auth ist nicht (oder nicht korrekt) konfiguriert: "
-            "st.user.is_logged_in fehlt. Prüfe deinen [auth]-Block in secrets.toml."
+            "st.user.is_logged_in fehlt. Prüfe deinen [auth]-Block in Secrets (TOML)."
         )
         st.stop()
 
     if not st.user.is_logged_in:
         st.markdown("## B-Lizenz Lernapp")
-        # direkt starten ist oft stabiler als Button+on_click
+        st.caption("Bitte melde dich mit Google an.")
         if st.button("Mit Google anmelden", use_container_width=True):
-    st.login()
-    st.stop()
+            try:
+                st.login()
+            except Exception:
+                # Avoid leaking internals; logs contain details
+                st.error("Login fehlgeschlagen. Prüfe Streamlit Secrets ([auth]) und Google OAuth Redirect URI.")
+            st.stop()
 
         st.stop()
 
@@ -166,14 +191,15 @@ def require_login() -> Dict[str, Any]:
         "sub": getattr(st.user, "sub", "") or "",
     }
 
+
 def stable_user_id(user: Dict[str, Any]) -> str:
     """
     Returns a stable UUID string for DB writes, even without Supabase Auth.
-    - If your DB columns are TEXT: it's still fine.
-    - If your DB columns are UUID: this fits.
+    Prefer sub -> email -> name.
     """
     basis = user.get("sub") or user.get("email") or user.get("name") or "anonymous"
     return str(uuid.uuid5(uuid.NAMESPACE_URL, f"bliz:{basis}"))
+
 
 # =============================================================================
 # DB: progress + notes + exam_runs (DB only, no Supabase Auth)
@@ -182,24 +208,30 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     r = supa().table("progress").select("*").eq("user_id", uid).execute()
     return {str(x["question_id"]): x for x in (r.data or [])}
 
+
 def db_upsert_progress(uid: str, qid: str, ok: bool):
     s = supa()
     r = s.table("progress").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
     if r.data:
         row = r.data[0]
-        s.table("progress").update({
-            "seen": int(row.get("seen", 0)) + 1,
-            "correct": int(row.get("correct", 0)) + (1 if ok else 0),
-            "wrong": int(row.get("wrong", 0)) + (0 if ok else 1),
-        }).eq("user_id", uid).eq("question_id", qid).execute()
+        s.table("progress").update(
+            {
+                "seen": int(row.get("seen", 0)) + 1,
+                "correct": int(row.get("correct", 0)) + (1 if ok else 0),
+                "wrong": int(row.get("wrong", 0)) + (0 if ok else 1),
+            }
+        ).eq("user_id", uid).eq("question_id", qid).execute()
     else:
-        s.table("progress").insert({
-            "user_id": uid,
-            "question_id": qid,
-            "seen": 1,
-            "correct": 1 if ok else 0,
-            "wrong": 0 if ok else 1,
-        }).execute()
+        s.table("progress").insert(
+            {
+                "user_id": uid,
+                "question_id": qid,
+                "seen": 1,
+                "correct": 1 if ok else 0,
+                "wrong": 0 if ok else 1,
+            }
+        ).execute()
+
 
 def db_get_note(uid: str, qid: str) -> str:
     try:
@@ -209,6 +241,7 @@ def db_get_note(uid: str, qid: str) -> str:
     except Exception:
         return ""
     return ""
+
 
 def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
     try:
@@ -223,23 +256,31 @@ def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
     except Exception:
         return False
 
+
 def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> None:
     try:
-        supa().table("exam_runs").insert({
-            "user_id": uid,
-            "total": total,
-            "correct": correct,
-            "passed": passed,
-        }).execute()
+        supa().table("exam_runs").insert(
+            {"user_id": uid, "total": total, "correct": correct, "passed": passed}
+        ).execute()
     except Exception:
         pass
 
+
 def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
     try:
-        r = supa().table("exam_runs").select("*").eq("user_id", uid).order("created_at", desc=True).limit(limit).execute()
+        r = (
+            supa()
+            .table("exam_runs")
+            .select("*")
+            .eq("user_id", uid)
+            .order("created_at", desc=True)
+            .limit(limit)
+            .execute()
+        )
         return list(r.data or [])
     except Exception:
         return []
+
 
 # =============================================================================
 # APP STATE
@@ -248,17 +289,20 @@ def _reset_learning_state():
     for k in ["queue", "idx", "answered", "last_ok", "last_correct_index", "last_selected_index"]:
         st.session_state.pop(k, None)
 
+
 def _reset_exam_state():
-    for k in ["exam_queue", "exam_idx", "exam_correct", "exam_done", "exam_answered", "exam_last_ok",
-              "exam_last_selected", "exam_last_correct"]:
+    for k in [
+        "exam_queue",
+        "exam_idx",
+        "exam_correct",
+        "exam_done",
+        "exam_answered",
+        "exam_last_ok",
+        "exam_last_selected",
+        "exam_last_correct",
+    ]:
         st.session_state.pop(k, None)
 
-def _reset_app_state(hard: bool = False):
-    _reset_learning_state()
-    _reset_exam_state()
-    if hard:
-        for k in ["sel_category", "sel_subchapter", "only_unseen", "only_wrong"]:
-            st.session_state.pop(k, None)
 
 # =============================================================================
 # QUEUES
@@ -272,23 +316,34 @@ def build_learning_queue(
     only_wrong: bool,
 ) -> List[Dict[str, Any]]:
     qset = list(questions)
+
     if category != "Alle":
         qset = [q for q in qset if (q.get("category") or "") == category]
     if subchapter != "Alle":
         qset = [q for q in qset if (q.get("subchapter") or "") == subchapter]
 
     if only_unseen:
-        qset = [q for q in qset if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0]
+        qset = [
+            q
+            for q in qset
+            if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0
+        ]
     if only_wrong:
-        qset = [q for q in qset if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0]
+        qset = [
+            q
+            for q in qset
+            if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0
+        ]
 
     random.shuffle(qset)
     return qset
+
 
 def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[str, Any]]:
     base = list(questions)
     random.shuffle(base)
     return base[:n]
+
 
 # =============================================================================
 # PROGRESS / STATS
@@ -318,6 +373,7 @@ def compute_progress_by_cluster(
         }
     return out
 
+
 def overall_progress_pct(questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> int:
     total = len(questions)
     learned = 0
@@ -327,6 +383,7 @@ def overall_progress_pct(questions: List[Dict[str, Any]], progress: Dict[str, Di
         if row and int(row.get("seen", 0)) > 0:
             learned += 1
     return int(round((learned / total) * 100)) if total else 0
+
 
 # =============================================================================
 # UI / STYLES
@@ -349,9 +406,11 @@ hr { border:none; height:1px; background: rgba(255,255,255,0.10); margin: 1rem 0
         unsafe_allow_html=True,
     )
 
+
 def nav_sidebar(user: Dict[str, Any]):
     st.sidebar.markdown("## Account")
     st.sidebar.write(user.get("email") or user.get("name") or "User")
+
     if st.sidebar.button("Logout", use_container_width=True):
         st.logout()
 
@@ -371,6 +430,7 @@ def nav_sidebar(user: Dict[str, Any]):
         _reset_learning_state()
         st.rerun()
 
+
 # =============================================================================
 # PAGES
 # =============================================================================
@@ -386,13 +446,13 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
     passed = sum(1 for r in runs if bool(r.get("passed")))
     pass_rate = int(round((passed / attempts) * 100)) if attempts else 0
     best = 0
-    if runs:
-        for r in runs:
-            total = int(r.get("total") or 0)
-            corr = int(r.get("correct") or 0)
-            if total:
-                best = max(best, int(round((corr / total) * 100)))
+    for r in runs:
+        total = int(r.get("total") or 0)
+        corr = int(r.get("correct") or 0)
+        if total:
+            best = max(best, int(round((corr / total) * 100)))
 
+    st.markdown("", unsafe_allow_html=True)
     st.markdown(
         f"""
 <div class="pp-grid">
@@ -429,7 +489,9 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             if learned == 0:
                 st.caption(f"{sub} ({total}) — nicht begonnen")
             else:
-                st.caption(f"{sub} ({total}) — gelernt: {learned_pct}% ({learned}), richtig: {correct_pct}% ({correct_total})")
+                st.caption(
+                    f"{sub} ({total}) — gelernt: {learned_pct}% ({learned}), richtig: {correct_pct}% ({correct_total})"
+                )
 
     if runs:
         st.markdown("## Letzte Prüfungen")
@@ -439,6 +501,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             pct = int(round((corr / total) * 100)) if total else 0
             ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
+
 
 def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]], wiki: Dict[str, Any]):
     st.title("Lernen")
@@ -500,7 +563,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     )
     st.write("")
 
-    # Image (first matched figure)
     figs = q.get("figures") or []
     if figs:
         f0 = figs[0]
@@ -536,7 +598,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if corr_i is not None and 0 <= int(corr_i) < len(options):
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
-        # Wiki (static)
         wiki_key = (q.get("wiki_key") or "").strip()
         w = None
         if qid and qid in wiki:
@@ -562,7 +623,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             else:
                 st.info("Kein Wiki-Eintrag vorhanden (wiki_content.json ergänzen).")
 
-        # Per-user note
         existing_note = db_get_note(uid, qid)
         with st.expander("Deine Bemerkung (nur für dich)", expanded=False):
             note_text = st.text_area("Notiz", value=existing_note, key=f"note_{qid}", height=120)
@@ -589,6 +649,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             st.session_state.page = "dashboard"
             _reset_learning_state()
             st.rerun()
+
 
 def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     st.title("Prüfungssimulation (40)")
@@ -660,7 +721,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     )
     st.write("")
 
-    # image if matched
     figs = q.get("figures") or []
     if figs:
         f0 = figs[0]
@@ -721,6 +781,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             st.session_state.exam_last_ok = None
             st.rerun()
 
+
 # =============================================================================
 # MAIN
 # =============================================================================
@@ -737,7 +798,6 @@ uid = stable_user_id(user)
 questions = load_questions()
 wiki = load_wiki()
 
-# refresh progress per run
 progress = db_load_progress(uid)
 st.session_state.progress = progress
 

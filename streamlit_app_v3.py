@@ -299,29 +299,58 @@ def load_figure_map() -> Dict[str, int]:
         return None
 
 
+import re
+
+def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
+    # 1) Wenn figures explizit vorhanden: so lassen
+    figs = q.get("figures")
+    if isinstance(figs, list) and figs:
+        return [f for f in figs if isinstance(f, dict)]
+
+    # 2) Sonst: aus Frage/Title "Abbildung 43" extrahieren
+    text = f"{q.get('title','')} {q.get('question','')}".strip()
+    m = re.search(r"\bAbbildung\s*(\d+)\b", text, flags=re.IGNORECASE)
+    if not m:
+        return []
+    return [{"figure": int(m.group(1))}]
+
+
 def render_figures(q: Dict[str, Any], max_n: int = 3):
-    figs = q.get("figures") or []
-    if not isinstance(figs, list):
+    figs = _infer_figures_from_text(q)
+    if not figs:
         return
+
+    fig_map = load_figure_map()  # {"43": 12, ...}
     shown = 0
+
     for f in figs:
         if shown >= max_n:
             break
-        if not isinstance(f, dict):
-            continue
+
         fig_no = f.get("figure")
+        try:
+            fig_no_int = int(fig_no)
+        except Exception:
+            continue
+
+        # page priority: explicit bilder_page > figure_map
         try:
             page_1based = int(f.get("bilder_page") or 0)
         except Exception:
             page_1based = 0
+
         if page_1based <= 0:
+            page_1based = int(fig_map.get(str(fig_no_int), 0))
+
+        if page_1based <= 0:
+            # keine Zuordnung vorhanden -> nichts anzeigen
             continue
 
         png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
         if png:
             st.image(
                 png,
-                caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})",
+                caption=f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})",
                 use_container_width=True,
             )
             shown += 1

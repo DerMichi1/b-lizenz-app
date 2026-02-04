@@ -90,18 +90,13 @@ def supa() -> Client:
 def get_cookies():
     if "cookies_mgr" not in st.session_state:
         from streamlit_cookies_manager import EncryptedCookieManager
-
         if not COOKIE_PASSWORD:
             raise RuntimeError("COOKIE_PASSWORD fehlt in Streamlit Secrets.")
-
-        st.session_state.cookies_mgr = EncryptedCookieManager(
-            prefix="bliz_",
-            password=COOKIE_PASSWORD
-        )
+        st.session_state.cookies_mgr = EncryptedCookieManager(prefix="bliz_", password=COOKIE_PASSWORD)
 
     cookies = st.session_state.cookies_mgr
 
-    # Handshake nur einmal blockieren
+    # Handshake nur einmal blockieren (verhindert "blank screen")
     if not cookies.ready():
         if not st.session_state.get("_cookie_bootstrap_done"):
             st.session_state["_cookie_bootstrap_done"] = True
@@ -110,6 +105,24 @@ def get_cookies():
             st.stop()
 
     return cookies
+
+def cookie_safe_get(cookies, key: str, default: str = "") -> str:
+    try:
+        return (cookies.get(key, default) or default)
+    except Exception:
+        return default
+
+def cookie_safe_set(cookies, key: str, value: str) -> None:
+    try:
+        cookies[key] = value
+    except Exception:
+        pass
+
+def cookie_safe_save(cookies) -> None:
+    try:
+        cookies.save()
+    except Exception:
+        pass
 
 # =============================================================================
 # QUESTIONS / WIKI
@@ -235,14 +248,8 @@ def _set_session_tokens(access: str, refresh: str):
     supa().auth.set_session(access, refresh)
 
 def _restore_session_from_cookie(cookies):
-    # cookies may not be ready yet -> do NOT crash
-    try:
-        access = cookies.get("access", "") or ""
-        refresh = cookies.get("refresh", "") or ""
-    except Exception:
-        # includes CookiesNotReady
-        return
-
+    access = cookie_safe_get(cookies, "access", "")
+    refresh = cookie_safe_get(cookies, "refresh", "")
     if access and refresh and "user" not in st.session_state:
         try:
             supa().auth.set_session(access, refresh)
@@ -258,25 +265,25 @@ def auth_ui(cookies):
     tab_login, tab_register = st.sidebar.tabs(["Login", "Registrieren"])
 
     with tab_login:
-try:
-    saved_email = (cookies.get("email", "") or "")
-except Exception:
-    saved_email = ""
+        saved_email = cookie_safe_get(cookies, "email", "")
+        email = st.text_input("E-Mail", value=saved_email, key="login_email")
+        pw = st.text_input("Passwort", type="password", key="login_pw")
+        remember = st.checkbox("Angemeldet bleiben", value=True, key="remember_me")
 
-email = st.text_input("E-Mail", value=saved_email, key="login_email")
-...
-# cookie writes must not crash if CookiesNotReady
-try:
-    cookies["email"] = email
-    if remember:
-        cookies["access"] = res.session.access_token
-        cookies["refresh"] = res.session.refresh_token
-    else:
-        cookies["access"] = ""
-        cookies["refresh"] = ""
-    cookies.save()
-except Exception:
-    pass
+        col1, col2 = st.columns(2)
+        if col1.button("Login", use_container_width=True):
+            res = supa().auth.sign_in_with_password({"email": email, "password": pw})
+            st.session_state.user = res.user
+            _set_session_tokens(res.session.access_token, res.session.refresh_token)
+
+            cookie_safe_set(cookies, "email", email)
+            if remember:
+                cookie_safe_set(cookies, "access", res.session.access_token)
+                cookie_safe_set(cookies, "refresh", res.session.refresh_token)
+            else:
+                cookie_safe_set(cookies, "access", "")
+                cookie_safe_set(cookies, "refresh", "")
+            cookie_safe_save(cookies)
 
             _reset_app_state(hard=True)
             st.session_state.page = "dashboard"
@@ -287,9 +294,9 @@ except Exception:
                 supa().auth.sign_out()
             except Exception:
                 pass
-            cookies["access"] = ""
-            cookies["refresh"] = ""
-            cookies.save()
+            cookie_safe_set(cookies, "access", "")
+            cookie_safe_set(cookies, "refresh", "")
+            cookie_safe_save(cookies)
             st.session_state.clear()
             st.rerun()
 
@@ -708,7 +715,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
 
         if st.button("Ergebnis speichern"):
             db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
-            st.success("Gespeichert (falls exam_runs Tabelle vorhanden).")
+            st.success("Gespeichert.")
 
         st.write("")
         st.markdown("## Verlauf (letzte 10)")
@@ -741,7 +748,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     )
     st.write("")
 
-    # image if matched
     figs = q.get("figures") or []
     if figs:
         f0 = figs[0]
@@ -775,7 +781,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             if 0 <= ci < len(options):
                 st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
-        # optional: show static wiki (does not affect score)
         wiki_key = (q.get("wiki_key") or "").strip()
         w = None
         if qid and qid in wiki:

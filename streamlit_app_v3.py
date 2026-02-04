@@ -154,7 +154,10 @@ def require_login() -> Dict[str, Any]:
     if not st.user.is_logged_in:
         st.markdown("## B-Lizenz Lernapp")
         # direkt starten ist oft stabiler als Button+on_click
-        st.button("Mit Google anmelden", on_click=st.login, use_container_width=True)
+        if st.button("Mit Google anmelden", use_container_width=True):
+    st.login()
+    st.stop()
+
         st.stop()
 
     return {

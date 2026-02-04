@@ -16,12 +16,6 @@ QUESTIONS_PATH = APP_DIR / "questions.json"
 BILDER_PDF = APP_DIR / "Bilder.pdf"
 APP_TITLE = "Gleitschirm B-Lizenz – Lernapp (Multi-User)"
 
-st.sidebar.code({
-  "SUPABASE_URL": SUPABASE_URL,
-  "ANON_PREFIX": (SUPABASE_ANON_KEY[:12] + "...") if SUPABASE_ANON_KEY else None,
-  "ANON_LEN": len(SUPABASE_ANON_KEY or ""),
-})
-
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip()
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "").strip()

@@ -248,6 +248,36 @@ def render_pdf_page_png(
         return pix.tobytes("png")
     except Exception:
         return None
+@st.cache_data(show_spinner=False)
+def autocrop_png(png_bytes: bytes, margin: int = 12) -> bytes:
+    """
+    Schneidet weiße Ränder ab (typisch bei PDF-Seitenrendering), um nicht die ganze Seite zu zeigen.
+    """
+    try:
+        from PIL import Image, ImageChops
+        import io
+
+        im = Image.open(io.BytesIO(png_bytes)).convert("RGB")
+
+        # Hintergrundfarbe = Pixel oben links (meist weiß)
+        bg = Image.new("RGB", im.size, im.getpixel((0, 0)))
+        diff = ImageChops.difference(im, bg)
+        bbox = diff.getbbox()
+        if not bbox:
+            return png_bytes  # nichts zu croppen
+
+        x0, y0, x1, y1 = bbox
+        x0 = max(0, x0 - margin)
+        y0 = max(0, y0 - margin)
+        x1 = min(im.size[0], x1 + margin)
+        y1 = min(im.size[1], y1 + margin)
+
+        cropped = im.crop((x0, y0, x1, y1))
+        out = io.BytesIO()
+        cropped.save(out, format="PNG", optimize=True)
+        return out.getvalue()
+    except Exception:
+        return png_bytes
 
 
 @st.cache_data(show_spinner=False)
@@ -335,19 +365,25 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
         if page_1based <= 0:
             continue
 
-        png = render_pdf_page_png(
-            str(BILDER_PDF),
-            page_1based=page_1based,
-            zoom=2.0,
-            clip=clip,
-        )
+png = render_pdf_page_png(
+    str(BILDER_PDF),
+    page_1based=page_1based,
+    zoom=2.0,
+    clip=clip,
+)
 
-        if png:
-            cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
-            if clip:
-                cap += " · Ausschnitt"
-            st.image(png, caption=cap, use_container_width=True)
-            shown += 1
+if png:
+    # Wenn kein Clip vorhanden ist, automatisch croppen (verhindert "ganze Seite")
+    if not clip:
+        png = autocrop_png(png, margin=14)
+
+    cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
+    if clip:
+        cap += " · Ausschnitt"
+    else:
+        cap += " · Auto-Crop"
+    st.image(png, caption=cap, use_container_width=True)
+    shown += 1
 
 
 
@@ -664,28 +700,6 @@ def nav_sidebar(claims: Dict[str, str]):
         st.session_state.page = "exam"
         _reset_learning_state()
         st.rerun()
-
-    with st.sidebar.expander("Daten", expanded=False):
-        st.caption("Optional: questions.json zur Laufzeit überschreiben (ohne Speicherung).")
-        up = st.file_uploader("questions.json hochladen", type=["json"], key="upload_questions")
-        if up is not None:
-            try:
-                data = json.loads(up.getvalue().decode("utf-8"))
-                if not isinstance(data, list):
-                    raise ValueError("JSON muss eine Liste von Fragen sein.")
-                st.session_state.questions_override = data
-                _reset_learning_state()
-                _reset_exam_state()
-                st.success(f"Geladen: {len(data)} Fragen")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Upload-Fehler: {e}")
-
-        if st.button("Override zurücksetzen", use_container_width=True):
-            st.session_state.pop("questions_override", None)
-            _reset_learning_state()
-            _reset_exam_state()
-            st.rerun()
 
 
 # =============================================================================
@@ -1458,12 +1472,29 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
     answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers") or {}
     current = answers.get(qid, None)
 
-    labels = ["A", "B", "C", "D"]
-    radio_opts = [f"{labels[j]}) {options[j]}" for j in range(4)]
-    idx_default = int(current) if current is not None else 0
+labels = ["A", "B", "C", "D"]
 
-    sel_idx = st.radio("Antwort wählen", radio_opts, index=idx_default, key=f"exam_radio_{qid}")
-    st.session_state.exam_answers[qid] = int(sel_idx)
+# Werte: -1 = keine Auswahl, 0..3 = Antwortindex
+radio_vals = [-1, 0, 1, 2, 3]
+
+def _fmt_choice(v: int) -> str:
+    if v == -1:
+        return "— keine Auswahl —"
+    return f"{labels[v]}) {options[v]}"
+
+# Default: wenn schon beantwortet -> Index, sonst -1
+idx_default = (int(current) if current is not None else -1)
+
+sel_val = st.radio(
+    "Antwort wählen",
+    radio_vals,
+    index=radio_vals.index(idx_default),
+    key=f"exam_radio_{qid}",
+    format_func=_fmt_choice,
+)
+
+# Persist sauber
+st.session_state.exam_answers[qid] = (None if int(sel_val) == -1 else int(sel_val))
 
     cA, cB, cC = st.columns([1, 1, 1])
     if cA.button("◀ Zurück", use_container_width=True, disabled=(i == 0)):
@@ -1472,10 +1503,12 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
     if cB.button("Weiter ▶", use_container_width=True, disabled=(i >= total - 1)):
         st.session_state.exam_idx = min(total - 1, i + 1)
         st.rerun()
-    if cC.button("Antwort löschen", use_container_width=True):
-        st.session_state.exam_answers[qid] = None
-        st.session_state.pop(f"exam_radio_{qid}", None)
-        st.rerun()
+if cC.button("Antwort löschen", use_container_width=True):
+    st.session_state.exam_answers[qid] = None
+    # Widget-State reset (Radio wieder auf -1)
+    st.session_state[f"exam_radio_{qid}"] = -1
+    st.rerun()
+
 
     st.write("")
     answered_cnt = sum(1 for v in (st.session_state.exam_answers or {}).values() if v is not None)

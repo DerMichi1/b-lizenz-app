@@ -788,6 +788,11 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
 st.set_page_config(page_title="B-Lizenz Lernapp", layout="wide")
 inject_css()
 
+# DEBUG: remove later
+st.sidebar.write("DEBUG: user.is_logged_in =", getattr(st.user, "is_logged_in", None))
+if st.sidebar.button("DEBUG: login()"):
+    st.login()
+
 if not QUESTIONS_PATH.exists():
     st.error("questions.json fehlt")
     st.stop()

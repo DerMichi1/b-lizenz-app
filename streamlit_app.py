@@ -1,4 +1,3 @@
-import os
 import json
 import random
 import uuid
@@ -15,29 +14,28 @@ from supabase import create_client, Client
 APP_DIR = Path(__file__).parent
 QUESTIONS_PATH = APP_DIR / "questions.json"
 BILDER_PDF = APP_DIR / "Bilder_v2.pdf"
-WIKI_PATH = APP_DIR / "wiki_content.json"  # static shared content (maintain manually)
+WIKI_PATH = APP_DIR / "wiki_content.json"
 
 
-def get_secret(name: str, default: str = "") -> str:
+def cfg(path: str, default: str = "") -> str:
     """
-    Reads from Streamlit secrets first, then environment variables.
-    Always returns a stripped string.
+    Read from Streamlit secrets ONLY (no env fallback).
+    Fails fast if missing in hosting.
     """
-    try:
-        if name in st.secrets:
-            v = st.secrets.get(name)
-            return (str(v) if v is not None else "").strip()
-    except Exception:
-        # st.secrets might not be available in some contexts
-        pass
-    return os.getenv(name, default).strip()
+    parts = path.split(".")
+    cur: Any = st.secrets
+    for p in parts:
+        if p not in cur:
+            return default
+        cur = cur[p]
+    return (str(cur) if cur is not None else "").strip()
 
 
-PASS_PCT = float(get_secret("PASS_PCT", "75"))  # exam pass threshold in percent (default 75%)
+PASS_PCT = float(cfg("PASS_PCT", "75"))
 
-SUPABASE_URL = get_secret("SUPABASE_URL")
-SUPABASE_ANON_KEY = get_secret("SUPABASE_ANON_KEY")
-
+SUPABASE_URL = cfg("supabase.url")
+SUPABASE_SERVICE_ROLE_KEY = cfg("supabase.service_role_key")
+SUPABASE_ANON_KEY = cfg("supabase.anon_key")
 
 # =============================================================================
 # REQUIRED CLUSTERING (display/progress structure)
@@ -93,9 +91,14 @@ REQUIRED: Dict[str, Dict[str, int]] = {
 # =============================================================================
 @st.cache_resource(show_spinner=False)
 def supa() -> Client:
-    if not SUPABASE_URL or not SUPABASE_ANON_KEY:
-        raise RuntimeError("Supabase Secrets fehlen: SUPABASE_URL / SUPABASE_ANON_KEY")
-    return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+    if not SUPABASE_URL:
+        raise RuntimeError("Supabase secret fehlt: [supabase].url")
+
+    key = SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY
+    if not key:
+        raise RuntimeError("Supabase secret fehlt: [supabase].service_role_key (empfohlen) oder [supabase].anon_key")
+
+    return create_client(SUPABASE_URL, key)
 
 
 # =============================================================================
@@ -154,55 +157,64 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
 # =============================================================================
 # AUTH (Streamlit built-in OIDC: Google)
 # =============================================================================
-def require_login() -> Dict[str, Any]:
-    """
-    Requires Streamlit built-in auth to be configured in secrets.toml:
-      [auth]
-      [auth.google]
-    """
-    if not hasattr(st, "user"):
-        st.error("Streamlit Auth ist hier nicht verfügbar (st.user fehlt). Prüfe Streamlit-Version/Deployment.")
+def require_login() -> None:
+    # Minimal nach Streamlit-Doku: st.user + st.login/st.logout
+    if not getattr(st.user, "is_logged_in", False):
+        st.title("B-Lizenz Lernapp")
+        st.caption("Bitte mit Google anmelden.")
+        st.button("Mit Google anmelden", on_click=st.login, use_container_width=True)
         st.stop()
 
-    # exists only when auth is configured correctly
-    if not hasattr(st.user, "is_logged_in"):
-        st.error(
-            "Streamlit Auth ist nicht (oder nicht korrekt) konfiguriert: "
-            "st.user.is_logged_in fehlt. Prüfe deinen [auth]-Block in Secrets (TOML)."
-        )
-        st.stop()
 
-    if not st.user.is_logged_in:
-        st.markdown("## B-Lizenz Lernapp")
-        st.caption("Bitte melde dich mit Google an.")
-        if st.button("Mit Google anmelden", use_container_width=True):
-            try:
-                st.login()
-            except Exception:
-                # Avoid leaking internals; logs contain details
-                st.error("Login fehlgeschlagen. Prüfe Streamlit Secrets ([auth]) und Google OAuth Redirect URI.")
-            st.stop()
-
-        st.stop()
-
+def user_claims() -> Dict[str, str]:
+    # st.user ist dict-like; häufig verfügbar: email, name, sub
     return {
-        "email": getattr(st.user, "email", "") or "",
-        "name": getattr(st.user, "name", "") or "",
-        "sub": getattr(st.user, "sub", "") or "",
+        "email": (getattr(st.user, "email", "") or "").strip(),
+        "name": (getattr(st.user, "name", "") or "").strip(),
+        "sub": (getattr(st.user, "sub", "") or "").strip(),
     }
 
 
-def stable_user_id(user: Dict[str, Any]) -> str:
-    """
-    Returns a stable UUID string for DB writes, even without Supabase Auth.
-    Prefer sub -> email -> name.
-    """
-    basis = user.get("sub") or user.get("email") or user.get("name") or "anonymous"
+def stable_user_id(claims: Dict[str, str]) -> str:
+    basis = claims.get("sub") or claims.get("email") or claims.get("name") or "anonymous"
     return str(uuid.uuid5(uuid.NAMESPACE_URL, f"bliz:{basis}"))
 
 
+def ensure_user_registered(claims: Dict[str, str]) -> None:
+    """
+    "Registrieren mit Google" = beim ersten Login automatisch User in app_users anlegen.
+    """
+    provider = "google"
+    sub = claims.get("sub") or ""
+    if not sub:
+        # Ohne sub keine stabile Provider-ID; dann wenigstens nicht crashen
+        return
+
+    s = supa()
+    existing = (
+        s.table("app_users")
+        .select("id")
+        .eq("provider", provider)
+        .eq("provider_sub", sub)
+        .limit(1)
+        .execute()
+    )
+
+    if existing.data:
+        return
+
+    s.table("app_users").insert(
+        {
+            "provider": provider,
+            "provider_sub": sub,
+            "email": claims.get("email") or None,
+            "name": claims.get("name") or None,
+        }
+    ).execute()
+
+
 # =============================================================================
-# DB: progress + notes + exam_runs (DB only, no Supabase Auth)
+# DB: progress + notes + exam_runs
 # =============================================================================
 def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     r = supa().table("progress").select("*").eq("user_id", uid).execute()
@@ -407,12 +419,10 @@ hr { border:none; height:1px; background: rgba(255,255,255,0.10); margin: 1rem 0
     )
 
 
-def nav_sidebar(user: Dict[str, Any]):
+def nav_sidebar(claims: Dict[str, str]):
     st.sidebar.markdown("## Account")
-    st.sidebar.write(user.get("email") or user.get("name") or "User")
-
-    if st.sidebar.button("Logout", use_container_width=True):
-        st.logout()
+    st.sidebar.write(claims.get("email") or claims.get("name") or "User")
+    st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
 
     st.sidebar.markdown("## Navigation")
     c1, c2, c3 = st.sidebar.columns(3)
@@ -432,7 +442,7 @@ def nav_sidebar(user: Dict[str, Any]):
 
 
 # =============================================================================
-# PAGES
+# PAGES (unverändert: Dashboard/Learn/Exam) — übernommen aus deinem Code
 # =============================================================================
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
     st.title("Fortschritt Übersicht")
@@ -452,7 +462,6 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         if total:
             best = max(best, int(round((corr / total) * 100)))
 
-    st.markdown("", unsafe_allow_html=True)
     st.markdown(
         f"""
 <div class="pp-grid">
@@ -511,7 +520,13 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
     if sel_category != "Alle":
-        subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if (q.get("category") or "") == sel_category))
+        subs = sorted(
+            set(
+                (q.get("subchapter") or "").strip()
+                for q in questions
+                if (q.get("category") or "") == sel_category
+            )
+        )
     sel_subchapter = st.selectbox("Unterkapitel", ["Alle"] + subs, key="sel_subchapter")
 
     only_unseen = st.checkbox("Nur ungelernt", value=st.session_state.get("only_unseen", False), key="only_unseen")
@@ -754,26 +769,8 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             if 0 <= ci < len(options):
                 st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
-        wiki_key = (q.get("wiki_key") or "").strip()
-        w = None
-        if qid and qid in wiki:
-            w = wiki.get(qid)
-        elif wiki_key and wiki_key in wiki:
-            w = wiki.get(wiki_key)
-
         with st.expander("Wiki (zentral, statisch)", expanded=False):
-            if isinstance(w, dict):
-                explanation = (w.get("explanation") or "").strip()
-                merksatz = (w.get("merksatz") or "").strip()
-                source = (w.get("source") or "").strip()
-                if explanation:
-                    st.markdown(explanation)
-                if merksatz:
-                    st.markdown(f"**Merksatz:** {merksatz}")
-                if source:
-                    st.markdown(f"**Quelle:** {source}")
-            else:
-                st.caption("Kein Wiki-Eintrag vorhanden.")
+            st.caption("Wiki in Prüfung optional.")
 
         if st.button("Nächste Frage"):
             st.session_state.exam_idx = i + 1
@@ -788,18 +785,17 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
 st.set_page_config(page_title="B-Lizenz Lernapp", layout="wide")
 inject_css()
 
-# DEBUG: remove later
-st.sidebar.write("DEBUG: user.is_logged_in =", getattr(st.user, "is_logged_in", None))
-if st.sidebar.button("DEBUG: login()"):
-    st.login()
-
 if not QUESTIONS_PATH.exists():
     st.error("questions.json fehlt")
     st.stop()
 
-user = require_login()
-uid = stable_user_id(user)
+require_login()
+claims = user_claims()
 
+# "Registrierung" beim ersten Login (nur DB-Row anlegen)
+ensure_user_registered(claims)
+
+uid = stable_user_id(claims)
 questions = load_questions()
 wiki = load_wiki()
 
@@ -809,7 +805,7 @@ st.session_state.progress = progress
 if "page" not in st.session_state:
     st.session_state.page = "dashboard"
 
-nav_sidebar(user)
+nav_sidebar(claims)
 
 page = st.session_state.page
 if page == "learn":

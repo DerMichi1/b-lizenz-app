@@ -202,6 +202,8 @@ def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], Li
 # =============================================================================
 # PDF IMAGE RENDER (Bilder.pdf)
 # =============================================================================
+import re
+
 @st.cache_data(show_spinner=False)
 def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> Optional[bytes]:
     try:
@@ -218,7 +220,6 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
         if doc.page_count <= 0:
             return None
 
-        # clamp page index
         page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
         page = doc.load_page(page_index)
 
@@ -231,83 +232,29 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
 
 @st.cache_data(show_spinner=False)
 def load_figure_map() -> Dict[str, int]:
-    """Optional mapping of figure number -> Bilder.pdf page (1-based).
-
-    This avoids having to duplicate bilder_page on every question.
-    Expected file: figure_map.json
-      {
-        "47": 14,
-        "48": 14,
-        "49": 15
-      }
-    Returns {} if file missing or invalid.
-    """
+    """figure_map.json: {"43": 12, "47": 14, ...} (1-based Seiten)"""
     if not FIGURE_MAP_PATH.exists():
         return {}
-
     try:
         data = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
         if not isinstance(data, dict):
             return {}
-
         out: Dict[str, int] = {}
         for k, v in data.items():
             try:
                 out[str(k).strip()] = int(v)
             except Exception:
                 continue
-
         return out
     except Exception:
         return {}
 
-
-@st.cache_data(show_spinner=False)
-def load_figure_map() -> Dict[str, int]:
-    """Optional mapping of figure number -> Bilder.pdf page (1-based).
-
-    This avoids having to duplicate bilder_page on every question.
-    If the file doesn't exist or is invalid, returns {}.
-    """
-    if not FIGURE_MAP_PATH.exists():
-        return {}
-    try:
-        data = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
-        if not isinstance(data, dict):
-            return {}
-        out: Dict[str, int] = {}
-        for k, v in data.items():
-            try:
-                out[str(k)] = int(v)
-            except Exception:
-                continue
-        return out
-    except Exception:
-        return {}
-
-    p = Path(pdf_path)
-    if not p.exists():
-        return None
-
-    try:
-        doc = fitz.open(str(p))
-        page = doc.load_page(max(0, min(page_1based - 1, doc.page_count - 1)))
-        mat = fitz.Matrix(zoom, zoom)
-        pix = page.get_pixmap(matrix=mat, alpha=False)
-        return pix.tobytes("png")
-    except Exception:
-        return None
-
-
-import re
 
 def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
-    # 1) Wenn figures explizit vorhanden: so lassen
     figs = q.get("figures")
     if isinstance(figs, list) and figs:
         return [f for f in figs if isinstance(f, dict)]
 
-    # 2) Sonst: aus Frage/Title "Abbildung 43" extrahieren
     text = f"{q.get('title','')} {q.get('question','')}".strip()
     m = re.search(r"\bAbbildung\s*(\d+)\b", text, flags=re.IGNORECASE)
     if not m:
@@ -320,20 +267,20 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
     if not figs:
         return
 
-    fig_map = load_figure_map()  # {"43": 12, ...}
+    fig_map = load_figure_map()
     shown = 0
 
     for f in figs:
         if shown >= max_n:
             break
+        if not isinstance(f, dict):
+            continue
 
-        fig_no = f.get("figure")
         try:
-            fig_no_int = int(fig_no)
+            fig_no_int = int(f.get("figure"))
         except Exception:
             continue
 
-        # page priority: explicit bilder_page > figure_map
         try:
             page_1based = int(f.get("bilder_page") or 0)
         except Exception:
@@ -343,7 +290,6 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
             page_1based = int(fig_map.get(str(fig_no_int), 0))
 
         if page_1based <= 0:
-            # keine Zuordnung vorhanden -> nichts anzeigen
             continue
 
         png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)

@@ -13,15 +13,11 @@ from supabase import create_client, Client
 # =============================================================================
 APP_DIR = Path(__file__).parent
 QUESTIONS_PATH = APP_DIR / "questions.json"
-BILDER_PDF = APP_DIR / "Bilder_v2.pdf"
-WIKI_PATH = APP_DIR / "wiki_content.json"
+BILDER_PDF = APP_DIR / "Bilder.pdf"          # <-- updated
+WIKI_PATH = APP_DIR / "wiki_content.json"    # must contain entry per question id
 
 
 def cfg(path: str, default: str = "") -> str:
-    """
-    Read from Streamlit secrets ONLY (no env fallback).
-    Fails fast if missing in hosting.
-    """
     parts = path.split(".")
     cur: Any = st.secrets
     for p in parts:
@@ -131,7 +127,7 @@ def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], Li
 
 
 # =============================================================================
-# PDF IMAGE RENDER (Bilder_v2.pdf)
+# PDF IMAGE RENDER (Bilder.pdf)
 # =============================================================================
 @st.cache_data(show_spinner=False)
 def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> Optional[bytes]:
@@ -158,7 +154,6 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
 # AUTH (Streamlit built-in OIDC: Google)
 # =============================================================================
 def require_login() -> None:
-    # Minimal nach Streamlit-Doku: st.user + st.login/st.logout
     if not getattr(st.user, "is_logged_in", False):
         st.title("B-Lizenz Lernapp")
         st.caption("Bitte mit Google anmelden.")
@@ -167,7 +162,6 @@ def require_login() -> None:
 
 
 def user_claims() -> Dict[str, str]:
-    # st.user ist dict-like; häufig verfügbar: email, name, sub
     return {
         "email": (getattr(st.user, "email", "") or "").strip(),
         "name": (getattr(st.user, "name", "") or "").strip(),
@@ -181,13 +175,9 @@ def stable_user_id(claims: Dict[str, str]) -> str:
 
 
 def ensure_user_registered(claims: Dict[str, str]) -> None:
-    """
-    "Registrieren mit Google" = beim ersten Login automatisch User in app_users anlegen.
-    """
     provider = "google"
     sub = claims.get("sub") or ""
     if not sub:
-        # Ohne sub keine stabile Provider-ID; dann wenigstens nicht crashen
         return
 
     s = supa()
@@ -298,20 +288,17 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
 # APP STATE
 # =============================================================================
 def _reset_learning_state():
-    for k in ["queue", "idx", "answered", "last_ok", "last_correct_index", "last_selected_index"]:
+    for k in [
+        "queue", "idx", "answered", "last_ok", "last_correct_index", "last_selected_index",
+        "learn_started", "learn_plan"
+    ]:
         st.session_state.pop(k, None)
 
 
 def _reset_exam_state():
     for k in [
-        "exam_queue",
-        "exam_idx",
-        "exam_correct",
-        "exam_done",
-        "exam_answered",
-        "exam_last_ok",
-        "exam_last_selected",
-        "exam_last_correct",
+        "exam_queue", "exam_idx", "exam_correct", "exam_done", "exam_answered",
+        "exam_last_ok", "exam_last_selected", "exam_last_correct", "exam_started", "exam_plan"
     ]:
         st.session_state.pop(k, None)
 
@@ -397,6 +384,42 @@ def overall_progress_pct(questions: List[Dict[str, Any]], progress: Dict[str, Di
     return int(round((learned / total) * 100)) if total else 0
 
 
+def overall_correct_wrong(progress: Dict[str, Dict[str, Any]]) -> Tuple[int, int]:
+    c = 0
+    w = 0
+    for row in progress.values():
+        c += int(row.get("correct", 0))
+        w += int(row.get("wrong", 0))
+    return c, w
+
+
+def weakest_subchapters(
+    stats: Dict[str, Dict[str, Dict[str, int]]],
+    min_seen: int = 6,
+    topn: int = 8
+) -> List[Dict[str, Any]]:
+    """
+    Rank subchapters by low accuracy. We require a minimum number of answered attempts
+    (correct_total + wrong_total) to avoid nonsense on fresh accounts.
+    """
+    rows: List[Dict[str, Any]] = []
+    for cat, subs in stats.items():
+        for sub, s in subs.items():
+            attempts = int(s.get("correct_total", 0)) + int(s.get("wrong_total", 0))
+            if attempts < min_seen:
+                continue
+            acc = (int(s.get("correct_total", 0)) / attempts) if attempts else 0.0
+            rows.append({
+                "category": cat,
+                "subchapter": sub,
+                "attempts": attempts,
+                "accuracy": acc,
+                "wrong": int(s.get("wrong_total", 0)),
+            })
+    rows.sort(key=lambda r: (r["accuracy"], -r["attempts"]))
+    return rows[:topn]
+
+
 # =============================================================================
 # UI / STYLES
 # =============================================================================
@@ -404,15 +427,24 @@ def inject_css():
     st.markdown(
         """
 <style>
-.block-container { padding-top: 1.2rem; max-width: 1100px; }
-div.stButton > button { width:100%; padding:0.9rem 1rem; border-radius:12px; font-size:1rem; }
-.pp-card { border:1px solid rgba(255,255,255,0.10); border-radius:14px; padding:1rem 1.1rem; background: rgba(255,255,255,0.03); }
-.pp-muted { opacity:0.85; font-size:0.95rem; }
-.pp-kpi { border:1px solid rgba(255,255,255,0.10); border-radius:14px; padding:0.9rem 1rem; background: rgba(255,255,255,0.03); }
-.pp-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:0.8rem; }
-@media (max-width: 900px){ .pp-grid{ grid-template-columns: 1fr; } }
-hr { border:none; height:1px; background: rgba(255,255,255,0.10); margin: 1rem 0; }
+:root{
+  --pp-border: rgba(255,255,255,0.12);
+  --pp-bg: rgba(255,255,255,0.04);
+  --pp-bg2: rgba(255,255,255,0.06);
+  --pp-text-muted: rgba(255,255,255,0.78);
+}
+.block-container { padding-top: 1.2rem; max-width: 1180px; }
+div.stButton > button { width:100%; padding:0.85rem 1rem; border-radius:14px; font-size:1rem; }
+.pp-card { border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg); }
+.pp-card2 { border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg2); }
+.pp-muted { color: var(--pp-text-muted); font-size:0.95rem; }
+.pp-kpi { border:1px solid var(--pp-border); border-radius:16px; padding:0.9rem 1rem; background: var(--pp-bg); }
+.pp-grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:0.8rem; }
+@media (max-width: 1100px){ .pp-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 700px){ .pp-grid{ grid-template-columns: 1fr; } }
+hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
 .small { font-size: 0.9rem; opacity: 0.85; }
+.pp-pill { display:inline-block; padding: 0.25rem 0.55rem; border:1px solid var(--pp-border); border-radius:999px; background: rgba(255,255,255,0.03); font-size:0.85rem; margin-right:0.4rem;}
 </style>
 """,
         unsafe_allow_html=True,
@@ -442,67 +474,137 @@ def nav_sidebar(claims: Dict[str, str]):
 
 
 # =============================================================================
-# PAGES (unverändert: Dashboard/Learn/Exam) — übernommen aus deinem Code
+# DASHBOARD (more stats + clickable jump-to-learn)
 # =============================================================================
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
     st.title("Fortschritt Übersicht")
 
     qidx = index_questions(questions)
     stats = compute_progress_by_cluster(qidx, progress)
+
     overall = overall_progress_pct(questions, progress)
+    c_total, w_total = overall_correct_wrong(progress)
+    attempts_total = c_total + w_total
+    accuracy_total = int(round((c_total / attempts_total) * 100)) if attempts_total else 0
 
     runs = db_list_exam_runs(uid, limit=200)
-    attempts = len(runs)
+    exam_attempts = len(runs)
     passed = sum(1 for r in runs if bool(r.get("passed")))
-    pass_rate = int(round((passed / attempts) * 100)) if attempts else 0
+    pass_rate = int(round((passed / exam_attempts) * 100)) if exam_attempts else 0
     best = 0
+    last_pct = None
+    if runs:
+        r0 = runs[0]
+        t0 = int(r0.get("total") or 0)
+        c0 = int(r0.get("correct") or 0)
+        last_pct = int(round((c0 / t0) * 100)) if t0 else 0
     for r in runs:
         total = int(r.get("total") or 0)
         corr = int(r.get("correct") or 0)
         if total:
             best = max(best, int(round((corr / total) * 100)))
 
+    # KPI row
     st.markdown(
         f"""
 <div class="pp-grid">
-  <div class="pp-kpi"><b>Gesamt gelernt</b><br>{overall}%</div>
-  <div class="pp-kpi"><b>Prüfungen</b><br>{attempts} Versuche</div>
-  <div class="pp-kpi"><b>Beste Prüfung</b><br>{best}% (Passrate {pass_rate}%)</div>
+  <div class="pp-kpi"><b>Abdeckung</b><br>{overall}%<div class="pp-muted">Fragen mindestens 1× gesehen</div></div>
+  <div class="pp-kpi"><b>Trefferquote</b><br>{accuracy_total}%<div class="pp-muted">{c_total} richtig · {w_total} falsch</div></div>
+  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}%</div></div>
+  <div class="pp-kpi"><b>Beste Prüfung</b><br>{best}%<div class="pp-muted">Letzte: {('-' if last_pct is None else str(last_pct)+'%')}</div></div>
 </div>
 """,
         unsafe_allow_html=True,
     )
 
     st.write("")
-    colA, colB = st.columns([1, 1])
-    if colA.button("Lernsession starten"):
+    cA, cB, cC = st.columns([1, 1, 1])
+    if cA.button("Lernsession starten"):
         st.session_state.page = "learn"
+        st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
         _reset_learning_state()
+        st.session_state.page = "learn"
+        st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
         st.rerun()
-    if colB.button("Prüfungssimulation starten (40)"):
+    if cB.button("Falsche wiederholen"):
+        _reset_learning_state()
+        st.session_state.page = "learn"
+        st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
+        st.rerun()
+    if cC.button("Prüfungssimulation starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
 
+    st.write("")
+    # Visuals: progress + accuracy
+    v1, v2 = st.columns([1, 1])
+    with v1:
+        st.markdown('<div class="pp-card2"><b>Abdeckung</b><div class="pp-muted">Wie viel vom Fragenkatalog du schon gesehen hast</div>', unsafe_allow_html=True)
+        st.progress(overall / 100.0)
+        st.markdown("</div>", unsafe_allow_html=True)
+    with v2:
+        st.markdown('<div class="pp-card2"><b>Trefferquote</b><div class="pp-muted">Richtig vs. Falsch (alle Versuche)</div>', unsafe_allow_html=True)
+        if attempts_total:
+            st.bar_chart({"Richtig": c_total, "Falsch": w_total})
+        else:
+            st.caption("Noch keine beantworteten Fragen.")
+        st.markdown("</div>", unsafe_allow_html=True)
+
+    # Weak areas (clickable)
+    st.write("")
+    st.markdown("## Fokus: Schwache Bereiche")
+    weak = weakest_subchapters(stats, min_seen=6, topn=8)
+    if not weak:
+        st.caption("Noch zu wenig Daten. Beantworte erst ein paar Fragen (mind. 6 pro Unterkapitel), dann wird hier priorisiert.")
+    else:
+        for row in weak:
+            acc = int(round(row["accuracy"] * 100))
+            wrong = row["wrong"]
+            attempts = row["attempts"]
+            cc1, cc2, cc3, cc4 = st.columns([3, 1, 1, 2])
+            cc1.markdown(f"**{row['category']} · {row['subchapter']}**  \n<span class='pp-muted'>{attempts} Versuche · {wrong} falsch</span>", unsafe_allow_html=True)
+            cc2.markdown(f"<span class='pp-pill'>Acc {acc}%</span>", unsafe_allow_html=True)
+            cc3.markdown(f"<span class='pp-pill'>Wrong {wrong}</span>", unsafe_allow_html=True)
+            if cc4.button("Gezielt üben", key=f"weak_{row['category']}::{row['subchapter']}"):
+                _reset_learning_state()
+                st.session_state.page = "learn"
+                st.session_state.learn_plan = {
+                    "category": row["category"],
+                    "subchapter": row["subchapter"],
+                    "only_unseen": False,
+                    "only_wrong": True,
+                }
+                st.rerun()
+
+    st.write("")
     st.markdown("## Kapitel / Unterkapitel")
     for cat, subs in REQUIRED.items():
         st.markdown(f"### {cat}")
         for sub, expected_total in subs.items():
-            s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0})
+            s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
             total = expected_total if expected_total else s["total"]
-            learned = s["learned"]
-            correct_total = s["correct_total"]
+            learned = int(s["learned"])
+            attempts = int(s["correct_total"]) + int(s["wrong_total"])
+            acc = int(round((int(s["correct_total"]) / attempts) * 100)) if attempts else 0
             learned_pct = int(round((learned / total) * 100)) if total else 0
-            correct_pct = int(round((correct_total / total) * 100)) if total else 0
 
-            if learned == 0:
-                st.caption(f"{sub} ({total}) — nicht begonnen")
-            else:
-                st.caption(
-                    f"{sub} ({total}) — gelernt: {learned_pct}% ({learned}), richtig: {correct_pct}% ({correct_total})"
-                )
+            line = f"{sub} ({total}) — Abdeckung {learned_pct}% · Acc {acc}% · Versuche {attempts}"
+            c1, c2 = st.columns([4, 1])
+            c1.caption(line)
+            if c2.button("Üben", key=f"sub_{cat}::{sub}"):
+                _reset_learning_state()
+                st.session_state.page = "learn"
+                st.session_state.learn_plan = {
+                    "category": cat,
+                    "subchapter": sub,
+                    "only_unseen": False,
+                    "only_wrong": False,
+                }
+                st.rerun()
 
     if runs:
+        st.write("")
         st.markdown("## Letzte Prüfungen")
         for r in runs[:10]:
             total = int(r.get("total") or 0)
@@ -512,58 +614,93 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
 
 
+# =============================================================================
+# LEARN (questions only after session start; filters hidden during session)
+# =============================================================================
 def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]], wiki: Dict[str, Any]):
     st.title("Lernen")
 
-    cats = sorted(set((q.get("category") or "").strip() for q in questions if q.get("category")))
-    sel_category = st.selectbox("Kategorie", ["Alle"] + cats, key="sel_category")
+    # Plan (from dashboard shortcuts) or defaults
+    if "learn_plan" not in st.session_state:
+        st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
 
-    subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
-    if sel_category != "Alle":
-        subs = sorted(
-            set(
-                (q.get("subchapter") or "").strip()
-                for q in questions
-                if (q.get("category") or "") == sel_category
+    if "learn_started" not in st.session_state:
+        st.session_state.learn_started = False
+
+    # --- PRE-START: show filters + start
+    if not st.session_state.learn_started:
+        plan = st.session_state.learn_plan
+
+        cats = sorted(set((q.get("category") or "").strip() for q in questions if q.get("category")))
+        sel_category = st.selectbox("Kategorie", ["Alle"] + cats, index=(["Alle"] + cats).index(plan["category"]) if plan["category"] in (["Alle"] + cats) else 0, key="sel_category")
+
+        subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
+        if sel_category != "Alle":
+            subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if (q.get("category") or "") == sel_category))
+        sel_subchapter = st.selectbox("Unterkapitel", ["Alle"] + subs, index=(["Alle"] + subs).index(plan["subchapter"]) if plan["subchapter"] in (["Alle"] + subs) else 0, key="sel_subchapter")
+
+        only_unseen = st.checkbox("Nur ungelernt", value=bool(plan.get("only_unseen", False)), key="only_unseen")
+        only_wrong = st.checkbox("Nur falsch beantwortete", value=bool(plan.get("only_wrong", False)), key="only_wrong")
+
+        c1, c2 = st.columns([1, 1])
+        start = c1.button("Session starten", type="primary")
+        if c2.button("Zur Übersicht"):
+            st.session_state.page = "dashboard"
+            _reset_learning_state()
+            st.rerun()
+
+        if start:
+            st.session_state.learn_plan = {"category": sel_category, "subchapter": sel_subchapter, "only_unseen": only_unseen, "only_wrong": only_wrong}
+            st.session_state.queue = build_learning_queue(
+                questions=questions,
+                progress=progress,
+                category=sel_category,
+                subchapter=sel_subchapter,
+                only_unseen=only_unseen,
+                only_wrong=only_wrong,
             )
-        )
-    sel_subchapter = st.selectbox("Unterkapitel", ["Alle"] + subs, key="sel_subchapter")
+            st.session_state.idx = 0
+            st.session_state.answered = False
+            st.session_state.last_ok = None
+            st.session_state.last_correct_index = None
+            st.session_state.last_selected_index = None
+            st.session_state.learn_started = True
+            st.rerun()
 
-    only_unseen = st.checkbox("Nur ungelernt", value=st.session_state.get("only_unseen", False), key="only_unseen")
-    only_wrong = st.checkbox("Nur falsch beantwortete", value=st.session_state.get("only_wrong", False), key="only_wrong")
+        st.stop()
 
-    col1, col2 = st.columns([1, 1])
-    start = col1.button("Session starten / neu mischen")
-    if col2.button("Zur Übersicht"):
-        st.session_state.page = "dashboard"
-        _reset_learning_state()
-        st.rerun()
-
-    if start or "queue" not in st.session_state:
-        st.session_state.queue = build_learning_queue(
-            questions=questions,
-            progress=progress,
-            category=sel_category,
-            subchapter=sel_subchapter,
-            only_unseen=only_unseen,
-            only_wrong=only_wrong,
-        )
-        st.session_state.idx = 0
-        st.session_state.answered = False
-        st.session_state.last_ok = None
-        st.session_state.last_correct_index = None
-        st.session_state.last_selected_index = None
-
+    # --- IN SESSION: hide filters, show compact session header + actions
+    plan = st.session_state.learn_plan
     queue: List[Dict[str, Any]] = st.session_state.get("queue", [])
     idx: int = int(st.session_state.get("idx", 0))
 
     if not queue:
         st.warning("Keine Fragen für diese Auswahl.")
+        st.session_state.learn_started = False
         st.stop()
 
     if idx >= len(queue):
         st.session_state.idx = 0
         idx = 0
+
+    header = f"{plan['category']} · {plan['subchapter']}  |  {'nur ungelernt' if plan['only_unseen'] else ''}{' ' if (plan['only_unseen'] and plan['only_wrong']) else ''}{'nur falsch' if plan['only_wrong'] else ''}"
+    st.caption(header.strip(" |"))
+
+    h1, h2, h3 = st.columns([1, 1, 1])
+    if h1.button("Session beenden"):
+        st.session_state.learn_started = False
+        _reset_learning_state()
+        st.rerun()
+    if h2.button("Neu mischen"):
+        _reset_learning_state()
+        st.session_state.learn_started = False
+        st.rerun()
+    if h3.button("Zur Übersicht"):
+        st.session_state.page = "dashboard"
+        _reset_learning_state()
+        st.rerun()
+
+    st.write("")
 
     q = queue[idx]
     qid = str(q.get("id"))
@@ -573,20 +710,21 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     st.markdown(
         f"""<div class="pp-card"><div><b>{question}</b></div>
-<div class="pp-muted">{q.get("category","")} · {q.get("subchapter","")} · {idx+1}/{len(queue)}</div></div>""",
+<div class="pp-muted">{q.get("category","")} · {q.get("subchapter","")} · {idx+1}/{len(queue)} · ID {qid}</div></div>""",
         unsafe_allow_html=True,
     )
     st.write("")
 
+    # Render all linked figures (if present)
     figs = q.get("figures") or []
     if figs:
-        f0 = figs[0]
-        fig_no = f0.get("figure")
-        page_1based = int(f0.get("bilder_page") or 0)
-        if page_1based > 0:
-            png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
-            if png:
-                st.image(png, caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})", use_container_width=True)
+        for f in figs[:3]:
+            fig_no = f.get("figure")
+            page_1based = int(f.get("bilder_page") or 0)
+            if page_1based > 0:
+                png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
+                if png:
+                    st.image(png, caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})", use_container_width=True)
 
     labels = ["A", "B", "C", "D"]
 
@@ -613,30 +751,33 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if corr_i is not None and 0 <= int(corr_i) < len(options):
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
-        wiki_key = (q.get("wiki_key") or "").strip()
-        w = None
-        if qid and qid in wiki:
-            w = wiki.get(qid)
-        elif wiki_key and wiki_key in wiki:
-            w = wiki.get(wiki_key)
-        else:
-            fallback_key = f"{q.get('category','')}::{q.get('subchapter','')}"
-            if fallback_key in wiki:
-                w = wiki.get(fallback_key)
-
-        with st.expander("Wiki (zentral, statisch)", expanded=True):
-            if isinstance(w, dict):
+        # Wiki must exist per question id; if not, show hard warning (your “100% reliable” requirement)
+        w = wiki.get(qid)
+        with st.expander("Wiki (offizielle Quellen, kurz + Merksatz + Links)", expanded=True):
+            if not isinstance(w, dict):
+                st.error("Wiki fehlt für diese Frage. (wiki_content.json muss jede Frage-ID enthalten.)")
+            else:
                 explanation = (w.get("explanation") or "").strip()
                 merksatz = (w.get("merksatz") or "").strip()
-                source = (w.get("source") or "").strip()
-                if explanation:
+                links = w.get("links") or []
+
+                if not explanation:
+                    st.warning("Wiki-Inhalt noch leer. Bitte befüllen (nur offizielle Quellen).")
+                else:
                     st.markdown(explanation)
+
                 if merksatz:
                     st.markdown(f"**Merksatz:** {merksatz}")
-                if source:
-                    st.markdown(f"**Quelle:** {source}")
-            else:
-                st.info("Kein Wiki-Eintrag vorhanden (wiki_content.json ergänzen).")
+
+                if links:
+                    st.markdown("**Weiterlesen:**")
+                    for li in links:
+                        title = (li.get("title") or "Link").strip()
+                        url = (li.get("url") or "").strip()
+                        if url:
+                            st.markdown(f"- [{title}]({url})")
+                else:
+                    st.caption("Keine Links hinterlegt.")
 
         existing_note = db_get_note(uid, qid)
         with st.expander("Deine Bemerkung (nur für dich)", expanded=False):
@@ -647,48 +788,88 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
 
-        c1, c2, c3 = st.columns([1, 1, 1])
-        if c1.button("Nächste Frage"):
+        c1, c2 = st.columns([1, 1])
+        if c1.button("Nächste Frage", type="primary"):
             st.session_state.idx = (idx + 1) % len(queue)
             st.session_state.answered = False
             st.session_state.last_ok = None
             st.session_state.last_correct_index = None
             st.session_state.last_selected_index = None
             st.rerun()
-
-        if c2.button("Session neu mischen"):
-            _reset_learning_state()
+        if c2.button("Gezielt: nur falsch in diesem Set"):
+            # Rebuild queue with only_wrong=True, keep same cat/sub
+            plan2 = dict(plan)
+            plan2["only_wrong"] = True
+            st.session_state.learn_plan = plan2
+            st.session_state.queue = build_learning_queue(
+                questions=questions,
+                progress=st.session_state.progress,
+                category=plan2["category"],
+                subchapter=plan2["subchapter"],
+                only_unseen=bool(plan2["only_unseen"]),
+                only_wrong=True,
+            )
+            st.session_state.idx = 0
+            st.session_state.answered = False
             st.rerun()
 
-        if c3.button("Zur Übersicht"):
-            st.session_state.page = "dashboard"
-            _reset_learning_state()
-            st.rerun()
 
-
+# =============================================================================
+# EXAM (questions only after start; no filters bar)
+# =============================================================================
 def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     st.title("Prüfungssimulation (40)")
 
-    col1, col2 = st.columns([1, 1])
-    if col1.button("Neue Prüfung starten"):
-        _reset_exam_state()
-        st.rerun()
-    if col2.button("Zur Übersicht"):
-        st.session_state.page = "dashboard"
-        _reset_exam_state()
-        st.rerun()
+    if "exam_started" not in st.session_state:
+        st.session_state.exam_started = False
 
-    if "exam_queue" not in st.session_state:
-        st.session_state.exam_queue = build_exam_queue(questions, n=40)
-        st.session_state.exam_idx = 0
-        st.session_state.exam_correct = 0
-        st.session_state.exam_done = False
-        st.session_state.exam_answered = False
-        st.session_state.exam_last_ok = None
+    # Pre-start screen
+    if not st.session_state.exam_started:
+        st.markdown(
+            """<div class="pp-card2"><b>Regeln</b>
+<div class="pp-muted">40 zufällige Fragen. Ergebnis am Ende, optional speichern.</div></div>""",
+            unsafe_allow_html=True,
+        )
+        c1, c2 = st.columns([1, 1])
+        if c1.button("Prüfung starten", type="primary"):
+            _reset_exam_state()
+            st.session_state.exam_queue = build_exam_queue(questions, n=40)
+            st.session_state.exam_idx = 0
+            st.session_state.exam_correct = 0
+            st.session_state.exam_done = False
+            st.session_state.exam_answered = False
+            st.session_state.exam_last_ok = None
+            st.session_state.exam_started = True
+            st.rerun()
+        if c2.button("Zur Übersicht"):
+            st.session_state.page = "dashboard"
+            _reset_exam_state()
+            st.rerun()
+        st.stop()
+
+    # In exam session
+    top1, top2, top3 = st.columns([1, 1, 1])
+    if top1.button("Prüfung abbrechen"):
+        st.session_state.exam_started = False
+        _reset_exam_state()
+        st.rerun()
+    if top2.button("Neu starten"):
+        st.session_state.exam_started = False
+        _reset_exam_state()
+        st.rerun()
+    if top3.button("Zur Übersicht"):
+        st.session_state.page = "dashboard"
+        st.session_state.exam_started = False
+        _reset_exam_state()
+        st.rerun()
 
     qlist: List[Dict[str, Any]] = st.session_state.exam_queue
     i = int(st.session_state.exam_idx)
     total = len(qlist)
+
+    # progress indicator
+    if total:
+        st.progress(min(1.0, i / total))
 
     if st.session_state.exam_done:
         correct = int(st.session_state.exam_correct)
@@ -701,9 +882,15 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             unsafe_allow_html=True,
         )
 
-        if st.button("Ergebnis speichern"):
+        c1, c2 = st.columns([1, 1])
+        if c1.button("Ergebnis speichern", type="primary"):
             db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
             st.success("Gespeichert")
+        if c2.button("Zur Übersicht"):
+            st.session_state.page = "dashboard"
+            st.session_state.exam_started = False
+            _reset_exam_state()
+            st.rerun()
 
         st.write("")
         st.markdown("## Verlauf (letzte 10)")
@@ -731,20 +918,20 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
 
     st.markdown(
         f"""<div class="pp-card"><div><b>{question}</b></div>
-<div class="pp-muted">Frage {i+1}/{total}</div></div>""",
+<div class="pp-muted">Frage {i+1}/{total} · ID {qid}</div></div>""",
         unsafe_allow_html=True,
     )
     st.write("")
 
     figs = q.get("figures") or []
     if figs:
-        f0 = figs[0]
-        fig_no = f0.get("figure")
-        page_1based = int(f0.get("bilder_page") or 0)
-        if page_1based > 0:
-            png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
-            if png:
-                st.image(png, caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})", use_container_width=True)
+        for f in figs[:2]:
+            fig_no = f.get("figure")
+            page_1based = int(f.get("bilder_page") or 0)
+            if page_1based > 0:
+                png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
+                if png:
+                    st.image(png, caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})", use_container_width=True)
 
     labels = ["A", "B", "C", "D"]
 
@@ -769,10 +956,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             if 0 <= ci < len(options):
                 st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
-        with st.expander("Wiki (zentral, statisch)", expanded=False):
-            st.caption("Wiki in Prüfung optional.")
-
-        if st.button("Nächste Frage"):
+        if st.button("Nächste Frage", type="primary"):
             st.session_state.exam_idx = i + 1
             st.session_state.exam_answered = False
             st.session_state.exam_last_ok = None
@@ -792,7 +976,6 @@ if not QUESTIONS_PATH.exists():
 require_login()
 claims = user_claims()
 
-# "Registrierung" beim ersten Login (nur DB-Row anlegen)
 ensure_user_registered(claims)
 
 uid = stable_user_id(claims)

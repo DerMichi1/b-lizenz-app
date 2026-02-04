@@ -88,7 +88,6 @@ def supa() -> Client:
 # COOKIE MANAGER (SINGLETON) — fixes StreamlitDuplicateElementKey
 # =============================================================================
 def get_cookies():
-    # One component instance per run (stored in session_state)
     if "cookies_mgr" not in st.session_state:
         from streamlit_cookies_manager import EncryptedCookieManager
         if not COOKIE_PASSWORD:
@@ -96,12 +95,124 @@ def get_cookies():
         st.session_state.cookies_mgr = EncryptedCookieManager(prefix="bliz_", password=COOKIE_PASSWORD)
 
     cookies = st.session_state.cookies_mgr
-
-    # component handshake requires at least one rerun
     if not cookies.ready():
         st.stop()
-
     return cookies
+
+# =============================================================================
+# QUESTIONS / WIKI
+# =============================================================================
+@st.cache_data(show_spinner=False)
+def load_questions() -> List[Dict[str, Any]]:
+    if not QUESTIONS_PATH.exists():
+        raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
+    return json.loads(QUESTIONS_PATH.read_text("utf-8"))
+
+@st.cache_data(show_spinner=False)
+def load_wiki() -> Dict[str, Any]:
+    if not WIKI_PATH.exists():
+        return {}
+    try:
+        return json.loads(WIKI_PATH.read_text("utf-8"))
+    except Exception:
+        return {}
+
+def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], List[Dict[str, Any]]]:
+    idx: Dict[Tuple[str, str], List[Dict[str, Any]]] = {}
+    for q in questions:
+        cat = (q.get("category") or "").strip()
+        sub = (q.get("subchapter") or "").strip()
+        idx.setdefault((cat, sub), []).append(q)
+    return idx
+
+# =============================================================================
+# PDF IMAGE RENDER (Bilder_v2.pdf)
+# =============================================================================
+@st.cache_data(show_spinner=False)
+def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> Optional[bytes]:
+    try:
+        import fitz  # PyMuPDF
+    except Exception:
+        return None
+
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        doc = fitz.open(str(p))
+        page = doc.load_page(max(0, min(page_1based - 1, doc.page_count - 1)))
+        mat = fitz.Matrix(zoom, zoom)
+        pix = page.get_pixmap(matrix=mat, alpha=False)
+        return pix.tobytes("png")
+    except Exception:
+        return None
+
+# =============================================================================
+# DB: progress + notes + exam_runs
+# =============================================================================
+def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
+    r = supa().table("progress").select("*").eq("user_id", uid).execute()
+    return {x["question_id"]: x for x in (r.data or [])}
+
+def db_upsert_progress(uid: str, qid: str, ok: bool):
+    s = supa()
+    r = s.table("progress").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+    if r.data:
+        row = r.data[0]
+        s.table("progress").update({
+            "seen": int(row.get("seen", 0)) + 1,
+            "correct": int(row.get("correct", 0)) + (1 if ok else 0),
+            "wrong": int(row.get("wrong", 0)) + (0 if ok else 1),
+        }).eq("user_id", uid).eq("question_id", qid).execute()
+    else:
+        s.table("progress").insert({
+            "user_id": uid,
+            "question_id": qid,
+            "seen": 1,
+            "correct": 1 if ok else 0,
+            "wrong": 0 if ok else 1,
+        }).execute()
+
+def db_get_note(uid: str, qid: str) -> str:
+    try:
+        r = supa().table("notes").select("note_text").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+        if r.data:
+            return (r.data[0].get("note_text") or "").strip()
+    except Exception:
+        return ""
+    return ""
+
+def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
+    try:
+        s = supa()
+        note_text = (note_text or "").strip()
+        r = s.table("notes").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+        if r.data:
+            s.table("notes").update({"note_text": note_text}).eq("user_id", uid).eq("question_id", qid).execute()
+        else:
+            s.table("notes").insert({"user_id": uid, "question_id": qid, "note_text": note_text}).execute()
+        return True
+    except Exception:
+        return False
+
+def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> None:
+    try:
+        supa().table("exam_runs").insert({
+            "user_id": uid,
+            "total": total,
+            "correct": correct,
+            "passed": passed,
+        }).execute()
+    except Exception:
+        pass
+
+def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
+    try:
+        r = supa().table("exam_runs").select("*").eq("user_id", uid).order("created_at", desc=True).limit(limit).execute()
+        return list(r.data or [])
+    except Exception:
+        return []
 
 # =============================================================================
 # AUTH (Login + Registration + Remember)
@@ -126,7 +237,6 @@ def _restore_session_from_cookie(cookies):
 
 def auth_ui(cookies):
     st.sidebar.markdown("## Account")
-
     tab_login, tab_register = st.sidebar.tabs(["Login", "Registrieren"])
 
     with tab_login:
@@ -178,14 +288,13 @@ def auth_ui(cookies):
                 st.success("Registrierung erstellt. Bitte einloggen.")
 
 def require_login() -> str:
-    cookies = get_cookies()                 # <- nur 1× erzeugen
-    _restore_session_from_cookie(cookies)   # <- cookies übergeben
+    cookies = get_cookies()
+    _restore_session_from_cookie(cookies)
 
     if "user" not in st.session_state:
-        auth_ui(cookies)                   # <- cookies übergeben
+        auth_ui(cookies)
         st.stop()
 
-    # hard check: ensure supabase sees user as authenticated for this run
     try:
         u = supa().auth.get_user().user
         if u:
@@ -209,14 +318,15 @@ def _reset_learning_state():
         st.session_state.pop(k, None)
 
 def _reset_exam_state():
-    for k in ["exam_queue", "exam_idx", "exam_correct", "exam_done", "exam_answered", "exam_last_ok"]:
+    for k in ["exam_queue", "exam_idx", "exam_correct", "exam_done", "exam_answered", "exam_last_ok",
+              "exam_last_selected", "exam_last_correct"]:
         st.session_state.pop(k, None)
 
 def _reset_app_state(hard: bool = False):
     _reset_learning_state()
     _reset_exam_state()
     if hard:
-        for k in ["mode", "sel_category", "sel_subchapter", "only_unseen", "only_wrong"]:
+        for k in ["sel_category", "sel_subchapter", "only_unseen", "only_wrong"]:
             st.session_state.pop(k, None)
 
 # =============================================================================
@@ -237,9 +347,9 @@ def build_learning_queue(
         qset = [q for q in qset if (q.get("subchapter") or "") == subchapter]
 
     if only_unseen:
-        qset = [q for q in qset if q.get("id") not in progress or int(progress[q["id"]].get("seen", 0)) == 0]
+        qset = [q for q in qset if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0]
     if only_wrong:
-        qset = [q for q in qset if q.get("id") in progress and int(progress[q["id"]].get("wrong", 0)) > 0]
+        qset = [q for q in qset if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0]
 
     random.shuffle(qset)
     return qset
@@ -467,16 +577,15 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     labels = ["A", "B", "C", "D"]
 
     if not st.session_state.get("answered", False):
-        for i, opt in enumerate(options[:4]):
-            if st.button(f"{labels[i]}) {opt}", key=f"learn_{qid}_{i}"):
-                ok = (i == correct_index)
+        for i_opt, opt in enumerate(options[:4]):
+            if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}"):
+                ok = (i_opt == correct_index)
                 db_upsert_progress(uid, qid, ok)
 
-                # refresh progress in state
                 st.session_state.progress = db_load_progress(uid)
                 st.session_state.answered = True
                 st.session_state.last_ok = ok
-                st.session_state.last_selected_index = i
+                st.session_state.last_selected_index = i_opt
                 st.session_state.last_correct_index = correct_index
                 st.rerun()
     else:
@@ -686,23 +795,19 @@ if not QUESTIONS_PATH.exists():
     st.error("questions.json fehlt")
     st.stop()
 
-# login first (restores cookies before any DB access)
 uid = require_login()
 
 questions = load_questions()
 wiki = load_wiki()
 
-# refresh progress per run to always show correct dashboard values
 progress = db_load_progress(uid)
 st.session_state.progress = progress
 
-# navigation
 if "page" not in st.session_state:
     st.session_state.page = "dashboard"
 
 nav_sidebar()
 
-# route
 page = st.session_state.page
 if page == "learn":
     page_learn(uid, questions, progress, wiki)

@@ -935,6 +935,104 @@ def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[
     return base[:n]
 
 
+def _alloc_counts(total: int, keys: List[str]) -> Dict[str, int]:
+    """Evenly allocate 'total' across 'keys' (stable, sums to total)."""
+    if total <= 0 or not keys:
+        return {k: 0 for k in keys}
+    base = total // len(keys)
+    rem = total % len(keys)
+    out = {k: base for k in keys}
+    # distribute remainder deterministically
+    for k in keys[:rem]:
+        out[k] += 1
+    return out
+
+
+def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed: Optional[int] = None) -> List[Dict[str, Any]]:
+    """
+    Balanced exam selection:
+      1) Ensure a roughly equal share across main categories.
+      2) Within each category, spread across subchapters (approx proportional, min-1 where possible).
+    Falls back gracefully if a bucket has not enough questions.
+    """
+    rng = random.Random(seed)
+
+    # group by category -> subchapter -> questions
+    by_cat: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+    for q in questions:
+        cat = (q.get("category") or "").strip() or "Unbekannt"
+        sub = (q.get("subchapter") or "").strip() or "Allgemein"
+        by_cat.setdefault(cat, {}).setdefault(sub, []).append(q)
+
+    cats = sorted(by_cat.keys())
+    if not cats:
+        return []
+
+    # 1) allocate per category evenly
+    cat_target = _alloc_counts(n, cats)
+
+    selected: List[Dict[str, Any]] = []
+
+    # 2) within each category
+    for cat in cats:
+        subs = sorted(by_cat[cat].keys())
+        if not subs or cat_target[cat] <= 0:
+            continue
+
+        # available counts per subchapter
+        avail = {s: len(by_cat[cat][s]) for s in subs}
+        total_avail = sum(avail.values())
+
+        # start with proportional allocation
+        raw = {}
+        for s in subs:
+            raw[s] = (cat_target[cat] * avail[s] / total_avail) if total_avail else 0.0
+
+        sub_target = {s: int(math.floor(raw[s])) for s in subs}
+        # distribute remaining within category
+        rem = cat_target[cat] - sum(sub_target.values())
+        # rank by fractional part desc, then by availability desc
+        order = sorted(subs, key=lambda s: (raw[s] - math.floor(raw[s]), avail[s]), reverse=True)
+        for s in order:
+            if rem <= 0:
+                break
+            sub_target[s] += 1
+            rem -= 1
+
+        # ensure at least 1 for as many subs as possible (spread), without exceeding target
+        if cat_target[cat] > 1 and len(subs) > 1:
+            # subs with 0 but available
+            zeros = [s for s in subs if sub_target[s] == 0 and avail[s] > 0]
+            for s in zeros:
+                # take 1 from the largest bucket
+                donor = max(subs, key=lambda d: sub_target[d])
+                if sub_target[donor] <= 1:
+                    break
+                sub_target[donor] -= 1
+                sub_target[s] += 1
+
+        # pick questions per subchapter
+        for s in subs:
+            bucket = list(by_cat[cat][s])
+            rng.shuffle(bucket)
+            take = min(sub_target[s], len(bucket))
+            selected.extend(bucket[:take])
+
+    # If we underfilled (buckets too small), top up from remaining questions
+    if len(selected) < n:
+        selected_ids = {str(q.get("id")) for q in selected}
+        remaining = [q for q in questions if str(q.get("id")) not in selected_ids]
+        rng.shuffle(remaining)
+        selected.extend(remaining[: max(0, n - len(selected))])
+
+    # If we overfilled, trim deterministically
+    if len(selected) > n:
+        rng.shuffle(selected)
+        selected = selected[:n]
+
+    rng.shuffle(selected)
+    return selected
+
 # =============================================================================
 # DASHBOARD
 # =============================================================================
@@ -966,12 +1064,26 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         if total:
             best = max(best, int(round((corr / total) * 100)))
 
+    # Trend/Avg (last 7)
+    last7 = runs[:7]
+    if last7:
+        pcts7 = []
+        for r in last7:
+            t = int(r.get("total") or 0)
+            c = int(r.get("correct") or 0)
+            pcts7.append(int(round((c / t) * 100)) if t else 0)
+        avg7 = int(round(sum(pcts7) / len(pcts7)))
+        trend7 = (pcts7[0] - pcts7[-1]) if len(pcts7) >= 2 else 0
+    else:
+        avg7 = 0
+        trend7 = 0
+
     st.markdown(
         f"""
 <div class="pp-grid">
   <div class="pp-kpi"><b>Abdeckung</b><br>{overall}%<div class="pp-muted">Fragen mindestens 1× gesehen</div></div>
   <div class="pp-kpi"><b>Trefferquote</b><br>{accuracy_total}%<div class="pp-muted">{c_total} richtig · {w_total} falsch</div></div>
-  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}%</div></div>
+  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}% · Ø7 {avg7}% · Trend {('+' if trend7>0 else '')}{trend7}</div></div>
   <div class="pp-kpi"><b>Beste Prüfung</b><br>{best}%<div class="pp-muted">Letzte: {('-' if last_pct is None else str(last_pct)+'%')}</div></div>
 </div>
 """,
@@ -1351,7 +1463,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
         c1, c2 = st.columns([1, 1])
         if c1.button("Prüfung starten", type="primary"):
             _reset_exam_state()
-            st.session_state.exam_queue = build_exam_queue(questions, n=40)
+            st.session_state.exam_queue = build_exam_queue_balanced(questions, n=40, seed=int(time.time()))
             st.session_state.exam_idx = 0
             st.session_state.exam_started = True
             st.session_state.exam_done = False

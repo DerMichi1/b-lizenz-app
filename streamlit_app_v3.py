@@ -235,8 +235,14 @@ def _set_session_tokens(access: str, refresh: str):
     supa().auth.set_session(access, refresh)
 
 def _restore_session_from_cookie(cookies):
-    access = cookies.get("access", "") or ""
-    refresh = cookies.get("refresh", "") or ""
+    # cookies may not be ready yet -> do NOT crash
+    try:
+        access = cookies.get("access", "") or ""
+        refresh = cookies.get("refresh", "") or ""
+    except Exception:
+        # includes CookiesNotReady
+        return
+
     if access and refresh and "user" not in st.session_state:
         try:
             supa().auth.set_session(access, refresh)
@@ -252,25 +258,25 @@ def auth_ui(cookies):
     tab_login, tab_register = st.sidebar.tabs(["Login", "Registrieren"])
 
     with tab_login:
-        saved_email = (cookies.get("email", "") or "")
-        email = st.text_input("E-Mail", value=saved_email, key="login_email")
-        pw = st.text_input("Passwort", type="password", key="login_pw")
-        remember = st.checkbox("Angemeldet bleiben", value=True, key="remember_me")
+try:
+    saved_email = (cookies.get("email", "") or "")
+except Exception:
+    saved_email = ""
 
-        col1, col2 = st.columns(2)
-        if col1.button("Login", use_container_width=True):
-            res = supa().auth.sign_in_with_password({"email": email, "password": pw})
-            st.session_state.user = res.user
-            _set_session_tokens(res.session.access_token, res.session.refresh_token)
-
-            cookies["email"] = email
-            if remember:
-                cookies["access"] = res.session.access_token
-                cookies["refresh"] = res.session.refresh_token
-            else:
-                cookies["access"] = ""
-                cookies["refresh"] = ""
-            cookies.save()
+email = st.text_input("E-Mail", value=saved_email, key="login_email")
+...
+# cookie writes must not crash if CookiesNotReady
+try:
+    cookies["email"] = email
+    if remember:
+        cookies["access"] = res.session.access_token
+        cookies["refresh"] = res.session.refresh_token
+    else:
+        cookies["access"] = ""
+        cookies["refresh"] = ""
+    cookies.save()
+except Exception:
+    pass
 
             _reset_app_state(hard=True)
             st.session_state.page = "dashboard"

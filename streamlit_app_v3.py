@@ -13,11 +13,13 @@ from supabase import create_client, Client
 # =============================================================================
 APP_DIR = Path(__file__).parent
 QUESTIONS_PATH = APP_DIR / "questions.json"
-BILDER_PDF = APP_DIR / "Bilder.pdf"          # <-- updated
-WIKI_PATH = APP_DIR / "wiki_content.json"    # must contain entry per question id
+BILDER_PDF = APP_DIR / "Bilder.pdf"  # PDF with figures (page numbers referenced by questions[*].figures[*].bilder_page)
 
 
 def cfg(path: str, default: str = "") -> str:
+    """
+    Read from Streamlit secrets only.
+    """
     parts = path.split(".")
     cur: Any = st.secrets
     for p in parts:
@@ -32,6 +34,10 @@ PASS_PCT = float(cfg("PASS_PCT", "75"))
 SUPABASE_URL = cfg("supabase.url")
 SUPABASE_SERVICE_ROLE_KEY = cfg("supabase.service_role_key")
 SUPABASE_ANON_KEY = cfg("supabase.anon_key")
+
+OPENAI_API_KEY = cfg("openai.api_key")
+OPENAI_MODEL = cfg("openai.model", "gpt-4.1-mini")
+
 
 # =============================================================================
 # REQUIRED CLUSTERING (display/progress structure)
@@ -92,37 +98,83 @@ def supa() -> Client:
 
     key = SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY
     if not key:
-        raise RuntimeError("Supabase secret fehlt: [supabase].service_role_key (empfohlen) oder [supabase].anon_key")
+        raise RuntimeError(
+            "Supabase secret fehlt: [supabase].service_role_key (empfohlen) oder [supabase].anon_key"
+        )
 
     return create_client(SUPABASE_URL, key)
 
 
 # =============================================================================
-# QUESTIONS / WIKI
+# QUESTIONS / WIKI / AI (single source of truth: questions.json)
 # =============================================================================
 @st.cache_data(show_spinner=False)
 def load_questions() -> List[Dict[str, Any]]:
     if not QUESTIONS_PATH.exists():
         raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
-    return json.loads(QUESTIONS_PATH.read_text("utf-8"))
+    data = json.loads(QUESTIONS_PATH.read_text("utf-8"))
+    if not isinstance(data, list):
+        raise ValueError("questions.json muss eine Liste sein.")
+    return data
 
 
-def build_wiki_map_from_questions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+def get_wiki(q: Dict[str, Any]) -> Dict[str, Any]:
+    w = q.get("wiki")
+    if isinstance(w, dict):
+        return {
+            "explanation": (w.get("explanation") or "").strip(),
+            "merksatz": (w.get("merksatz") or "").strip(),
+            "links": w.get("links") or [],
+        }
+    return {"explanation": "", "merksatz": "", "links": []}
+
+
+def get_ai_cfg(q: Dict[str, Any]) -> Dict[str, Any]:
+    a = q.get("ai")
+    if isinstance(a, dict):
+        return {
+            "allowed": bool(a.get("allowed", True)),
+            "context": (a.get("context") or "").strip(),
+            "system_hint": (a.get("system_hint") or "").strip()
+            or "Antworte strikt faktenbasiert. Wenn unsicher, sag es. Verweise auf offizielle Quellen/Links.",
+        }
+    return {"allowed": True, "context": "", "system_hint": "Antworte strikt faktenbasiert. Wenn unsicher, sag es."}
+
+
+def validate_questions(questions: List[Dict[str, Any]]) -> Dict[str, int]:
     """
-    Primary source: questions.json -> question["wiki"].
-    Returns a map keyed by question id (e.g., "Q081").
+    Hard validation to avoid silent errors in production.
     """
-    out: Dict[str, Dict[str, Any]] = {}
+    missing_id = 0
+    bad_correct = 0
+    bad_opts = 0
+    missing_wiki = 0
     for q in questions:
         qid = str(q.get("id") or "").strip()
         if not qid:
-            continue
+            missing_id += 1
+
+        opts = q.get("options") or []
+        if not isinstance(opts, list) or len(opts) < 2:
+            bad_opts += 1
+
+        try:
+            ci = int(q.get("correctIndex", -1))
+        except Exception:
+            ci = -1
+        if ci < 0 or ci > 3:
+            bad_correct += 1
+
         w = q.get("wiki")
-        if isinstance(w, dict):
-            out[qid] = w
-        else:
-            out[qid] = {"explanation": "", "merksatz": "", "links": []}
-    return out
+        if not isinstance(w, dict):
+            missing_wiki += 1
+
+    return {
+        "missing_id": missing_id,
+        "bad_correctIndex": bad_correct,
+        "bad_options": bad_opts,
+        "missing_wiki_obj": missing_wiki,
+    }
 
 
 def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], List[Dict[str, Any]]]:
@@ -156,6 +208,34 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
         return pix.tobytes("png")
     except Exception:
         return None
+
+
+def render_figures(q: Dict[str, Any], max_n: int = 3):
+    figs = q.get("figures") or []
+    if not isinstance(figs, list):
+        return
+    shown = 0
+    for f in figs:
+        if shown >= max_n:
+            break
+        if not isinstance(f, dict):
+            continue
+        fig_no = f.get("figure")
+        try:
+            page_1based = int(f.get("bilder_page") or 0)
+        except Exception:
+            page_1based = 0
+        if page_1based <= 0:
+            continue
+
+        png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
+        if png:
+            st.image(
+                png,
+                caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})",
+                use_container_width=True,
+            )
+            shown += 1
 
 
 # =============================================================================
@@ -245,7 +325,15 @@ def db_upsert_progress(uid: str, qid: str, ok: bool):
 
 def db_get_note(uid: str, qid: str) -> str:
     try:
-        r = supa().table("notes").select("note_text").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+        r = (
+            supa()
+            .table("notes")
+            .select("note_text")
+            .eq("user_id", uid)
+            .eq("question_id", qid)
+            .limit(1)
+            .execute()
+        )
         if r.data:
             return (r.data[0].get("note_text") or "").strip()
     except Exception:
@@ -297,16 +385,33 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
 # =============================================================================
 def _reset_learning_state():
     for k in [
-        "queue", "idx", "answered", "last_ok", "last_correct_index", "last_selected_index",
-        "learn_started", "learn_plan"
+        "queue",
+        "idx",
+        "answered",
+        "last_ok",
+        "last_correct_index",
+        "last_selected_index",
+        "learn_started",
+        "learn_plan",
+        "ai_chat",
+        "ai_draft",
     ]:
         st.session_state.pop(k, None)
 
 
 def _reset_exam_state():
     for k in [
-        "exam_queue", "exam_idx", "exam_correct", "exam_done", "exam_answered",
-        "exam_last_ok", "exam_last_selected", "exam_last_correct", "exam_started", "exam_plan"
+        "exam_queue",
+        "exam_idx",
+        "exam_correct",
+        "exam_done",
+        "exam_answered",
+        "exam_last_ok",
+        "exam_last_selected",
+        "exam_last_correct",
+        "exam_started",
+        "ai_chat",
+        "ai_draft",
     ]:
         st.session_state.pop(k, None)
 
@@ -401,15 +506,7 @@ def overall_correct_wrong(progress: Dict[str, Dict[str, Any]]) -> Tuple[int, int
     return c, w
 
 
-def weakest_subchapters(
-    stats: Dict[str, Dict[str, Dict[str, int]]],
-    min_seen: int = 6,
-    topn: int = 8
-) -> List[Dict[str, Any]]:
-    """
-    Rank subchapters by low accuracy. We require a minimum number of answered attempts
-    (correct_total + wrong_total) to avoid nonsense on fresh accounts.
-    """
+def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: int = 6, topn: int = 8) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     for cat, subs in stats.items():
         for sub, s in subs.items():
@@ -417,15 +514,132 @@ def weakest_subchapters(
             if attempts < min_seen:
                 continue
             acc = (int(s.get("correct_total", 0)) / attempts) if attempts else 0.0
-            rows.append({
-                "category": cat,
-                "subchapter": sub,
-                "attempts": attempts,
-                "accuracy": acc,
-                "wrong": int(s.get("wrong_total", 0)),
-            })
+            rows.append(
+                {
+                    "category": cat,
+                    "subchapter": sub,
+                    "attempts": attempts,
+                    "accuracy": acc,
+                    "wrong": int(s.get("wrong_total", 0)),
+                }
+            )
     rows.sort(key=lambda r: (r["accuracy"], -r["attempts"]))
     return rows[:topn]
+
+
+# =============================================================================
+# AI (OpenAI)
+# =============================================================================
+def ai_available() -> bool:
+    if not OPENAI_API_KEY:
+        return False
+    try:
+        import openai  # noqa: F401
+        return True
+    except Exception:
+        return False
+
+
+def ai_ask_question(q: Dict[str, Any], user_text: str) -> str:
+    """
+    Grounded assistant: includes question, options, correctIndex, wiki, figures.
+    Note: this is for "Rückfragen" AFTER answering; it can reveal correct answer.
+    """
+    ai_cfg = get_ai_cfg(q)
+    system_hint = ai_cfg["system_hint"]
+    context = ai_cfg["context"]
+
+    opts = q.get("options") or []
+    while len(opts) < 4:
+        opts.append("")
+
+    w = get_wiki(q)
+    prompt = f"""
+SYSTEM:
+{system_hint}
+
+KONTEXT:
+{context}
+
+FRAGE:
+{(q.get("question") or "").strip()}
+
+OPTIONEN:
+A) {opts[0]}
+B) {opts[1]}
+C) {opts[2]}
+D) {opts[3]}
+
+RICHTIGE OPTION (Index):
+{int(q.get("correctIndex", -1))}
+
+WIKI-KURZ:
+{w.get("explanation","")}
+
+MERKSATZ:
+{w.get("merksatz","")}
+
+USER-FRAGE:
+{user_text}
+""".strip()
+
+    try:
+        from openai import OpenAI
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        resp = client.chat.completions.create(
+            model=OPENAI_MODEL,
+            messages=[
+                {"role": "system", "content": system_hint},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.2,
+        )
+        return (resp.choices[0].message.content or "").strip()
+    except Exception as e:
+        return f"KI-Fehler: {e}"
+
+
+def render_ai_chat(q: Dict[str, Any], qid: str):
+    ai_cfg = get_ai_cfg(q)
+    if not ai_cfg["allowed"]:
+        st.caption("KI-Nachfragen sind für diese Frage deaktiviert.")
+        return
+
+    if "ai_chat" not in st.session_state:
+        st.session_state.ai_chat = {}
+    st.session_state.ai_chat.setdefault(qid, [])
+    history = st.session_state.ai_chat[qid]
+
+    if not ai_available():
+        st.warning("OpenAI nicht verfügbar (fehlender Key oder openai-Paket nicht installiert).")
+        st.caption("Setze in Streamlit secrets: [openai].api_key und optional [openai].model")
+        return
+
+    for msg in history:
+        role = msg.get("role", "assistant")
+        content = msg.get("content", "")
+        with st.chat_message(role):
+            st.markdown(content)
+
+    st.session_state.setdefault("ai_draft", "")
+    user_text = st.text_area("Deine Rückfrage", key=f"ai_draft_{qid}", height=90, placeholder="Warum ist Antwort D korrekt? Bitte kurz erklären.")
+    c1, c2 = st.columns([1, 1])
+    send = c1.button("Senden", key=f"ai_send_{qid}", type="primary")
+    clear = c2.button("Chat leeren", key=f"ai_clear_{qid}")
+
+    if clear:
+        st.session_state.ai_chat[qid] = []
+        st.rerun()
+
+    if send:
+        user_text = (user_text or "").strip()
+        if not user_text:
+            st.warning("Bitte eine Frage eingeben.")
+            return
+        history.append({"role": "user", "content": user_text})
+        answer = ai_ask_question(q, user_text)
+        history.append({"role": "assistant", "content": answer})
+        st.rerun()
 
 
 # =============================================================================
@@ -482,7 +696,7 @@ def nav_sidebar(claims: Dict[str, str]):
 
 
 # =============================================================================
-# DASHBOARD (more stats + clickable jump-to-learn)
+# DASHBOARD
 # =============================================================================
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
     st.title("Fortschritt Übersicht")
@@ -512,7 +726,6 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         if total:
             best = max(best, int(round((corr / total) * 100)))
 
-    # KPI row
     st.markdown(
         f"""
 <div class="pp-grid">
@@ -528,8 +741,6 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
     st.write("")
     cA, cB, cC = st.columns([1, 1, 1])
     if cA.button("Lernsession starten"):
-        st.session_state.page = "learn"
-        st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
@@ -545,33 +756,40 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.rerun()
 
     st.write("")
-    # Visuals: progress + accuracy
     v1, v2 = st.columns([1, 1])
     with v1:
-        st.markdown('<div class="pp-card2"><b>Abdeckung</b><div class="pp-muted">Wie viel vom Fragenkatalog du schon gesehen hast</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="pp-card2"><b>Abdeckung</b><div class="pp-muted">Wie viel vom Fragenkatalog du schon gesehen hast</div>',
+            unsafe_allow_html=True,
+        )
         st.progress(overall / 100.0)
         st.markdown("</div>", unsafe_allow_html=True)
     with v2:
-        st.markdown('<div class="pp-card2"><b>Trefferquote</b><div class="pp-muted">Richtig vs. Falsch (alle Versuche)</div>', unsafe_allow_html=True)
+        st.markdown(
+            '<div class="pp-card2"><b>Trefferquote</b><div class="pp-muted">Richtig vs. Falsch (alle Versuche)</div>',
+            unsafe_allow_html=True,
+        )
         if attempts_total:
             st.bar_chart({"Richtig": c_total, "Falsch": w_total})
         else:
             st.caption("Noch keine beantworteten Fragen.")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # Weak areas (clickable)
     st.write("")
     st.markdown("## Fokus: Schwache Bereiche")
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
     if not weak:
-        st.caption("Noch zu wenig Daten. Beantworte erst ein paar Fragen (mind. 6 pro Unterkapitel), dann wird hier priorisiert.")
+        st.caption("Noch zu wenig Daten. (mind. 6 Antworten pro Unterkapitel)")
     else:
         for row in weak:
             acc = int(round(row["accuracy"] * 100))
             wrong = row["wrong"]
             attempts = row["attempts"]
             cc1, cc2, cc3, cc4 = st.columns([3, 1, 1, 2])
-            cc1.markdown(f"**{row['category']} · {row['subchapter']}**  \n<span class='pp-muted'>{attempts} Versuche · {wrong} falsch</span>", unsafe_allow_html=True)
+            cc1.markdown(
+                f"**{row['category']} · {row['subchapter']}**  \n<span class='pp-muted'>{attempts} Versuche · {wrong} falsch</span>",
+                unsafe_allow_html=True,
+            )
             cc2.markdown(f"<span class='pp-pill'>Acc {acc}%</span>", unsafe_allow_html=True)
             cc3.markdown(f"<span class='pp-pill'>Wrong {wrong}</span>", unsafe_allow_html=True)
             if cc4.button("Gezielt üben", key=f"weak_{row['category']}::{row['subchapter']}"):
@@ -623,29 +841,43 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
 
 
 # =============================================================================
-# LEARN (questions only after session start; filters hidden during session)
+# LEARN
 # =============================================================================
-def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]], wiki: Dict[str, Any]):
+def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
     st.title("Lernen")
 
-    # Plan (from dashboard shortcuts) or defaults
     if "learn_plan" not in st.session_state:
         st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
-
     if "learn_started" not in st.session_state:
         st.session_state.learn_started = False
 
-    # --- PRE-START: show filters + start
+    # PRE-START
     if not st.session_state.learn_started:
         plan = st.session_state.learn_plan
 
         cats = sorted(set((q.get("category") or "").strip() for q in questions if q.get("category")))
-        sel_category = st.selectbox("Kategorie", ["Alle"] + cats, index=(["Alle"] + cats).index(plan["category"]) if plan["category"] in (["Alle"] + cats) else 0, key="sel_category")
+        sel_category = st.selectbox(
+            "Kategorie",
+            ["Alle"] + cats,
+            index=(["Alle"] + cats).index(plan["category"]) if plan["category"] in (["Alle"] + cats) else 0,
+            key="sel_category",
+        )
 
         subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
         if sel_category != "Alle":
-            subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if (q.get("category") or "") == sel_category))
-        sel_subchapter = st.selectbox("Unterkapitel", ["Alle"] + subs, index=(["Alle"] + subs).index(plan["subchapter"]) if plan["subchapter"] in (["Alle"] + subs) else 0, key="sel_subchapter")
+            subs = sorted(
+                set(
+                    (q.get("subchapter") or "").strip()
+                    for q in questions
+                    if (q.get("category") or "") == sel_category
+                )
+            )
+        sel_subchapter = st.selectbox(
+            "Unterkapitel",
+            ["Alle"] + subs,
+            index=(["Alle"] + subs).index(plan["subchapter"]) if plan["subchapter"] in (["Alle"] + subs) else 0,
+            key="sel_subchapter",
+        )
 
         only_unseen = st.checkbox("Nur ungelernt", value=bool(plan.get("only_unseen", False)), key="only_unseen")
         only_wrong = st.checkbox("Nur falsch beantwortete", value=bool(plan.get("only_wrong", False)), key="only_wrong")
@@ -658,7 +890,12 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             st.rerun()
 
         if start:
-            st.session_state.learn_plan = {"category": sel_category, "subchapter": sel_subchapter, "only_unseen": only_unseen, "only_wrong": only_wrong}
+            st.session_state.learn_plan = {
+                "category": sel_category,
+                "subchapter": sel_subchapter,
+                "only_unseen": only_unseen,
+                "only_wrong": only_wrong,
+            }
             st.session_state.queue = build_learning_queue(
                 questions=questions,
                 progress=progress,
@@ -677,7 +914,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
         st.stop()
 
-    # --- IN SESSION: hide filters, show compact session header + actions
+    # IN SESSION
     plan = st.session_state.learn_plan
     queue: List[Dict[str, Any]] = st.session_state.get("queue", [])
     idx: int = int(st.session_state.get("idx", 0))
@@ -723,16 +960,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     )
     st.write("")
 
-    # Render all linked figures (if present)
-    figs = q.get("figures") or []
-    if figs:
-        for f in figs[:3]:
-            fig_no = f.get("figure")
-            page_1based = int(f.get("bilder_page") or 0)
-            if page_1based > 0:
-                png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
-                if png:
-                    st.image(png, caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})", use_container_width=True)
+    render_figures(q, max_n=3)
 
     labels = ["A", "B", "C", "D"]
 
@@ -759,118 +987,33 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if corr_i is not None and 0 <= int(corr_i) < len(options):
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
-# --- Wiki (from questions.json) ---
-w = wiki.get(qid, {})
-with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):
-    explanation = (w.get("explanation") or "").strip()
-    merksatz = (w.get("merksatz") or "").strip()
-    links = w.get("links") or []
+        # Wiki (from questions.json)
+        w = get_wiki(q)
+        with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):
+            if w["explanation"]:
+                st.markdown(w["explanation"])
+            else:
+                st.warning("Wiki-Inhalt ist leer. (questions.json -> wiki.explanation)")
 
-    if explanation:
-        st.markdown(explanation)
-    else:
-        st.warning("Wiki-Inhalt ist leer. (In questions.json -> wiki.explanation befüllen)")
+            if w["merksatz"]:
+                st.markdown(f"**Merksatz:** {w['merksatz']}")
 
-    if merksatz:
-        st.markdown(f"**Merksatz:** {merksatz}")
+            links = w.get("links") or []
+            if links:
+                st.markdown("**Weiterlesen (offizielle Quellen):**")
+                for li in links:
+                    if not isinstance(li, dict):
+                        continue
+                    title = (li.get("title") or "Link").strip()
+                    url = (li.get("url") or "").strip()
+                    if url:
+                        st.markdown(f"- [{title}]({url})")
+            else:
+                st.caption("Keine Links hinterlegt.")
 
-    if links:
-        st.markdown("**Weiterlesen (offizielle Quellen):**")
-        for li in links:
-            title = (li.get("title") or "Link").strip()
-            url = (li.get("url") or "").strip()
-            if url:
-                st.markdown(f"- [{title}]({url})")
-    else:
-        st.caption("Keine Links hinterlegt.")
-
-# --- KI-Nachfrage / Chatbot zur aktuellen Frage ---
-ai_cfg = q.get("ai") if isinstance(q.get("ai"), dict) else {}
-ai_allowed = bool(ai_cfg.get("allowed", True))
-
-with st.expander("KI-Nachfrage zur Frage", expanded=False):
-    if not ai_allowed:
-        st.caption("KI-Nachfragen sind für diese Frage deaktiviert.")
-    else:
-        # Lazy init chat storage
-        if "ai_chat" not in st.session_state:
-            st.session_state.ai_chat = {}
-        st.session_state.ai_chat.setdefault(qid, [])
-        history = st.session_state.ai_chat[qid]
-
-        # Render history
-        for msg in history:
-            role = msg.get("role", "assistant")
-            content = msg.get("content", "")
-            with st.chat_message(role):
-                st.markdown(content)
-
-        user_text = st.chat_input("Frage zur aktuellen Aufgabe eingeben…", key=f"chat_in_{qid}")
-        if user_text:
-            history.append({"role": "user", "content": user_text})
-
-            # Build grounded prompt: question + options + correct + wiki + figures hint
-            system_hint = (ai_cfg.get("system_hint") or "Antworte strikt faktenbasiert. Wenn unsicher, sag es. Verweise auf offizielle Quellen/Links.")
-            context = (ai_cfg.get("context") or "").strip()
-
-            prompt = f"""
-SYSTEM:
-{system_hint}
-
-KONTEXT:
-{context}
-
-FRAGE:
-{question}
-
-OPTIONEN:
-A) {options[0] if len(options)>0 else ""}
-B) {options[1] if len(options)>1 else ""}
-C) {options[2] if len(options)>2 else ""}
-D) {options[3] if len(options)>3 else ""}
-
-RICHTIGE OPTION (Index):
-{correct_index}
-
-WIKI-KURZ:
-{(w.get("explanation") or "").strip()}
-
-MERKSATZ:
-{(w.get("merksatz") or "").strip()}
-
-USER-FRAGE:
-{user_text}
-""".strip()
-
-            # Call OpenAI (requires secret: openai.api_key)
-            api_key = ""
-            try:
-                api_key = (st.secrets.get("openai", {}).get("api_key", "") or "").strip()
-            except Exception:
-                api_key = ""
-
-            if not api_key:
-                history.append({"role": "assistant", "content": "OpenAI API Key fehlt in st.secrets: [openai].api_key"})
-                st.rerun()
-
-            try:
-                from openai import OpenAI
-                client = OpenAI(api_key=api_key)
-
-                resp = client.chat.completions.create(
-                    model=(st.secrets.get("openai", {}).get("model", "gpt-4.1-mini")),
-                    messages=[
-                        {"role": "system", "content": system_hint},
-                        {"role": "user", "content": prompt},
-                    ],
-                    temperature=0.2,
-                )
-                answer = resp.choices[0].message.content or ""
-                history.append({"role": "assistant", "content": answer})
-            except Exception as e:
-                history.append({"role": "assistant", "content": f"KI-Fehler: {e}"})
-
-            st.rerun()
+        # AI follow-up
+        with st.expander("KI-Nachfrage zur Frage", expanded=False):
+            render_ai_chat(q, qid)
 
         existing_note = db_get_note(uid, qid)
         with st.expander("Deine Bemerkung (nur für dich)", expanded=False):
@@ -890,7 +1033,6 @@ USER-FRAGE:
             st.session_state.last_selected_index = None
             st.rerun()
         if c2.button("Gezielt: nur falsch in diesem Set"):
-            # Rebuild queue with only_wrong=True, keep same cat/sub
             plan2 = dict(plan)
             plan2["only_wrong"] = True
             st.session_state.learn_plan = plan2
@@ -908,15 +1050,14 @@ USER-FRAGE:
 
 
 # =============================================================================
-# EXAM (questions only after start; no filters bar)
+# EXAM
 # =============================================================================
-def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
+def page_exam(uid: str, questions: List[Dict[str, Any]]):
     st.title("Prüfungssimulation (40)")
 
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
 
-    # Pre-start screen
     if not st.session_state.exam_started:
         st.markdown(
             """<div class="pp-card2"><b>Regeln</b>
@@ -940,7 +1081,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             st.rerun()
         st.stop()
 
-    # In exam session
     top1, top2, top3 = st.columns([1, 1, 1])
     if top1.button("Prüfung abbrechen"):
         st.session_state.exam_started = False
@@ -960,7 +1100,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     i = int(st.session_state.exam_idx)
     total = len(qlist)
 
-    # progress indicator
     if total:
         st.progress(min(1.0, i / total))
 
@@ -1016,15 +1155,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
     )
     st.write("")
 
-    figs = q.get("figures") or []
-    if figs:
-        for f in figs[:2]:
-            fig_no = f.get("figure")
-            page_1based = int(f.get("bilder_page") or 0)
-            if page_1based > 0:
-                png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
-                if png:
-                    st.image(png, caption=f"Abbildung {fig_no} (Bilder.pdf Seite {page_1based})", use_container_width=True)
+    render_figures(q, max_n=2)
 
     labels = ["A", "B", "C", "D"]
 
@@ -1049,6 +1180,10 @@ def page_exam(uid: str, questions: List[Dict[str, Any]], wiki: Dict[str, Any]):
             if 0 <= ci < len(options):
                 st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
+        # Optional: AI in exam too (after answering)
+        with st.expander("KI-Nachfrage zur Frage", expanded=False):
+            render_ai_chat(q, qid)
+
         if st.button("Nächste Frage", type="primary"):
             st.session_state.exam_idx = i + 1
             st.session_state.exam_answered = False
@@ -1068,12 +1203,20 @@ if not QUESTIONS_PATH.exists():
 
 require_login()
 claims = user_claims()
-
 ensure_user_registered(claims)
-
 uid = stable_user_id(claims)
+
 questions = load_questions()
-wiki = build_wiki_map_from_questions(questions)
+val = validate_questions(questions)
+if any(v > 0 for v in val.values()):
+    st.sidebar.markdown("## Daten-Checks")
+    st.sidebar.warning(
+        f"questions.json hat Probleme: "
+        f"missing_id={val['missing_id']}, "
+        f"bad_correctIndex={val['bad_correctIndex']}, "
+        f"bad_options={val['bad_options']}, "
+        f"missing_wiki_obj={val['missing_wiki_obj']}"
+    )
 
 progress = db_load_progress(uid)
 st.session_state.progress = progress
@@ -1085,8 +1228,8 @@ nav_sidebar(claims)
 
 page = st.session_state.page
 if page == "learn":
-    page_learn(uid, questions, progress, wiki)
+    page_learn(uid, questions, progress)
 elif page == "exam":
-    page_exam(uid, questions, wiki)
+    page_exam(uid, questions)
 else:
     page_dashboard(uid, questions, progress)

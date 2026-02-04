@@ -224,28 +224,45 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
         page = doc.load_page(page_index)
 
         mat = fitz.Matrix(float(zoom), float(zoom))
-        pix = page.get_pixmap(matrix=mat, alpha=False)
+@st.cache_data(show_spinner=False)
+def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0, clip: Optional[List[float]] = None) -> Optional[bytes]:
+    try:
+        import fitz
+    except Exception:
+        return None
+
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        doc = fitz.open(str(p))
+        if doc.page_count <= 0:
+            return None
+
+        page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+        page = doc.load_page(page_index)
+
+        mat = fitz.Matrix(float(zoom), float(zoom))
+
+        clip_rect = None
+        if isinstance(clip, list) and len(clip) == 4:
+            clip_rect = fitz.Rect(float(clip[0]), float(clip[1]), float(clip[2]), float(clip[3]))
+
+        pix = page.get_pixmap(matrix=mat, alpha=False, clip=clip_rect)
         return pix.tobytes("png")
     except Exception:
         return None
 
 
+
 @st.cache_data(show_spinner=False)
-def load_figure_map() -> Dict[str, int]:
-    """figure_map.json: {"43": 12, "47": 14, ...} (1-based Seiten)"""
+def load_figure_map() -> Dict[str, Any]:
     if not FIGURE_MAP_PATH.exists():
         return {}
     try:
         data = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
-        if not isinstance(data, dict):
-            return {}
-        out: Dict[str, int] = {}
-        for k, v in data.items():
-            try:
-                out[str(k).strip()] = int(v)
-            except Exception:
-                continue
-        return out
+        return data if isinstance(data, dict) else {}
     except Exception:
         return {}
 
@@ -287,12 +304,21 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
             page_1based = 0
 
         if page_1based <= 0:
-            page_1based = int(fig_map.get(str(fig_no_int), 0))
+entry = fig_map.get(str(fig_no_int))
+page_1based = 0
+clip = None
 
-        if page_1based <= 0:
-            continue
+if isinstance(entry, int):
+    page_1based = entry
+elif isinstance(entry, dict):
+    page_1based = int(entry.get("page") or 0)
+    clip = entry.get("clip")
 
-        png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0)
+if page_1based <= 0:
+    continue
+
+png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=clip)
+
         if png:
             st.image(
                 png,

@@ -14,6 +14,7 @@ from supabase import create_client, Client
 APP_DIR = Path(__file__).parent
 QUESTIONS_PATH = APP_DIR / "questions.json"
 BILDER_PDF = APP_DIR / "Bilder.pdf"  # PDF with figures (page numbers referenced by questions[*].figures[*].bilder_page)
+FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # optional: {"1": 12, "2": 13, ...} (figure -> Bilder.pdf page)
 
 
 def cfg(path: str, default: str = "") -> str:
@@ -110,8 +111,20 @@ def supa() -> Client:
 # =============================================================================
 @st.cache_data(show_spinner=False)
 def load_questions() -> List[Dict[str, Any]]:
+    """Load questions from the bundled questions.json.
+
+    Important: The app can override this file at runtime via the sidebar uploader.
+    The override is stored in st.session_state (not on disk).
+    """
+
+    # Runtime override (sidebar upload)
+    override = st.session_state.get("questions_override")
+    if isinstance(override, list) and override:
+        return override
+
     if not QUESTIONS_PATH.exists():
         raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
+
     data = json.loads(QUESTIONS_PATH.read_text("utf-8"))
     if not isinstance(data, list):
         raise ValueError("questions.json muss eine Liste sein.")
@@ -195,6 +208,59 @@ def render_pdf_page_png(pdf_path: str, page_1based: int, zoom: float = 2.0) -> O
         import fitz  # PyMuPDF
     except Exception:
         return None
+
+
+@st.cache_data(show_spinner=False)
+def load_figure_map() -> Dict[str, int]:
+    """Optional helper to map 'Abbildung N' -> Bilder.pdf page.
+
+    Use when questions.json doesn't contain figures[*].bilder_page.
+    Expected format:
+      {
+        "1": 12,
+        "2": 13,
+        ...
+      }
+    """
+    if not FIGURE_MAP_PATH.exists():
+        return {}
+    try:
+        raw = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
+        if not isinstance(raw, dict):
+            return {}
+        out: Dict[str, int] = {}
+        for k, v in raw.items():
+            try:
+                out[str(k).strip()] = int(v)
+            except Exception:
+                continue
+        return out
+    except Exception:
+        return {}
+
+
+@st.cache_data(show_spinner=False)
+def load_figure_map() -> Dict[str, int]:
+    """Optional mapping of figure number -> Bilder.pdf page (1-based).
+
+    This avoids having to duplicate bilder_page on every question.
+    If the file doesn't exist or is invalid, returns {}.
+    """
+    if not FIGURE_MAP_PATH.exists():
+        return {}
+    try:
+        data = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
+        if not isinstance(data, dict):
+            return {}
+        out: Dict[str, int] = {}
+        for k, v in data.items():
+            try:
+                out[str(k)] = int(v)
+            except Exception:
+                continue
+        return out
+    except Exception:
+        return {}
 
     p = Path(pdf_path)
     if not p.exists():
@@ -694,6 +760,34 @@ def nav_sidebar(claims: Dict[str, str]):
         _reset_learning_state()
         st.rerun()
 
+    # ---------------------------------------------------------------------
+    # Daten (Runtime Override)
+    # - helps avoid the "I downloaded a file but nothing changed" trap.
+    # - does NOT write to disk (safe for Streamlit Cloud).
+    # ---------------------------------------------------------------------
+    with st.sidebar.expander("Daten", expanded=False):
+        st.caption("Optional: questions.json zur Laufzeit überschreiben (ohne Speicherung).")
+        up = st.file_uploader("questions.json hochladen", type=["json"], key="upload_questions")
+        if up is not None:
+            try:
+                data = json.loads(up.getvalue().decode("utf-8"))
+                if not isinstance(data, list):
+                    raise ValueError("JSON muss eine Liste von Fragen sein.")
+                st.session_state.questions_override = data
+                # reset sessions so the new data is used immediately
+                _reset_learning_state()
+                _reset_exam_state()
+                st.success(f"Geladen: {len(data)} Fragen")
+                st.rerun()
+            except Exception as e:
+                st.error(f"Upload-Fehler: {e}")
+
+        if st.button("Override zurücksetzen", use_container_width=True):
+            st.session_state.pop("questions_override", None)
+            _reset_learning_state()
+            _reset_exam_state()
+            st.rerun()
+
 
 # =============================================================================
 # DASHBOARD
@@ -993,7 +1087,12 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if w["explanation"]:
                 st.markdown(w["explanation"])
             else:
-                st.warning("Wiki-Inhalt ist leer. (questions.json -> wiki.explanation)")
+                src = "Upload-Override" if st.session_state.get("questions_override") else "questions.json (App-Verzeichnis)"
+                st.error(
+                    f"Wiki-Inhalt ist leer für {qid}. Quelle: {src}. "
+                    f"Prüfe: question['wiki']['explanation'] ist befüllt und die App lädt wirklich die erwartete Datei. "
+                    f"(Tipp: Sidebar → Daten → questions.json hochladen.)"
+                )
 
             if w["merksatz"]:
                 st.markdown(f"**Merksatz:** {w['merksatz']}")

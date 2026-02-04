@@ -99,9 +99,11 @@ def get_cookies():
 
     cookies = st.session_state.cookies_mgr
 
-    if not cookies.ready():
+if not cookies.ready():
+    if not st.session_state.get("_cookie_bootstrap_done"):
+        st.session_state["_cookie_bootstrap_done"] = True
         st.markdown("## B-Lizenz Lernapp")
-        st.info("Initialisiere Login-Session – Seite lädt neu …")
+        st.info("Initialisiere Login-Session – einmaliger Reload …")
         st.stop()
 
     return cookies

@@ -10,8 +10,8 @@ from supabase import create_client, Client
 # CONFIG
 # -----------------------------
 APP_DIR = Path(__file__).parent
-QUESTIONS_PATH = APP_DIR / "questions_v2.json"
-BILDER_PDF = APP_DIR / "Bilder_v2.pdf"
+QUESTIONS_PATH = APP_DIR / "questions.json"
+BILDER_PDF = APP_DIR / "Bilder.pdf"
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip()
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "").strip()

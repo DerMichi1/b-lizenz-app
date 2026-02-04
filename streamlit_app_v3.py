@@ -4,14 +4,17 @@ import random
 from pathlib import Path
 
 import streamlit as st
-from supabase import create_client, Client
+from supabase import create_client, Client, ClientOptions
 
 # -----------------------------
 # CONFIG
 # -----------------------------
 APP_DIR = Path(__file__).parent
+
+# Repo-Dateinamen (so wie bei dir aktuell im GitHub)
 QUESTIONS_PATH = APP_DIR / "questions.json"
 BILDER_PDF = APP_DIR / "Bilder.pdf"
+APP_TITLE = "Gleitschirm B-Lizenz – Lernapp (Multi-User)"
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip()
 SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY", "").strip()
@@ -22,14 +25,40 @@ OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini").strip()
 
 
 # -----------------------------
-# SUPABASE
+# SUPABASE CLIENTS
 # -----------------------------
 @st.cache_resource(show_spinner=False)
-def supa() -> Client:
+def supa_public() -> Client:
+    """Public client (anon). Only for Auth actions that don't require RLS-protected reads."""
     if not SUPABASE_URL or not SUPABASE_ANON_KEY:
         raise RuntimeError("SUPABASE_URL / SUPABASE_ANON_KEY fehlen (Secrets setzen).")
     return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
 
+def supa_authed() -> Client:
+    """
+    Authenticated client with the current user's access token in headers.
+    Required for any PostgREST calls when RLS policies rely on auth.uid().
+    """
+    if not SUPABASE_URL or not SUPABASE_ANON_KEY:
+        raise RuntimeError("SUPABASE_URL / SUPABASE_ANON_KEY fehlen (Secrets setzen).")
+
+    sess = st.session_state.get("sb_session")
+    if not sess or not getattr(sess, "access_token", None):
+        raise RuntimeError("Keine Supabase Session im State (nicht eingeloggt).")
+
+    token = sess.access_token
+    opts = ClientOptions(
+        headers={
+            "Authorization": f"Bearer {token}",
+            "apikey": SUPABASE_ANON_KEY,
+        }
+    )
+    return create_client(SUPABASE_URL, SUPABASE_ANON_KEY, options=opts)
+
+
+# -----------------------------
+# AUTH UI
+# -----------------------------
 def auth_ui():
     st.sidebar.markdown("## Login")
     tab_login, tab_signup = st.sidebar.tabs(["Login", "Registrieren"])
@@ -39,8 +68,9 @@ def auth_ui():
         pw = st.text_input("Passwort", type="password", key="login_pw")
         if st.button("Login", use_container_width=True):
             try:
-                res = supa().auth.sign_in_with_password({"email": email, "password": pw})
+                res = supa_public().auth.sign_in_with_password({"email": email, "password": pw})
                 st.session_state["sb_user"] = res.user
+                st.session_state["sb_session"] = res.session
                 st.success("Login ok.")
                 st.rerun()
             except Exception as e:
@@ -51,23 +81,25 @@ def auth_ui():
         pw2 = st.text_input("Passwort ", type="password", key="signup_pw")
         if st.button("Registrieren", use_container_width=True):
             try:
-                supa().auth.sign_up({"email": email2, "password": pw2})
-                st.info("Registrierung ausgelöst. Prüfe ggf. deine E-Mail (Bestätigung).")
+                supa_public().auth.sign_up({"email": email2, "password": pw2})
+                st.info("Registrierung ausgelöst. Prüfe ggf. deine E-Mail (Bestätigung), falls aktiviert.")
             except Exception as e:
                 st.error(f"Registrierung fehlgeschlagen: {e}")
 
     st.sidebar.markdown("---")
     if st.sidebar.button("Logout", use_container_width=True):
         try:
-            supa().auth.sign_out()
+            # Sign-out is best-effort; local state clear is what matters for Streamlit session.
+            supa_public().auth.sign_out()
         except Exception:
             pass
         st.session_state.pop("sb_user", None)
+        st.session_state.pop("sb_session", None)
         st.session_state.pop("progress", None)
         st.rerun()
 
 def require_login() -> str:
-    if "sb_user" not in st.session_state or not st.session_state["sb_user"]:
+    if not st.session_state.get("sb_user") or not st.session_state.get("sb_session"):
         auth_ui()
         st.info("Bitte einloggen, um fortzufahren.")
         st.stop()
@@ -84,28 +116,33 @@ def require_login() -> str:
 
     raise RuntimeError("Supabase-User hat keine id (Session-State inkonsistent).")
 
+
+# -----------------------------
+# PROGRESS DB
+# -----------------------------
 def db_load_progress(user_id: str) -> dict:
-    resp = supa().table("progress").select("*").eq("user_id", user_id).execute()
+    resp = supa_authed().table("progress").select("*").eq("user_id", user_id).execute()
     p = {}
     for r in resp.data:
         p[r["question_id"]] = {"seen": r["seen"], "correct": r["correct"], "wrong": r["wrong"]}
     return p
 
 def db_upsert_progress(user_id: str, question_id: str, ok: bool):
-    resp = supa().table("progress").select("*").eq("user_id", user_id).eq("question_id", question_id).execute()
+    s = supa_authed()
+    resp = s.table("progress").select("*").eq("user_id", user_id).eq("question_id", question_id).execute()
     if resp.data:
         row = resp.data[0]
         seen = int(row.get("seen", 0)) + 1
         correct = int(row.get("correct", 0)) + (1 if ok else 0)
         wrong = int(row.get("wrong", 0)) + (0 if ok else 1)
-        supa().table("progress").update({
+        s.table("progress").update({
             "seen": seen,
             "correct": correct,
             "wrong": wrong,
             "updated_at": "now()"
         }).eq("user_id", user_id).eq("question_id", question_id).execute()
     else:
-        supa().table("progress").insert({
+        s.table("progress").insert({
             "user_id": user_id,
             "question_id": question_id,
             "seen": 1,
@@ -114,16 +151,19 @@ def db_upsert_progress(user_id: str, question_id: str, ok: bool):
         }).execute()
 
 def db_reset_progress(user_id: str, scope_category: str | None = None, scope_sub: str | None = None, questions: list[dict] | None = None):
+    s = supa_authed()
     if not scope_category and not scope_sub:
-        supa().table("progress").delete().eq("user_id", user_id).execute()
+        s.table("progress").delete().eq("user_id", user_id).execute()
         return
 
     if not questions:
         return
-    ids = [q["id"] for q in questions if (not scope_category or q["category"] == scope_category) and (not scope_sub or q["subchapter"] == scope_sub)]
+    ids = [q["id"] for q in questions
+           if (not scope_category or q["category"] == scope_category)
+           and (not scope_sub or q["subchapter"] == scope_sub)]
     if not ids:
         return
-    supa().table("progress").delete().eq("user_id", user_id).in_("question_id", ids).execute()
+    s.table("progress").delete().eq("user_id", user_id).in_("question_id", ids).execute()
 
 
 # -----------------------------
@@ -256,28 +296,44 @@ def ui_css():
     </style>
     """, unsafe_allow_html=True)
 
+
 # -----------------------------
 # APP
 # -----------------------------
-st.set_page_config(page_title="B-Lizenz Gleitschirm – Lernapp", layout="wide")
+st.set_page_config(page_title=APP_TITLE, layout="wide")
 ui_css()
 
 if not SUPABASE_URL or not SUPABASE_ANON_KEY:
     st.error("SUPABASE_URL / SUPABASE_ANON_KEY fehlen. Setze diese als Secrets/Env-Variablen im Hosting.")
     st.stop()
 
+# Ensure required local files exist (gives clearer errors)
+if not QUESTIONS_PATH.exists():
+    st.error(f"Datei fehlt im Repo: {QUESTIONS_PATH.name}")
+    st.stop()
+if not BILDER_PDF.exists():
+    st.warning(f"Hinweis: {BILDER_PDF.name} fehlt. Abbildungen werden nicht angezeigt.")
+
 user_id = require_login()
 questions = load_questions()
 
+# Load progress once per Streamlit session
 if "progress" not in st.session_state:
-    with st.spinner("Lade Fortschritt..."):
-        st.session_state.progress = db_load_progress(user_id)
+    try:
+        with st.spinner("Lade Fortschritt..."):
+            st.session_state.progress = db_load_progress(user_id)
+    except Exception as e:
+        st.error("DB Zugriff fehlgeschlagen. Prüfe Supabase RLS/Policies und ob Tabelle 'progress' existiert.")
+        st.exception(e)
+        st.stop()
 
 progress = st.session_state.progress
 
+# Sidebar controls
 with st.sidebar:
     st.markdown("## Modus & Filter")
     mode = st.selectbox("Modus", ["Lernmodus", "Prüfungsmodus (40)"], index=0)
+
     cats = ["—"] + sorted({q["category"] for q in questions})
     cat = st.selectbox("Kategorie", cats, index=0)
     cat = None if cat == "—" else cat
@@ -311,13 +367,18 @@ with st.sidebar:
             st.rerun()
     with colB:
         if st.button("Reset (Scope)"):
-            db_reset_progress(user_id, cat, sub, questions=questions)
-            st.session_state.progress = db_load_progress(user_id)
-            st.success("Reset ok.")
-            st.rerun()
+            try:
+                db_reset_progress(user_id, cat, sub, questions=questions)
+                st.session_state.progress = db_load_progress(user_id)
+                st.success("Reset ok.")
+                st.rerun()
+            except Exception as e:
+                st.error("Reset fehlgeschlagen.")
+                st.exception(e)
 
-st.title("Gleitschirm B-Lizenz – Lernapp (Multi-User)")
+st.title(APP_TITLE)
 
+# init queue/state
 if "queue" not in st.session_state:
     st.session_state.queue = build_queue(questions, "Lernmodus", None, None, False, progress)
 if "idx" not in st.session_state:
@@ -335,6 +396,7 @@ if not q:
     st.info("Keine Fragen im aktuellen Pool.")
     st.stop()
 
+# header
 left, right = st.columns([3, 1])
 with left:
     st.markdown(
@@ -342,11 +404,15 @@ with left:
         unsafe_allow_html=True
     )
 with right:
-    st.markdown(f"<div class='muted' style='text-align:right'>Frage {st.session_state.idx+1}/{len(st.session_state.queue)}</div>", unsafe_allow_html=True)
+    st.markdown(
+        f"<div class='muted' style='text-align:right'>Frage {st.session_state.idx+1}/{len(st.session_state.queue)}</div>",
+        unsafe_allow_html=True
+    )
 
 st.markdown(f"### {q['question']}")
 
-if q.get("figures"):
+# figures
+if q.get("figures") and BILDER_PDF.exists():
     with st.expander("Abbildungen"):
         for fi in q["figures"]:
             fig_n = fi["figure"]
@@ -355,6 +421,7 @@ if q.get("figures"):
             if page:
                 st.image(render_bilder_page(page, zoom=2.0), use_container_width=True)
 
+# options
 labels = ["A", "B", "C", "D"]
 cols = st.columns(2)
 opts = q["options"]
@@ -369,6 +436,7 @@ for i in range(4):
         if st.button(f"{labels[i]}) {opts[i]}", key=f"opt_{qid}_{i}", disabled=st.session_state.answered):
             choose(i)
 
+# result
 if st.session_state.answered:
     correct = q.get("correctIndex", None)
     sel = st.session_state.sel
@@ -381,15 +449,23 @@ if st.session_state.answered:
     else:
         st.error(f"Falsch. Richtig wäre: {labels[correct]}")
 
+    # DB update and refresh local cache
     if correct is not None:
-        db_upsert_progress(user_id, qid, ok)
-        stq = progress.get(qid, {"seen": 0, "correct": 0, "wrong": 0})
-        stq["seen"] += 1
-        if ok: stq["correct"] += 1
-        else: stq["wrong"] += 1
-        progress[qid] = stq
-        st.session_state.progress = progress
+        try:
+            db_upsert_progress(user_id, qid, ok)
+            stq = progress.get(qid, {"seen": 0, "correct": 0, "wrong": 0})
+            stq["seen"] += 1
+            if ok:
+                stq["correct"] += 1
+            else:
+                stq["wrong"] += 1
+            progress[qid] = stq
+            st.session_state.progress = progress
+        except Exception as e:
+            st.error("Fortschritt konnte nicht gespeichert werden (Supabase/RLS).")
+            st.exception(e)
 
+    # Auto explain/merksatz/refs
     st.markdown("#### Erklärung & Merksatz")
     if st.session_state.auto is None:
         st.session_state.auto = try_auto_wiki(q)
@@ -429,10 +505,14 @@ if st.session_state.answered:
             st.rerun()
     with c3:
         if st.button("Zurücksetzen (nur diese Frage)"):
-            supa().table("progress").delete().eq("user_id", user_id).eq("question_id", qid).execute()
-            progress.pop(qid, None)
-            st.session_state.progress = progress
-            st.success("Zurückgesetzt.")
-            st.rerun()
+            try:
+                supa_authed().table("progress").delete().eq("user_id", user_id).eq("question_id", qid).execute()
+                progress.pop(qid, None)
+                st.session_state.progress = progress
+                st.success("Zurückgesetzt.")
+                st.rerun()
+            except Exception as e:
+                st.error("Zurücksetzen fehlgeschlagen.")
+                st.exception(e)
 else:
     st.caption("Antwort wählen → sofortige Korrektur + Erklärung (optional).")

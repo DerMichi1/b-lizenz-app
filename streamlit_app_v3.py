@@ -573,11 +573,15 @@ def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
         return False
 
 
-def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> None:
+def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> Tuple[bool, str]:
+    """Insert exam run. Returns (ok, error_message)."""
     try:
-        supa().table("exam_runs").insert({"user_id": uid, "total": total, "correct": correct, "passed": passed}).execute()
-    except Exception:
-        pass
+        supa().table("exam_runs").insert(
+            {"user_id": uid, "total": int(total), "correct": int(correct), "passed": bool(passed)}
+        ).execute()
+        return True, ""
+    except Exception as e:
+        return False, str(e)
 
 
 def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
@@ -1070,6 +1074,11 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
 
+    else:
+        st.write("")
+        st.markdown("## Letzte Prüfungen")
+        st.caption("Keine gespeicherten Prüfungen gefunden. Wenn du gerade Prüfungen gemacht hast, werden sie wahrscheinlich nicht gespeichert (Supabase RLS/Key).")
+
 
 # =============================================================================
 # LEARN
@@ -1316,11 +1325,15 @@ def _exam_submit(uid: str, reason: str = "manual") -> None:
     result = _exam_compute_result(qlist, answers)
     st.session_state.exam_result = result
 
-    # Persist exam run once
-    try:
-        db_insert_exam_run(uid, total=int(result["total"]), correct=int(result["correct"]), passed=bool(result["passed"]))
-    except Exception:
-        pass
+    # Persist exam run once (surface errors instead of swallowing)
+    ok_db, err_db = db_insert_exam_run(
+        uid,
+        total=int(result["total"]),
+        correct=int(result["correct"]),
+        passed=bool(result["passed"]),
+    )
+    st.session_state.exam_save_ok = ok_db
+    st.session_state.exam_save_err = err_db
 
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
@@ -1405,6 +1418,15 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
 <div class="pp-muted">{pct}% ({correct}/{total}) — {'BESTANDEN' if passed else 'NICHT bestanden'} (Schwelle {int(PASS_PCT)}%)</div></div>""",
             unsafe_allow_html=True,
         )
+
+        # DB save status (helps debug missing exam history)
+        if st.session_state.get("exam_save_ok") is False:
+            st.warning("Prüfungsergebnis konnte nicht gespeichert werden (Supabase/RLS).")
+            err = (st.session_state.get("exam_save_err") or "").strip()
+            if err:
+                st.caption(f"DB-Fehler: {err}")
+        elif st.session_state.get("exam_save_ok") is True:
+            st.caption("Prüfungsergebnis gespeichert.")
 
         c1, c2 = st.columns([1, 1])
         if c1.button("Neue Prüfung starten", type="primary"):

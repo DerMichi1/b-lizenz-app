@@ -71,7 +71,18 @@ def require_login() -> str:
         auth_ui()
         st.info("Bitte einloggen, um fortzufahren.")
         st.stop()
-    return st.session_state["sb_user"]["id"]
+
+    u = st.session_state["sb_user"]
+
+    # supabase-py liefert i.d.R. ein User-Objekt mit .id
+    if hasattr(u, "id") and u.id:
+        return u.id
+
+    # Fallback, falls doch mal dict/json drin liegt
+    if isinstance(u, dict) and u.get("id"):
+        return u["id"]
+
+    raise RuntimeError("Supabase-User hat keine id (Session-State inkonsistent).")
 
 def db_load_progress(user_id: str) -> dict:
     resp = supa().table("progress").select("*").eq("user_id", user_id).execute()

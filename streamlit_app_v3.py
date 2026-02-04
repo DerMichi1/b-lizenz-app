@@ -85,13 +85,15 @@ def supa() -> Client:
     return create_client(SUPABASE_URL, SUPABASE_ANON_KEY)
 
 # =============================================================================
-# COOKIE MANAGER (SINGLETON) — fixes StreamlitDuplicateElementKey
+# COOKIE MANAGER (SINGLETON)
 # =============================================================================
 def get_cookies():
     if "cookies_mgr" not in st.session_state:
         from streamlit_cookies_manager import EncryptedCookieManager
+
         if not COOKIE_PASSWORD:
             raise RuntimeError("COOKIE_PASSWORD fehlt in Streamlit Secrets.")
+
         st.session_state.cookies_mgr = EncryptedCookieManager(
             prefix="bliz_",
             password=COOKIE_PASSWORD
@@ -99,12 +101,13 @@ def get_cookies():
 
     cookies = st.session_state.cookies_mgr
 
-if not cookies.ready():
-    if not st.session_state.get("_cookie_bootstrap_done"):
-        st.session_state["_cookie_bootstrap_done"] = True
-        st.markdown("## B-Lizenz Lernapp")
-        st.info("Initialisiere Login-Session – einmaliger Reload …")
-        st.stop()
+    # Handshake nur einmal blockieren
+    if not cookies.ready():
+        if not st.session_state.get("_cookie_bootstrap_done"):
+            st.session_state["_cookie_bootstrap_done"] = True
+            st.markdown("## B-Lizenz Lernapp")
+            st.info("Initialisiere Login-Session – einmaliger Reload …")
+            st.stop()
 
     return cookies
 

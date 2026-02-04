@@ -107,14 +107,22 @@ def load_questions() -> List[Dict[str, Any]]:
     return json.loads(QUESTIONS_PATH.read_text("utf-8"))
 
 
-@st.cache_data(show_spinner=False)
-def load_wiki() -> Dict[str, Any]:
-    if not WIKI_PATH.exists():
-        return {}
-    try:
-        return json.loads(WIKI_PATH.read_text("utf-8"))
-    except Exception:
-        return {}
+def build_wiki_map_from_questions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    """
+    Primary source: questions.json -> question["wiki"].
+    Returns a map keyed by question id (e.g., "Q081").
+    """
+    out: Dict[str, Dict[str, Any]] = {}
+    for q in questions:
+        qid = str(q.get("id") or "").strip()
+        if not qid:
+            continue
+        w = q.get("wiki")
+        if isinstance(w, dict):
+            out[qid] = w
+        else:
+            out[qid] = {"explanation": "", "merksatz": "", "links": []}
+    return out
 
 
 def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], List[Dict[str, Any]]]:
@@ -751,33 +759,118 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if corr_i is not None and 0 <= int(corr_i) < len(options):
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
-        # Wiki must exist per question id; if not, show hard warning (your “100% reliable” requirement)
-        w = wiki.get(qid)
-        with st.expander("Wiki (offizielle Quellen, kurz + Merksatz + Links)", expanded=True):
-            if not isinstance(w, dict):
-                st.error("Wiki fehlt für diese Frage. (wiki_content.json muss jede Frage-ID enthalten.)")
-            else:
-                explanation = (w.get("explanation") or "").strip()
-                merksatz = (w.get("merksatz") or "").strip()
-                links = w.get("links") or []
+# --- Wiki (from questions.json) ---
+w = wiki.get(qid, {})
+with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):
+    explanation = (w.get("explanation") or "").strip()
+    merksatz = (w.get("merksatz") or "").strip()
+    links = w.get("links") or []
 
-                if not explanation:
-                    st.warning("Wiki-Inhalt noch leer. Bitte befüllen (nur offizielle Quellen).")
-                else:
-                    st.markdown(explanation)
+    if explanation:
+        st.markdown(explanation)
+    else:
+        st.warning("Wiki-Inhalt ist leer. (In questions.json -> wiki.explanation befüllen)")
 
-                if merksatz:
-                    st.markdown(f"**Merksatz:** {merksatz}")
+    if merksatz:
+        st.markdown(f"**Merksatz:** {merksatz}")
 
-                if links:
-                    st.markdown("**Weiterlesen:**")
-                    for li in links:
-                        title = (li.get("title") or "Link").strip()
-                        url = (li.get("url") or "").strip()
-                        if url:
-                            st.markdown(f"- [{title}]({url})")
-                else:
-                    st.caption("Keine Links hinterlegt.")
+    if links:
+        st.markdown("**Weiterlesen (offizielle Quellen):**")
+        for li in links:
+            title = (li.get("title") or "Link").strip()
+            url = (li.get("url") or "").strip()
+            if url:
+                st.markdown(f"- [{title}]({url})")
+    else:
+        st.caption("Keine Links hinterlegt.")
+
+# --- KI-Nachfrage / Chatbot zur aktuellen Frage ---
+ai_cfg = q.get("ai") if isinstance(q.get("ai"), dict) else {}
+ai_allowed = bool(ai_cfg.get("allowed", True))
+
+with st.expander("KI-Nachfrage zur Frage", expanded=False):
+    if not ai_allowed:
+        st.caption("KI-Nachfragen sind für diese Frage deaktiviert.")
+    else:
+        # Lazy init chat storage
+        if "ai_chat" not in st.session_state:
+            st.session_state.ai_chat = {}
+        st.session_state.ai_chat.setdefault(qid, [])
+        history = st.session_state.ai_chat[qid]
+
+        # Render history
+        for msg in history:
+            role = msg.get("role", "assistant")
+            content = msg.get("content", "")
+            with st.chat_message(role):
+                st.markdown(content)
+
+        user_text = st.chat_input("Frage zur aktuellen Aufgabe eingeben…", key=f"chat_in_{qid}")
+        if user_text:
+            history.append({"role": "user", "content": user_text})
+
+            # Build grounded prompt: question + options + correct + wiki + figures hint
+            system_hint = (ai_cfg.get("system_hint") or "Antworte strikt faktenbasiert. Wenn unsicher, sag es. Verweise auf offizielle Quellen/Links.")
+            context = (ai_cfg.get("context") or "").strip()
+
+            prompt = f"""
+SYSTEM:
+{system_hint}
+
+KONTEXT:
+{context}
+
+FRAGE:
+{question}
+
+OPTIONEN:
+A) {options[0] if len(options)>0 else ""}
+B) {options[1] if len(options)>1 else ""}
+C) {options[2] if len(options)>2 else ""}
+D) {options[3] if len(options)>3 else ""}
+
+RICHTIGE OPTION (Index):
+{correct_index}
+
+WIKI-KURZ:
+{(w.get("explanation") or "").strip()}
+
+MERKSATZ:
+{(w.get("merksatz") or "").strip()}
+
+USER-FRAGE:
+{user_text}
+""".strip()
+
+            # Call OpenAI (requires secret: openai.api_key)
+            api_key = ""
+            try:
+                api_key = (st.secrets.get("openai", {}).get("api_key", "") or "").strip()
+            except Exception:
+                api_key = ""
+
+            if not api_key:
+                history.append({"role": "assistant", "content": "OpenAI API Key fehlt in st.secrets: [openai].api_key"})
+                st.rerun()
+
+            try:
+                from openai import OpenAI
+                client = OpenAI(api_key=api_key)
+
+                resp = client.chat.completions.create(
+                    model=(st.secrets.get("openai", {}).get("model", "gpt-4.1-mini")),
+                    messages=[
+                        {"role": "system", "content": system_hint},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.2,
+                )
+                answer = resp.choices[0].message.content or ""
+                history.append({"role": "assistant", "content": answer})
+            except Exception as e:
+                history.append({"role": "assistant", "content": f"KI-Fehler: {e}"})
+
+            st.rerun()
 
         existing_note = db_get_note(uid, qid)
         with st.expander("Deine Bemerkung (nur für dich)", expanded=False):
@@ -980,7 +1073,7 @@ ensure_user_registered(claims)
 
 uid = stable_user_id(claims)
 questions = load_questions()
-wiki = load_wiki()
+wiki = build_wiki_map_from_questions(questions)
 
 progress = db_load_progress(uid)
 st.session_state.progress = progress

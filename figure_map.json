@@ -1,3 +1,8 @@
+// =========================
+// figure_map.json (NEU-Format, damit nur Abbildung ausgeschnitten wird)
+// =========================
+// clip = [x0, y0, x1, y1] in PDF-Punkten (PyMuPDF), 1-based page
 {
-  "47": { "page": 14, "clip": [40, 170, 555, 560] }
+  "47": { "page": 14, "clip": [40, 170, 555, 560] },
+  "48": { "page": 14, "clip": [40, 580, 555, 980] }
 }

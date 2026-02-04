@@ -30,13 +30,19 @@ def cfg(path: str, default: str = "") -> str:
     """
     Read config from Streamlit secrets only.
     Path format: "section.key".
+
+    Note: st.secrets is a mapping-like object (not necessarily a dict),
+    so do NOT use isinstance(..., dict) checks here.
     """
     parts = path.split(".")
     cur: Any = st.secrets
     for p in parts:
-        if not isinstance(cur, dict) or p not in cur:
+        try:
+            if p not in cur:
+                return default
+            cur = cur[p]
+        except Exception:
             return default
-        cur = cur[p]
     return (str(cur) if cur is not None else "").strip()
 
 

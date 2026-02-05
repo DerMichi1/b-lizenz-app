@@ -889,27 +889,15 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     st.sidebar.markdown("## Tools")
     st.sidebar.checkbox("Debug logs", key="debug_on", value=bool(st.session_state.get("debug_on", False)))
 
-    with st.sidebar.expander("Daten", expanded=False):
-        st.caption("Optional: questions.json zur Laufzeit überschreiben (ohne Speicherung).")
-        up = st.file_uploader("questions.json hochladen", type=["json"], key="upload_questions")
-        if up is not None:
-            try:
-                data = json.loads(up.getvalue().decode("utf-8"))
-                if not isinstance(data, list):
-                    raise ValueError("JSON muss eine Liste von Fragen sein.")
-                st.session_state.questions_override = data
-                _reset_learning_state()
-                _reset_exam_state()
-                st.success(f"Geladen: {len(data)} Fragen")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Upload-Fehler: {e}")
+@st.cache_data(show_spinner=False)
+def load_questions() -> List[Dict[str, Any]]:
+    if not QUESTIONS_PATH.exists():
+        raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
 
-        if st.button("Override zurücksetzen", use_container_width=True):
-            st.session_state.pop("questions_override", None)
-            _reset_learning_state()
-            _reset_exam_state()
-            st.rerun()
+    data = json.loads(QUESTIONS_PATH.read_text("utf-8"))
+    if not isinstance(data, list):
+        raise ValueError("questions.json muss eine Liste sein.")
+    return data
 
     # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten)
     st.sidebar.markdown("## Wartung")

@@ -751,13 +751,14 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
         confirm = st.checkbox("Ich verstehe das und will wirklich alles löschen.", key="reset_confirm")
         token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
         do_reset = st.button(
-            "ALLES ZURÜCKSETZEN",
-            type="primary",
-            disabled=(not bool(SUPABASE_SERVICE_ROLE_KEY)),
-            use_container_width=True,
-            disabled=not (confirm and token.strip().upper() == "RESET"),
-            key="reset_do",
-        )
+do_reset = st.button(
+    "ALLES ZURÜCKSETZEN",
+    type="primary",
+    use_container_width=True,
+    disabled=not (confirm and token.strip().upper() == "RESET"),
+    key="reset_do",
+)
+
 
         if do_reset:
             ok, err = db_reset_user_data(uid)

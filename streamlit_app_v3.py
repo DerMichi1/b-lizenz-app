@@ -677,7 +677,8 @@ hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
     )
 
 
-def nav_sidebar(claims: Dict[str, str], uid: str):
+def nav_sidebar(claims: Dict[str, str]) -> None:
+    uid = str(st.session_state.get('uid') or '')
     st.sidebar.markdown("## Account")
     st.sidebar.write(claims.get("email") or claims.get("name") or "User")
     st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)

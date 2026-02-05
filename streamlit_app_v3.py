@@ -2,7 +2,6 @@ import json
 import random
 import re
 import uuid
-import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -31,27 +30,14 @@ def cfg(path: str, default: str = "") -> str:
     return (str(cur) if cur is not None else "").strip()
 
 
-def cfg_any(paths: List[str], default: str = "") -> str:
-    """Try multiple secrets paths and return the first non-empty value."""
-    for p in paths:
-        v = cfg(p, default="")
-        if str(v).strip():
-            return str(v).strip()
-    return default
-
-
 PASS_PCT = float(cfg("PASS_PCT", "75"))
 
 SUPABASE_URL = cfg("supabase.url")
-SUPABASE_SERVICE_ROLE_KEY = cfg_any(["supabase.service_role_key","supabase.serviceRoleKey","SUPABASE_SERVICE_ROLE_KEY"], default="")
-SUPABASE_ANON_KEY = cfg_any(["supabase.anon_key","supabase.anonKey","SUPABASE_ANON_KEY"], default="")
+SUPABASE_SERVICE_ROLE_KEY = cfg("supabase.service_role_key")
+SUPABASE_ANON_KEY = cfg("supabase.anon_key")
 
 OPENAI_API_KEY = cfg("openai.api_key")
 OPENAI_MODEL = cfg("openai.model", "gpt-4.1-mini")
-
-# Exam timer
-EXAM_DURATION_SEC = int(float(cfg("exam.duration_minutes", "60")) * 60)  # default 60 min
-
 
 # =============================================================================
 # REQUIRED CLUSTERING (display/progress structure)
@@ -118,16 +104,47 @@ def supa() -> Client:
     return create_client(SUPABASE_URL, key)
 
 
+# =============================================================================
+# SUPABASE ADMIN CLIENT (SERVICE ROLE) - for maintenance actions (e.g., reset)
+# =============================================================================
 @st.cache_resource(show_spinner=False)
 def supa_admin() -> Client:
-    """Admin client (Service Role). Use ONLY for destructive maintenance actions (e.g., full reset)."""
     if not SUPABASE_URL:
         raise RuntimeError("Supabase secret fehlt: [supabase].url")
     if not SUPABASE_SERVICE_ROLE_KEY:
-        raise RuntimeError("Supabase Service Role Key fehlt: [supabase].service_role_key")
+        raise RuntimeError("Supabase secret fehlt: [supabase].service_role_key (für Reset empfohlen)")
     return create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
 
+def _is_uuid(v: Any) -> bool:
+    try:
+        uuid.UUID(str(v))
+        return True
+    except Exception:
+        return False
+
+
+def db_reset_user_data(uid: str) -> Tuple[bool, str]:
+    """Reset ALL user-related data to '0 state' (progress, notes, exam_runs).
+
+    Uses service_role_key (bypasses RLS). Returns (ok, err_message).
+    """
+    if not uid or not _is_uuid(uid):
+        return False, f"Ungültige user_id: {uid!r}"
+
+    try:
+        s = supa_admin() if SUPABASE_SERVICE_ROLE_KEY else supa()
+
+        # progress
+        s.table("progress").delete().eq("user_id", uid).execute()
+        # notes
+        s.table("notes").delete().eq("user_id", uid).execute()
+        # exam history
+        s.table("exam_runs").delete().eq("user_id", uid).execute()
+
+        return True, ""
+    except Exception as e:
+        return False, str(e)
 # =============================================================================
 # QUESTIONS / WIKI / AI (single source of truth: questions.json)
 # =============================================================================
@@ -225,7 +242,6 @@ def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], Li
         idx.setdefault((cat, sub), []).append(q)
     return idx
 
-
 # =============================================================================
 # PDF IMAGE RENDER (Bilder.pdf) with CLIP support
 # =============================================================================
@@ -322,21 +338,16 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
         except Exception:
             continue
 
-        # Preferred sources:
-        # - figures[*].bilder_page (page)
-        # - figures[*].clip (crop)
-        # - else: figure_map.json entry for that figure (page + optional clip)
+        # page priority: explicit bilder_page > figure_map
         try:
             page_1based = int(f.get("bilder_page") or 0)
         except Exception:
             page_1based = 0
 
-        clip = f.get("clip") if isinstance(f.get("clip"), list) else None
+        clip = None
 
-        entry = fig_map.get(str(fig_no_int))
-
-        # Page from figure_map if missing
         if page_1based <= 0:
+            entry = fig_map.get(str(fig_no_int))
             if isinstance(entry, int):
                 page_1based = int(entry)
             elif isinstance(entry, dict):
@@ -344,31 +355,19 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
                     page_1based = int(entry.get("page") or 0)
                 except Exception:
                     page_1based = 0
-
-        # Clip from figure_map even when page is explicit
-        if clip is None and isinstance(entry, dict):
-            c = entry.get("clip")
-            if isinstance(c, list) and len(c) == 4:
-                clip = c
+                clip = entry.get("clip")
 
         if page_1based <= 0:
             continue
 
-        png = render_pdf_page_png(
-            str(BILDER_PDF),
-            page_1based=page_1based,
-            zoom=2.0,
-            clip=clip,
-        )
-
+        png = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=clip)
         if png:
-            cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
-            if clip:
-                cap += " · Ausschnitt"
-            st.image(png, caption=cap, use_container_width=True)
+            st.image(
+                png,
+                caption=f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})",
+                use_container_width=True,
+            )
             shown += 1
-
-
 
 # =============================================================================
 # AUTH (Streamlit built-in OIDC: Google)
@@ -402,7 +401,7 @@ def ensure_user_registered(claims: Dict[str, str]) -> None:
     if not sub:
         return
 
-    s = supa_admin()
+    s = supa()
     existing = (
         s.table("app_users")
         .select("id")
@@ -424,7 +423,6 @@ def ensure_user_registered(claims: Dict[str, str]) -> None:
         }
     ).execute()
 
-
 # =============================================================================
 # DB: progress + notes + exam_runs
 # =============================================================================
@@ -434,7 +432,7 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
 
 
 def db_upsert_progress(uid: str, qid: str, ok: bool):
-    s = supa_admin()
+    s = supa()
     r = s.table("progress").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
     if r.data:
         row = r.data[0]
@@ -477,7 +475,7 @@ def db_get_note(uid: str, qid: str) -> str:
 
 def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
     try:
-        s = supa_admin()
+        s = supa()
         note_text = (note_text or "").strip()
         r = s.table("notes").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
         if r.data:
@@ -513,42 +511,152 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
     except Exception:
         return []
 
+# =============================================================================
+# APP STATE
+# =============================================================================
+def _reset_learning_state():
+    for k in [
+        "queue",
+        "idx",
+        "answered",
+        "last_ok",
+        "last_correct_index",
+        "last_selected_index",
+        "learn_started",
+        "learn_plan",
+        "ai_chat",
+        "ai_draft",
+    ]:
+        st.session_state.pop(k, None)
 
-def db_reset_user(uid: str) -> bool:
-    """Dangerous operation: deletes ALL user-related data (progress, notes, exam_runs)."""
-    try:
-        s = supa_admin()
-        # Order doesn't matter, but keep it explicit.
-        s.table("progress").delete().eq("user_id", uid).execute()
-        s.table("notes").delete().eq("user_id", uid).execute()
-        s.table("exam_runs").delete().eq("user_id", uid).execute()
-        return True
-    except Exception:
-        return False
 
-
-def db_reset_user_data(uid: str) -> Tuple[bool, str]:
-    """Hard reset for a single user: progress, notes, exam_runs.
-
-    DOES NOT delete app_users (login mapping stays).
-
-    Returns:
-      (ok, error_message)
-    """
-    try:
-        s = supa_admin()
-
-        # Order matters if you ever add FK constraints later.
-        s.table("notes").delete().eq("user_id", uid).execute()
-        s.table("progress").delete().eq("user_id", uid).execute()
-        s.table("exam_runs").delete().eq("user_id", uid).execute()
-
-        return True, ""
-    except Exception as e:
-        return False, str(e)
+def _reset_exam_state():
+    for k in [
+        "exam_queue",
+        "exam_idx",
+        "exam_correct",
+        "exam_done",
+        "exam_answered",
+        "exam_last_ok",
+        "exam_last_selected",
+        "exam_last_correct",
+        "exam_started",
+        "ai_chat",
+        "ai_draft",
+    ]:
+        st.session_state.pop(k, None)
 
 # =============================================================================
-# AI (OpenAI) - ONLY FOR LEARNING
+# QUEUES
+# =============================================================================
+def build_learning_queue(
+    questions: List[Dict[str, Any]],
+    progress: Dict[str, Dict[str, Any]],
+    category: str,
+    subchapter: str,
+    only_unseen: bool,
+    only_wrong: bool,
+) -> List[Dict[str, Any]]:
+    qset = list(questions)
+
+    if category != "Alle":
+        qset = [q for q in qset if (q.get("category") or "") == category]
+    if subchapter != "Alle":
+        qset = [q for q in qset if (q.get("subchapter") or "") == subchapter]
+
+    if only_unseen:
+        qset = [
+            q
+            for q in qset
+            if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0
+        ]
+    if only_wrong:
+        qset = [
+            q
+            for q in qset
+            if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0
+        ]
+
+    random.shuffle(qset)
+    return qset
+
+
+def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[str, Any]]:
+    base = list(questions)
+    random.shuffle(base)
+    return base[:n]
+
+# =============================================================================
+# PROGRESS / STATS
+# =============================================================================
+def compute_progress_by_cluster(
+    questions_by_cluster: Dict[Tuple[str, str], List[Dict[str, Any]]],
+    progress: Dict[str, Dict[str, Any]],
+) -> Dict[str, Dict[str, Dict[str, int]]]:
+    out: Dict[str, Dict[str, Dict[str, int]]] = {}
+    for (cat, sub), qs in questions_by_cluster.items():
+        learned = 0
+        correct_total = 0
+        wrong_total = 0
+        for q in qs:
+            qid = str(q.get("id"))
+            row = progress.get(qid)
+            if row:
+                if int(row.get("seen", 0)) > 0:
+                    learned += 1
+                correct_total += int(row.get("correct", 0))
+                wrong_total += int(row.get("wrong", 0))
+        out.setdefault(cat, {})[sub] = {
+            "total": len(qs),
+            "learned": learned,
+            "correct_total": correct_total,
+            "wrong_total": wrong_total,
+        }
+    return out
+
+
+def overall_progress_pct(questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> int:
+    total = len(questions)
+    learned = 0
+    for q in questions:
+        qid = str(q.get("id"))
+        row = progress.get(qid)
+        if row and int(row.get("seen", 0)) > 0:
+            learned += 1
+    return int(round((learned / total) * 100)) if total else 0
+
+
+def overall_correct_wrong(progress: Dict[str, Dict[str, Any]]) -> Tuple[int, int]:
+    c = 0
+    w = 0
+    for row in progress.values():
+        c += int(row.get("correct", 0))
+        w += int(row.get("wrong", 0))
+    return c, w
+
+
+def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: int = 6, topn: int = 8) -> List[Dict[str, Any]]:
+    rows: List[Dict[str, Any]] = []
+    for cat, subs in stats.items():
+        for sub, s in subs.items():
+            attempts = int(s.get("correct_total", 0)) + int(s.get("wrong_total", 0))
+            if attempts < min_seen:
+                continue
+            acc = (int(s.get("correct_total", 0)) / attempts) if attempts else 0.0
+            rows.append(
+                {
+                    "category": cat,
+                    "subchapter": sub,
+                    "attempts": attempts,
+                    "accuracy": acc,
+                    "wrong": int(s.get("wrong_total", 0)),
+                }
+            )
+    rows.sort(key=lambda r: (r["accuracy"], -r["attempts"]))
+    return rows[:topn]
+
+# =============================================================================
+# AI (OpenAI)
 # =============================================================================
 def ai_available() -> bool:
     if not OPENAI_API_KEY:
@@ -663,7 +771,6 @@ def render_ai_chat(q: Dict[str, Any], qid: str):
         history.append({"role": "assistant", "content": answer})
         st.rerun()
 
-
 # =============================================================================
 # UI / STYLES
 # =============================================================================
@@ -689,15 +796,13 @@ div.stButton > button { width:100%; padding:0.85rem 1rem; border-radius:14px; fo
 hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
 .small { font-size: 0.9rem; opacity: 0.85; }
 .pp-pill { display:inline-block; padding: 0.25rem 0.55rem; border:1px solid var(--pp-border); border-radius:999px; background: rgba(255,255,255,0.03); font-size:0.85rem; margin-right:0.4rem;}
-.pp-timer { border:1px solid var(--pp-border); border-radius:14px; padding:0.55rem 0.75rem; background: rgba(255,255,255,0.03); display:inline-block;}
 </style>
 """,
         unsafe_allow_html=True,
     )
 
 
-def nav_sidebar(claims: Dict[str, str]) -> None:
-    uid = str(st.session_state.get('uid') or '')
+def nav_sidebar(claims: Dict[str, str]):
     st.sidebar.markdown("## Account")
     st.sidebar.write(claims.get("email") or claims.get("name") or "User")
     st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
@@ -740,220 +845,48 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
             _reset_exam_state()
             st.rerun()
 
-
-    # Danger Zone: Full reset (progress/notes/exam history)
-    st.sidebar.markdown("---")
-    with st.sidebar.expander("⚠️ Zurücksetzen (alles auf 0)", expanded=False):
-        st.caption("Löscht Lernfortschritt, Notizen und Prüfungsverlauf. Nicht rückgängig zu machen.")
-
-        confirm = st.checkbox(
-            "Ich verstehe das und will wirklich alles löschen.",
-            key="reset_confirm"
-        )
-
-        token = st.text_input(
-            "Tippe RESET zur Bestätigung",
-            value="",
-            key="reset_token"
-        )
-
-        can_reset = confirm and token.strip().upper() == "RESET"
-
-        do_reset = st.button(
-            "ALLES ZURÜCKSETZEN",
-            type="primary",
-            use_container_width=True,
-            disabled=not can_reset,
-            key="reset_do"
-        )
-
-        if do_reset:
-            uid = st.session_state.get("uid")
-
-            ok, err = db_reset_user_data(uid)
-            if not ok:
-                st.error("Reset fehlgeschlagen (Supabase/RLS).")
-                if err:
-                    st.caption(f"DB-Fehler: {err}")
-                st.stop()
-
-            st.session_state.progress = {}
-            st.session_state.page = "dashboard"
-            _reset_learning_state()
-            _reset_exam_state()
-
-            st.success("Zurückgesetzt.")
-            st.rerun()
-
-# =============================================================================
-# PROGRESS / STATS
-# =============================================================================
-def compute_progress_by_cluster(
-    questions_by_cluster: Dict[Tuple[str, str], List[Dict[str, Any]]],
-    progress: Dict[str, Dict[str, Any]],
-) -> Dict[str, Dict[str, Dict[str, int]]]:
-    out: Dict[str, Dict[str, Dict[str, int]]] = {}
-    for (cat, sub), qs in questions_by_cluster.items():
-        learned = 0
-        correct_total = 0
-        wrong_total = 0
-        for q in qs:
-            qid = str(q.get("id"))
-            row = progress.get(qid)
-            if row:
-                if int(row.get("seen", 0)) > 0:
-                    learned += 1
-                correct_total += int(row.get("correct", 0))
-                wrong_total += int(row.get("wrong", 0))
-        out.setdefault(cat, {})[sub] = {
-            "total": len(qs),
-            "learned": learned,
-            "correct_total": correct_total,
-            "wrong_total": wrong_total,
-        }
-    return out
-
-
-def overall_progress_pct(questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> int:
-    total = len(questions)
-    learned = 0
-    for q in questions:
-        qid = str(q.get("id"))
-        row = progress.get(qid)
-        if row and int(row.get("seen", 0)) > 0:
-            learned += 1
-    return int(round((learned / total) * 100)) if total else 0
-
-
-def overall_correct_wrong(progress: Dict[str, Dict[str, Any]]) -> Tuple[int, int]:
-    c = 0
-    w = 0
-    for row in progress.values():
-        c += int(row.get("correct", 0))
-        w += int(row.get("wrong", 0))
-    return c, w
-
-
-def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: int = 6, topn: int = 8) -> List[Dict[str, Any]]:
-    rows: List[Dict[str, Any]] = []
-    for cat, subs in stats.items():
-        for sub, s in subs.items():
-            attempts = int(s.get("correct_total", 0)) + int(s.get("wrong_total", 0))
-            if attempts < min_seen:
-                continue
-            acc = (int(s.get("correct_total", 0)) / attempts) if attempts else 0.0
-            rows.append(
-                {
-                    "category": cat,
-                    "subchapter": sub,
-                    "attempts": attempts,
-                    "accuracy": acc,
-                    "wrong": int(s.get("wrong_total", 0)),
-                }
-            )
-    rows.sort(key=lambda r: (r["accuracy"], -r["attempts"]))
-    return rows[:topn]
-
-
-# =============================================================================
-# APP STATE
-# =============================================================================
-def _reset_learning_state():
-    for k in [
-        "queue",
-        "idx",
-        "answered",
-        "last_ok",
-        "last_correct_index",
-        "last_selected_index",
-        "learn_started",
-        "learn_plan",
-        "ai_chat",
-        "ai_draft",
-    ]:
-        st.session_state.pop(k, None)
-
-
-def _reset_exam_state():
-    for k in [
-        "exam_queue",
-        "exam_idx",
-        "exam_started",
-        "exam_done",
-        "exam_submitted",
-        "exam_answers",
-        "exam_result",
-        "exam_start_ts",
-        # clean up in case older versions stored these
-        "ai_chat",
-        "ai_draft",
-    ]:
-        st.session_state.pop(k, None)
-
-
-# =============================================================================
-# QUEUES
-# =============================================================================
-def build_learning_queue(
-    questions: List[Dict[str, Any]],
-    progress: Dict[str, Dict[str, Any]],
-    category: str,
-    subchapter: str,
-    only_unseen: bool,
-    only_wrong: bool,
-) -> List[Dict[str, Any]]:
-    qset = list(questions)
-
-    if category != "Alle":
-        qset = [q for q in qset if (q.get("category") or "") == category]
-    if subchapter != "Alle":
-        qset = [q for q in qset if (q.get("subchapter") or "") == subchapter]
-
-    if only_unseen:
-        qset = [
-            q
-            for q in qset
-            if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0
-        ]
-    if only_wrong:
-        qset = [
-            q
-            for q in qset
-            if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0
-        ]
-
-    random.shuffle(qset)
-    return qset
-
-
-def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[str, Any]]:
-    base = list(questions)
-    random.shuffle(base)
-    return base[:n]
-
-    with st.sidebar.expander("Reset", expanded=False):
-        st.warning("Achtung: Setzt deinen kompletten Fortschritt zurück (Lern-Statistik, Notizen, Prüfungsverlauf).")
-        st.caption("Sicherheitsabfrage: Tippe RESET und bestätige das Häkchen.")
-        confirm = st.checkbox("Ich verstehe, dass alle Daten unwiderruflich gelöscht werden.", key="reset_confirm")
-        token = st.text_input("Bestätigung", value="", placeholder="RESET", key="reset_token")
-        do_reset = st.button("Fortschritt zurücksetzen", type="primary", use_container_width=True, disabled=not (confirm and token.strip().upper() == "RESET"))
-        if do_reset:
-            ok = db_reset_user(uid)
-            if ok:
-                # local app state
-                st.session_state.page = "dashboard"
-                st.session_state.progress = {}
-                _reset_learning_state()
-                _reset_exam_state()
-                st.success("Fortschritt wurde zurückgesetzt.")
-                st.rerun()
-            else:
-                st.error("Reset fehlgeschlagen (DB/Permissions prüfen).")
-
-
 # =============================================================================
 # DASHBOARD
 # =============================================================================
+
+    st.sidebar.markdown("## Wartung")
+    with st.sidebar.expander("Fortschritt zurücksetzen (Danger Zone)", expanded=False):
+        st.caption("Setzt ALLES für deinen Account zurück: Lernfortschritt, Notizen, Prüfungsverlauf.")
+        confirm = st.checkbox("Ich verstehe: Dieser Vorgang ist endgültig.", key="reset_confirm")
+        token = st.text_input("Tippe RESET zum Bestätigen", value="", key="reset_token")
+        can_run = bool(confirm) and (token or "").strip().upper() == "RESET"
+        uid = st.session_state.get("uid")
+        if not _is_uuid(uid):
+            st.warning("User-ID ist nicht gültig (Login/Session). Reset ist deaktiviert.")
+            can_run = False
+
+        # Optional: require service role for reliable reset; otherwise show warning and still allow attempt
+        if not SUPABASE_SERVICE_ROLE_KEY:
+            st.warning("Hinweis: service_role_key fehlt – Reset kann durch RLS blockiert werden.")
+
+        do_reset = st.button(
+            "Jetzt alles zurücksetzen",
+            type="primary",
+            use_container_width=True,
+            disabled=not can_run,
+            key="reset_do",
+        )
+        if do_reset:
+            ok, err = db_reset_user_data(str(uid))
+            if ok:
+                # Clear local session state & reload progress
+                st.success("Reset durchgeführt. App wird neu geladen.")
+                _reset_learning_state()
+                _reset_exam_state()
+                st.session_state.progress = {}
+                st.session_state.page = "dashboard"
+                st.rerun()
+            else:
+                st.error("Reset fehlgeschlagen (Supabase/RLS).")
+                if err:
+                    st.caption(f"DB-Fehler: {err}")
+
+
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
     st.title("Fortschritt Übersicht")
 
@@ -1094,7 +1027,6 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             pct = int(round((corr / total) * 100)) if total else 0
             ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
-
 
 # =============================================================================
 # LEARN
@@ -1310,92 +1242,19 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             st.session_state.answered = False
             st.rerun()
 
-
 # =============================================================================
-# EXAM (Timer + Navigation + Review + Submit + Result with explanations)
+# EXAM
 # =============================================================================
-def _fmt_mmss(seconds_left: int) -> str:
-    seconds_left = max(0, int(seconds_left))
-    mm = seconds_left // 60
-    ss = seconds_left % 60
-    hh = mm // 60
-    mm2 = mm % 60
-    if hh > 0:
-        return f"{hh:02d}:{mm2:02d}:{ss:02d}"
-    return f"{mm2:02d}:{ss:02d}"
-
-
-def _exam_time_left() -> int:
-    deadline = float(st.session_state.get("exam_deadline_ts") or 0)
-    if deadline <= 0:
-        return EXAM_DURATION_SEC
-    return int(round(deadline - time.time()))
-
-
-def _exam_auto_submit_if_needed():
-    left = _exam_time_left()
-    if left <= 0 and not bool(st.session_state.get("exam_submitted")):
-        st.session_state.exam_auto_submit = True
-        _exam_submit(final_reason="time")
-
-
-def _exam_submit(final_reason: str = "manual"):
-    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", [])
-    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
-
-    total = len(qlist)
-    correct = 0
-    for q in qlist:
-        qid = str(q.get("id"))
-        try:
-            ci = int(q.get("correctIndex", -1))
-        except Exception:
-            ci = -1
-        sel = answers.get(qid)
-        if sel is not None and int(sel) == ci:
-            correct += 1
-
-    pct = int(round((correct / total) * 100)) if total else 0
-    passed = pct >= int(PASS_PCT)
-
-    st.session_state.exam_submitted = True
-    st.session_state.exam_phase = "result"
-    st.session_state.exam_correct_count = correct
-    st.session_state.exam_score = pct
-    st.session_state.exam_passed = passed
-    # do NOT show correct answers before submission (handled by result screen)
-
-    # Optional: persist exam run
-    try:
-        uid = str(st.session_state.get("uid") or "")
-        if uid:
-            db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
-    except Exception:
-        pass
-
-
-def _fmt_mmss(seconds_left: int) -> str:
-    seconds_left = max(0, int(seconds_left))
-    mm = seconds_left // 60
-    ss = seconds_left % 60
-    return f"{mm:02d}:{ss:02d}"
-
-
 def page_exam(uid: str, questions: List[Dict[str, Any]]):
     st.title("Prüfungssimulation (40)")
 
-    EXAM_DURATION_SEC = 60 * 60  # 60 Minuten (gesamt)
-
-    # -----------------------------------------------------------------------------
-    # Start / Reset
-    # -----------------------------------------------------------------------------
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
 
     if not st.session_state.exam_started:
         st.markdown(
             """<div class="pp-card2"><b>Regeln</b>
-<div class="pp-muted">40 zufällige Fragen · 60 Minuten Gesamtzeit · Antworten frei ändern · Abgabe am Ende.</div></div>""",
+<div class="pp-muted">40 zufällige Fragen. Ergebnis am Ende, optional speichern.</div></div>""",
             unsafe_allow_html=True,
         )
         c1, c2 = st.columns([1, 1])
@@ -1403,12 +1262,11 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             _reset_exam_state()
             st.session_state.exam_queue = build_exam_queue(questions, n=40)
             st.session_state.exam_idx = 0
-            st.session_state.exam_started = True
+            st.session_state.exam_correct = 0
             st.session_state.exam_done = False
-            st.session_state.exam_submitted = False
-            st.session_state.exam_answers = {}
-            import time as _time
-            st.session_state.exam_start_ts = float(_time.time())
+            st.session_state.exam_answered = False
+            st.session_state.exam_last_ok = None
+            st.session_state.exam_started = True
             st.rerun()
         if c2.button("Zur Übersicht"):
             st.session_state.page = "dashboard"
@@ -1416,73 +1274,32 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             st.rerun()
         st.stop()
 
-    # -----------------------------------------------------------------------------
-    # Timer (läuft NICHT pro Frage neu an)
-    # -----------------------------------------------------------------------------
-    import time as _time
-    start_ts = float(st.session_state.get("exam_start_ts") or _time.time())
-    elapsed = _time.time() - start_ts
-    remaining = int(EXAM_DURATION_SEC - elapsed)
-
-    # Live countdown (if available)
-    if not st.session_state.get("exam_done", False):
-        if hasattr(st, "autorefresh"):
-            st.autorefresh(interval=1000, limit=None, key="exam_timer_refresh")
-
-    # When time runs out: auto-submit once
-    if remaining <= 0 and not st.session_state.get("exam_submitted", False):
-        st.session_state.exam_submitted = True
-        st.session_state.exam_done = True
-
-    top1, top2, top3, top4 = st.columns([1, 1, 1, 1])
-    with top1:
-        st.markdown(f"<div class='pp-pill'>⏱️ Restzeit {_fmt_mmss(remaining)}</div>", unsafe_allow_html=True)
-    if top2.button("Prüfung abbrechen"):
+    top1, top2, top3 = st.columns([1, 1, 1])
+    if top1.button("Prüfung abbrechen"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top3.button("Neu starten"):
+    if top2.button("Neu starten"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top4.button("Zur Übersicht"):
+    if top3.button("Zur Übersicht"):
         st.session_state.page = "dashboard"
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
 
     qlist: List[Dict[str, Any]] = st.session_state.exam_queue
-    i = int(st.session_state.get("exam_idx", 0))
+    i = int(st.session_state.exam_idx)
     total = len(qlist)
 
-    def _evaluate_exam() -> Dict[str, Any]:
-        answers: Dict[str, Optional[int]] = dict(st.session_state.get("exam_answers") or {})
-        correct = 0
-        details = []
-        for q in qlist:
-            qid = str(q.get("id"))
-            sel = answers.get(qid, None)
-            ci = int(q.get("correctIndex", -1))
-            is_ok = (sel is not None and int(sel) == ci)
-            if is_ok:
-                correct += 1
-            details.append({"qid": qid, "selected": sel, "correct": ci, "ok": is_ok, "q": q})
+    if total:
+        st.progress(min(1.0, i / total))
+
+    if st.session_state.exam_done:
+        correct = int(st.session_state.exam_correct)
         pct = int(round((correct / total) * 100)) if total else 0
         passed = pct >= PASS_PCT
-        return {"correct": correct, "total": total, "pct": pct, "passed": passed, "details": details}
-
-    # -----------------------------------------------------------------------------
-    # Results
-    # -----------------------------------------------------------------------------
-    if st.session_state.get("exam_done", False):
-        result = st.session_state.get("exam_result")
-        if not isinstance(result, dict):
-            result = _evaluate_exam()
-            st.session_state.exam_result = result
-
-        correct = int(result["correct"])
-        pct = int(result["pct"])
-        passed = bool(result["passed"])
 
         st.markdown(
             f"""<div class="pp-card"><div><b>Ergebnis</b></div>
@@ -1501,66 +1318,28 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             st.rerun()
 
         st.write("")
-        st.markdown("## Lösungen & Erklärungen")
-        st.caption("Aufklappen, um richtige Lösung + Wiki-Erklärung zu sehen.")
-
-        labels = ["A", "B", "C", "D"]
-        for d in result["details"]:
-            q = d["q"]
-            qid = d["qid"]
-            sel = d["selected"]
-            ci = int(d["correct"])
-            opts = q.get("options") or []
-            while len(opts) < 4:
-                opts.append("")
-
-            title = f"{qid} · {'✅' if d['ok'] else '❌'}"
-            with st.expander(title, expanded=False):
-                st.markdown(f"**Frage:** {(q.get('question') or '').strip()}")
-                render_figures(q, max_n=2)
-
-                your = "-" if sel is None else f"{labels[int(sel)]}) {opts[int(sel)]}"
-                corr = "-" if ci < 0 else f"{labels[ci]}) {opts[ci]}"
-                st.markdown(f"**Deine Antwort:** {your}")
-                st.markdown(f"**Richtig:** {corr}")
-
-                w = get_wiki(q)
-                if w.get("explanation"):
-                    st.markdown("---")
-                    st.markdown(w["explanation"])
-                if w.get("merksatz"):
-                    st.markdown(f"**Merksatz:** {w['merksatz']}")
-                links = w.get("links") or []
-                if links:
-                    st.markdown("**Weiterlesen:**")
-                    for li in links:
-                        if not isinstance(li, dict):
-                            continue
-                        title2 = (li.get("title") or "Link").strip()
-                        url = (li.get("url") or "").strip()
-                        locator = (li.get("locator") or "").strip()
-                        if url:
-                            extra = f" — {locator}" if locator else ""
-                            st.markdown(f"- [{title2}]({url}){extra}")
-                if w.get("reliability_note"):
-                    st.caption(w["reliability_note"])
+        st.markdown("## Verlauf (letzte 10)")
+        runs = db_list_exam_runs(uid, limit=10)
+        if not runs:
+            st.info("Kein Verlauf (oder exam_runs Tabelle fehlt).")
+        else:
+            for r in runs:
+                t = int(r.get("total") or 0)
+                c = int(r.get("correct") or 0)
+                p = int(round((c / t) * 100)) if t else 0
+                ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
+                st.caption(f"{p}% ({c}/{t}) — {ok}")
         return
 
-    # -----------------------------------------------------------------------------
-    # Exam UI (no immediate solutions, vor/zurück, submit at end)
-    # -----------------------------------------------------------------------------
-    if total:
-        st.progress(min(1.0, i / total))
-
-    i = max(0, min(i, total - 1))
-    st.session_state.exam_idx = i
+    if i >= total:
+        st.session_state.exam_done = True
+        st.rerun()
 
     q = qlist[i]
     qid = str(q.get("id"))
     question = (q.get("question") or "").strip()
     options = q.get("options") or []
-    while len(options) < 4:
-        options.append("")
+    correct_index = int(q.get("correctIndex", -1))
 
     st.markdown(
         f"""<div class="pp-card"><div><b>{question}</b></div>
@@ -1571,38 +1350,37 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
 
     render_figures(q, max_n=2)
 
-    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers") or {}
-    current = answers.get(qid, None)
-
     labels = ["A", "B", "C", "D"]
-    radio_opts = [f"{labels[j]}) {options[j]}" for j in range(4)]
-    idx_default = int(current) if current is not None else 0
 
-    sel_idx = st.radio("Antwort wählen", radio_opts, index=idx_default, key=f"exam_radio_{qid}")
-    st.session_state.exam_answers[qid] = int(sel_idx)
+    if not st.session_state.exam_answered:
+        for idx_opt, opt in enumerate(options[:4]):
+            if st.button(f"{labels[idx_opt]}) {opt}", key=f"exam_{qid}_{idx_opt}"):
+                ok = (idx_opt == correct_index)
+                if ok:
+                    st.session_state.exam_correct = int(st.session_state.exam_correct) + 1
+                st.session_state.exam_answered = True
+                st.session_state.exam_last_ok = ok
+                st.session_state.exam_last_selected = idx_opt
+                st.session_state.exam_last_correct = correct_index
+                st.rerun()
+    else:
+        ok = bool(st.session_state.exam_last_ok)
+        if ok:
+            st.success("Richtig")
+        else:
+            st.error("Falsch")
+            ci = int(st.session_state.exam_last_correct)
+            if 0 <= ci < len(options):
+                st.info(f"Richtig ist: {labels[ci]}) {options[ci]}")
 
-    cA, cB, cC = st.columns([1, 1, 1])
-    if cA.button("◀ Zurück", use_container_width=True, disabled=(i == 0)):
-        st.session_state.exam_idx = max(0, i - 1)
-        st.rerun()
-    if cB.button("Weiter ▶", use_container_width=True, disabled=(i >= total - 1)):
-        st.session_state.exam_idx = min(total - 1, i + 1)
-        st.rerun()
-    if cC.button("Antwort löschen", use_container_width=True):
-        st.session_state.exam_answers[qid] = None
-        st.session_state.pop(f"exam_radio_{qid}", None)
-        st.rerun()
+        with st.expander("KI-Nachfrage zur Frage", expanded=False):
+            render_ai_chat(q, qid)
 
-    st.write("")
-    answered_cnt = sum(1 for v in (st.session_state.exam_answers or {}).values() if v is not None)
-    st.caption(f"Beantwortet: {answered_cnt}/{total}")
-
-    if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
-        st.session_state.exam_submitted = True
-        st.session_state.exam_result = _evaluate_exam()
-        st.session_state.exam_done = True
-        st.rerun()
-
+        if st.button("Nächste Frage", type="primary"):
+            st.session_state.exam_idx = i + 1
+            st.session_state.exam_answered = False
+            st.session_state.exam_last_ok = None
+            st.rerun()
 
 # =============================================================================
 # MAIN
@@ -1618,6 +1396,7 @@ require_login()
 claims = user_claims()
 ensure_user_registered(claims)
 uid = stable_user_id(claims)
+st.session_state.uid = uid
 
 questions = load_questions()
 val = validate_questions(questions)

@@ -866,6 +866,7 @@ def _reset_exam_state() -> None:
 
 
 def nav_sidebar(claims: Dict[str, str]) -> None:
+def nav_sidebar(claims: Dict[str, str]):
     st.sidebar.markdown("## Account")
     st.sidebar.write(claims.get("email") or claims.get("name") or "User")
     st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
@@ -886,35 +887,10 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
         _reset_learning_state()
         st.rerun()
 
-    st.sidebar.markdown("## Tools")
-    st.sidebar.checkbox("Debug logs", key="debug_on", value=bool(st.session_state.get("debug_on", False)))
-
-    with st.sidebar.expander("Daten", expanded=False):
-        st.caption("Optional: questions.json zur Laufzeit überschreiben (ohne Speicherung).")
-        up = st.file_uploader("questions.json hochladen", type=["json"], key="upload_questions")
-        if up is not None:
-            try:
-                data = json.loads(up.getvalue().decode("utf-8"))
-                if not isinstance(data, list):
-                    raise ValueError("JSON muss eine Liste von Fragen sein.")
-                st.session_state.questions_override = data
-                _reset_learning_state()
-                _reset_exam_state()
-                st.success(f"Geladen: {len(data)} Fragen")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Upload-Fehler: {e}")
-
-        if st.button("Override zurücksetzen", use_container_width=True):
-            st.session_state.pop("questions_override", None)
-            _reset_learning_state()
-            _reset_exam_state()
-            st.rerun()
-
     # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten)
     st.sidebar.markdown("## Wartung")
     with st.sidebar.expander("Fortschritt zurücksetzen", expanded=False):
-        st.caption("Löscht: Lernfortschritt, Notizen, Prüfungs-Historie (nur dein User). Fragen/Wiki bleiben unverändert.")
+        st.caption("Löscht deine gespeicherten Daten: Lernfortschritt, Notizen und Prüfungs-Historie. Fragen/Wiki bleiben unverändert.")
         confirm = st.checkbox("Ich verstehe, dass das nicht rückgängig gemacht werden kann.", key="reset_confirm")
         token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
         do_reset = st.button(
@@ -925,10 +901,10 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
             key="reset_do",
         )
         if do_reset:
-            uid = str(st.session_state.get("uid") or "")
-            ok, err = db_reset_user_data(uid)
+            uid = st.session_state.get("uid") or ""
+            ok, err = db_reset_user_data(str(uid))
             if ok:
-                st.session_state.progress = {}
+                st.session_state.progress = db_load_progress(str(uid))
                 _reset_learning_state()
                 _reset_exam_state()
                 st.session_state.page = "dashboard"

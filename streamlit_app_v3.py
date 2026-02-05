@@ -31,11 +31,20 @@ def cfg(path: str, default: str = "") -> str:
     return (str(cur) if cur is not None else "").strip()
 
 
+def cfg_any(paths: List[str], default: str = "") -> str:
+    """Try multiple secrets paths and return the first non-empty value."""
+    for p in paths:
+        v = cfg(p, default="")
+        if str(v).strip():
+            return str(v).strip()
+    return default
+
+
 PASS_PCT = float(cfg("PASS_PCT", "75"))
 
 SUPABASE_URL = cfg("supabase.url")
-SUPABASE_SERVICE_ROLE_KEY = cfg("supabase.service_role_key")
-SUPABASE_ANON_KEY = cfg("supabase.anon_key")
+SUPABASE_SERVICE_ROLE_KEY = cfg_any(["supabase.service_role_key","supabase.serviceRoleKey","SUPABASE_SERVICE_ROLE_KEY"], default="")
+SUPABASE_ANON_KEY = cfg_any(["supabase.anon_key","supabase.anonKey","SUPABASE_ANON_KEY"], default="")
 
 OPENAI_API_KEY = cfg("openai.api_key")
 OPENAI_MODEL = cfg("openai.model", "gpt-4.1-mini")
@@ -107,6 +116,16 @@ def supa() -> Client:
         )
 
     return create_client(SUPABASE_URL, key)
+
+
+@st.cache_resource(show_spinner=False)
+def supa_admin() -> Client:
+    """Admin client (Service Role). Use ONLY for destructive maintenance actions (e.g., full reset)."""
+    if not SUPABASE_URL:
+        raise RuntimeError("Supabase secret fehlt: [supabase].url")
+    if not SUPABASE_SERVICE_ROLE_KEY:
+        raise RuntimeError("Supabase Service Role Key fehlt: [supabase].service_role_key")
+    return create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
 
 # =============================================================================
@@ -383,7 +402,7 @@ def ensure_user_registered(claims: Dict[str, str]) -> None:
     if not sub:
         return
 
-    s = supa()
+    s = supa_admin()
     existing = (
         s.table("app_users")
         .select("id")
@@ -415,7 +434,7 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
 
 
 def db_upsert_progress(uid: str, qid: str, ok: bool):
-    s = supa()
+    s = supa_admin()
     r = s.table("progress").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
     if r.data:
         row = r.data[0]
@@ -458,7 +477,7 @@ def db_get_note(uid: str, qid: str) -> str:
 
 def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
     try:
-        s = supa()
+        s = supa_admin()
         note_text = (note_text or "").strip()
         r = s.table("notes").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
         if r.data:
@@ -498,7 +517,7 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
 def db_reset_user(uid: str) -> bool:
     """Dangerous operation: deletes ALL user-related data (progress, notes, exam_runs)."""
     try:
-        s = supa()
+        s = supa_admin()
         # Order doesn't matter, but keep it explicit.
         s.table("progress").delete().eq("user_id", uid).execute()
         s.table("notes").delete().eq("user_id", uid).execute()
@@ -517,7 +536,7 @@ def db_reset_user_data(uid: str) -> Tuple[bool, str]:
       (ok, error_message)
     """
     try:
-        s = supa()
+        s = supa_admin()
 
         # Order matters if you ever add FK constraints later.
         s.table("notes").delete().eq("user_id", uid).execute()
@@ -726,11 +745,15 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     st.sidebar.markdown("---")
     with st.sidebar.expander("⚠️ Zurücksetzen (alles auf 0)", expanded=False):
         st.caption("Löscht deinen kompletten Lernfortschritt, Notizen und Prüfungsverlauf. Nicht rückgängig zu machen.")
+        if not SUPABASE_SERVICE_ROLE_KEY:
+            st.warning("Reset ist deaktiviert: Supabase Service Role Key fehlt in Streamlit secrets ([supabase].service_role_key).")
+
         confirm = st.checkbox("Ich verstehe das und will wirklich alles löschen.", key="reset_confirm")
         token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
         do_reset = st.button(
             "ALLES ZURÜCKSETZEN",
             type="primary",
+            disabled=(not bool(SUPABASE_SERVICE_ROLE_KEY)),
             use_container_width=True,
             disabled=not (confirm and token.strip().upper() == "RESET"),
             key="reset_do",

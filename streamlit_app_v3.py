@@ -866,7 +866,6 @@ def _reset_exam_state() -> None:
 
 
 def nav_sidebar(claims: Dict[str, str]) -> None:
-def nav_sidebar(claims: Dict[str, str]):
     st.sidebar.markdown("## Account")
     st.sidebar.write(claims.get("email") or claims.get("name") or "User")
     st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
@@ -887,10 +886,13 @@ def nav_sidebar(claims: Dict[str, str]):
         _reset_learning_state()
         st.rerun()
 
+    st.sidebar.markdown("## Tools")
+    st.sidebar.checkbox("Debug logs", key="debug_on", value=bool(st.session_state.get("debug_on", False)))
+
     # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten)
     st.sidebar.markdown("## Wartung")
     with st.sidebar.expander("Fortschritt zurücksetzen", expanded=False):
-        st.caption("Löscht deine gespeicherten Daten: Lernfortschritt, Notizen und Prüfungs-Historie. Fragen/Wiki bleiben unverändert.")
+        st.caption("Löscht: Lernfortschritt, Notizen, Prüfungs-Historie (nur dein User). Fragen/Wiki bleiben unverändert.")
         confirm = st.checkbox("Ich verstehe, dass das nicht rückgängig gemacht werden kann.", key="reset_confirm")
         token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
         do_reset = st.button(
@@ -901,10 +903,10 @@ def nav_sidebar(claims: Dict[str, str]):
             key="reset_do",
         )
         if do_reset:
-            uid = st.session_state.get("uid") or ""
-            ok, err = db_reset_user_data(str(uid))
+            uid = str(st.session_state.get("uid") or "")
+            ok, err = db_reset_user_data(uid)
             if ok:
-                st.session_state.progress = db_load_progress(str(uid))
+                st.session_state.progress = {}
                 _reset_learning_state()
                 _reset_exam_state()
                 st.session_state.page = "dashboard"

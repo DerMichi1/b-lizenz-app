@@ -282,7 +282,55 @@ def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
     if not m:
         return []
     return [{"figure": int(m.group(1))}]
+@st.cache_data(show_spinner=False)
+def infer_clip_from_pdf_by_figure(pdf_path: str, page_1based: int, figure_no: int) -> Optional[List[float]]:
+    try:
+        import fitz  # PyMuPDF
+    except Exception:
+        return None
 
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        with fitz.open(str(p)) as doc:
+            if doc.page_count <= 0:
+                return None
+
+            page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+            page = doc.load_page(page_index)
+
+            label = f"Abbildung {int(figure_no)}"
+            hits = page.search_for(label)
+            if not hits:
+                return None
+
+            cur_rect = sorted(hits, key=lambda r: (r.y0, r.x0))[-1]
+
+            next_hits = page.search_for("Abbildung")
+            below = [r for r in next_hits if r.y0 > cur_rect.y0 + 1]
+            next_rect = sorted(below, key=lambda r: (r.y0, r.x0))[0] if below else None
+
+            page_rect = page.rect
+            margin_x = 18.0
+            pad_y = 12.0
+
+            x0 = float(page_rect.x0 + margin_x)
+            x1 = float(page_rect.x1 - margin_x)
+
+            y0 = float(cur_rect.y1 + pad_y)
+            y1 = float((next_rect.y0 - pad_y) if next_rect else (page_rect.y1 - pad_y))
+
+            if y1 <= y0 + 20:
+                return None
+
+            y0 = max(float(page_rect.y0), y0)
+            y1 = min(float(page_rect.y1), y1)
+
+            return [x0, y0, x1, y1]
+    except Exception:
+        return None
 
 def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
     figs = _infer_figures_from_text(q)

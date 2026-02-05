@@ -744,23 +744,32 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     # Danger Zone: Full reset (progress/notes/exam history)
     st.sidebar.markdown("---")
     with st.sidebar.expander("⚠️ Zurücksetzen (alles auf 0)", expanded=False):
-        st.caption("Löscht deinen kompletten Lernfortschritt, Notizen und Prüfungsverlauf. Nicht rückgängig zu machen.")
-        if not SUPABASE_SERVICE_ROLE_KEY:
-            st.warning("Reset ist deaktiviert: Supabase Service Role Key fehlt in Streamlit secrets ([supabase].service_role_key).")
+        st.caption("Löscht Lernfortschritt, Notizen und Prüfungsverlauf. Nicht rückgängig zu machen.")
 
-        confirm = st.checkbox("Ich verstehe das und will wirklich alles löschen.", key="reset_confirm")
-        token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
+        confirm = st.checkbox(
+            "Ich verstehe das und will wirklich alles löschen.",
+            key="reset_confirm"
+        )
+
+        token = st.text_input(
+            "Tippe RESET zur Bestätigung",
+            value="",
+            key="reset_token"
+        )
+
+        can_reset = confirm and token.strip().upper() == "RESET"
+
         do_reset = st.button(
-do_reset = st.button(
-    "ALLES ZURÜCKSETZEN",
-    type="primary",
-    use_container_width=True,
-    disabled=not (confirm and token.strip().upper() == "RESET"),
-    key="reset_do",
-)
-
+            "ALLES ZURÜCKSETZEN",
+            type="primary",
+            use_container_width=True,
+            disabled=not can_reset,
+            key="reset_do"
+        )
 
         if do_reset:
+            uid = st.session_state.get("uid")
+
             ok, err = db_reset_user_data(uid)
             if not ok:
                 st.error("Reset fehlgeschlagen (Supabase/RLS).")
@@ -768,17 +777,12 @@ do_reset = st.button(
                     st.caption(f"DB-Fehler: {err}")
                 st.stop()
 
-            # Reset local state
             st.session_state.progress = {}
             st.session_state.page = "dashboard"
             _reset_learning_state()
             _reset_exam_state()
 
-            # Clear confirmation UI
-            st.session_state.pop("reset_confirm", None)
-            st.session_state.pop("reset_token", None)
-
-            st.success("Zurückgesetzt. (Fortschritt/Notizen/Prüfungen gelöscht)")
+            st.success("Zurückgesetzt.")
             st.rerun()
 
 # =============================================================================

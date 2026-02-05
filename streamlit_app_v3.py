@@ -1502,11 +1502,23 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
     current = answers.get(qid, None)
 
     labels = ["A", "B", "C", "D"]
-    radio_opts = [f"{labels[j]}) {options[j]}" for j in range(4)]
-    idx_default = int(current) if current is not None else 0
+    radio_vals = [-1, 0, 1, 2, 3]
 
-    sel_idx = st.radio("Antwort wählen", radio_opts, index=idx_default, key=f"exam_radio_{qid}")
-    st.session_state.exam_answers[qid] = int(sel_idx)
+    def _fmt_choice(v: int) -> str:
+        if v == -1:
+            return "— keine Auswahl —"
+        return f"{labels[v]}) {options[v]}"
+
+    default_val = int(current) if current is not None else -1
+    sel_val = st.radio(
+        "Antwort wählen",
+        radio_vals,
+        index=radio_vals.index(default_val),
+        key=f"exam_radio_{qid}",
+        format_func=_fmt_choice,
+    )
+
+    st.session_state.exam_answers[qid] = (None if int(sel_val) == -1 else int(sel_val))
 
     cA, cB, cC = st.columns([1, 1, 1])
     if cA.button("◀ Zurück", use_container_width=True, disabled=(i == 0)):

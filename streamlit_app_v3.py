@@ -850,7 +850,7 @@ def nav_sidebar(claims: Dict[str, str]):
 # =============================================================================
 
     st.sidebar.markdown("## Wartung")
-    with st.sidebar.expander("Fortschritt zurücksetzen (Danger Zone)", expanded=False):
+    with st.sidebar.expander("Fortschritt zurücksetzen", expanded=False):
         st.caption("Setzt ALLES für deinen Account zurück: Lernfortschritt, Notizen, Prüfungsverlauf.")
         confirm = st.checkbox("Ich verstehe: Dieser Vorgang ist endgültig.", key="reset_confirm")
         token = st.text_input("Tippe RESET zum Bestätigen", value="", key="reset_token")

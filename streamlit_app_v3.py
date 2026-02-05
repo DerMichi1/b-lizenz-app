@@ -1,8 +1,17 @@
+# streamlit_app_v3.py
+# Requirements (per README):
+#   streamlit>=1.32
+#   supabase
+#   pymupdf==1.24.9
+#   Authlib>=1.3.2
+#   openai>=1.40.0
+
 import json
 import random
 import re
 import uuid
 import time
+import math
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -14,20 +23,23 @@ from supabase import Client, create_client
 # =============================================================================
 APP_DIR = Path(__file__).parent
 QUESTIONS_PATH = APP_DIR / "questions.json"
-BILDER_PDF = APP_DIR / "Bilder.pdf"  # PDF with figures (page numbers referenced by questions[*].figures[*].bilder_page)
-FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # supports {"47": 14} OR {"47": {"page":14,"clip":[...] }}
+BILDER_PDF = APP_DIR / "Bilder.pdf"  # PDF with figures
+FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # {"47": {"page":14,"clip":[...]}}
 
 
 def cfg(path: str, default: str = "") -> str:
-    """
-    Read from Streamlit secrets only.
+    """Read config from Streamlit secrets only.
+
+    Works with Streamlit's secrets object (mapping-like), not assuming plain dict.
+    Path format: "section.key".
     """
     parts = path.split(".")
     cur: Any = st.secrets
     for p in parts:
-        if p not in cur:
+        try:
+            cur = cur[p]
+        except Exception:
             return default
-        cur = cur[p]
     return (str(cur) if cur is not None else "").strip()
 
 
@@ -40,8 +52,11 @@ SUPABASE_ANON_KEY = cfg("supabase.anon_key")
 OPENAI_API_KEY = cfg("openai.api_key")
 OPENAI_MODEL = cfg("openai.model", "gpt-4.1-mini")
 
-# Exam timer
-EXAM_DURATION_SEC = int(float(cfg("exam.duration_minutes", "60")) * 60)  # default 60 min
+# Exam timer (default 60 min)
+EXAM_DURATION_SEC = int(float(cfg("exam.duration_minutes", "60")) * 60)
+
+# Optional dev flags
+DEV_SELFTEST = cfg("dev.selftest", "0") in ("1", "true", "True", "yes", "YES")
 
 
 # =============================================================================
@@ -92,6 +107,7 @@ REQUIRED: Dict[str, Dict[str, int]] = {
     },
 }
 
+
 # =============================================================================
 # SUPABASE CLIENT (DB only)
 # =============================================================================
@@ -102,9 +118,7 @@ def supa() -> Client:
 
     key = SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY
     if not key:
-        raise RuntimeError(
-            "Supabase secret fehlt: [supabase].service_role_key (empfohlen) oder [supabase].anon_key"
-        )
+        raise RuntimeError("Supabase secret fehlt: [supabase].service_role_key oder [supabase].anon_key")
 
     return create_client(SUPABASE_URL, key)
 
@@ -114,15 +128,7 @@ def supa() -> Client:
 # =============================================================================
 @st.cache_data(show_spinner=False)
 def load_questions() -> List[Dict[str, Any]]:
-    """Load questions from the bundled questions.json.
-
-    Important: The app can override this file at runtime via the sidebar uploader.
-    The override is stored in st.session_state (not on disk).
-    """
-    override = st.session_state.get("questions_override")
-    if isinstance(override, list) and override:
-        return override
-
+    """Load questions from bundled questions.json."""
     if not QUESTIONS_PATH.exists():
         raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
 
@@ -158,8 +164,7 @@ def get_ai_cfg(q: Dict[str, Any]) -> Dict[str, Any]:
         return {
             "allowed": bool(a.get("allowed", True)),
             "context": (a.get("context") or "").strip(),
-            "system_hint": (a.get("system_hint") or "").strip()
-            or "Antworte strikt faktenbasiert. Wenn unsicher, sag es.",
+            "system_hint": (a.get("system_hint") or "").strip() or "Antworte strikt faktenbasiert. Wenn unsicher, sag es.",
         }
     return {"allowed": True, "context": "", "system_hint": "Antworte strikt faktenbasiert. Wenn unsicher, sag es."}
 
@@ -208,7 +213,7 @@ def index_questions(questions: List[Dict[str, Any]]) -> Dict[Tuple[str, str], Li
 
 
 # =============================================================================
-# PDF IMAGE RENDER (Bilder.pdf) with CLIP support
+# PDF IMAGE RENDER (Bilder.pdf) with CLIP support + safe fallback crop
 # =============================================================================
 @st.cache_data(show_spinner=False)
 def render_pdf_page_png(
@@ -231,23 +236,54 @@ def render_pdf_page_png(
         return None
 
     try:
-        doc = fitz.open(str(p))
-        if doc.page_count <= 0:
-            return None
+        with fitz.open(str(p)) as doc:
+            if doc.page_count <= 0:
+                return None
 
-        page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
-        page = doc.load_page(page_index)
+            page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+            page = doc.load_page(page_index)
 
-        mat = fitz.Matrix(float(zoom), float(zoom))
+            mat = fitz.Matrix(float(zoom), float(zoom))
 
-        clip_rect = None
-        if isinstance(clip, list) and len(clip) == 4:
-            clip_rect = fitz.Rect(float(clip[0]), float(clip[1]), float(clip[2]), float(clip[3]))
+            clip_rect = None
+            if isinstance(clip, list) and len(clip) == 4:
+                clip_rect = fitz.Rect(float(clip[0]), float(clip[1]), float(clip[2]), float(clip[3]))
 
-        pix = page.get_pixmap(matrix=mat, alpha=False, clip=clip_rect)
-        return pix.tobytes("png")
+            pix = page.get_pixmap(matrix=mat, alpha=False, clip=clip_rect)
+            return pix.tobytes("png")
     except Exception:
         return None
+
+
+@st.cache_data(show_spinner=False)
+def autocrop_png(png_bytes: bytes, margin: int = 14) -> bytes:
+    """
+    Crops white margins from a PNG (fallback if no clip is provided).
+    Keeps behavior stable: if crop fails, returns original.
+    """
+    try:
+        from PIL import Image, ImageChops
+        import io
+
+        im = Image.open(io.BytesIO(png_bytes)).convert("RGB")
+        bg = Image.new("RGB", im.size, im.getpixel((0, 0)))
+        diff = ImageChops.difference(im, bg)
+        bbox = diff.getbbox()
+        if not bbox:
+            return png_bytes
+
+        x0, y0, x1, y1 = bbox
+        x0 = max(0, x0 - margin)
+        y0 = max(0, y0 - margin)
+        x1 = min(im.size[0], x1 + margin)
+        y1 = min(im.size[1], y1 + margin)
+
+        cropped = im.crop((x0, y0, x1, y1))
+        out = io.BytesIO()
+        cropped.save(out, format="PNG", optimize=True)
+        return out.getvalue()
+    except Exception:
+        return png_bytes
 
 
 @st.cache_data(show_spinner=False)
@@ -272,6 +308,68 @@ def load_figure_map() -> Dict[str, Any]:
         return {}
 
 
+@st.cache_data(show_spinner=False)
+def infer_clip_from_pdf_by_figure(pdf_path: str, page_1based: int, figure_no: int) -> Optional[List[float]]:
+    """Best-effort clip inference when figure_map has no clip.
+
+    Strategy:
+      - Find the text 'Abbildung {figure_no}' on the page.
+      - Crop full page width between this label and the next 'Abbildung' label below it.
+      - If this is the last figure on the page, crop until page bottom.
+    Returns clip as [x0,y0,x1,y1] in PDF points (PyMuPDF), or None.
+    """
+    try:
+        import fitz  # PyMuPDF
+    except Exception:
+        return None
+
+    p = Path(pdf_path)
+    if not p.exists():
+        return None
+
+    try:
+        with fitz.open(str(p)) as doc:
+            if doc.page_count <= 0:
+                return None
+            page_index = max(0, min(int(page_1based) - 1, doc.page_count - 1))
+            page = doc.load_page(page_index)
+
+            label = f"Abbildung {int(figure_no)}"
+            hits = page.search_for(label)
+            if not hits:
+                return None
+
+            # Use the lowest hit in case header repeats
+            cur_rect = sorted(hits, key=lambda r: (r.y0, r.x0))[-1]
+
+            # Find the next 'Abbildung' label below current label
+            next_hits = page.search_for("Abbildung")
+            below = [r for r in next_hits if r.y0 > cur_rect.y0 + 1]
+            next_rect = sorted(below, key=lambda r: (r.y0, r.x0))[0] if below else None
+
+            page_rect = page.rect
+            margin_x = 18.0
+            pad_y = 12.0
+
+            x0 = float(page_rect.x0 + margin_x)
+            x1 = float(page_rect.x1 - margin_x)
+
+            y0 = float(cur_rect.y1 + pad_y)
+            y1 = float((next_rect.y0 - pad_y) if next_rect else (page_rect.y1 - pad_y))
+
+            # Guard: ensure positive height
+            if y1 <= y0 + 20:
+                return None
+
+            # Keep within page bounds
+            y0 = max(float(page_rect.y0), y0)
+            y1 = min(float(page_rect.y1), y1)
+
+            return [x0, y0, x1, y1]
+    except Exception:
+        return None
+
+
 def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
     figs = q.get("figures")
     if isinstance(figs, list) and figs:
@@ -284,7 +382,7 @@ def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
     return [{"figure": int(m.group(1))}]
 
 
-def render_figures(q: Dict[str, Any], max_n: int = 3):
+def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
     figs = _infer_figures_from_text(q)
     if not figs:
         return
@@ -303,10 +401,7 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
         except Exception:
             continue
 
-        # Preferred sources:
-        # - figures[*].bilder_page (page)
-        # - figures[*].clip (crop)
-        # - else: figure_map.json entry for that figure (page + optional clip)
+        # Prefer question-provided values
         try:
             page_1based = int(f.get("bilder_page") or 0)
         except Exception:
@@ -343,12 +438,27 @@ def render_figures(q: Dict[str, Any], max_n: int = 3):
         )
 
         if png:
-            cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
-            if clip:
-                cap += " · Ausschnitt"
-            st.image(png, caption=cap, use_container_width=True)
-            shown += 1
+            # If we have no explicit clip, try to infer a clip from the PDF text layout.
+            # This fixes the common case where the desired figure is the LAST one on the page.
+            inferred = None
+            if not clip:
+                inferred = infer_clip_from_pdf_by_figure(str(BILDER_PDF), page_1based, fig_no_int)
+                if inferred:
+                    png2 = render_pdf_page_png(str(BILDER_PDF), page_1based=page_1based, zoom=2.0, clip=inferred)
+                    if png2:
+                        png = png2
+                        clip = inferred
 
+            # Final fallback: remove white margins (only helps if the page doesn't contain multiple figures)
+            if not clip:
+                png = autocrop_png(png, margin=14)
+
+            cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
+            cap += " · Ausschnitt" if clip else " · Auto-Crop"
+
+            # Streamlit deprecates use_container_width; use width='stretch'
+            st.image(png, caption=cap, width="stretch")
+            shown += 1
 
 
 # =============================================================================
@@ -414,7 +524,7 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     return {str(x["question_id"]): x for x in (r.data or [])}
 
 
-def db_upsert_progress(uid: str, qid: str, ok: bool):
+def db_upsert_progress(uid: str, qid: str, ok: bool) -> None:
     s = supa()
     r = s.table("progress").select("*").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
     if r.data:
@@ -428,13 +538,7 @@ def db_upsert_progress(uid: str, qid: str, ok: bool):
         ).eq("user_id", uid).eq("question_id", qid).execute()
     else:
         s.table("progress").insert(
-            {
-                "user_id": uid,
-                "question_id": qid,
-                "seen": 1,
-                "correct": 1 if ok else 0,
-                "wrong": 0 if ok else 1,
-            }
+            {"user_id": uid, "question_id": qid, "seen": 1, "correct": 1 if ok else 0, "wrong": 0 if ok else 1}
         ).execute()
 
 
@@ -470,13 +574,15 @@ def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
         return False
 
 
-def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> None:
+def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> Tuple[bool, str]:
+    """Insert exam run. Returns (ok, error_message)."""
     try:
         supa().table("exam_runs").insert(
-            {"user_id": uid, "total": total, "correct": correct, "passed": passed}
+            {"user_id": uid, "total": int(total), "correct": int(correct), "passed": bool(passed)}
         ).execute()
-    except Exception:
-        pass
+        return True, ""
+    except Exception as e:
+        return False, str(e)
 
 
 def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
@@ -493,21 +599,6 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
         return list(r.data or [])
     except Exception:
         return []
-
-
-def db_reset_user_data(uid: str) -> Tuple[bool, str]:
-    """Delete all user-owned learning data (progress, notes, exam_runs).
-    Keeps app_users entry intact (login mapping).
-    Returns (ok, error_message).
-    """
-    try:
-        s = supa()
-        s.table("notes").delete().eq("user_id", uid).execute()
-        s.table("progress").delete().eq("user_id", uid).execute()
-        s.table("exam_runs").delete().eq("user_id", uid).execute()
-        return True, ""
-    except Exception as e:
-        return False, str(e)
 
 
 # =============================================================================
@@ -566,6 +657,7 @@ USER-FRAGE:
 
     try:
         from openai import OpenAI
+
         client = OpenAI(api_key=OPENAI_API_KEY)
         resp = client.chat.completions.create(
             model=OPENAI_MODEL,
@@ -580,7 +672,7 @@ USER-FRAGE:
         return f"KI-Fehler: {e}"
 
 
-def render_ai_chat(q: Dict[str, Any], qid: str):
+def render_ai_chat(q: Dict[str, Any], qid: str) -> None:
     ai_cfg = get_ai_cfg(q)
     if not ai_cfg["allowed"]:
         st.caption("KI-Nachfragen sind für diese Frage deaktiviert.")
@@ -630,7 +722,7 @@ def render_ai_chat(q: Dict[str, Any], qid: str):
 # =============================================================================
 # UI / STYLES
 # =============================================================================
-def inject_css():
+def inject_css() -> None:
     st.markdown(
         """
 <style>
@@ -652,14 +744,13 @@ div.stButton > button { width:100%; padding:0.85rem 1rem; border-radius:14px; fo
 hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
 .small { font-size: 0.9rem; opacity: 0.85; }
 .pp-pill { display:inline-block; padding: 0.25rem 0.55rem; border:1px solid var(--pp-border); border-radius:999px; background: rgba(255,255,255,0.03); font-size:0.85rem; margin-right:0.4rem;}
-.pp-timer { border:1px solid var(--pp-border); border-radius:14px; padding:0.55rem 0.75rem; background: rgba(255,255,255,0.03); display:inline-block;}
 </style>
 """,
         unsafe_allow_html=True,
     )
 
 
-def nav_sidebar(claims: Dict[str, str]):
+def nav_sidebar(claims: Dict[str, str]) -> None:
     st.sidebar.markdown("## Account")
     st.sidebar.write(claims.get("email") or claims.get("name") or "User")
     st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
@@ -679,56 +770,6 @@ def nav_sidebar(claims: Dict[str, str]):
         st.session_state.page = "exam"
         _reset_learning_state()
         st.rerun()
-
-    with st.sidebar.expander("Daten", expanded=False):
-        st.caption("Optional: questions.json zur Laufzeit überschreiben (ohne Speicherung).")
-        up = st.file_uploader("questions.json hochladen", type=["json"], key="upload_questions")
-        if up is not None:
-            try:
-                data = json.loads(up.getvalue().decode("utf-8"))
-                if not isinstance(data, list):
-                    raise ValueError("JSON muss eine Liste von Fragen sein.")
-                st.session_state.questions_override = data
-                _reset_learning_state()
-                _reset_exam_state()
-                st.success(f"Geladen: {len(data)} Fragen")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Upload-Fehler: {e}")
-
-        if st.button("Override zurücksetzen", use_container_width=True):
-            st.session_state.pop("questions_override", None)
-            _reset_learning_state()
-            _reset_exam_state()
-            st.rerun()
-
-    # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten)
-    st.sidebar.markdown("## Wartung")
-    with st.sidebar.expander("Fortschritt zurücksetzen", expanded=False):
-        st.caption("Löscht deine gespeicherten Daten: Lernfortschritt, Notizen und Prüfungs-Historie. Fragen/Wiki bleiben unverändert.")
-        confirm = st.checkbox("Ich verstehe, dass das nicht rückgängig gemacht werden kann.", key="reset_confirm")
-        token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
-        do_reset = st.button(
-            "Jetzt zurücksetzen",
-            type="primary",
-            use_container_width=True,
-            disabled=not (confirm and (token or "").strip().upper() == "RESET"),
-            key="reset_do",
-        )
-        if do_reset:
-            uid = st.session_state.get("uid") or ""
-            ok, err = db_reset_user_data(str(uid))
-            if ok:
-                st.session_state.progress = db_load_progress(str(uid))
-                _reset_learning_state()
-                _reset_exam_state()
-                st.session_state.page = "dashboard"
-                st.success("Zurückgesetzt.")
-                st.rerun()
-            else:
-                st.error("Reset fehlgeschlagen (Supabase/RLS).")
-                if err:
-                    st.caption(f"DB-Fehler: {err}")
 
 
 # =============================================================================
@@ -789,22 +830,40 @@ def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: i
                 continue
             acc = (int(s.get("correct_total", 0)) / attempts) if attempts else 0.0
             rows.append(
-                {
-                    "category": cat,
-                    "subchapter": sub,
-                    "attempts": attempts,
-                    "accuracy": acc,
-                    "wrong": int(s.get("wrong_total", 0)),
-                }
+                {"category": cat, "subchapter": sub, "attempts": attempts, "accuracy": acc, "wrong": int(s.get("wrong_total", 0))}
             )
     rows.sort(key=lambda r: (r["accuracy"], -r["attempts"]))
+    return rows[:topn]
+
+
+def top_wrong_questions(questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]], topn: int = 10) -> List[Dict[str, Any]]:
+    by_id = {str(q.get("id")): q for q in questions}
+    rows: List[Dict[str, Any]] = []
+    for qid, row in progress.items():
+        w = int(row.get("wrong", 0) or 0)
+        if w <= 0:
+            continue
+        q = by_id.get(str(qid))
+        if not q:
+            continue
+        rows.append(
+            {
+                "qid": str(qid),
+                "wrong": w,
+                "seen": int(row.get("seen", 0) or 0),
+                "category": (q.get("category") or "").strip(),
+                "subchapter": (q.get("subchapter") or "").strip(),
+                "question": (q.get("question") or "").strip(),
+            }
+        )
+    rows.sort(key=lambda r: (-r["wrong"], -r["seen"]))
     return rows[:topn]
 
 
 # =============================================================================
 # APP STATE
 # =============================================================================
-def _reset_learning_state():
+def _reset_learning_state() -> None:
     for k in [
         "queue",
         "idx",
@@ -815,12 +874,11 @@ def _reset_learning_state():
         "learn_started",
         "learn_plan",
         "ai_chat",
-        "ai_draft",
     ]:
         st.session_state.pop(k, None)
 
 
-def _reset_exam_state():
+def _reset_exam_state() -> None:
     for k in [
         "exam_queue",
         "exam_idx",
@@ -829,12 +887,14 @@ def _reset_exam_state():
         "exam_submitted",
         "exam_answers",
         "exam_result",
-        "exam_start_ts",
-        # clean up in case older versions stored these
-        "ai_chat",
-        "ai_draft",
+        "exam_deadline_ts",
+        "exam_radio_seed",
     ]:
         st.session_state.pop(k, None)
+    # remove per-question radio keys
+    for k in list(st.session_state.keys()):
+        if str(k).startswith("exam_radio_"):
+            st.session_state.pop(k, None)
 
 
 # =============================================================================
@@ -857,14 +917,12 @@ def build_learning_queue(
 
     if only_unseen:
         qset = [
-            q
-            for q in qset
+            q for q in qset
             if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0
         ]
     if only_wrong:
         qset = [
-            q
-            for q in qset
+            q for q in qset
             if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0
         ]
 
@@ -878,11 +936,109 @@ def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[
     return base[:n]
 
 
+def _alloc_counts(total: int, keys: List[str]) -> Dict[str, int]:
+    """Evenly allocate 'total' across 'keys' (stable, sums to total)."""
+    if total <= 0 or not keys:
+        return {k: 0 for k in keys}
+    base = total // len(keys)
+    rem = total % len(keys)
+    out = {k: base for k in keys}
+    # distribute remainder deterministically
+    for k in keys[:rem]:
+        out[k] += 1
+    return out
+
+
+def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed: Optional[int] = None) -> List[Dict[str, Any]]:
+    """
+    Balanced exam selection:
+      1) Ensure a roughly equal share across main categories.
+      2) Within each category, spread across subchapters (approx proportional, min-1 where possible).
+    Falls back gracefully if a bucket has not enough questions.
+    """
+    rng = random.Random(seed)
+
+    # group by category -> subchapter -> questions
+    by_cat: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+    for q in questions:
+        cat = (q.get("category") or "").strip() or "Unbekannt"
+        sub = (q.get("subchapter") or "").strip() or "Allgemein"
+        by_cat.setdefault(cat, {}).setdefault(sub, []).append(q)
+
+    cats = sorted(by_cat.keys())
+    if not cats:
+        return []
+
+    # 1) allocate per category evenly
+    cat_target = _alloc_counts(n, cats)
+
+    selected: List[Dict[str, Any]] = []
+
+    # 2) within each category
+    for cat in cats:
+        subs = sorted(by_cat[cat].keys())
+        if not subs or cat_target[cat] <= 0:
+            continue
+
+        # available counts per subchapter
+        avail = {s: len(by_cat[cat][s]) for s in subs}
+        total_avail = sum(avail.values())
+
+        # start with proportional allocation
+        raw = {}
+        for s in subs:
+            raw[s] = (cat_target[cat] * avail[s] / total_avail) if total_avail else 0.0
+
+        sub_target = {s: int(math.floor(raw[s])) for s in subs}
+        # distribute remaining within category
+        rem = cat_target[cat] - sum(sub_target.values())
+        # rank by fractional part desc, then by availability desc
+        order = sorted(subs, key=lambda s: (raw[s] - math.floor(raw[s]), avail[s]), reverse=True)
+        for s in order:
+            if rem <= 0:
+                break
+            sub_target[s] += 1
+            rem -= 1
+
+        # ensure at least 1 for as many subs as possible (spread), without exceeding target
+        if cat_target[cat] > 1 and len(subs) > 1:
+            # subs with 0 but available
+            zeros = [s for s in subs if sub_target[s] == 0 and avail[s] > 0]
+            for s in zeros:
+                # take 1 from the largest bucket
+                donor = max(subs, key=lambda d: sub_target[d])
+                if sub_target[donor] <= 1:
+                    break
+                sub_target[donor] -= 1
+                sub_target[s] += 1
+
+        # pick questions per subchapter
+        for s in subs:
+            bucket = list(by_cat[cat][s])
+            rng.shuffle(bucket)
+            take = min(sub_target[s], len(bucket))
+            selected.extend(bucket[:take])
+
+    # If we underfilled (buckets too small), top up from remaining questions
+    if len(selected) < n:
+        selected_ids = {str(q.get("id")) for q in selected}
+        remaining = [q for q in questions if str(q.get("id")) not in selected_ids]
+        rng.shuffle(remaining)
+        selected.extend(remaining[: max(0, n - len(selected))])
+
+    # If we overfilled, trim deterministically
+    if len(selected) > n:
+        rng.shuffle(selected)
+        selected = selected[:n]
+
+    rng.shuffle(selected)
+    return selected
+
 # =============================================================================
 # DASHBOARD
 # =============================================================================
-def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
-    st.title("Fortschritt Übersicht")
+def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
+    st.title("Übersicht")
 
     qidx = index_questions(questions)
     stats = compute_progress_by_cluster(qidx, progress)
@@ -909,12 +1065,26 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         if total:
             best = max(best, int(round((corr / total) * 100)))
 
+    # Trend/Avg (last 7)
+    last7 = runs[:7]
+    if last7:
+        pcts7 = []
+        for r in last7:
+            t = int(r.get("total") or 0)
+            c = int(r.get("correct") or 0)
+            pcts7.append(int(round((c / t) * 100)) if t else 0)
+        avg7 = int(round(sum(pcts7) / len(pcts7)))
+        trend7 = (pcts7[0] - pcts7[-1]) if len(pcts7) >= 2 else 0
+    else:
+        avg7 = 0
+        trend7 = 0
+
     st.markdown(
         f"""
 <div class="pp-grid">
   <div class="pp-kpi"><b>Abdeckung</b><br>{overall}%<div class="pp-muted">Fragen mindestens 1× gesehen</div></div>
   <div class="pp-kpi"><b>Trefferquote</b><br>{accuracy_total}%<div class="pp-muted">{c_total} richtig · {w_total} falsch</div></div>
-  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}%</div></div>
+  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}% · Ø7 {avg7}% · Trend {('+' if trend7>0 else '')}{trend7}</div></div>
   <div class="pp-kpi"><b>Beste Prüfung</b><br>{best}%<div class="pp-muted">Letzte: {('-' if last_pct is None else str(last_pct)+'%')}</div></div>
 </div>
 """,
@@ -923,7 +1093,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
 
     st.write("")
     cA, cB, cC = st.columns([1, 1, 1])
-    if cA.button("Lernsession starten"):
+    if cA.button("Weiterlernen", type="primary"):
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
@@ -933,54 +1103,54 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
         st.rerun()
-    if cC.button("Prüfungssimulation starten (40)"):
+    if cC.button("Prüfung starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
 
+    # Next best step (weakest topic)
     st.write("")
-    v1, v2 = st.columns([1, 1])
-    with v1:
-        st.markdown(
-            '<div class="pp-card2"><b>Abdeckung</b><div class="pp-muted">Wie viel vom Fragenkatalog du schon gesehen hast</div>',
-            unsafe_allow_html=True,
-        )
-        st.progress(overall / 100.0)
-        st.markdown("</div>", unsafe_allow_html=True)
-    with v2:
-        st.markdown(
-            '<div class="pp-card2"><b>Trefferquote</b><div class="pp-muted">Richtig vs. Falsch (alle Versuche)</div>',
-            unsafe_allow_html=True,
-        )
-        if attempts_total:
-            st.bar_chart({"Richtig": c_total, "Falsch": w_total})
-        else:
-            st.caption("Noch keine beantworteten Fragen.")
-        st.markdown("</div>", unsafe_allow_html=True)
-
-    st.write("")
-    st.markdown("## Fokus: Schwache Bereiche")
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
-    if not weak:
-        st.caption("Noch zu wenig Daten. (mind. 6 Antworten pro Unterkapitel)")
+    target = weak[0] if weak else None
+    st.markdown("## Nächster sinnvoller Schritt")
+    if target:
+        acc = int(round(target["accuracy"] * 100))
+        st.markdown(
+            f"""<div class="pp-card2"><b>Empfehlung</b>
+<div class="pp-muted">Übe als nächstes: <b>{target['category']} · {target['subchapter']}</b>
+(Acc {acc}% bei {target['attempts']} Versuchen)</div></div>""",
+            unsafe_allow_html=True,
+        )
+        if st.button("Jetzt starten (nur falsch)", use_container_width=True):
+            _reset_learning_state()
+            st.session_state.page = "learn"
+            st.session_state.learn_plan = {
+                "category": target["category"],
+                "subchapter": target["subchapter"],
+                "only_unseen": False,
+                "only_wrong": True,
+            }
+            st.rerun()
     else:
-        for row in weak:
-            acc = int(round(row["accuracy"] * 100))
-            wrong = row["wrong"]
-            attempts = row["attempts"]
-            cc1, cc2, cc3, cc4 = st.columns([3, 1, 1, 2])
-            cc1.markdown(
-                f"**{row['category']} · {row['subchapter']}**  \n<span class='pp-muted'>{attempts} Versuche · {wrong} falsch</span>",
-                unsafe_allow_html=True,
-            )
-            cc2.markdown(f"<span class='pp-pill'>Acc {acc}%</span>", unsafe_allow_html=True)
-            cc3.markdown(f"<span class='pp-pill'>Wrong {wrong}</span>", unsafe_allow_html=True)
-            if cc4.button("Gezielt üben", key=f"weak_{row['category']}::{row['subchapter']}"):
+        st.caption("Noch nicht genug Daten für eine Empfehlung (mind. 6 Antworten pro Unterkapitel).")
+
+    # Top wrong questions
+    st.write("")
+    st.markdown("## Deine häufigsten Fehler")
+    wrong_rows = top_wrong_questions(questions, progress, topn=10)
+    if not wrong_rows:
+        st.caption("Noch keine falsch beantworteten Fragen gespeichert.")
+    else:
+        for r in wrong_rows:
+            q_short = r["question"][:140] + ("…" if len(r["question"]) > 140 else "")
+            a1, a2 = st.columns([4, 1])
+            a1.caption(f"{r['wrong']}× falsch · {r['category']} · {r['subchapter']}  |  {q_short}")
+            if a2.button("Üben", key=f"wrong_{r['qid']}"):
                 _reset_learning_state()
                 st.session_state.page = "learn"
                 st.session_state.learn_plan = {
-                    "category": row["category"],
-                    "subchapter": row["subchapter"],
+                    "category": r["category"] or "Alle",
+                    "subchapter": r["subchapter"] or "Alle",
                     "only_unseen": False,
                     "only_wrong": True,
                 }
@@ -1004,12 +1174,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             if c2.button("Üben", key=f"sub_{cat}::{sub}"):
                 _reset_learning_state()
                 st.session_state.page = "learn"
-                st.session_state.learn_plan = {
-                    "category": cat,
-                    "subchapter": sub,
-                    "only_unseen": False,
-                    "only_wrong": False,
-                }
+                st.session_state.learn_plan = {"category": cat, "subchapter": sub, "only_unseen": False, "only_wrong": False}
                 st.rerun()
 
     if runs:
@@ -1022,11 +1187,16 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             ok = "BESTANDEN" if bool(r.get("passed")) else "NICHT bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
 
+    else:
+        st.write("")
+        st.markdown("## Letzte Prüfungen")
+        st.caption("Keine gespeicherten Prüfungen gefunden. Wenn du gerade Prüfungen gemacht hast, werden sie wahrscheinlich nicht gespeichert (Supabase RLS/Key).")
+
 
 # =============================================================================
 # LEARN
 # =============================================================================
-def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]):
+def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
     st.title("Lernen")
 
     if "learn_plan" not in st.session_state:
@@ -1047,13 +1217,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
         subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
         if sel_category != "Alle":
-            subs = sorted(
-                set(
-                    (q.get("subchapter") or "").strip()
-                    for q in questions
-                    if (q.get("category") or "") == sel_category
-                )
-            )
+            subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if (q.get("category") or "") == sel_category))
         sel_subchapter = st.selectbox(
             "Unterkapitel",
             ["Alle"] + subs,
@@ -1066,18 +1230,13 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
         c1, c2 = st.columns([1, 1])
         start = c1.button("Session starten", type="primary")
-        if c2.button("Zur Übersicht"):
+        if c2.button("Zur Übersicht", key="exam_result_to_dashboard"):
             st.session_state.page = "dashboard"
             _reset_learning_state()
             st.rerun()
 
         if start:
-            st.session_state.learn_plan = {
-                "category": sel_category,
-                "subchapter": sel_subchapter,
-                "only_unseen": only_unseen,
-                "only_wrong": only_wrong,
-            }
+            st.session_state.learn_plan = {"category": sel_category, "subchapter": sel_subchapter, "only_unseen": only_unseen, "only_wrong": only_wrong}
             st.session_state.queue = build_learning_queue(
                 questions=questions,
                 progress=progress,
@@ -1132,6 +1291,8 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     qid = str(q.get("id"))
     question = (q.get("question") or "").strip()
     options = q.get("options") or []
+    while len(options) < 4:
+        options.append("")
     correct_index = int(q.get("correctIndex", -1))
 
     st.markdown(
@@ -1146,7 +1307,8 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     labels = ["A", "B", "C", "D"]
 
     if not st.session_state.get("answered", False):
-        for i_opt, opt in enumerate(options[:4]):
+        for i_opt in range(4):
+            opt = options[i_opt]
             if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}"):
                 ok = (i_opt == correct_index)
                 db_upsert_progress(uid, qid, ok)
@@ -1173,12 +1335,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if w["explanation"]:
                 st.markdown(w["explanation"])
             else:
-                src = "Upload-Override" if st.session_state.get("questions_override") else "questions.json (App-Verzeichnis)"
-                st.error(
-                    f"Wiki-Inhalt ist leer für {qid}. Quelle: {src}. "
-                    f"Prüfe: question['wiki']['explanation'] ist befüllt und die App lädt wirklich die erwartete Datei. "
-                    f"(Tipp: Sidebar → Daten → questions.json hochladen.)"
-                )
+                st.error(f"Wiki-Inhalt ist leer für {qid}. Prüfe questions.json → wiki.explanation.")
 
             if w["merksatz"]:
                 st.markdown(f"**Merksatz:** {w['merksatz']}")
@@ -1239,172 +1396,130 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
 
 # =============================================================================
-# EXAM (Timer + Navigation + Review + Submit + Result with explanations)
+# EXAM
 # =============================================================================
-def _fmt_mmss(seconds_left: int) -> str:
+def _fmt_hhmmss(seconds_left: int) -> str:
     seconds_left = max(0, int(seconds_left))
-    mm = seconds_left // 60
+    hh = seconds_left // 3600
+    mm = (seconds_left % 3600) // 60
     ss = seconds_left % 60
-    hh = mm // 60
-    mm2 = mm % 60
     if hh > 0:
-        return f"{hh:02d}:{mm2:02d}:{ss:02d}"
-    return f"{mm2:02d}:{ss:02d}"
+        return f"{hh:02d}:{mm:02d}:{ss:02d}"
+    return f"{mm:02d}:{ss:02d}"
 
 
-def _exam_time_left() -> int:
-    deadline = float(st.session_state.get("exam_deadline_ts") or 0)
-    if deadline <= 0:
-        return EXAM_DURATION_SEC
-    return int(round(deadline - time.time()))
-
-
-def _exam_auto_submit_if_needed():
-    left = _exam_time_left()
-    if left <= 0 and not bool(st.session_state.get("exam_submitted")):
-        st.session_state.exam_auto_submit = True
-        _exam_submit(final_reason="time")
-
-
-def _exam_submit(final_reason: str = "manual"):
-    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", [])
-    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
-
+def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optional[int]]) -> Dict[str, Any]:
     total = len(qlist)
     correct = 0
+    details = []
     for q in qlist:
         qid = str(q.get("id"))
         try:
             ci = int(q.get("correctIndex", -1))
         except Exception:
             ci = -1
-        sel = answers.get(qid)
-        if sel is not None and int(sel) == ci:
+        sel = answers.get(qid, None)
+        is_ok = (sel is not None and int(sel) == ci)
+        if is_ok:
             correct += 1
+        details.append({"qid": qid, "selected": sel, "correct": ci, "ok": is_ok, "q": q})
 
     pct = int(round((correct / total) * 100)) if total else 0
     passed = pct >= int(PASS_PCT)
+    return {"correct": correct, "total": total, "pct": pct, "passed": passed, "details": details}
 
+
+def _exam_submit(uid: str, reason: str = "manual") -> None:
     st.session_state.exam_submitted = True
-    st.session_state.exam_phase = "result"
-    st.session_state.exam_correct_count = correct
-    st.session_state.exam_score = pct
-    st.session_state.exam_passed = passed
-    # do NOT show correct answers before submission (handled by result screen)
+    st.session_state.exam_done = True
 
-    # Optional: persist exam run
-    try:
-        uid = str(st.session_state.get("uid") or "")
-        if uid:
-            db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
-    except Exception:
-        pass
+    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", [])
+    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
+    result = _exam_compute_result(qlist, answers)
+    st.session_state.exam_result = result
 
-
-def _fmt_mmss(seconds_left: int) -> str:
-    seconds_left = max(0, int(seconds_left))
-    mm = seconds_left // 60
-    ss = seconds_left % 60
-    return f"{mm:02d}:{ss:02d}"
+    # Persist exam run once (surface errors instead of swallowing)
+    ok_db, err_db = db_insert_exam_run(
+        uid,
+        total=int(result["total"]),
+        correct=int(result["correct"]),
+        passed=bool(result["passed"]),
+    )
+    st.session_state.exam_save_ok = ok_db
+    st.session_state.exam_save_err = err_db
 
 
-def page_exam(uid: str, questions: List[Dict[str, Any]]):
+def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     st.title("Prüfungssimulation (40)")
 
-    EXAM_DURATION_SEC = 60 * 60  # 60 Minuten (gesamt)
-
-    # -----------------------------------------------------------------------------
-    # Start / Reset
-    # -----------------------------------------------------------------------------
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
 
     if not st.session_state.exam_started:
         st.markdown(
-            """<div class="pp-card2"><b>Regeln</b>
-<div class="pp-muted">40 zufällige Fragen · 60 Minuten Gesamtzeit · Antworten frei ändern · Abgabe am Ende.</div></div>""",
+            f"""<div class="pp-card2"><b>Regeln</b>
+<div class="pp-muted">40 zufällige Fragen · {int(EXAM_DURATION_SEC/60)} Minuten Gesamtzeit · Antworten frei ändern · Abgabe am Ende.</div></div>""",
             unsafe_allow_html=True,
         )
         c1, c2 = st.columns([1, 1])
         if c1.button("Prüfung starten", type="primary"):
             _reset_exam_state()
-            st.session_state.exam_queue = build_exam_queue(questions, n=40)
+            st.session_state.exam_queue = build_exam_queue_balanced(questions, n=40, seed=int(time.time()))
             st.session_state.exam_idx = 0
             st.session_state.exam_started = True
             st.session_state.exam_done = False
             st.session_state.exam_submitted = False
             st.session_state.exam_answers = {}
-            import time as _time
-            st.session_state.exam_start_ts = float(_time.time())
+            st.session_state.exam_deadline_ts = float(time.time()) + float(EXAM_DURATION_SEC)
             st.rerun()
-        if c2.button("Zur Übersicht"):
+        if c2.button("Zur Übersicht", key="exam_start_to_dashboard"):
             st.session_state.page = "dashboard"
             _reset_exam_state()
             st.rerun()
         st.stop()
 
-    # -----------------------------------------------------------------------------
-    # Timer (läuft NICHT pro Frage neu an)
-    # -----------------------------------------------------------------------------
-    import time as _time
-    start_ts = float(st.session_state.get("exam_start_ts") or _time.time())
-    elapsed = _time.time() - start_ts
-    remaining = int(EXAM_DURATION_SEC - elapsed)
-
-    # Live countdown (if available)
+    # Autorefresh timer while running
     if not st.session_state.get("exam_done", False):
         if hasattr(st, "autorefresh"):
             st.autorefresh(interval=1000, limit=None, key="exam_timer_refresh")
 
-    # When time runs out: auto-submit once
-    if remaining <= 0 and not st.session_state.get("exam_submitted", False):
-        st.session_state.exam_submitted = True
-        st.session_state.exam_done = True
+    deadline = float(st.session_state.get("exam_deadline_ts") or (time.time() + EXAM_DURATION_SEC))
+    remaining = int(round(deadline - time.time()))
+
+    # Auto-submit once when time expires
+    if remaining <= 0 and not st.session_state.get("exam_done", False):
+        _exam_submit(uid, reason="time")
+        st.rerun()
 
     top1, top2, top3, top4 = st.columns([1, 1, 1, 1])
     with top1:
-        st.markdown(f"<div class='pp-pill'>⏱️ Restzeit {_fmt_mmss(remaining)}</div>", unsafe_allow_html=True)
-    if top2.button("Prüfung abbrechen"):
+        st.markdown(f"<div class='pp-pill'>⏱️ Restzeit {_fmt_hhmmss(remaining)}</div>", unsafe_allow_html=True)
+    if top2.button("Prüfung abbrechen", key="exam_abort"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top3.button("Neu starten"):
+    if top3.button("Neu starten", key="exam_restart"):
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
-    if top4.button("Zur Übersicht"):
+    if top4.button("Zur Übersicht", key="exam_top_to_dashboard"):
         st.session_state.page = "dashboard"
         st.session_state.exam_started = False
         _reset_exam_state()
         st.rerun()
 
-    qlist: List[Dict[str, Any]] = st.session_state.exam_queue
-    i = int(st.session_state.get("exam_idx", 0))
+    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", [])
     total = len(qlist)
+    i = int(st.session_state.get("exam_idx", 0))
+    i = max(0, min(i, max(0, total - 1)))
+    st.session_state.exam_idx = i
 
-    def _evaluate_exam() -> Dict[str, Any]:
-        answers: Dict[str, Optional[int]] = dict(st.session_state.get("exam_answers") or {})
-        correct = 0
-        details = []
-        for q in qlist:
-            qid = str(q.get("id"))
-            sel = answers.get(qid, None)
-            ci = int(q.get("correctIndex", -1))
-            is_ok = (sel is not None and int(sel) == ci)
-            if is_ok:
-                correct += 1
-            details.append({"qid": qid, "selected": sel, "correct": ci, "ok": is_ok, "q": q})
-        pct = int(round((correct / total) * 100)) if total else 0
-        passed = pct >= PASS_PCT
-        return {"correct": correct, "total": total, "pct": pct, "passed": passed, "details": details}
-
-    # -----------------------------------------------------------------------------
-    # Results
-    # -----------------------------------------------------------------------------
+    # Results view
     if st.session_state.get("exam_done", False):
         result = st.session_state.get("exam_result")
         if not isinstance(result, dict):
-            result = _evaluate_exam()
+            answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
+            result = _exam_compute_result(qlist, answers)
             st.session_state.exam_result = result
 
         correct = int(result["correct"])
@@ -1417,10 +1532,20 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
             unsafe_allow_html=True,
         )
 
+        # DB save status (helps debug missing exam history)
+        if st.session_state.get("exam_save_ok") is False:
+            st.warning("Prüfungsergebnis konnte nicht gespeichert werden (Supabase/RLS).")
+            err = (st.session_state.get("exam_save_err") or "").strip()
+            if err:
+                st.caption(f"DB-Fehler: {err}")
+        elif st.session_state.get("exam_save_ok") is True:
+            st.caption("Prüfungsergebnis gespeichert.")
+
         c1, c2 = st.columns([1, 1])
-        if c1.button("Ergebnis speichern", type="primary"):
-            db_insert_exam_run(uid, total=total, correct=correct, passed=passed)
-            st.success("Gespeichert")
+        if c1.button("Neue Prüfung starten", type="primary"):
+            st.session_state.exam_started = False
+            _reset_exam_state()
+            st.rerun()
         if c2.button("Zur Übersicht"):
             st.session_state.page = "dashboard"
             st.session_state.exam_started = False
@@ -1473,14 +1598,9 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
                     st.caption(w["reliability_note"])
         return
 
-    # -----------------------------------------------------------------------------
-    # Exam UI (no immediate solutions, vor/zurück, submit at end)
-    # -----------------------------------------------------------------------------
+    # Exam UI
     if total:
         st.progress(min(1.0, i / total))
-
-    i = max(0, min(i, total - 1))
-    st.session_state.exam_idx = i
 
     q = qlist[i]
     qid = str(q.get("id"))
@@ -1529,7 +1649,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
         st.rerun()
     if cC.button("Antwort löschen", use_container_width=True):
         st.session_state.exam_answers[qid] = None
-        st.session_state.pop(f"exam_radio_{qid}", None)
+        st.session_state[f"exam_radio_{qid}"] = -1
         st.rerun()
 
     st.write("")
@@ -1537,10 +1657,51 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]):
     st.caption(f"Beantwortet: {answered_cnt}/{total}")
 
     if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
-        st.session_state.exam_submitted = True
-        st.session_state.exam_result = _evaluate_exam()
-        st.session_state.exam_done = True
+        _exam_submit(uid, reason="manual")
         st.rerun()
+
+
+# =============================================================================
+# SELFTEST (optional)
+# =============================================================================
+def run_selftest(questions: List[Dict[str, Any]]) -> List[str]:
+    issues: List[str] = []
+
+    v = validate_questions(questions)
+    if any(vv > 0 for vv in v.values()):
+        issues.append(f"questions.json Validation: {v}")
+
+    fmap = load_figure_map()
+    if fmap:
+        # pick first entry and try render
+        k = sorted(fmap.keys(), key=lambda x: int(re.sub(r'\\D', '', x) or 0))[0]
+        entry = fmap.get(k)
+        page = None
+        clip = None
+        if isinstance(entry, int):
+            page = int(entry)
+        elif isinstance(entry, dict):
+            page = int(entry.get("page") or 0) if str(entry.get("page") or "").strip() else 0
+            c = entry.get("clip")
+            if isinstance(c, list) and len(c) == 4:
+                clip = c
+        if page and BILDER_PDF.exists():
+            png = render_pdf_page_png(str(BILDER_PDF), page_1based=page, zoom=1.5, clip=clip)
+            if not png:
+                issues.append(f"Figure render failed for figure {k} page={page} clip={clip}")
+        elif page and not BILDER_PDF.exists():
+            issues.append("Bilder.pdf fehlt im App-Verzeichnis.")
+    else:
+        issues.append("figure_map.json fehlt oder leer (ok, wenn keine Abbildungen genutzt werden).")
+
+    # Supabase connectivity basic check (only if configured)
+    if SUPABASE_URL and (SUPABASE_SERVICE_ROLE_KEY or SUPABASE_ANON_KEY):
+        try:
+            _ = supa()
+        except Exception as e:
+            issues.append(f"Supabase init failed: {e}")
+
+    return issues
 
 
 # =============================================================================
@@ -1557,8 +1718,11 @@ require_login()
 claims = user_claims()
 ensure_user_registered(claims)
 uid = stable_user_id(claims)
+st.session_state.uid = uid
 
 questions = load_questions()
+
+# Sidebar data checks (still useful, but "Daten" UI is removed)
 val = validate_questions(questions)
 if any(v > 0 for v in val.values()):
     st.sidebar.markdown("## Daten-Checks")
@@ -1570,6 +1734,22 @@ if any(v > 0 for v in val.values()):
         f"missing_wiki_obj={val['missing_wiki_obj']}"
     )
 
+# Optional: run selftest
+try:
+    qp = getattr(st, "query_params", {})
+    wants_selftest = DEV_SELFTEST or (isinstance(qp, dict) and str(qp.get("selftest", "")).strip() == "1")
+except Exception:
+    wants_selftest = DEV_SELFTEST
+
+if wants_selftest:
+    st.sidebar.markdown("## Selftest")
+    issues = run_selftest(questions)
+    if issues:
+        for it in issues:
+            st.sidebar.error(it)
+    else:
+        st.sidebar.success("OK")
+
 progress = db_load_progress(uid)
 st.session_state.progress = progress
 
@@ -1580,8 +1760,8 @@ nav_sidebar(claims)
 
 page = st.session_state.page
 if page == "learn":
-    page_learn(uid, questions, progress)
+    page_learn(uid, questions, st.session_state.progress)
 elif page == "exam":
     page_exam(uid, questions)
 else:
-    page_dashboard(uid, questions, progress)
+    page_dashboard(uid, questions, st.session_state.progress)

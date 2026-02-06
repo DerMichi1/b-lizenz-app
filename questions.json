@@ -803,5 +803,1309 @@
       "merksatz": "Ausland: keine Pauschal‑Erlaubnis.\nVorher lokale Regeln checken.",
       "links": []
     }
-  }
-]
+  },
+  {
+    "id": "Q031",
+    "category": "Luftrecht",
+    "subchapter": "Rechtsvorschriften",
+    "local_number": 17,
+    "question": "Die Gültigkeit der österreichischen oder deutschen Halter-Haftpflichtversicherung bei Flügen im Ausland",
+    "options": [
+      "besteht nicht, Versicherungsschutz gibt es nur bei Flügen in DE und AT.",
+      "ist uneingeschränkt sichergestellt.",
+      "sollte, insbesondere für Flüge im außereuropäischen Ausland, überprüft werden.",
+      "ist kein Thema, weil Halter-Haftpflichtversicherungen nur in DE und AT, nicht aber im übrigen Ausland vorgeschrieben sind."
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Es geht um Schäden/Haftung: Wer zahlt bzw. wer ist verantwortlich?\n- Bei Luftsport ist entscheidend: Drittschaden (andere/deren Eigentum) vs. Eigenschaden (deins).\n- Die richtige Option ist die, die Drittschäden über Haftpflicht/Haftung korrekt zuordnet.\n- Prüfungsfalle: Unfall ≠ automatisch „ich zahle privat“ – häufig greift die Halter-/Haftpflicht.",
+      "merksatz": "Drittschaden = Haftpflicht-Thema.\nEigenschaden = dein Problem.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q032",
+    "category": "Luftrecht",
+    "subchapter": "Rechtsvorschriften",
+    "local_number": 18,
+    "question": "Welche Versicherung ist bei einem Fliegerurlaub im Ausland dringend zu empfehlen",
+    "options": [
+      "Krankenversicherung",
+      "Auslands-Krankenversicherung",
+      "Auslands-Krankenversicherung mit Rücktransport",
+      "private Unfallversicherung Luftraumvorschriften und Bezeichnungen allgemein"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Es geht um Schäden/Haftung: Wer zahlt bzw. wer ist verantwortlich?\n- Bei Luftsport ist entscheidend: Drittschaden (andere/deren Eigentum) vs. Eigenschaden (deins).\n- Die richtige Option ist die, die Drittschäden über Haftpflicht/Haftung korrekt zuordnet.\n- Prüfungsfalle: Unfall ≠ automatisch „ich zahle privat“ – häufig greift die Halter-/Haftpflicht.",
+      "merksatz": "Drittschaden = Haftpflicht-Thema.\nEigenschaden = dein Problem.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q033",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 1,
+    "question": "Welche Bedeutung hat die Abkürzung \"VFR” im Bereich der Luftfahrt?",
+    "options": [
+      "Instrumentenflugregeln",
+      "Sichtwetterbedingungen",
+      "Vorflugregeln",
+      "Visual Flight Rules (Sichtflugregeln)"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q034",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 2,
+    "question": "FL 100",
+    "options": [
+      "bedeutet 10.000 ft AMSL",
+      "bedeutet 10.000 ft über der Druckfläche des ICAO-Standarddrucks von 1013,25 hPa",
+      "ist die Abkürzung für Fluglage mit mehr als 100° Querneigung",
+      "bedeutet 10.000 ft AGL"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Wetterkunde: Ursache → Wirkung (Wind/Temperatur/Feuchte) verstehen.\n- Die richtige Option beschreibt den typischen Effekt korrekt (z.B. Lee=Turbulenz, Inversion=Deckel).\n- Für GS/HG zählt immer: Flugbar? Sicher? (Turbulenz, Böen, Wolkenbasis).\n- Prüfungsfalle: Begriffe verwechseln (Lee/Luv, stabil/labil).",
+      "merksatz": "Wetter = Ursache→Wirkung.\nBei Zweifel: nicht starten.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q035",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 3,
+    "question": "Was versteht man unter IFR-Verkehr?",
+    "options": [
+      "Sprechverkehr nach internationalen Funk-Regeln",
+      "Verkehr nach Instrumentenflugregeln (Instrumental Flight Rules)",
+      "Inlandverkehr",
+      "Notverkehr"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q036",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 4,
+    "question": "Kann ein Gleitschirm oder Hängegleiter nach den Instrumentenflugregeln geflogen werden?",
+    "options": [
+      "Nur mit Kompass, GPS, Funk und Höhenmesser",
+      "Nein",
+      "Nur mit Flugsicherungsfreigabe",
+      "Nur mit Funk"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Navigations-Logik: Karte/Skala/Kurs – keine Meinungssache.\n- Erst Einheiten klären (km, NM, Grad) und sauber umrechnen.\n- Die richtige Option ist die, die rechnerisch/definitionsmäßig aufgeht.\n- Prüfungsfalle: NM ≠ km; 1 NM = 1,852 km.",
+      "merksatz": "Erst Einheit klären.\nDann sauber umrechnen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q037",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 5,
+    "question": "Wie nahe darf im kontrollierten Luftraum an die Wolkenbasis herangeflogen werden?",
+    "options": [
+      "Bis 300 m Abstand",
+      "Mit Kompass und Höhenmesser auch in die Wolke",
+      "Bis unmittelbar an die Basis",
+      "Bis 100 m Abstand"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q038",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 6,
+    "question": "Auf einem Überlandflug im kontrollierten Luftraum darf ein Gleitschirm oder Hängegleiter",
+    "options": [
+      "bis 100 m seitlich an Wolken vorbeifliegen",
+      "bis 300 Fuß an die Wolkenbasis heran fliegen",
+      "keine Wolken berühren",
+      "bis 300 m an die Wolkenbasis heran fliegen"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q039",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 7,
+    "question": "Der Einflug in den Luftraum C ohne Freigabe der Flugsicherung",
+    "options": [
+      "ist eine Straftat",
+      "ist eine Ordnungswidrigkeit",
+      "ist nur bei Fahrlässigkeit eine Ordnungswidrigkeit",
+      "wird mit einer Freiheitsstrafe geahndet"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q040",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 8,
+    "question": "Die Lufträume C, D, E sind",
+    "options": [
+      "unkontrollierter Luftraum",
+      "reserviert für VFR-Flüge",
+      "kontrollierter Luftraum",
+      "reserviert für IFR-Flüge"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q041",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 9,
+    "question": "Gleitschirme und Hängegleiter dürfen ohne Flugverkehrsfreigabe grundsätzlich nicht einfliegen in",
+    "options": [
+      "eine Kontrollzone",
+      "ein Tieffluggebiet",
+      "ein Fluginformationsgebiet",
+      "den Luftraum G"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q042",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 10,
+    "question": "Auf einem Überlandflug im unkontrollierten Luftraum darf ein Gleitschirm oder Hängegleiter",
+    "options": [
+      "grundsätzlich bis zu Basis aufdrehen, dies gilt im gesamten unkontrollierten Luftraum G",
+      "gar nicht fliegen, Überlandflüge sind nur im kontrollierten Luftraum erlaubt",
+      "unterhalb 1000 ft AGL sowie unterhalb 3000 ft MSL bis zur Basis aufdrehen",
+      "grundsätzlich nur bis 300 m unterhalb der Basis aufdrehen, weil im gesamten unkontrollierten Luftraum G ein vertikaler Wolkenabstand von 300 m einzuhalten ist"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q043",
+    "category": "Luftrecht",
+    "subchapter": "Luftraumvorschriften allgemein",
+    "local_number": 11,
+    "question": "Wie hoch darf man, außerhalb von nicht erlaubten Lufträumen, mit dem Gleitschirm in Österreich fliegen?",
+    "options": [
+      "Bis zum oberen Luftraum bei FL 245 (ca. 7450 m MSL)",
+      "Bis zur Tropopause (ca. 11000 m MSL)",
+      "So hoch, bis die jeweilige Obergrenze der für Gleitschirme erlaubten Lufträume G und E an die nicht erlaubten Lufträume C oder D oder eine TMZ grenzen",
+      "So hoch, wie die Thermik reicht Luftraumvorschriften G und E, Sichtflugregeln 1"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q044",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 1,
+    "question": "Im Luftraum G",
+    "options": [
+      "ist eine Flugverkehrsfreigabe vorgeschrieben",
+      "muss nicht mit militärischen Tiefflügen gerechnet werden",
+      "sind Sichtflüge (VFR-Flüge) erlaubt",
+      "ist keine Erdsicht erforderlich"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q045",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 2,
+    "question": "Der Luftraum E",
+    "options": [
+      "umfasst nicht die Nahverkehrsbereiche (TMA)",
+      "ist kontrollierter Luftraum",
+      "beginnt spätestens bei 1.700 ft AGL",
+      "ist unkontrollierter Luftraum"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q046",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 3,
+    "question": "Oberhalb von 2.500 ft AGL in Deutschland",
+    "options": [
+      "dürfen Gleitschirme und Hängegleiter nicht einfliegen",
+      "befindet sich der obere Luftraum",
+      "befindet sich der unkontrollierte Luftraum",
+      "ist ausschließlich kontrollierter Luftraum"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q047",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 4,
+    "question": "Außerhalb der für Gleitschirme und Drachen verbotenen Lufträume und Gebiete darf in Deutschland",
+    "options": [
+      "grundsätzlich nicht geflogen werden",
+      "ohne Höhenbegrenzung nach oben geflogen werden",
+      "bis FL 100, im Alpenbereich bis FL 130, geflogen werden",
+      "nur im Luftraum G bis maximal 2.500 ft AGL geflogen werden"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q048",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 5,
+    "question": "Du befindest Dich im Luftraum E auf 3.200 m MSL im deutschen Alpengebiet oder in Österreich. Welche Sichtflugregeln sind einzuhalten?",
+    "options": [
+      "1,5 km seitlicher Wolkenabstand, nach oben keine Wolkenberührung, Erdsicht",
+      "Flugsicht 1,5 km, 300m senkrechter und waagerechter Wolkenabstand",
+      "Flugsicht 8 km, 300 m vertikaler und 1,5 km horizontaler Wolkenabstand",
+      "Keine Wolkenberührung, Flugsicht 8 km"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q049",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 6,
+    "question": "1,5 km Flugsicht, dauernde Erdsicht, keine Wolkenberührung sind die Sichtflugregeln",
+    "options": [
+      "für den Luftraum D unterhalb von FL 100",
+      "für den Luftraum E unterhalb von 3000 ft MSL",
+      "für den Luftraum C unterhalb von FL 100",
+      "für den Luftraum G unterhalb von 3000 ft (900 m) MSL, oberhalb von 3000 ft (900 m) MSL, wenn dabei eine Höhe über Grund (AGL) von 1000 ft (300 m) nicht überschritten wird"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q050",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 7,
+    "question": "Welche Mindestflugsicht muss im Luftraum E durch den Piloten eines Gleitschirms oder Hängegleiters eingehalten werden?",
+    "options": [
+      "bis zum Boden",
+      "5 km, oberhalb FL 100, 8 km",
+      "800 m",
+      "8 km"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q051",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 8,
+    "question": "Wie nahe darf im Luftraum G, in einer Höhe von 2.000 m MSL und 500 m AGL, an die Wolkenbasis herangeflogen werden?",
+    "options": [
+      "1.000 ft",
+      "800 m",
+      "Wolke darf nicht berührt werden",
+      "1,5 km"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q052",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 9,
+    "question": "Was bedeutet \"Trennfläche FL 95\"?",
+    "options": [
+      "Auf FL 95 wird IFR- und VFR-Verkehr getrennt.",
+      "VFR-Piloten sollen im Luftraum E 500 ft Höhenabstand von Luftraum C (FL 100) einhalten.",
+      "Für Fluglinien (FL) vorbehaltene Flugfläche.",
+      "IFR-Piloten dürfen im Luftraum C 500 ft unter FL 100 fliegen."
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q053",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 10,
+    "question": "Bei einem Streckenflug überquerst Du eine Stadt oder größere Ortschaft. Welche Mindesthöhe ist beim Überflug einzuhalten?",
+    "options": [
+      "300 m über dem höchsten Hindernis innerhalb eines Umkreises von 600 m",
+      "600 m über dem höchsten Hindernis innerhalb eines Umkreises von 300 m",
+      "Die generelle Sicherheits-Mindesthöhe von 150 m GND",
+      "Solange sicher Landemöglichkeiten bestehen, gibt es keine einzuhaltende Mindesthöhe."
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Hier geht’s um menschliche Faktoren: du musst Risiken früh erkennen.\n- Die richtige Option ist die sicherheitsorientierte: früh abbrechen/planen/Reserve lassen.\n- Prüfungsfalle: „wird schon gehen“ ist fast immer falsch.",
+      "merksatz": "Sicherheit schlägt Ego.\nReserve lassen oder abbrechen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q054",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 1)",
+    "local_number": 11,
+    "question": "Darf die generelle Mindestflughöhe (SERA 5005) von 150 m über Grund von Gleitschirm- und Drachenfliegern unterschritten werden?",
+    "options": [
+      "Ja, wenn der Flug dies erforderlich macht und keine Personen oder Sachen gefährdet werden.",
+      "Nur in Gefahrensituationen, z.B. bei einer Notlandung oder Sicherheits-Außenlandung",
+      "Nein, grundsätzlich nicht.",
+      "Ja, aber nur für Start und Landung. Luftraumvorschriften G und E, Sichtflugregeln 2"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q055",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 1,
+    "question": "Im kontrollierten Luftraum E",
+    "options": [
+      "mischt sich VFR-Verkehr mit IFR-Verkehr",
+      "findet ausschließlich IFR-Verkehr statt",
+      "findet ausschließlich VFR-Verkehr statt",
+      "gelten keine anderen Sichtflugregeln als im unkontrollierten Luftraum"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q056",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 2,
+    "question": "Wie lauten die Sichtflugregeln im Luftraum G oberhalb von FL 100 in Österreich?",
+    "options": [
+      "8 km Flugsicht, horizontaler Wolkenabstand 300 m, vertikaler Wolkenabstand 500 ft",
+      "5 km Flugsicht, horizontaler Wolkenabstand 300 m, vertikaler Wolkenabstand 500 ft",
+      "8 km Flugsicht, horizontaler Wolkenabstand 1,5 km, Wolken dürfen nicht berührt werden",
+      "8 km Flugsicht, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q057",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 3,
+    "question": "Soweit nicht anders klassifiziert, ist der Luftraum G in Deutschland unterhalb",
+    "options": [
+      "2.500 m AGL",
+      "2.500 ft MSL",
+      "2.500 ft AGL",
+      "2.500 m MSL"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q058",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 4,
+    "question": "Die Obergrenze des Luftraumes Klasse G befindet sich in Österreich",
+    "options": [
+      "bei FL 100",
+      "11.500 ft MSL",
+      "10.000 ft AGL",
+      "in unterschiedlicher Höhe"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q059",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 5,
+    "question": "Im Luftraum G, oberhalb von 900 m MSL (3000 ft) und einer Flughöhe von mehr als 300 m (1000 ft) über Grund (AGL), jedoch unter 3050 m MSL gelten folgende Sichtflugregeln:",
+    "options": [
+      "In diesem Bereich des unkontrollierten Luftraums sind keine speziellen Flugsichten vorgeschrieben",
+      "Flugsicht 5 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)",
+      "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken",
+      "Flugsicht 8 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q060",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 6,
+    "question": "Im Luftraum G, oberhalb von 900 m MSL (3000 ft), und einer Flughöhe von weniger als 300 m (1000 ft) über Grund (AGL) gelten folgende Sichtflugregeln:",
+    "options": [
+      "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken",
+      "Flugsicht 5 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)",
+      "Flugsicht 8 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)",
+      "In diesem Bereich des unkontrollierten Luftraums sind keine speziellen Flugsichten vorgeschrieben"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q061",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 7,
+    "question": "Im Luftraum G, unterhalb von 900 m MSL (3000 ft) gelten, unabhängig von der Flughöhe über Grund (AGL) folgende Sichtflugregeln:",
+    "options": [
+      "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken",
+      "In diesem Bereich des unkontrollierten Luftraums sind keine speziellen Flugsichten vorgeschrieben",
+      "Flugsicht 5 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)",
+      "Flugsicht 8 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q062",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 8,
+    "question": "Du hast von Deinem Startplatz 250 m aufgedreht. Welche Sichtflugregeln gelten auf Deiner Flughöhe?",
+    "options": [
+      "Flugsicht 8 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal",
+      "Flugsicht 5 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal",
+      "Flugsicht 1,5 km, frei von Wolken, Erdsicht",
+      "Flugsicht 5 km, frei von Wolken, Erdsicht"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q063",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 9,
+    "question": "Du hast von Deinem Startplatz am Berggipfel (1500 m MSL) 500 m aufgedreht. Welche Sichtflugregeln gelten auf Deiner Flughöhe?",
+    "options": [
+      "Flugsicht 8 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal",
+      "Flugsicht 5 km, frei von Wolken, Erdsicht",
+      "Flugsicht 5 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal",
+      "Flugsicht 1,5 km, frei von Wolken, Erdsicht"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q064",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 10,
+    "question": "Flugsicht 5 km, horizontaler Wolkenabstand von 1500 Meter, vertikaler Wolkenabstand von 300 Meter sind die Sichtflugregeln",
+    "options": [
+      "für den Luftraum G oberhalb 3000 ft MSL (900 m), wenn gleichzeitig in einer Höhe von mehr als 1000 ft (300 m) über Grund (AGL) geflogen wird und für den Luftraum E bis FL 100",
+      "für den Luftraum G in Deutschland",
+      "für den Luftraum G in Österreich",
+      "nur für den Luftraum E bis FL 100"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q065",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 11,
+    "question": "Flugsicht 8 km, horizontaler Wolkenabstand von 1500 Meter, vertikaler Wolkenabstand von 300 Meter sind die Sichtflugminima",
+    "options": [
+      "für den Luftraum G in Deutschland und den Luftraum G unterhalb von 900 m MSL bzw. 300 m GND in Österreich",
+      "für die Lufträume G und E oberhalb von 10.000 ft in Österreich und für den Luftraum E oberhalb von FL 100 in Deutschland",
+      "für den gesamten Luftraum G in Deutschland",
+      "für den gesamten Luftraum G in Österreich"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q066",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 12,
+    "question": "Ein Gleitschirmflieger erzählt: \"Letzte Woche flog ein LearJet ca. 1 km vor mir auf gleicher Höhe (ca. 2700 m über Isny/Allgäu) durch die Wolke. Ich befand mich am Rand der Basis, der Jet war im Landeanflug auf FDH (EDNY)\"! Was sagst Du ihm?",
+    "options": [
+      "Du hast Dich falsch verhalten, weil Du im Luftraum E mindestens 300 m vertikalen und 1500 m horizontalen Abstand zur Wolke halten musst.",
+      "Du hast Dich falsch verhalten, weil in diesem Luftraum nur IFR-Flüge gestattet sind, keine VFR-Flüge.",
+      "Der Jet hätte in dieser Höhe nicht in Wolken fliegen dürfen, weil auch für ihn die VFR-Regeln gelten.",
+      "Der Jet hätte dort in dieser Höhe grundsätzlich nicht fliegen dürfen."
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q067",
+    "category": "Luftrecht",
+    "subchapter": "Luftraum G/E (Sichtflug 2)",
+    "local_number": 13,
+    "question": "Was ist bezüglich der Luftraum-Struktur und der Berechtigung zur Nutzung von Lufträumen mit nicht-motorisierten Luftsportgeräten im Ausland korrekt?",
+    "options": [
+      "Weltweit ist die Luftraum-Struktur einheitlich.",
+      "In Europa ist die Luftraum-Struktur einheitlich.",
+      "Die Luftraum-Struktur und die Berechtigung zur Nutzung von Lufträumen für Gleitschirme und Hängegleiter ist von Land zu Land unterschiedlich.",
+      "Die Nutzung der Lufträume G und E ist in ganz Europa für Gleitschirme und Hängegleiter erlaubt. Luftraumvorschriften CTR, militärischer Tiefflug"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q068",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 1,
+    "question": "Welches ist die Untergrenze einer Kontrollzone?",
+    "options": [
+      "MSL",
+      "1.000ft AGL",
+      "2.500 ft AGL",
+      "GND"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
+      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q069",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 2,
+    "question": "Kontrollzonen sind festgelegt",
+    "options": [
+      "für den Flugnavigationsdienst",
+      "zum Schutz des Start- und Landeverkehrs",
+      "zur Kontrolle der Flugdokumente",
+      "für den Flugberatungsdienst"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Hier wird geprüft, wo du offizielle Flug-Infos herbekommst.\n- NOTAM/PIB/AIP sind offizielle Quellen für Änderungen/Status (Luftraum, Verfahren, Sperrungen).\n- Die richtige Option ist die, die auf offizielle Information vor dem Flug abzielt.\n- Prüfungsfalle: „Internet/Apps/Foren“ sind nicht automatisch amtlich.",
+      "merksatz": "Vor dem Flug: AIP + NOTAM/PIB.\nAmtlich schlägt Hörensagen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q070",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 3,
+    "question": "Wie lautet die Abkürzung für die Kontrollzone?",
+    "options": [
+      "TMA",
+      "CTA",
+      "CTR",
+      "TRA"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q071",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 4,
+    "question": "Darf ohne Zustimmung der Flugsicherung in eine CTR eingeflogen werden?",
+    "options": [
+      "Ja, wenn das Pilot mit Funk ausgerüstet ist",
+      "Ja, wenn der Gleitschirm oder Drachen gekennzeichnet ist",
+      "Ja, wenn die CTR nicht aktiv ist",
+      "Nein"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q072",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 5,
+    "question": "Eine Kontrollzone",
+    "options": [
+      "hat eine auf MSL bezogene Untergrenze",
+      "kann unter 2.500 ft AGL reichen",
+      "reicht immer bis zum Boden",
+      "hat ihre Untergrenze immer bei 1.700 ft AGL"
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
+      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q073",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 6,
+    "question": "Das militärische Tieffluggebiet in Deutschland",
+    "options": [
+      "ist in der LuftVO definiert.",
+      "ist in der AIP kartenmäßig dargestellt.",
+      "erstreckt sich nahezu über ganz Deutschland.",
+      "ist in der ICAO-Luftfahrtkarte eingezeichnet."
+    ],
+    "correctIndex": 2,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Hier wird geprüft, wo du offizielle Flug-Infos herbekommst.\n- NOTAM/PIB/AIP sind offizielle Quellen für Änderungen/Status (Luftraum, Verfahren, Sperrungen).\n- Die richtige Option ist die, die auf offizielle Information vor dem Flug abzielt.\n- Prüfungsfalle: „Internet/Apps/Foren“ sind nicht automatisch amtlich.",
+      "merksatz": "Vor dem Flug: AIP + NOTAM/PIB.\nAmtlich schlägt Hörensagen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q074",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 7,
+    "question": "Militärische Tiefflüge mit Jet-Luftfahrzeugen in Deutschland",
+    "options": [
+      "finden überwiegend im Höhenband zwischen 1.000 und 2.000 ft AGL statt",
+      "können auch in nicht gekennzeichneten Gebieten bis in eine Höhe von 500 ft AGL durchgeführt werden",
+      "werden überwiegend bei Tag nach VFR durchgeführt",
+      "Alle Antworten sind richtig"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q075",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 8,
+    "question": "Von Montag bis Freitag ist in Deutschland mit vermehrten Tiefflügen von Jet-Militärflugzeugen zu rechnen",
+    "options": [
+      "im Höhenband von 1.000 - 3.000 ft GND",
+      "im Höhenband zwischen 1.000 - 2.000 ft GND",
+      "nur in den speziell ausgewiesenen Tieffluggebieten",
+      "in Flugfläche 50"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
+      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q076",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 9,
+    "question": "Militärische Tiefflüge in Deutschland",
+    "options": [
+      "finden im Allgemeinen an Werktagen statt",
+      "Alle Antworten sind richtig",
+      "sind nicht an feste Strecken und Höhen gebunden",
+      "finden überwiegend im Luftraum unterhalb 2000 ft GND statt"
+    ],
+    "correctIndex": 1,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q077",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 10,
+    "question": "Wo findet in Österreich Tiefflug mit Militärluftfahrzeugen statt?",
+    "options": [
+      "Tiefflug wird in Österreich nicht trainiert",
+      "Tiefflug wird ausschließlich über den Bergen geflogen",
+      "Tiefflug findet im gesamten Bundesgebiet statt",
+      "Nur in Tiefflugstrecken und Tieffluggebieten"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
+      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q078",
+    "category": "Luftrecht",
+    "subchapter": "CTR/Tiefflug",
+    "local_number": 11,
+    "question": "In Österreich spricht man von Tiefflug unter einer Höhe von",
+    "options": [
+      "150m MSL",
+      "2000ft MSL",
+      "2000ft AGL",
+      "150m AGL Beschränkungs- und Gefahrengebiete, Zusatz-Bezeichnungen"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
+      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q079",
+    "category": "Luftrecht",
+    "subchapter": "Beschränkungsgebiete",
+    "local_number": 1,
+    "question": "Lufträume mit der Bezeichnung HX sind",
+    "options": [
+      "nur bei Sichtflugbedingungen benutzbar.",
+      "für Gleitschirme und Hängegleiter ohne Funk auch am Wochenende verboten.",
+      "an den Werktagen meist nicht aktiv.",
+      "jederzeit aktivierbar."
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },
+  {
+    "id": "Q080",
+    "category": "Luftrecht",
+    "subchapter": "Beschränkungsgebiete",
+    "local_number": 2,
+    "question": "Abbildung 1: Was bedeutet die Bezeichnung ED-D auf den ICAO-Luftfahrtkarten für Deutschland?",
+    "options": [
+      "Europa-Deutschland-Restricted Area",
+      "Europa-Deutschland-CTR",
+      "Europa-Deutschland-Luftraum D",
+      "Europa-Deutschland-Danger Area"
+    ],
+    "correctIndex": 3,
+    "figures": [
+      {
+        "figure": 1,
+        "bilder_page": 1
+      }
+    ],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Answer strictly based on official sources; cite links; if unsure say so.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
+      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "links": []
+    }
+  },

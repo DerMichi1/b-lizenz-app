@@ -803,7 +803,9 @@
       "merksatz": "Ausland: keine Pauschal‑Erlaubnis.\nVorher lokale Regeln checken.",
       "links": []
     }
-  },
+  }
+]
+[
   {
     "id": "Q031",
     "category": "Luftrecht",
@@ -2108,4 +2110,5 @@
       "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
       "links": []
     }
-  },
+  }
+]

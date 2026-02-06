@@ -16,18 +16,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Es muss die Drehrichtung des Segelflugzeuges eingenommen werden\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
-      "nachlesen": [],
-      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
+      "explanation": "- Richtig ist: D) Es muss die Drehrichtung des Segelflugzeuges eingenommen werden\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
+          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
     }
   },
   {
@@ -47,18 +61,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug ist ausweichpflichtig\n- Merke wie im Straßenverkehr: wer den anderen rechts hat, lässt ihn durch.\n- Kreuzen auf gleicher Höhe: der Pilot, der rechts sieht, muss ausweichen.\n- Ausweichen muss früh und klar sein – nicht „auf Vorfahrt bestehen“.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + eindeutig.",
-      "nachlesen": [],
-      "reliability_note": "Keine passende DFS-Seite mit Ausweichen+Kreuz-Kontext sicher gefunden → keine Quelle."
+      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug ist ausweichpflichtig\n- Kreuzen auf gleicher Höhe: wer den anderen rechts hat, muss ausweichen.\n- Wenn der andere von links kommt, sieht er dich rechts → er muss ausweichen.\n- Wichtig ist: früh und klar handeln, nicht auf 'Vorfahrt' bestehen.",
+      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + klar.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
+          "relevance": "Amtliche Unterlage zur Umsetzung der SERA-Ausweichregeln (SERA.3210).",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF mit Seitenlink + Evidenzsnippet."
     }
   },
   {
@@ -78,18 +106,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) muss dem Gleitschirmflieger ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: D) muss dem Gleitschirmflieger ausweichen\n- Kreuzen auf gleicher Höhe: wer den anderen rechts hat, muss ausweichen.\n- Wenn der andere von links kommt, sieht er dich rechts → er muss ausweichen.\n- Wichtig ist: früh und klar handeln, nicht auf 'Vorfahrt' bestehen.",
+      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + klar.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
+          "relevance": "Amtliche Unterlage zur Umsetzung der SERA-Ausweichregeln (SERA.3210).",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF mit Seitenlink + Evidenzsnippet."
     }
   },
   {
@@ -109,18 +151,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Beide Luftfahrzeuge müssen nach rechts ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: A) Beide Luftfahrzeuge müssen nach rechts ausweichen\n- Bei Verkehrsregeln geht’s immer darum, Kollisionen vorhersehbar zu vermeiden.\n- Die richtige Option ist die, die eine klare, eindeutige Konfliktlösung beschreibt.",
+      "merksatz": "Kollision vermeiden = früh + eindeutig.\nNicht auf 'Vorfahrt' bestehen.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
+          "relevance": "Amtliche Umsetzung/Begründung zu SERA-Ausweichregeln.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Quelle (Bundesrat) mit Seitenlink."
     }
   },
   {
@@ -140,18 +196,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) darf nicht unterflogen oder überholt werden\n- Im Endanflug ist dein Spielraum klein: du willst stabil runter zur Landung.\n- Überholen/Unterfliegen im Endanflug macht’s unübersichtlich und kann schnell gefährlich eng werden.\n- Darum: Endanflug respektieren – nicht überholen, nicht unterfliegen, Abstand halten.",
-      "merksatz": "Endanflug = wenig Reserve.\nAlso: nicht überholen/unterfliegen.",
-      "nachlesen": [],
-      "reliability_note": "Keine passende DFS-Seite mit Landung+Kontext sicher gefunden → keine Quelle."
+      "explanation": "- Richtig ist: B) darf nicht unterflogen oder überholt werden\n- Im Endanflug hast du kaum Platz/Zeit zum Ausweichen.\n- Wenn dich jemand überholt oder unterfliegt, wird’s schnell gefährlich eng.\n- Darum passt die Antwort, die 'nicht überholen/unterfliegen' sagt.",
+      "merksatz": "Endanflug = wenig Reserve.\nNicht überholen/unterfliegen.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210, Landung)",
+          "relevance": "Amtliche Begründung zur Umsetzung der Ausweichregeln (SERA.3210) inkl. Landungskontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Quelle mit Seitenlink + Evidenzsnippet."
     }
   },
   {
@@ -171,18 +241,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
-      "nachlesen": [],
-      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
+      "explanation": "- Richtig ist: C) Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
+          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
     }
   },
   {
@@ -207,18 +291,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug muss ausweichen, die Ausweichrichtung ist nicht vorgeschrieben\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug muss ausweichen, die Ausweichrichtung ist nicht vorgeschrieben\n- Kreuzen auf gleicher Höhe: wer den anderen rechts hat, muss ausweichen.\n- Wenn der andere von links kommt, sieht er dich rechts → er muss ausweichen.\n- Wichtig ist: früh und klar handeln, nicht auf 'Vorfahrt' bestehen.",
+      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + klar.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
+          "relevance": "Amtliche Unterlage zur Umsetzung der SERA-Ausweichregeln (SERA.3210).",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF mit Seitenlink + Evidenzsnippet."
     }
   },
   {
@@ -243,18 +341,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Der Drachenflieger, denn den im Aufwind kreisenden Fluggeräten muss ausgewichen werden. Die Ausweichrichtung ist nicht vorgeschrieben.\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
-      "nachlesen": [],
-      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
+      "explanation": "- Richtig ist: A) Der Drachenflieger, denn den im Aufwind kreisenden Fluggeräten muss ausgewichen werden. Die Ausweichrichtung ist nicht vorgeschrieben.\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
+          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
     }
   },
   {
@@ -274,18 +386,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Dass den Piloten, die am Hang soaren, ausgewichen werden muss, denn die Hangflugregeln haben hier Vorrang.\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
-      "nachlesen": [],
-      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
+      "explanation": "- Richtig ist: B) Dass den Piloten, die am Hang soaren, ausgewichen werden muss, denn die Hangflugregeln haben hier Vorrang.\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
+          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
     }
   },
   {
@@ -305,18 +431,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
-      "nachlesen": [],
-      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
+      "explanation": "- Richtig ist: D) Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
+          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
     }
   },
   {
@@ -336,18 +476,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Ein Luftfahrzeug darf nicht so nah an anderen Luftfahrzeugen betrieben werden, dass die Gefahr eines Zusammenstoßes besteht.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: C) Ein Luftfahrzeug darf nicht so nah an anderen Luftfahrzeugen betrieben werden, dass die Gefahr eines Zusammenstoßes besteht.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -372,18 +526,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: D) Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen\n- Bei Verkehrsregeln geht’s immer darum, Kollisionen vorhersehbar zu vermeiden.\n- Die richtige Option ist die, die eine klare, eindeutige Konfliktlösung beschreibt.",
+      "merksatz": "Kollision vermeiden = früh + eindeutig.\nNicht auf 'Vorfahrt' bestehen.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
+          "relevance": "Amtliche Umsetzung/Begründung zu SERA-Ausweichregeln.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Quelle (Bundesrat) mit Seitenlink."
     }
   },
   {
@@ -408,18 +576,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: C) muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat\n- Bei Verkehrsregeln geht’s immer darum, Kollisionen vorhersehbar zu vermeiden.\n- Die richtige Option ist die, die eine klare, eindeutige Konfliktlösung beschreibt.",
+      "merksatz": "Kollision vermeiden = früh + eindeutig.\nNicht auf 'Vorfahrt' bestehen.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
+          "relevance": "Amtliche Umsetzung/Begründung zu SERA-Ausweichregeln.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Quelle (Bundesrat) mit Seitenlink."
     }
   },
   {
@@ -444,18 +626,34 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) rechts oder links\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: B) rechts oder links\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
+      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
+      "nachlesen": [
+        {
+          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
+          "locator": "§ 43 LuftVG (Direktlink)",
+          "relevance": "Pflicht zur Haftpflichtversicherung."
+        },
+        {
+          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
+          "locator": "§ 33 LuftVG (Direktlink)",
+          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
+        }
+      ],
+      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
     }
   },
   {
@@ -475,18 +673,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: A) eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -506,18 +718,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) die weiter als 10 km vom Startplatz wegführen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: C) die weiter als 10 km vom Startplatz wegführen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -537,18 +763,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "explanation": "- Richtig ist: B) Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren\n- NOTAM sind offizielle Kurzmeldungen zu Änderungen/Gefahren.\n- PIB/Briefing ist die offizielle Zusammenstellung, die du vor dem Flug ziehst.\n- Darum zählt die Antwort, die zu 'offiziell im Briefing/PIB' passt.",
+      "merksatz": "NOTAM = aktuelle Änderungen.\nVor dem Start: PIB/Briefing.",
+      "nachlesen": [
+        {
+          "title": "DFS – NOTAM von A bis Z (PDF)",
+          "type": "pdf",
+          "url": "https://www.dfs.de/homepage/de/medien/ifr-vfr-informationen/vfr-informationen/21-10-2022-notam-von-a-bis-z/notam-von-a-bis-z-2022.pdf?cid=hmg#page=9",
+          "locator": "PDF Seite 9 (Begriffe: PIB; Kontext: NOTAM, Flugberatung)",
+          "relevance": "DFS erklärt PIB/Flugberatung und die Verwendung von NOTAM.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 9
+          },
+          "evidence_snippet": "statt … work in progress (WIP) Bauarbeiten 4. Aufbau und Inhalt eines NOTAM 5. Flugberatung/NOTAM-Brieﬁ ng Ein NOTAM-Briefing (Preflight Information Bulletin – PIB) besteht aus"
+        }
+      ],
+      "reliability_note": "Amtliche DFS-PDF-Quelle mit Seitenlink + Evidenzsnippet."
     }
   },
   {
@@ -568,33 +808,34 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Nein\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – dafür ist die Halterhaftpflicht da.\n- Die Haftpflicht ist vorgeschrieben, damit solche Schäden bezahlt werden können.",
+      "explanation": "- Richtig ist: A) Nein\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
       "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
       "nachlesen": [
         {
-          "title": "LuftVG § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
           "type": "web",
           "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
           "locator": "§ 43 LuftVG (Direktlink)",
           "relevance": "Pflicht zur Haftpflichtversicherung."
         },
         {
-          "title": "LuftVG § 33 – Haftung (amtlich, DE)",
+          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
           "type": "web",
           "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
           "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage für Schadensersatz."
+          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
         }
       ],
-      "reliability_note": "Quellen sind amtlich und thematisch passend (Haftung/Haftpflicht)."
+      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
     }
   },
   {
@@ -614,18 +855,34 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Bei einem Überlandflug, wenn der geplante Landeplatz nicht erreicht werden kann (Außenlandung) und in Notfällen (Notlandung).\n- Im Endanflug ist dein Spielraum klein: du willst stabil runter zur Landung.\n- Überholen/Unterfliegen im Endanflug macht’s unübersichtlich und kann schnell gefährlich eng werden.\n- Darum: Endanflug respektieren – nicht überholen, nicht unterfliegen, Abstand halten.",
-      "merksatz": "Endanflug = wenig Reserve.\nAlso: nicht überholen/unterfliegen.",
-      "nachlesen": [],
-      "reliability_note": "Keine passende DFS-Seite mit Landung+Kontext sicher gefunden → keine Quelle."
+      "explanation": "- Richtig ist: D) Bei einem Überlandflug, wenn der geplante Landeplatz nicht erreicht werden kann (Außenlandung) und in Notfällen (Notlandung).\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
+      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
+      "nachlesen": [
+        {
+          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
+          "locator": "§ 43 LuftVG (Direktlink)",
+          "relevance": "Pflicht zur Haftpflichtversicherung."
+        },
+        {
+          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
+          "locator": "§ 33 LuftVG (Direktlink)",
+          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
+        }
+      ],
+      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
     }
   },
   {
@@ -645,18 +902,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) für die eine Erlaubnis des Beauftragten (DHV) erteilt ist\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: D) für die eine Erlaubnis des Beauftragten (DHV) erteilt ist\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -676,18 +947,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) von der Deutschen Flugsicherung GmbH (DFS)\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: B) von der Deutschen Flugsicherung GmbH (DFS)\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -707,18 +992,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) von der Austro Control GmbH\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: C) von der Austro Control GmbH\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -738,18 +1037,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) führt über die Umgebung der Startstelle hinaus\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: A) führt über die Umgebung der Startstelle hinaus\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -769,18 +1082,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) nur mit einer entsprechenden Platzzulassung für Gleitschirme/Hängegleiter erlaubt\n- Im Endanflug ist dein Spielraum klein: du willst stabil runter zur Landung.\n- Überholen/Unterfliegen im Endanflug macht’s unübersichtlich und kann schnell gefährlich eng werden.\n- Darum: Endanflug respektieren – nicht überholen, nicht unterfliegen, Abstand halten.",
-      "merksatz": "Endanflug = wenig Reserve.\nAlso: nicht überholen/unterfliegen.",
-      "nachlesen": [],
-      "reliability_note": "Keine passende DFS-Seite mit Landung+Kontext sicher gefunden → keine Quelle."
+      "explanation": "- Richtig ist: B) nur mit einer entsprechenden Platzzulassung für Gleitschirme/Hängegleiter erlaubt\n- Im Endanflug hast du kaum Platz/Zeit zum Ausweichen.\n- Wenn dich jemand überholt oder unterfliegt, wird’s schnell gefährlich eng.\n- Darum passt die Antwort, die 'nicht überholen/unterfliegen' sagt.",
+      "merksatz": "Endanflug = wenig Reserve.\nNicht überholen/unterfliegen.",
+      "nachlesen": [
+        {
+          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
+          "type": "pdf",
+          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
+          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210, Landung)",
+          "relevance": "Amtliche Begründung zur Umsetzung der Ausweichregeln (SERA.3210) inkl. Landungskontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 80
+          },
+          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
+        }
+      ],
+      "reliability_note": "Amtliche Quelle mit Seitenlink + Evidenzsnippet."
     }
   },
   {
@@ -800,18 +1127,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Alle Antworten sind richtig\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: C) Alle Antworten sind richtig\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -831,18 +1172,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) bei Überlandflügen, wenn über Flugfunk eine Freigabe für das Durchfliegen eines Luftraums angefordert werden soll.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: B) bei Überlandflügen, wenn über Flugfunk eine Freigabe für das Durchfliegen eines Luftraums angefordert werden soll.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -862,33 +1217,34 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Den Schaden begleicht die Halterhaftpflicht-Versicherung, die jeder Pilot unterhalten muss.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – dafür ist die Halterhaftpflicht da.\n- Die Haftpflicht ist vorgeschrieben, damit solche Schäden bezahlt werden können.",
+      "explanation": "- Richtig ist: D) Den Schaden begleicht die Halterhaftpflicht-Versicherung, die jeder Pilot unterhalten muss.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
       "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
       "nachlesen": [
         {
-          "title": "LuftVG § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
           "type": "web",
           "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
           "locator": "§ 43 LuftVG (Direktlink)",
           "relevance": "Pflicht zur Haftpflichtversicherung."
         },
         {
-          "title": "LuftVG § 33 – Haftung (amtlich, DE)",
+          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
           "type": "web",
           "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
           "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage für Schadensersatz."
+          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
         }
       ],
-      "reliability_note": "Quellen sind amtlich und thematisch passend (Haftung/Haftpflicht)."
+      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
     }
   },
   {
@@ -908,33 +1264,34 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Alle Antworten sind richtig.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – dafür ist die Halterhaftpflicht da.\n- Die Haftpflicht ist vorgeschrieben, damit solche Schäden bezahlt werden können.",
+      "explanation": "- Richtig ist: B) Alle Antworten sind richtig.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
       "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
       "nachlesen": [
         {
-          "title": "LuftVG § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
           "type": "web",
           "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
           "locator": "§ 43 LuftVG (Direktlink)",
           "relevance": "Pflicht zur Haftpflichtversicherung."
         },
         {
-          "title": "LuftVG § 33 – Haftung (amtlich, DE)",
+          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
           "type": "web",
           "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
           "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage für Schadensersatz."
+          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
         }
       ],
-      "reliability_note": "Quellen sind amtlich und thematisch passend (Haftung/Haftpflicht)."
+      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
     }
   },
   {
@@ -954,18 +1311,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) benötigt der Pilot in vielen Ländern neben seiner Fluglizenz die IPPI-Karte mit Stufe 5.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: A) benötigt der Pilot in vielen Ländern neben seiner Fluglizenz die IPPI-Karte mit Stufe 5.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   },
   {
@@ -985,18 +1356,32 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
       "followup_examples": [
-        "Warum ist die richtige Option richtig?",
-        "Warum sind die anderen falsch?",
+        "Erklär mir das noch einfacher in 2 Sätzen.",
+        "Welche typische Prüfungsfalle steckt hier drin?",
+        "Warum sind die anderen Optionen falsch?",
         "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das ist pauschal nicht zu sagen, der Pilot muss sich beim jeweiligen ausländischen Verband bzw. der FAI/CIVL informieren.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
+      "explanation": "- Richtig ist: D) Das ist pauschal nicht zu sagen, der Pilot muss sich beim jeweiligen ausländischen Verband bzw. der FAI/CIVL informieren.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [],
-      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
+      "nachlesen": [
+        {
+          "title": "DFS – Sicherer Sichtflug (PDF)",
+          "type": "pdf",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
+          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
+          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
+          "direct_open": {
+            "mode": "pdf_page",
+            "page": 3
+          },
+          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
+        }
+      ],
+      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
     }
   }
 ]

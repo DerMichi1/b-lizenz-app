@@ -23,7 +23,8 @@
       "explanation": "- Wenn schon jemand in der Thermik kreist, ist das wie ein Kreisverkehr: alle im Kreis drehen gleich herum.\n- Würdest du entgegengesetzt einkreisen, kommt ihr euch im Kreis ständig „frontal“ entgegen.\n- Gleiche Drehrichtung = weniger Konfliktpunkte; zusätzlich Abstand halten und sauber einfädeln.",
       "merksatz": "Thermik = Kreisverkehr.\nGleiche Richtung wie der, der schon kreist.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -50,7 +51,8 @@
       "explanation": "- Bei kreuzenden Kursen gilt das einfache Rechts‑Prinzip: Wer den anderen rechts hat, muss ausweichen.\n- Wenn das andere Luftfahrzeug von links kommt, hat es dich rechts im Blickfeld.\n- Darum ist das von links kommende Luftfahrzeug ausweichpflichtig; Hauptsache früh und eindeutig.",
       "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nKommt er von links, muss er ausweichen.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -77,7 +79,8 @@
       "explanation": "- Auch im Überlandflug gilt: bei Kreuzung auf gleicher Höhe muss der Ausweichpflichtige ausweichen.\n- Hier kommt der Segelflieger von links und kreuzt deine Richtung: er hat dich rechts.\n- Deshalb muss er dir ausweichen – die konkrete Richtung (links/rechts) ist nicht fest vorgeschrieben, sondern „klar und früh“.",
       "merksatz": "Kreuzen: wer dich rechts hat, weicht.\nFrüh und klar statt diskutieren.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -104,7 +107,8 @@
       "explanation": "- Direkt „von vorne“ auf Kollisionskurs = Gegenkurs wie im Straßenverkehr.\n- Damit es für beide eindeutig ist, weichen beide nach rechts aus.\n- Keine Sonderregel „wendiger gewinnt“: Eindeutigkeit verhindert Zick‑Zack und Missverständnisse.",
       "merksatz": "Gegenkurs: beide nach rechts.\nEindeutig handeln, nicht pokern.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -131,7 +135,8 @@
       "explanation": "- Im Endanflug hast du wenig Höhe und wenig Zeit – du kannst nicht beliebig ausweichen.\n- Wer dich unterfliegt oder überholt, macht es sofort gefährlich eng (Sinkpfad/Abfangen).\n- Darum: im Endanflug nicht unterfliegen und nicht überholen – Reihenfolge respektieren.",
       "merksatz": "Endanflug = wenig Spielraum.\nNicht unterfliegen, nicht überholen.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -158,7 +163,8 @@
       "explanation": "- Ein Fluggerät, das bereits im Aufwind kreist, ist „gebunden“: es kann nicht einfach geradeaus ausweichen.\n- Der Anfliegende kann seine Linie leichter ändern und muss deshalb dem Kreiser ausweichen.\n- Darum ist der Hängegleiter ausweichpflichtig (Ausweichrichtung nicht vorgeschrieben, aber früh und klar).",
       "merksatz": "Kreiser hat Vorrang.\nDer Anfliegende weicht aus.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -190,7 +196,8 @@
       "explanation": "- Bei kreuzenden Flugbahnen gilt nicht „immer rechts/links“, sondern: wer den anderen rechts hat, muss ausweichen.\n- In der Antwort ist genau das abgebildet: das von links kommende Luftfahrzeug ist ausweichpflichtig.\n- Wohin ausgewichen wird, ist nicht starr vorgeschrieben – wichtig ist „früh und eindeutig“.",
       "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nRichtung egal – Hauptsache klar.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -222,7 +229,8 @@
       "explanation": "- Der Gleitschirm kreist bereits in der Thermik – er ist in einem festen Kreisflug.\n- Der heranfliegende Drachen kann seine Anfluglinie leicht ändern.\n- Darum muss der Anfliegende dem Kreiser ausweichen; die Richtung ist nicht fest vorgegeben.",
       "merksatz": "Wer schon kreist, bleibt im Kreis.\nDer Anflieger weicht aus.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -249,7 +257,8 @@
       "explanation": "- Nahe am Hang gelten Hangflug‑Regeln: Soarer am Hang haben Priorität, weil sie kaum Ausweichraum haben.\n- Wenn du dort in die Thermik einkreisen willst, musst du den Hang‑Soarern ausweichen.\n- Praktisch: erst Abstand schaffen/aus der Hanglinie raus, dann einkreisen.",
       "merksatz": "Am Hang zählt Hangflug zuerst.\nThermik‑Einsteigen nur, wenn du niemanden kreuzt.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -276,7 +285,8 @@
       "explanation": "- In Österreich gilt: dem in der Thermik kreisenden Fluggerät ist auszuweichen – auch wenn es hangnah kreist.\n- Der Kreiser ist „gebunden“ (Kreisflug) und kann nicht einfach geradeaus wegspringen.\n- Darum muss der Anfliegende/Soarer so fliegen, dass der Kreiser nicht gestört wird.",
       "merksatz": "AT: Kreiser hat Vorrang.\nEgal wo – der Anflieger weicht aus.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -303,7 +313,8 @@
       "explanation": "- Das ist die Grundregel „See and avoid“: nicht so nah fliegen, dass Kollisionsgefahr entsteht.\n- Es gibt keine feste „immer 1 NM“ oder „immer 1000 ft“ Regel für alle Situationen.\n- Die Pflicht ist: Abstand so halten/Flug so ändern, dass ein Zusammenstoß ausgeschlossen wird.",
       "merksatz": "Regel Nr. 1: keine Kollisionsgefahr.\nAbstand so groß, dass es sicher bleibt.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -335,7 +346,8 @@
       "explanation": "- Am Prallhang/Soaring gilt: beide bleiben auf ihrer Hangseite und weichen hangabwärts aus.\n- Wer den Hang links hat, fliegt rechts (hangabwärts) weg – so bleibt der Hang frei und die Begegnung wird eindeutig.\n- So vermeidet man, dass beide in den gleichen „Hang‑Korridor“ ziehen.",
       "merksatz": "Hang links? Dann nach rechts (hangabwärts) ausweichen.\nSo bleibt der Hang frei.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -367,7 +379,8 @@
       "explanation": "- Am Hang zählt nicht „Gleitschirm vs Drachen“, sondern die Hangregel.\n- Wer den Hang links hat, muss nach rechts (hangabwärts) ausweichen.\n- Damit weichen beide in die gleiche logische Richtung aus und es gibt keinen „Gegen‑Scher“.",
       "merksatz": "Hang links → rechts ausweichen.\nHangregel schlägt Geräteart.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -399,7 +412,8 @@
       "explanation": "- Überholen ist erlaubt, aber ohne den Überholten zu schneiden oder zu bedrängen.\n- In der Luft ist nicht wie auf der Straße festgelegt „nur rechts“: du darfst rechts oder links überholen.\n- Wichtig ist: ausreichend Abstand, nicht in seine Flugbahn ziehen.",
       "merksatz": "Überholen: rechts ODER links.\nHauptsache Abstand und nicht schneiden.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -426,7 +440,8 @@
       "explanation": "- Außenlandung ist nicht „immer erlaubt“ und auch nicht „nur Notfall“.\n- Sie ist als Ausnahme für Überlandflüge gedacht: wenn der geplante Landeplatz nicht erreichbar ist.\n- Wenn es ein echter Notfall ist, gilt zusätzlich: Notlandung ist immer gerechtfertigt.",
       "merksatz": "Außenlandung = Plan-Landeplatz nicht erreichbar.\nNotfall geht immer.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -453,7 +468,8 @@
       "explanation": "- In Österreich wird Überlandflug über Entfernung definiert, nicht über Landesgrenzen oder „Flachland“.\n- Sobald du weiter als 10 km vom Start wegfliegst, gilt es als Überlandflug.\n- Das ist wichtig, weil dafür Regeln/Erlaubnisse/Verhalten (z.B. Außenlandung) anders bewertet werden.",
       "merksatz": "AT‑Überland = mehr als 10 km weg.\nNicht Grenze – Entfernung zählt.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -479,8 +495,22 @@
     "wiki": {
       "explanation": "- Vor Überlandflug musst du planen: Route, Lufträume, Wetter – damit du nicht „blind“ in Sperrgebiete/Schlechtwetter fliegst.\n- AIS‑Beratung/Flugplan/Funk sind nicht immer Pflicht – aber Planung/Information schon.\n- Bei GS/HG heißt das praktisch: Wetterfenster + Talwind + Luftraumkarte checken.",
       "merksatz": "Überland? Erst planen, dann starten.\nLuftraum + Wetter vorher prüfen.",
-      "nachlesen": [],
-      "reliability_note": ""
+      "nachlesen": [
+        {
+          "title": "DFS – NOTAM von A bis Z (PDF)",
+          "type": "web",
+          "url": "https://www.dfs.de/homepage/de/medien/ifr-vfr-informationen/vfr-informationen/21-10-2022-notam-von-a-bis-z/notam-von-a-bis-z-2022.pdf?cid=hmg",
+          "locator": "Im PDF nach „PIB“ / „Flugberatung“ / „NOTAM“ suchen",
+          "relevance": "DFS erklärt NOTAM/PIB/Briefing (amtlich, DE)."
+        }
+      ],
+      "reliability_note": "",
+      "links": [
+        {
+          "title": "DFS – NOTAM von A bis Z (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/ifr-vfr-informationen/vfr-informationen/21-10-2022-notam-von-a-bis-z/notam-von-a-bis-z-2022.pdf?cid=hmg"
+        }
+      ]
     }
   },
   {
@@ -507,7 +537,8 @@
       "explanation": "- Der Landwirt darf dich nicht festhalten, wenn du deine Daten/Versicherung korrekt angegeben hast.\n- Er hat damit alles, um seinen Anspruch geltend zu machen – ein „Zurückbehalten“ ist dann nicht nötig.\n- Praktisch: ruhig bleiben, Daten geben, Schaden dokumentieren (Fotos), dann abbauen/abtransportieren.",
       "merksatz": "Daten + Versicherer gegeben?\nDann darfst du gehen/abbauen.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -534,7 +565,8 @@
       "explanation": "- Es gibt zwei Fälle: Außenlandung (geplant/erforderlich, weil Ziel nicht erreichbar) und Notlandung (akute Gefahr).\n- „Grundsätzlich immer mit Eigentümer ok“ reicht nicht – es muss rechtlich ein zulässiger Anlass vorliegen.\n- Darum ist die kombinierte Aussage richtig: Überland + Ziel nicht erreichbar ODER Notfall.",
       "merksatz": "Außenlandung: Ziel nicht erreichbar.\nNotlandung: Gefahr – sofort runter.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -561,7 +593,8 @@
       "explanation": "- Für Startplätze/Fluggelände braucht es in DE eine erlaubte Nutzung – bei GS/HG läuft das über den beauftragten Verband (DHV).\n- „Geeignet“ allein reicht nicht: ohne Erlaubnis ist es kein zulässiger Startplatz.\n- Darum ist die Antwort mit DHV‑Erlaubnis richtig.",
       "merksatz": "DE Start nur mit Erlaubnis.\nBei GS/HG: DHV‑Freigabe zählt.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -587,8 +620,22 @@
     "wiki": {
       "explanation": "- Flugverkehrskontrolle (ATC) ist eine staatliche Aufgabe, wird aber praktisch von einer zuständigen Organisation durchgeführt.\n- In Deutschland ist das die DFS (Deutsche Flugsicherung) für den kontrollierten Verkehr.",
       "merksatz": "DE: Flugverkehrskontrolle = DFS.\nDFS ist die zuständige Stelle.",
-      "nachlesen": [],
-      "reliability_note": ""
+      "nachlesen": [
+        {
+          "title": "DFS – Unternehmen/Profil (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.dfs.de/homepage/de/unternehmen/",
+          "locator": "Abschnitt zur Aufgabe der DFS",
+          "relevance": "DFS ist die deutsche Flugsicherungsorganisation (ATC/ANSP) im kontrollierten Luftraum."
+        }
+      ],
+      "reliability_note": "",
+      "links": [
+        {
+          "title": "DFS – Unternehmen/Profil (amtlich, DE)",
+          "url": "https://www.dfs.de/homepage/de/unternehmen/"
+        }
+      ]
     }
   },
   {
@@ -614,8 +661,22 @@
     "wiki": {
       "explanation": "- In Österreich wird die Flugverkehrskontrolle durch Austro Control ausgeübt.\n- Das ist das Pendant zur DFS in Deutschland.",
       "merksatz": "AT: Flugverkehrskontrolle = Austro Control.\nMerke: AC wie AT.",
-      "nachlesen": [],
-      "reliability_note": ""
+      "nachlesen": [
+        {
+          "title": "Austro Control – Flugverkehrskontrolle (amtlich, AT)",
+          "type": "web",
+          "url": "https://www.austrocontrol.at/flugverkehr/flugverkehrskontrolle",
+          "locator": "Seite zur Flugverkehrskontrolle",
+          "relevance": "Austro Control ist in Österreich für Flugverkehrskontrolle/Flugsicherung zuständig."
+        }
+      ],
+      "reliability_note": "",
+      "links": [
+        {
+          "title": "Austro Control – Flugverkehrskontrolle (amtlich, AT)",
+          "url": "https://www.austrocontrol.at/flugverkehr/flugverkehrskontrolle"
+        }
+      ]
     }
   },
   {
@@ -642,7 +703,8 @@
       "explanation": "- In Deutschland ist Überlandflug bei GS/HG nicht „>10 km“ definiert, sondern: du verlässt die Umgebung des Startplatzes.\n- Sobald du nicht mehr im lokalen Fluggebiet/Startplatz‑Umfeld fliegst, ist es Überland.\n- Darum passt die allgemeine Definition „über die Umgebung hinaus“.",
       "merksatz": "DE‑Überland = raus aus dem Startplatz‑Umfeld.\nNicht 10 km – Umgebung zählt.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -669,7 +731,8 @@
       "explanation": "- Ein Segelflugplatz ist ein zugelassener Landeplatz – aber nicht automatisch für GS/HG freigegeben.\n- Planmäßig dort landen darfst du nur, wenn der Platz GS/HG zulässt (Platzregeln/Zulassung).\n- Sonst wäre es rechtlich wie eine unzulässige Außenlandung.",
       "merksatz": "Platz ≠ automatisch erlaubt.\nPlanlandung nur mit GS/HG‑Zulassung.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -696,7 +759,8 @@
       "explanation": "- Straftat heißt: es ist im Gesetz mit Geld- oder Freiheitsstrafe bedroht.\n- Beispiele sind u.a. Trunkenheit im Luftverkehr oder Fliegen ohne erforderliche Erlaubnis/Lizenz.\n- Darum sind alle genannten Aussagen Beispiele/Definitionen von Straftaten → „alle richtig“.",
       "merksatz": "Straftat = Geld- oder Freiheitsstrafe.\nMehrere Beispiele → oft „alle richtig“.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -723,7 +787,8 @@
       "explanation": "- Kennzeichen brauchst du nicht „immer“, sondern wenn du im Funkverkehr eindeutig identifizierbar sein musst.\n- Wenn du per Funk eine Freigabe fürs Durchfliegen eines Luftraums anforderst, muss ATC dich eindeutig zuordnen können.\n- Darum ist Kennzeichnung dafür notwendig.",
       "merksatz": "Funk + Freigabe?\nDann brauchst du Kennzeichen zur Identifikation.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -765,7 +830,17 @@
           "relevance": "Halterhaftung als Grundlage für Schadenersatz."
         }
       ],
-      "reliability_note": "Amtliche Gesetzesquellen (DE) passend zu Haftung/Haftpflicht."
+      "reliability_note": "Amtliche Gesetzesquellen (DE) passend zu Haftung/Haftpflicht.",
+      "links": [
+        {
+          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html"
+        },
+        {
+          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html"
+        }
+      ]
     }
   },
   {
@@ -792,7 +867,8 @@
       "explanation": "- In Österreich hängen Außenabflug/Außenlandung von mehreren Punkten ab (Zustimmung Grundeigentümer, Regeln/Erlaubnisse).\n- Ein Kernelement ist: Bei Außen‑Abflügen brauchst du vorher das Einverständnis des Grundstücksberechtigten.\n- Wenn die anderen Aussagen ebenfalls zutreffen, ist logisch „Alle Antworten sind richtig“.",
       "merksatz": "AT Außen‑Abflug: erst Zustimmung holen.\nMehrere richtige Aussagen → „alle richtig“.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -819,7 +895,8 @@
       "explanation": "- Viele Länder verlangen neben deiner nationalen Lizenz eine einheitliche Einstufung: die IPPI‑Karte.\n- Für Streckenfliegen wird häufig IPPI Stufe 5 verlangt (zeigt Erfahrung/Überlandniveau).\n- Darum ist die Antwort mit IPPI 5 die sichere Regel‑Aussage.",
       "merksatz": "Ausland = oft IPPI‑Nachweis.\nStrecke meist: IPPI 5.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   },
   {
@@ -846,7 +923,8 @@
       "explanation": "- Regeln im Ausland sind nicht einheitlich: jedes Land kann eigene Anforderungen haben.\n- IPPI hilft oft, ersetzt aber nicht automatisch nationale Regeln/Startplatz‑/Luftraum‑Vorgaben.\n- Darum ist die einzig sichere Aussage: pauschal nicht – du musst dich vor Ort informieren.",
       "merksatz": "Ausland: keine Pauschal‑Erlaubnis.\nVorher lokale Regeln checken.",
       "nachlesen": [],
-      "reliability_note": ""
+      "reliability_note": "",
+      "links": []
     }
   }
 ]

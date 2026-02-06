@@ -20,8 +20,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Es geht um Schäden/Haftung: Wer zahlt bzw. wer ist verantwortlich?\n- Bei Luftsport ist entscheidend: Drittschaden (andere/deren Eigentum) vs. Eigenschaden (deins).\n- Die richtige Option ist die, die Drittschäden über Haftpflicht/Haftung korrekt zuordnet.\n- Prüfungsfalle: Unfall ≠ automatisch „ich zahle privat“ – häufig greift die Halter-/Haftpflicht.",
-      "merksatz": "Drittschaden = Haftpflicht-Thema.\nEigenschaden = dein Problem.",
+      "explanation": "- „Halterhaftpflicht“ ist Pflicht – aber der genaue Geltungsbereich steht in deiner Police.\n- Im Ausland können Länder/Regionen anders bewertet sein (z.B. außerhalb Europa) oder es gelten andere Mindestdeckungssummen.\n- Deshalb ist die einzig sichere Aussage: vor allem außerhalb Europas den Versicherungsschutz aktiv prüfen (Land, Zeitraum, Deckungssumme, Ausschlüsse).",
+      "merksatz": "Vor dem Auslandflug: Police prüfen.\nAußerhalb EU: doppelt checken.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Allgemeines Luftsport-Grundwissen; landesspezifisch amtlich prüfen.",
       "links": []
     }
   },
@@ -35,7 +45,7 @@
       "Krankenversicherung",
       "Auslands-Krankenversicherung",
       "Auslands-Krankenversicherung mit Rücktransport",
-      "private Unfallversicherung Luftraumvorschriften und Bezeichnungen allgemein"
+      "private Unfallversicherung"
     ],
     "correctIndex": 2,
     "figures": [],
@@ -46,8 +56,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Es geht um Schäden/Haftung: Wer zahlt bzw. wer ist verantwortlich?\n- Bei Luftsport ist entscheidend: Drittschaden (andere/deren Eigentum) vs. Eigenschaden (deins).\n- Die richtige Option ist die, die Drittschäden über Haftpflicht/Haftung korrekt zuordnet.\n- Prüfungsfalle: Unfall ≠ automatisch „ich zahle privat“ – häufig greift die Halter-/Haftpflicht.",
-      "merksatz": "Drittschaden = Haftpflicht-Thema.\nEigenschaden = dein Problem.",
+      "explanation": "- Im Ausland kann die normale Krankenversicherung Lücken haben (Kosten, Abrechnung, private Kliniken).\n- Richtig „dringend“ ist die Variante mit Rücktransport: wenn du medizinisch sinnvoll zurück musst, kann das extrem teuer werden.\n- Unfallversicherung kann helfen, ersetzt aber nicht die Kranken-/Transportkosten.",
+      "merksatz": "Ausland fliegen: KV + Rücktransport.\nRettung/Heimflug kann teuer sein.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Allgemeines Luftsport-Grundwissen; landesspezifisch amtlich prüfen.",
       "links": []
     }
   },
@@ -72,8 +92,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- VFR beschreibt die Art des Fliegens: du fliegst nach Sicht und hältst Sichtflugregeln ein.\n- Kurz: du orientierst dich visuell (Erdsicht/Flugsicht/Wolkenabstände) und nicht „nach Instrumenten“.\n- Darum heißt VFR ausgeschrieben „Visual Flight Rules“ = Sichtflugregeln.",
+      "merksatz": "VFR = Visual.\nFliegen nach Sichtregeln.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -98,8 +128,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Wetterkunde: Ursache → Wirkung (Wind/Temperatur/Feuchte) verstehen.\n- Die richtige Option beschreibt den typischen Effekt korrekt (z.B. Lee=Turbulenz, Inversion=Deckel).\n- Für GS/HG zählt immer: Flugbar? Sicher? (Turbulenz, Böen, Wolkenbasis).\n- Prüfungsfalle: Begriffe verwechseln (Lee/Luv, stabil/labil).",
-      "merksatz": "Wetter = Ursache→Wirkung.\nBei Zweifel: nicht starten.",
+      "explanation": "- „FL“ (Flight Level) ist keine Höhe über Meer, sondern eine Druckhöhe.\n- Referenz ist der Standarddruck 1013,25 hPa (QNE).\n- FL 100 bedeutet deshalb: 10.000 ft über der 1013‑hPa‑Druckfläche.",
+      "merksatz": "FL = Druckhöhe (1013).\nFL100 = 10.000 ft auf Standarddruck.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -124,8 +164,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- IFR ist das Gegenstück zu VFR.\n- Es heißt: Verkehr nach Instrumentenflugregeln – Navigation/Staffelung läuft nach IFR‑Verfahren.\n- Für dich wichtig: IFR‑Verkehr kann auch „in Wolken“ sein, du musst ihn im kontrollierten Luftraum mitdenken.",
+      "merksatz": "IFR = Instrument.\nInstrumentenflugregeln.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -150,8 +200,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Navigations-Logik: Karte/Skala/Kurs – keine Meinungssache.\n- Erst Einheiten klären (km, NM, Grad) und sauber umrechnen.\n- Die richtige Option ist die, die rechnerisch/definitionsmäßig aufgeht.\n- Prüfungsfalle: NM ≠ km; 1 NM = 1,852 km.",
-      "merksatz": "Erst Einheit klären.\nDann sauber umrechnen.",
+      "explanation": "- IFR setzt zugelassene Instrumentierung/Verfahren und entsprechende Luftfahrzeuge/Schulungen voraus.\n- Gleitschirm/Hängegleiter sind dafür nicht vorgesehen.\n- Daher ist die richtige Antwort schlicht: Nein.",
+      "merksatz": "GS/HG = Sichtflug.\nIFR geht nicht.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -176,8 +236,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- „Kontrollierter Luftraum“ heißt: dort gelten strengere Sichtflugminima.\n- Zur Wolke musst du vertikal Abstand halten – hier: 300 m zur Wolkenbasis.\n- Grund: IFR‑Verkehr kann nahe/IN Wolken sein – Abstand reduziert Kollisionsrisiko.",
+      "merksatz": "Kontrolliert: 300 m unter Wolken.\nWolken sind „IFR‑Zone“.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -202,8 +272,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Auf Überlandflug im kontrollierten Luftraum gelten die gleichen Cloud‑Minima wie sonst im kontrollierten Luftraum.\n- Entscheidend ist der vertikale Abstand zur Basis: 300 m.\n- „Wolke berühren“ ist tabu – und 300 ft/100 m wären zu wenig.",
+      "merksatz": "Kontrolliert: 300 m Abstand zur Basis.\nWolke bleibt tabu.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -228,8 +308,25 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Luftraum C ist kontrolliert und freigabepflichtig.\n- Ohne Freigabe dort einzufliegen ist ein Regelverstoß – typischerweise eine Ordnungswidrigkeit.\n- Straftat ist die „schärfere“ Kategorie und trifft hier nicht automatisch zu.",
+      "merksatz": "Ohne Clearance in C = OWi.\nFreigabe ist Pflicht.",
+      "nachlesen": [
+        {
+          "title": "DFS Deutsche Flugsicherung – Unternehmensseite (dfs.de)",
+          "type": "web",
+          "url": "https://www.dfs.de/homepage/de/",
+          "locator": "Unternehmensbeschreibung (Website, Abschnitt ‚Wir kontrollieren den Flugverkehr…‘)",
+          "relevance": "Offizielle Zuständigkeit DFS (DE)."
+        },
+        {
+          "title": "Austro Control – eAIP Portal (Austro Control)",
+          "type": "web",
+          "url": "https://eaip.austrocontrol.at/",
+          "locator": "eAIP Austria (Dokumente GEN/ENR)",
+          "relevance": "Offizielle AT-Publikationen (Zuständigkeiten/Verfahren/Services)."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -254,8 +351,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Die Buchstaben C/D/E sind Klassen von kontrolliertem Luftraum.\n- „Unkontrolliert“ wäre typischerweise G.\n- Daher: C, D, E = kontrollierter Luftraum.",
+      "merksatz": "C/D/E = kontrolliert.\nG = unkontrolliert.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -280,8 +387,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Kontrollzone (CTR) liegt rund um Flugplätze und schützt Start-/Landeverkehr.\n- Ohne Freigabe/Anmeldung dort reinzufliegen ist grundsätzlich nicht erlaubt.\n- Deshalb ist „Kontrollzone“ die richtige Antwort.",
+      "merksatz": "CTR = Flugplatzschutz.\nOhne Freigabe nicht rein.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -306,8 +423,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Im unkontrollierten Luftraum gelten erleichterte Regeln – aber nicht überall und nicht immer.\n- In den Bereichen *unter 1000 ft AGL* sowie *unter 3000 ft MSL* darfst du bis an die Basis aufdrehen.\n- Außerhalb davon gelten wieder Wolkenabstände/Flugsicht-Minima strenger.",
+      "merksatz": "Unkontrolliert: bis Basis nur in den „low“-Bereichen.\nUnter 1000 ft AGL UND unter 3000 ft MSL.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -321,7 +448,7 @@
       "Bis zum oberen Luftraum bei FL 245 (ca. 7450 m MSL)",
       "Bis zur Tropopause (ca. 11000 m MSL)",
       "So hoch, bis die jeweilige Obergrenze der für Gleitschirme erlaubten Lufträume G und E an die nicht erlaubten Lufträume C oder D oder eine TMZ grenzen",
-      "So hoch, wie die Thermik reicht Luftraumvorschriften G und E, Sichtflugregeln 1"
+      "So hoch, wie die Thermik reicht"
     ],
     "correctIndex": 2,
     "figures": [],
@@ -332,8 +459,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- In AT ist „so hoch wie Thermik reicht“ falsch, weil Luftraumgrenzen zählen.\n- Du darfst so hoch, wie G/E für dich erlaubt sind – bis an Grenzen zu nicht erlaubten Lufträumen (z.B. C/D) oder TMZ.\n- Praktisch: immer obere Grenze der erlaubten Lufträume checken.",
+      "merksatz": "Nicht Thermik bestimmt, sondern Luftraum.\nAT: hoch bis zur Grenze von G/E.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -358,8 +495,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Luftraum G ist grundsätzlich unkontrolliert.\n- Dort sind Sichtflüge (VFR) erlaubt – du fliegst nach Sicht und Mindestbedingungen.\n- Trotzdem: militärische Tiefflüge/anderer Verkehr sind möglich, also Augen auf.",
+      "merksatz": "G = unkontrolliert.\nVFR ist erlaubt.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -384,8 +531,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Luftraum E ist *kontrollierter* Luftraum.\n- Du kannst dort VFR fliegen, aber es gibt auch IFR‑Verkehr – deshalb strengere Sichtflugminima.\n- Darum ist „kontrolliert“ korrekt.",
+      "merksatz": "E = kontrolliert.\nVFR/IFR können gemischt sein.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -410,8 +567,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- In Deutschland ist oberhalb 2.500 ft AGL (wenn nicht anders klassifiziert) kein „G“ mehr.\n- Darüber beginnt kontrollierter Luftraum (typisch E).\n- Deshalb: ausschließlich kontrollierter Luftraum.",
+      "merksatz": "DE: über 2500 ft AGL = kontrolliert.\nG endet meist darunter.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -436,8 +603,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Für GS/HG gibt es in DE eine obere Grenze außerhalb verbotener Lufträume.\n- Standard: bis FL 100; im Alpenbereich bis FL 130.\n- Alles darüber/anderes nur, wenn ausdrücklich erlaubt/freigegeben ist.",
+      "merksatz": "DE: bis FL100.\nAlpen: bis FL130.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -462,8 +639,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- 3.200 m MSL liegt hoch – dort gelten höhere Sichtflugminima.\n- Richtig ist: Flugsicht 8 km und Wolkenabstände 300 m vertikal + 1,5 km horizontal.\n- Das ist genau die „hoch/oberhalb“‑Regel, nicht die „1,5 km frei von Wolken“‑Variante.",
+      "merksatz": "Hoch = streng.\n8 km Sicht + 300 m/1,5 km Wolkenabstand.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -488,8 +675,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Diese Kombi („1,5 km Sicht, Erdsicht, frei von Wolken“) ist die „low level“-Regel im Luftraum G.\n- Sie gilt unter 3000 ft MSL – und auch darüber, *wenn* du gleichzeitig unter 1000 ft AGL bleibst.\n- Sobald du höher über Grund bist, brauchst du größere Flugsicht/Wolkenabstände.",
+      "merksatz": "Low-level = 1,5 km + Erdsicht + wolkenfrei.\nGilt: <3000 ft MSL oder (≥3000 ft MSL aber <1000 ft AGL).",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -514,8 +711,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Die Frage ist nach Mindestflugsicht in Luftraum E.\n- Standard ist 5 km; oberhalb FL 100 steigt die Mindestflugsicht auf 8 km.\n- „Bis zum Boden“/800 m sind keine korrekten Mindestwerte für E.",
+      "merksatz": "E: 5 km.\nÜber FL100: 8 km.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -540,8 +747,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Hier bist du im Luftraum G, aber mit 2.000 m MSL und 500 m AGL.\n- Das ist *nicht* der „wolkenfrei bis Basis“‑Bereich – du brauchst vertikalen Abstand zur Basis.\n- Richtig: 1.000 ft Abstand zur Wolkenbasis.",
+      "merksatz": "G + höher über Grund: 1000 ft zur Basis.\nNicht „bis Basis“.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -566,8 +783,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- „Trennfläche FL 95“ ist eine Sicherheitslogik zur Staffelung zwischen E und C.\n- Idee: VFR in E soll 500 ft Abstand zur Untergrenze von C (FL 100) halten.\n- Deshalb: FL 95 als „Puffer“ für VFR.",
+      "merksatz": "FL95 = Puffer.\nVFR in E hält 500 ft Abstand zu C (FL100).",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -592,8 +819,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Hier geht’s um menschliche Faktoren: du musst Risiken früh erkennen.\n- Die richtige Option ist die sicherheitsorientierte: früh abbrechen/planen/Reserve lassen.\n- Prüfungsfalle: „wird schon gehen“ ist fast immer falsch.",
-      "merksatz": "Sicherheit schlägt Ego.\nReserve lassen oder abbrechen.",
+      "explanation": "- Über Städten/Ortschaften brauchst du extra Höhe, damit bei Problemen eine sichere Landung möglich ist und Menschen am Boden geschützt sind.\n- Richtig ist: 300 m über dem höchsten Hindernis innerhalb 600 m Umkreis.\n- Das ist eine klare Mindesthöhe, nicht „keine Regel“. ",
+      "merksatz": "Stadtüberflug: +300 m.\nBezogen auf höchstes Hindernis im 600‑m‑Kreis.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -607,7 +844,7 @@
       "Ja, wenn der Flug dies erforderlich macht und keine Personen oder Sachen gefährdet werden.",
       "Nur in Gefahrensituationen, z.B. bei einer Notlandung oder Sicherheits-Außenlandung",
       "Nein, grundsätzlich nicht.",
-      "Ja, aber nur für Start und Landung. Luftraumvorschriften G und E, Sichtflugregeln 2"
+      "Ja, aber nur für Start und Landung."
     ],
     "correctIndex": 0,
     "figures": [],
@@ -618,8 +855,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- SERA 5005 nennt eine generelle Mindesthöhe, aber sie ist nicht absolut starr.\n- Für GS/HG darf sie unterschritten werden, *wenn der Flug es erfordert* und niemand/keine Sachen gefährdet werden.\n- Start/Landung sind typische Fälle, aber nicht die einzige Begründung – entscheidend ist „erforderlich + sicher“.",
+      "merksatz": "150 m Regel: unterschreiten nur wenn nötig und sicher.\nKeine Gefährdung am Boden.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -644,8 +891,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- In Luftraum E sind sowohl VFR als auch IFR unterwegs.\n- Genau deshalb sind die Sichtflugminima dort relevant: du teilst dir den Raum mit Instrumentenverkehr.\n- Darum ist „Mischverkehr“ die richtige Aussage.",
+      "merksatz": "E = Mischverkehr.\nVFR trifft IFR.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -670,8 +927,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Oberhalb FL 100 in AT gelten strengere Minima.\n- Richtig: 8 km Flugsicht, 1,5 km horizontaler Wolkenabstand und 300 m vertikal.\n- Die Varianten mit 5 km oder „Wolken nicht berühren“ treffen den gefragten Satz nicht.",
+      "merksatz": "AT G > FL100: 8 km.\nWolken: 1,5 km horiz + 300 m vert.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -696,8 +963,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- „Soweit nicht anders klassifiziert“ heißt: Standardregel ohne Sonderbereiche.\n- In DE liegt Luftraum G dann unter 2.500 ft AGL.\n- Darüber ist es kontrolliert.",
+      "merksatz": "DE Standard: G < 2500 ft AGL.\nDarüber kontrolliert.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -722,8 +999,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- In AT ist die Obergrenze von G nicht überall gleich.\n- Sie hängt von Region/Struktur ab (z.B. an CTR/TMA/anderen Klassen).\n- Daher: in unterschiedlicher Höhe.",
+      "merksatz": "AT: G endet nicht überall gleich.\nObergrenze je nach Gebiet.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -748,8 +1035,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Hier bist du in G, aber hoch genug, dass „low level“ nicht mehr gilt (über 3000 ft MSL und >1000 ft AGL).\n- Dann brauchst du: 5 km Sicht und Wolkenabstand 1,5 km horizontal + 300 m vertikal.\n- Das ist die Standard‑Minima‑Stufe für diesen Bereich.",
+      "merksatz": "G (hoch über Grund): 5 km Sicht.\nWolken: 1,5 km / 300 m.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -774,8 +1071,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Über 3000 ft MSL, aber *unter* 1000 ft AGL bist du wieder im „nah am Boden“-Regime.\n- Dort gilt: 1,5 km Flugsicht, dauernde Erdsicht und frei von Wolken.\n- Idee: du bist niedrig über Grund, dafür darfst du wolkennaher sein – aber nur wolkenfrei.",
+      "merksatz": "≥3000 ft MSL, aber <1000 ft AGL:\n1,5 km + Erdsicht + wolkenfrei.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -800,8 +1107,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Unter 3000 ft MSL gilt im G unabhängig von AGL die „low level“-Regel.\n- Deshalb: 1,5 km Flugsicht, dauernde Erdsicht, frei von Wolken.\n- Sobald du in kontrollierten Luftraum wechselst, gelten andere Werte.",
+      "merksatz": "<3000 ft MSL in G:\n1,5 km + Erdsicht + wolkenfrei.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -826,8 +1143,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- 250 m „aufgedreht“ heißt: du bist niedrig über Grund.\n- In diesem Bereich gilt die einfache Regel: 1,5 km Sicht, frei von Wolken und Erdsicht.\n- Nicht die 5/8 km‑Regeln mit Wolkenabständen (die sind für höhere Bereiche).",
+      "merksatz": "Low über Grund:\n1,5 km + wolkenfrei + Erdsicht.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -852,8 +1179,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Startplatz 1500 m MSL + 500 m aufgedreht = 2000 m MSL.\n- Gleichzeitig bist du >300 m AGL ⇒ du fällst in das „höher über Grund“-Regime.\n- Dann gilt: 5 km Sicht + Wolkenabstand 1,5 km horizontal / 300 m vertikal.",
+      "merksatz": "Hoch über Grund:\n5 km Sicht + 1,5 km/300 m Wolkenabstand.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -878,8 +1215,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Diese Sichtflugminima (5 km + 1,5 km/300 m) gelten in zwei Bereichen:\n  1) Luftraum G: über 3000 ft MSL *und* mehr als 1000 ft AGL.\n  2) Luftraum E: bis FL 100.\n- Genau diese Kombination beschreibt die richtige Antwort.",
+      "merksatz": "5 km + 1,5/0,3 = „mittlere“ Minima.\nG hoch (>3000 MSL & >1000 AGL) und E bis FL100.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -904,8 +1251,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- 8 km + 1,5 km/300 m sind die „hohen“ Minima.\n- Sie gelten in AT für G und E oberhalb 10.000 ft, und in DE für E oberhalb FL 100.\n- Deshalb ist die Kombi-Aussage richtig.",
+      "merksatz": "8 km = „hoch“.\nAT: >10.000 ft (G/E). DE: E > FL100.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -930,8 +1287,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Der Jet kann IFR fliegen und damit legal in Wolken sein – das ist hier nicht dein Maßstab.\n- Du warst VFR am Wolkenrand im Luftraum E: dort musst du 300 m vertikal und 1,5 km horizontal Abstand zur Wolke halten.\n- Also war *dein* Verhalten regelwidrig, unabhängig davon, was der Jet machte.",
+      "merksatz": "E + VFR: Wolkenabstand Pflicht.\n300 m vertikal + 1,5 km horizontal.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -945,7 +1312,7 @@
       "Weltweit ist die Luftraum-Struktur einheitlich.",
       "In Europa ist die Luftraum-Struktur einheitlich.",
       "Die Luftraum-Struktur und die Berechtigung zur Nutzung von Lufträumen für Gleitschirme und Hängegleiter ist von Land zu Land unterschiedlich.",
-      "Die Nutzung der Lufträume G und E ist in ganz Europa für Gleitschirme und Hängegleiter erlaubt. Luftraumvorschriften CTR, militärischer Tiefflug"
+      "Die Nutzung der Lufträume G und E ist in ganz Europa für Gleitschirme und Hängegleiter erlaubt."
     ],
     "correctIndex": 2,
     "figures": [],
@@ -956,8 +1323,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Luftrecht ist nicht weltweit/europaweit komplett identisch umgesetzt.\n- Klassen, Höhen, erlaubte Nutzung für GS/HG und Sonderzonen können sich je Land unterscheiden.\n- Deshalb: im Ausland immer lokale Struktur + Erlaubnisse prüfen.",
+      "merksatz": "Ausland = anderes System möglich.\nImmer lokale Lufträume prüfen.",
+      "nachlesen": [
+        {
+          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
+          "type": "pdf",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf",
+          "locator": "ENR 1.2-1 ff.; Tabelle S5-1; Abschnitt 2 SERA.5005 (Seite/Abschnitt im PDF suchen)",
+          "relevance": "Offizielle AT-Publikation zu VMC-Minima und VFR-Regeln."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -982,8 +1359,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
-      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "explanation": "- Eine CTR beginnt am Boden, weil sie den gesamten Start-/Landebereich schützen soll.\n- Darum ist die Untergrenze nicht MSL/AGL‑Wert, sondern GND.\n- „Untergrenze“ heißt: ab dort gilt CTR‑Regelwerk.",
+      "merksatz": "CTR startet am Boden.\nUntergrenze = GND.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1008,8 +1395,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Hier wird geprüft, wo du offizielle Flug-Infos herbekommst.\n- NOTAM/PIB/AIP sind offizielle Quellen für Änderungen/Status (Luftraum, Verfahren, Sperrungen).\n- Die richtige Option ist die, die auf offizielle Information vor dem Flug abzielt.\n- Prüfungsfalle: „Internet/Apps/Foren“ sind nicht automatisch amtlich.",
-      "merksatz": "Vor dem Flug: AIP + NOTAM/PIB.\nAmtlich schlägt Hörensagen.",
+      "explanation": "- CTR ist wie ein Schutzschirm um Flugplätze.\n- Ziel: Start- und Landeverkehr sicher koordinieren.\n- Deshalb sind Kontrollzonen „zum Schutz des Start- und Landeverkehrs“ festgelegt.",
+      "merksatz": "CTR = Schutz für Start/Landung.\nDafür gibt’s sie.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1034,8 +1431,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Die Abkürzung für Kontrollzone ist CTR.\n- TMA/CTA/TRA sind andere Luftraum-/Sonderbegriffe.\n- Merke: C‑T‑R ≈ „Control Zone“.",
+      "merksatz": "Kontrollzone = CTR.\nC‑T‑R merken.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1060,8 +1467,25 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- CTR ist freigabepflichtig.\n- Ohne Zustimmung/Freigabe der Flugsicherung darfst du grundsätzlich nicht einfliegen.\n- „Nicht aktiv“ beurteilt man nicht nach Gefühl – ohne Freigabe bleibt’s Nein.",
+      "merksatz": "CTR nur mit Freigabe.\nOhne Zustimmung: Nein.",
+      "nachlesen": [
+        {
+          "title": "DFS Deutsche Flugsicherung – Unternehmensseite (dfs.de)",
+          "type": "web",
+          "url": "https://www.dfs.de/homepage/de/",
+          "locator": "Unternehmensbeschreibung (Website, Abschnitt ‚Wir kontrollieren den Flugverkehr…‘)",
+          "relevance": "Offizielle Zuständigkeit DFS (DE)."
+        },
+        {
+          "title": "Austro Control – eAIP Portal (Austro Control)",
+          "type": "web",
+          "url": "https://eaip.austrocontrol.at/",
+          "locator": "eAIP Austria (Dokumente GEN/ENR)",
+          "relevance": "Offizielle AT-Publikationen (Zuständigkeiten/Verfahren/Services)."
+        }
+      ],
+      "reliability_note": "Alle Quellen offiziell; Locator angegeben (oder als unbekannt markiert).",
       "links": []
     }
   },
@@ -1086,8 +1510,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
-      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "explanation": "- CTR schützt den Platzverkehr bis ganz nach unten.\n- Deshalb reicht sie immer bis zum Boden.\n- Die Obergrenze kann variieren – aber unten ist immer GND.",
+      "merksatz": "CTR unten immer Boden.\nObergrenze kann variieren.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1112,8 +1546,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Hier wird geprüft, wo du offizielle Flug-Infos herbekommst.\n- NOTAM/PIB/AIP sind offizielle Quellen für Änderungen/Status (Luftraum, Verfahren, Sperrungen).\n- Die richtige Option ist die, die auf offizielle Information vor dem Flug abzielt.\n- Prüfungsfalle: „Internet/Apps/Foren“ sind nicht automatisch amtlich.",
-      "merksatz": "Vor dem Flug: AIP + NOTAM/PIB.\nAmtlich schlägt Hörensagen.",
+      "explanation": "- In DE sind militärische Tiefflüge kein „kleines Sondergebiet“, sondern großflächig möglich.\n- Darum: das Tieffluggebiet erstreckt sich nahezu über ganz Deutschland.\n- Konsequenz: auch außerhalb „schöner Segelflugspots“ mit sehr schnellen Jets rechnen.",
+      "merksatz": "DE: Tiefflug fast überall möglich.\nAugen auf, auch abseits vom Flugplatz.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1138,8 +1582,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Die Frage ist ein „Sammel“-Item: mehrere Aussagen zu Jet‑Tiefflug sind gleichzeitig richtig.\n- Typisch: Werktags, häufig VFR, bestimmte Höhenbänder – und trotzdem nicht starr an eine Linie gebunden.\n- Deshalb lautet die korrekte Antwort: Alle Antworten sind richtig.",
+      "merksatz": "Wenn mehrere Fakten passen: „alle richtig“.\nJet‑Tiefflug: schnell, werktags, überall möglich.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1164,8 +1618,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
-      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "explanation": "- Werktags (Mo–Fr) ist mit mehr Jet‑Tiefflug zu rechnen.\n- Typisches Höhenband: 1.000–2.000 ft über Grund.\n- Für GS/HG heißt das: diese Höhe ist besonders „sensibel“. ",
+      "merksatz": "Mo–Fr: mehr Jet‑Tiefflug.\nTypisch 1000–2000 ft GND.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1190,8 +1654,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Hier wieder ein Sammel‑Item: mehrere Aussagen treffen zu.\n- Tiefflüge finden oft an Werktagen statt, sind nicht streng an feste Strecken/Höhen gebunden, und sind ein reales Risiko.\n- Deshalb: Alle Antworten sind richtig.",
+      "merksatz": "Sammelfrage ⇒ oft „alle richtig“.\nTiefflug: flexibel, schnell, werktags.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1216,8 +1690,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
-      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "explanation": "- In AT ist Tiefflug militärisch nicht „überall“, sondern stärker kanalisiert.\n- Deshalb: nur in ausgewiesenen Tiefflugstrecken und Tieffluggebieten.\n- Konsequenz: Karte/Infos prüfen, wo diese Strecken/Gebiete liegen.",
+      "merksatz": "AT: Militär‑Tiefflug nur in Strecken/Gebieten.\nNicht flächig wie „überall“.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1231,7 +1715,7 @@
       "150m MSL",
       "2000ft MSL",
       "2000ft AGL",
-      "150m AGL Beschränkungs- und Gefahrengebiete, Zusatz-Bezeichnungen"
+      "150m AGL"
     ],
     "correctIndex": 3,
     "figures": [],
@@ -1242,8 +1726,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- So gehst du bei solchen Fragen vor:\n- 1) Markiere das Schlüsselwort in der Frage (z.B. Luftraum, Sicht, NOTAM, Landung, Wind).\n- 2) Übersetze es in eine Regel/Definition (was genau ist gemeint?).\n- 3) Wähle die Option, die diese Regel exakt trifft – nicht die, die „nett klingt“.\n- Prüfungsfalle: kleine Wörter („nur“, „immer“, „mindestens“) entscheiden oft.",
-      "merksatz": "Schlüsselwort + Regel = richtige Option.\nAchte auf „nur/immer/mindestens“.",
+      "explanation": "- In Österreich wird „Tiefflug“ über eine konkrete Höhe definiert.\n- Richtig ist: unter 150 m AGL.\n- AGL = über Grund, nicht über Meer.",
+      "merksatz": "AT Tiefflug = <150 m AGL.\nAGL = über Grund.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1268,8 +1762,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- Zusatzkennzeichen wie „HX“ sagen etwas über Aktivierung aus.\n- HX bedeutet: nicht dauerhaft aktiv, aber jederzeit aktivierbar.\n- Praxis: auch wenn gerade „ruhig“, kann es kurzfristig aktiv werden – also Status prüfen.",
+      "merksatz": "HX = jederzeit aktivierbar.\nVorher Status prüfen.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   },
@@ -1299,8 +1803,18 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Das ist Luftraum-/VFR-Regelwissen: was darfst du wo und unter welchen Bedingungen?\n- Wichtig sind immer: Luftraumklasse, Mindest-Sicht, Wolkenabstände und ggf. Funk/Transponderpflicht.\n- Die richtige Option passt zu genau dieser Kombination (Ort + Regel + Voraussetzung).\n- Prüfungsfalle: Werte gelten nicht in jedem Luftraum gleich.",
-      "merksatz": "Erst Luftraumklasse klären.\nDann Sicht/Wolken/Funk prüfen.",
+      "explanation": "- „ED“ steht für Europa‑Deutschland als Präfix im deutschen ICAO‑System.\n- Das „D“ hinter dem Bindestrich steht hier für „Danger Area“ (Gefahrengebiet).\n- Also bedeutet ED‑D: Deutschland – Danger Area.",
+      "merksatz": "ED‑D = Danger Area (DE).\nD wie Danger.",
+      "nachlesen": [
+        {
+          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
+          "type": "law",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127",
+          "locator": "Seite unbekannt – bitte im Text nach dem passenden Stichwort suchen",
+          "relevance": "EU-Regelwerk zu Rules of the Air; Referenzrahmen für Betriebs-/Ausweichregeln."
+        }
+      ],
+      "reliability_note": "Fachlicher Hinweis; konkrete Normstelle abhängig vom Thema.",
       "links": []
     }
   }

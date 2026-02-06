@@ -16,32 +16,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Es muss die Drehrichtung des Segelflugzeuges eingenommen werden\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
-          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
+      "explanation": "- Richtig ist: D) Es muss die Drehrichtung des Segelflugzeuges eingenommen werden\n- Wenn schon jemand in der Thermik kreist, ist das wie ein Kreisverkehr: alle im Kreis drehen gleich herum.\n- Würdest du entgegengesetzt einkreisen, kommt ihr euch im Kreis ständig „frontal“ entgegen.\n- Gleiche Drehrichtung = weniger Konfliktpunkte; zusätzlich Abstand halten und sauber einfädeln.",
+      "merksatz": "Thermik = Kreisverkehr.\nGleiche Richtung wie der, der schon kreist.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -61,32 +43,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug ist ausweichpflichtig\n- Kreuzen auf gleicher Höhe: wer den anderen rechts hat, muss ausweichen.\n- Wenn der andere von links kommt, sieht er dich rechts → er muss ausweichen.\n- Wichtig ist: früh und klar handeln, nicht auf 'Vorfahrt' bestehen.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + klar.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
-          "relevance": "Amtliche Unterlage zur Umsetzung der SERA-Ausweichregeln (SERA.3210).",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF mit Seitenlink + Evidenzsnippet."
+      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug ist ausweichpflichtig\n- Bei kreuzenden Kursen gilt das einfache Rechts‑Prinzip: Wer den anderen rechts hat, muss ausweichen.\n- Wenn das andere Luftfahrzeug von links kommt, hat es dich rechts im Blickfeld.\n- Darum ist das von links kommende Luftfahrzeug ausweichpflichtig; Hauptsache früh und eindeutig.",
+      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nKommt er von links, muss er ausweichen.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -106,32 +70,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) muss dem Gleitschirmflieger ausweichen\n- Kreuzen auf gleicher Höhe: wer den anderen rechts hat, muss ausweichen.\n- Wenn der andere von links kommt, sieht er dich rechts → er muss ausweichen.\n- Wichtig ist: früh und klar handeln, nicht auf 'Vorfahrt' bestehen.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + klar.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
-          "relevance": "Amtliche Unterlage zur Umsetzung der SERA-Ausweichregeln (SERA.3210).",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF mit Seitenlink + Evidenzsnippet."
+      "explanation": "- Richtig ist: D) muss dem Gleitschirmflieger ausweichen\n- Auch im Überlandflug gilt: bei Kreuzung auf gleicher Höhe muss der Ausweichpflichtige ausweichen.\n- Hier kommt der Segelflieger von links und kreuzt deine Richtung: er hat dich rechts.\n- Deshalb muss er dir ausweichen – die konkrete Richtung (links/rechts) ist nicht fest vorgeschrieben, sondern „klar und früh“.",
+      "merksatz": "Kreuzen: wer dich rechts hat, weicht.\nFrüh und klar statt diskutieren.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -151,32 +97,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Beide Luftfahrzeuge müssen nach rechts ausweichen\n- Bei Verkehrsregeln geht’s immer darum, Kollisionen vorhersehbar zu vermeiden.\n- Die richtige Option ist die, die eine klare, eindeutige Konfliktlösung beschreibt.",
-      "merksatz": "Kollision vermeiden = früh + eindeutig.\nNicht auf 'Vorfahrt' bestehen.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
-          "relevance": "Amtliche Umsetzung/Begründung zu SERA-Ausweichregeln.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Quelle (Bundesrat) mit Seitenlink."
+      "explanation": "- Richtig ist: A) Beide Luftfahrzeuge müssen nach rechts ausweichen\n- Direkt „von vorne“ auf Kollisionskurs = Gegenkurs wie im Straßenverkehr.\n- Damit es für beide eindeutig ist, weichen beide nach rechts aus.\n- Keine Sonderregel „wendiger gewinnt“: Eindeutigkeit verhindert Zick‑Zack und Missverständnisse.",
+      "merksatz": "Gegenkurs: beide nach rechts.\nEindeutig handeln, nicht pokern.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -196,32 +124,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) darf nicht unterflogen oder überholt werden\n- Im Endanflug hast du kaum Platz/Zeit zum Ausweichen.\n- Wenn dich jemand überholt oder unterfliegt, wird’s schnell gefährlich eng.\n- Darum passt die Antwort, die 'nicht überholen/unterfliegen' sagt.",
-      "merksatz": "Endanflug = wenig Reserve.\nNicht überholen/unterfliegen.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210, Landung)",
-          "relevance": "Amtliche Begründung zur Umsetzung der Ausweichregeln (SERA.3210) inkl. Landungskontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Quelle mit Seitenlink + Evidenzsnippet."
+      "explanation": "- Richtig ist: B) darf nicht unterflogen oder überholt werden\n- Im Endanflug hast du wenig Höhe und wenig Zeit – du kannst nicht beliebig ausweichen.\n- Wer dich unterfliegt oder überholt, macht es sofort gefährlich eng (Sinkpfad/Abfangen).\n- Darum: im Endanflug nicht unterfliegen und nicht überholen – Reihenfolge respektieren.",
+      "merksatz": "Endanflug = wenig Spielraum.\nNicht unterfliegen, nicht überholen.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -241,32 +151,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
-          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
+      "explanation": "- Richtig ist: C) Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist\n- Ein Fluggerät, das bereits im Aufwind kreist, ist „gebunden“: es kann nicht einfach geradeaus ausweichen.\n- Der Anfliegende kann seine Linie leichter ändern und muss deshalb dem Kreiser ausweichen.\n- Darum ist der Hängegleiter ausweichpflichtig (Ausweichrichtung nicht vorgeschrieben, aber früh und klar).",
+      "merksatz": "Kreiser hat Vorrang.\nDer Anfliegende weicht aus.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -291,32 +183,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug muss ausweichen, die Ausweichrichtung ist nicht vorgeschrieben\n- Kreuzen auf gleicher Höhe: wer den anderen rechts hat, muss ausweichen.\n- Wenn der andere von links kommt, sieht er dich rechts → er muss ausweichen.\n- Wichtig ist: früh und klar handeln, nicht auf 'Vorfahrt' bestehen.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + klar.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
-          "relevance": "Amtliche Unterlage zur Umsetzung der SERA-Ausweichregeln (SERA.3210).",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF mit Seitenlink + Evidenzsnippet."
+      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug muss ausweichen, die Ausweichrichtung ist nicht vorgeschrieben\n- Bei kreuzenden Flugbahnen gilt nicht „immer rechts/links“, sondern: wer den anderen rechts hat, muss ausweichen.\n- In der Antwort ist genau das abgebildet: das von links kommende Luftfahrzeug ist ausweichpflichtig.\n- Wohin ausgewichen wird, ist nicht starr vorgeschrieben – wichtig ist „früh und eindeutig“.",
+      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nRichtung egal – Hauptsache klar.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -341,32 +215,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Der Drachenflieger, denn den im Aufwind kreisenden Fluggeräten muss ausgewichen werden. Die Ausweichrichtung ist nicht vorgeschrieben.\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
-          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
+      "explanation": "- Richtig ist: A) Der Drachenflieger, denn den im Aufwind kreisenden Fluggeräten muss ausgewichen werden. Die Ausweichrichtung ist nicht vorgeschrieben.\n- Der Gleitschirm kreist bereits in der Thermik – er ist in einem festen Kreisflug.\n- Der heranfliegende Drachen kann seine Anfluglinie leicht ändern.\n- Darum muss der Anfliegende dem Kreiser ausweichen; die Richtung ist nicht fest vorgegeben.",
+      "merksatz": "Wer schon kreist, bleibt im Kreis.\nDer Anflieger weicht aus.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -386,32 +242,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Dass den Piloten, die am Hang soaren, ausgewichen werden muss, denn die Hangflugregeln haben hier Vorrang.\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
-          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
+      "explanation": "- Richtig ist: B) Dass den Piloten, die am Hang soaren, ausgewichen werden muss, denn die Hangflugregeln haben hier Vorrang.\n- Nahe am Hang gelten Hangflug‑Regeln: Soarer am Hang haben Priorität, weil sie kaum Ausweichraum haben.\n- Wenn du dort in die Thermik einkreisen willst, musst du den Hang‑Soarern ausweichen.\n- Praktisch: erst Abstand schaffen/aus der Hanglinie raus, dann einkreisen.",
+      "merksatz": "Am Hang zählt Hangflug zuerst.\nThermik‑Einsteigen nur, wenn du niemanden kreuzt.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -431,32 +269,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.\n- Dumm erklärt: Thermik ist wie Kreisverkehr – wenn du entgegenkommst, knallt’s schnell.\n- Wenn einer schon kreist, nimmst du dieselbe Richtung → weniger Frontbegegnungen.\n- Zusätzlich: Abstand halten und sauber einfädeln.",
-      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst in gleicher Richtung ein.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: Hängegleiter, Gleitschirm, SERA.3210)",
-          "relevance": "Begründung zur LuftVO-Novelle nennt Ausweichregeln nach SERA und stellt GS/HG dem Segelflugzeug gleich.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Bundesrat-PDF: Ausweichregeln + expliziter Bezug zu GS/HG."
+      "explanation": "- Richtig ist: D) Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.\n- In Österreich gilt: dem in der Thermik kreisenden Fluggerät ist auszuweichen – auch wenn es hangnah kreist.\n- Der Kreiser ist „gebunden“ (Kreisflug) und kann nicht einfach geradeaus wegspringen.\n- Darum muss der Anfliegende/Soarer so fliegen, dass der Kreiser nicht gestört wird.",
+      "merksatz": "AT: Kreiser hat Vorrang.\nEgal wo – der Anflieger weicht aus.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -476,32 +296,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Ein Luftfahrzeug darf nicht so nah an anderen Luftfahrzeugen betrieben werden, dass die Gefahr eines Zusammenstoßes besteht.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: C) Ein Luftfahrzeug darf nicht so nah an anderen Luftfahrzeugen betrieben werden, dass die Gefahr eines Zusammenstoßes besteht.\n- Das ist die Grundregel „See and avoid“: nicht so nah fliegen, dass Kollisionsgefahr entsteht.\n- Es gibt keine feste „immer 1 NM“ oder „immer 1000 ft“ Regel für alle Situationen.\n- Die Pflicht ist: Abstand so halten/Flug so ändern, dass ein Zusammenstoß ausgeschlossen wird.",
+      "merksatz": "Regel Nr. 1: keine Kollisionsgefahr.\nAbstand so groß, dass es sicher bleibt.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -526,32 +328,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen\n- Bei Verkehrsregeln geht’s immer darum, Kollisionen vorhersehbar zu vermeiden.\n- Die richtige Option ist die, die eine klare, eindeutige Konfliktlösung beschreibt.",
-      "merksatz": "Kollision vermeiden = früh + eindeutig.\nNicht auf 'Vorfahrt' bestehen.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
-          "relevance": "Amtliche Umsetzung/Begründung zu SERA-Ausweichregeln.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Quelle (Bundesrat) mit Seitenlink."
+      "explanation": "- Richtig ist: D) Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen\n- Am Prallhang/Soaring gilt: beide bleiben auf ihrer Hangseite und weichen hangabwärts aus.\n- Wer den Hang links hat, fliegt rechts (hangabwärts) weg – so bleibt der Hang frei und die Begegnung wird eindeutig.\n- So vermeidet man, dass beide in den gleichen „Hang‑Korridor“ ziehen.",
+      "merksatz": "Hang links? Dann nach rechts (hangabwärts) ausweichen.\nSo bleibt der Hang frei.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -576,32 +360,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat\n- Bei Verkehrsregeln geht’s immer darum, Kollisionen vorhersehbar zu vermeiden.\n- Die richtige Option ist die, die eine klare, eindeutige Konfliktlösung beschreibt.",
-      "merksatz": "Kollision vermeiden = früh + eindeutig.\nNicht auf 'Vorfahrt' bestehen.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210)",
-          "relevance": "Amtliche Umsetzung/Begründung zu SERA-Ausweichregeln.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Quelle (Bundesrat) mit Seitenlink."
+      "explanation": "- Richtig ist: C) muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat\n- Am Hang zählt nicht „Gleitschirm vs Drachen“, sondern die Hangregel.\n- Wer den Hang links hat, muss nach rechts (hangabwärts) ausweichen.\n- Damit weichen beide in die gleiche logische Richtung aus und es gibt keinen „Gegen‑Scher“.",
+      "merksatz": "Hang links → rechts ausweichen.\nHangregel schlägt Geräteart.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -626,34 +392,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) rechts oder links\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
-      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
-      "nachlesen": [
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
-          "locator": "§ 43 LuftVG (Direktlink)",
-          "relevance": "Pflicht zur Haftpflichtversicherung."
-        },
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
-          "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
-        }
-      ],
-      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
+      "explanation": "- Richtig ist: B) rechts oder links\n- Überholen ist erlaubt, aber ohne den Überholten zu schneiden oder zu bedrängen.\n- In der Luft ist nicht wie auf der Straße festgelegt „nur rechts“: du darfst rechts oder links überholen.\n- Wichtig ist: ausreichend Abstand, nicht in seine Flugbahn ziehen.",
+      "merksatz": "Überholen: rechts ODER links.\nHauptsache Abstand und nicht schneiden.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -673,32 +419,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: A) eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.\n- Außenlandung ist nicht „immer erlaubt“ und auch nicht „nur Notfall“.\n- Sie ist als Ausnahme für Überlandflüge gedacht: wenn der geplante Landeplatz nicht erreichbar ist.\n- Wenn es ein echter Notfall ist, gilt zusätzlich: Notlandung ist immer gerechtfertigt.",
+      "merksatz": "Außenlandung = Plan-Landeplatz nicht erreichbar.\nNotfall geht immer.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -718,32 +446,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) die weiter als 10 km vom Startplatz wegführen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: C) die weiter als 10 km vom Startplatz wegführen\n- In Österreich wird Überlandflug über Entfernung definiert, nicht über Landesgrenzen oder „Flachland“.\n- Sobald du weiter als 10 km vom Start wegfliegst, gilt es als Überlandflug.\n- Das ist wichtig, weil dafür Regeln/Erlaubnisse/Verhalten (z.B. Außenlandung) anders bewertet werden.",
+      "merksatz": "AT‑Überland = mehr als 10 km weg.\nNicht Grenze – Entfernung zählt.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -763,32 +473,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren\n- NOTAM sind offizielle Kurzmeldungen zu Änderungen/Gefahren.\n- PIB/Briefing ist die offizielle Zusammenstellung, die du vor dem Flug ziehst.\n- Darum zählt die Antwort, die zu 'offiziell im Briefing/PIB' passt.",
-      "merksatz": "NOTAM = aktuelle Änderungen.\nVor dem Start: PIB/Briefing.",
-      "nachlesen": [
-        {
-          "title": "DFS – NOTAM von A bis Z (PDF)",
-          "type": "pdf",
-          "url": "https://www.dfs.de/homepage/de/medien/ifr-vfr-informationen/vfr-informationen/21-10-2022-notam-von-a-bis-z/notam-von-a-bis-z-2022.pdf?cid=hmg#page=9",
-          "locator": "PDF Seite 9 (Begriffe: PIB; Kontext: NOTAM, Flugberatung)",
-          "relevance": "DFS erklärt PIB/Flugberatung und die Verwendung von NOTAM.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 9
-          },
-          "evidence_snippet": "statt … work in progress (WIP) Bauarbeiten 4. Aufbau und Inhalt eines NOTAM 5. Flugberatung/NOTAM-Brieﬁ ng Ein NOTAM-Briefing (Preflight Information Bulletin – PIB) besteht aus"
-        }
-      ],
-      "reliability_note": "Amtliche DFS-PDF-Quelle mit Seitenlink + Evidenzsnippet."
+      "explanation": "- Richtig ist: B) Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren\n- Vor Überlandflug musst du planen: Route, Lufträume, Wetter – damit du nicht „blind“ in Sperrgebiete/Schlechtwetter fliegst.\n- AIS‑Beratung/Flugplan/Funk sind nicht immer Pflicht – aber Planung/Information schon.\n- Bei GS/HG heißt das praktisch: Wetterfenster + Talwind + Luftraumkarte checken.",
+      "merksatz": "Überland? Erst planen, dann starten.\nLuftraum + Wetter vorher prüfen.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -808,34 +500,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Nein\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
-      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
-      "nachlesen": [
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
-          "locator": "§ 43 LuftVG (Direktlink)",
-          "relevance": "Pflicht zur Haftpflichtversicherung."
-        },
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
-          "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
-        }
-      ],
-      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
+      "explanation": "- Richtig ist: A) Nein\n- Der Landwirt darf dich nicht festhalten, wenn du deine Daten/Versicherung korrekt angegeben hast.\n- Er hat damit alles, um seinen Anspruch geltend zu machen – ein „Zurückbehalten“ ist dann nicht nötig.\n- Praktisch: ruhig bleiben, Daten geben, Schaden dokumentieren (Fotos), dann abbauen/abtransportieren.",
+      "merksatz": "Daten + Versicherer gegeben?\nDann darfst du gehen/abbauen.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -855,34 +527,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Bei einem Überlandflug, wenn der geplante Landeplatz nicht erreicht werden kann (Außenlandung) und in Notfällen (Notlandung).\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
-      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
-      "nachlesen": [
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
-          "locator": "§ 43 LuftVG (Direktlink)",
-          "relevance": "Pflicht zur Haftpflichtversicherung."
-        },
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
-          "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
-        }
-      ],
-      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
+      "explanation": "- Richtig ist: D) Bei einem Überlandflug, wenn der geplante Landeplatz nicht erreicht werden kann (Außenlandung) und in Notfällen (Notlandung).\n- Es gibt zwei Fälle: Außenlandung (geplant/erforderlich, weil Ziel nicht erreichbar) und Notlandung (akute Gefahr).\n- „Grundsätzlich immer mit Eigentümer ok“ reicht nicht – es muss rechtlich ein zulässiger Anlass vorliegen.\n- Darum ist die kombinierte Aussage richtig: Überland + Ziel nicht erreichbar ODER Notfall.",
+      "merksatz": "Außenlandung: Ziel nicht erreichbar.\nNotlandung: Gefahr – sofort runter.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -902,32 +554,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) für die eine Erlaubnis des Beauftragten (DHV) erteilt ist\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: D) für die eine Erlaubnis des Beauftragten (DHV) erteilt ist\n- Für Startplätze/Fluggelände braucht es in DE eine erlaubte Nutzung – bei GS/HG läuft das über den beauftragten Verband (DHV).\n- „Geeignet“ allein reicht nicht: ohne Erlaubnis ist es kein zulässiger Startplatz.\n- Darum ist die Antwort mit DHV‑Erlaubnis richtig.",
+      "merksatz": "DE Start nur mit Erlaubnis.\nBei GS/HG: DHV‑Freigabe zählt.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -947,32 +581,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) von der Deutschen Flugsicherung GmbH (DFS)\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: B) von der Deutschen Flugsicherung GmbH (DFS)\n- Flugverkehrskontrolle (ATC) ist eine staatliche Aufgabe, wird aber praktisch von einer zuständigen Organisation durchgeführt.\n- In Deutschland ist das die DFS (Deutsche Flugsicherung) für den kontrollierten Verkehr.",
+      "merksatz": "DE: Flugverkehrskontrolle = DFS.\nDFS ist die zuständige Stelle.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -992,32 +608,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) von der Austro Control GmbH\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: C) von der Austro Control GmbH\n- In Österreich wird die Flugverkehrskontrolle durch Austro Control ausgeübt.\n- Das ist das Pendant zur DFS in Deutschland.",
+      "merksatz": "AT: Flugverkehrskontrolle = Austro Control.\nMerke: AC wie AT.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1037,32 +635,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) führt über die Umgebung der Startstelle hinaus\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: A) führt über die Umgebung der Startstelle hinaus\n- In Deutschland ist Überlandflug bei GS/HG nicht „>10 km“ definiert, sondern: du verlässt die Umgebung des Startplatzes.\n- Sobald du nicht mehr im lokalen Fluggebiet/Startplatz‑Umfeld fliegst, ist es Überland.\n- Darum passt die allgemeine Definition „über die Umgebung hinaus“.",
+      "merksatz": "DE‑Überland = raus aus dem Startplatz‑Umfeld.\nNicht 10 km – Umgebung zählt.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1082,32 +662,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) nur mit einer entsprechenden Platzzulassung für Gleitschirme/Hängegleiter erlaubt\n- Im Endanflug hast du kaum Platz/Zeit zum Ausweichen.\n- Wenn dich jemand überholt oder unterfliegt, wird’s schnell gefährlich eng.\n- Darum passt die Antwort, die 'nicht überholen/unterfliegen' sagt.",
-      "merksatz": "Endanflug = wenig Reserve.\nNicht überholen/unterfliegen.",
-      "nachlesen": [
-        {
-          "title": "Bundesrat-Drucksache 337/15 (Begründung LuftVO-Novelle, PDF)",
-          "type": "pdf",
-          "url": "https://dserver.bundestag.de/brd/2015/0337-15.pdf#page=80",
-          "locator": "PDF Seite 80 (Begriffe: Ausweichregeln; Kontext: SERA.3210, Landung)",
-          "relevance": "Amtliche Begründung zur Umsetzung der Ausweichregeln (SERA.3210) inkl. Landungskontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 80
-          },
-          "evidence_snippet": "en nicht beibehalten, die zuständige Behörde Ausnahmen genehmigen. Als zuständige Behörde wird mit § 11 Bundesaufsichtsamt für Flugsicherung bestimmt. Zu § 12 (Ausweichregeln) Die bisher"
-        }
-      ],
-      "reliability_note": "Amtliche Quelle mit Seitenlink + Evidenzsnippet."
+      "explanation": "- Richtig ist: B) nur mit einer entsprechenden Platzzulassung für Gleitschirme/Hängegleiter erlaubt\n- Ein Segelflugplatz ist ein zugelassener Landeplatz – aber nicht automatisch für GS/HG freigegeben.\n- Planmäßig dort landen darfst du nur, wenn der Platz GS/HG zulässt (Platzregeln/Zulassung).\n- Sonst wäre es rechtlich wie eine unzulässige Außenlandung.",
+      "merksatz": "Platz ≠ automatisch erlaubt.\nPlanlandung nur mit GS/HG‑Zulassung.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1127,32 +689,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Alle Antworten sind richtig\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: C) Alle Antworten sind richtig\n- Straftat heißt: es ist im Gesetz mit Geld- oder Freiheitsstrafe bedroht.\n- Beispiele sind u.a. Trunkenheit im Luftverkehr oder Fliegen ohne erforderliche Erlaubnis/Lizenz.\n- Darum sind alle genannten Aussagen Beispiele/Definitionen von Straftaten → „alle richtig“.",
+      "merksatz": "Straftat = Geld- oder Freiheitsstrafe.\nMehrere Beispiele → oft „alle richtig“.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1172,32 +716,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) bei Überlandflügen, wenn über Flugfunk eine Freigabe für das Durchfliegen eines Luftraums angefordert werden soll.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: B) bei Überlandflügen, wenn über Flugfunk eine Freigabe für das Durchfliegen eines Luftraums angefordert werden soll.\n- Kennzeichen brauchst du nicht „immer“, sondern wenn du im Funkverkehr eindeutig identifizierbar sein musst.\n- Wenn du per Funk eine Freigabe fürs Durchfliegen eines Luftraums anforderst, muss ATC dich eindeutig zuordnen können.\n- Darum ist Kennzeichnung dafür notwendig.",
+      "merksatz": "Funk + Freigabe?\nDann brauchst du Kennzeichen zur Identifikation.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1217,34 +743,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Den Schaden begleicht die Halterhaftpflicht-Versicherung, die jeder Pilot unterhalten muss.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
-      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
-      "nachlesen": [
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
-          "locator": "§ 43 LuftVG (Direktlink)",
-          "relevance": "Pflicht zur Haftpflichtversicherung."
-        },
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
-          "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
-        }
-      ],
-      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
+      "explanation": "- Richtig ist: D) Den Schaden begleicht die Halterhaftpflicht-Versicherung, die jeder Pilot unterhalten muss.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Dafür ist die Halterhaftpflicht da: sie übernimmt berechtigte Schadenersatzforderungen.\n- Wichtig praktisch: Daten geben, Schaden dokumentieren, nicht diskutieren – Versicherung regelt.",
+      "merksatz": "Schaden am Feld = Drittschaden.\nHalterhaftpflicht zahlt.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1264,34 +770,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Alle Antworten sind richtig.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – genau dafür ist die Halterhaftpflicht da.\n- Die Versicherung ist Pflicht, damit solche Schäden bezahlt werden.",
-      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
-      "nachlesen": [
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 43 – Haftpflichtversicherung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
-          "locator": "§ 43 LuftVG (Direktlink)",
-          "relevance": "Pflicht zur Haftpflichtversicherung."
-        },
-        {
-          "title": "Luftverkehrsgesetz (LuftVG) § 33 – Haftung (amtlich, DE)",
-          "type": "web",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
-          "locator": "§ 33 LuftVG (Direktlink)",
-          "relevance": "Halterhaftung als Grundlage der Schadenersatzpflicht."
-        }
-      ],
-      "reliability_note": "Amtliche Gesetzesstellen (deep links) passend zu Haftung/Haftpflicht."
+      "explanation": "- Richtig ist: B) Alle Antworten sind richtig.\n- In Österreich hängen Außenabflug/Außenlandung von mehreren Punkten ab (Zustimmung Grundeigentümer, Regeln/Erlaubnisse).\n- Ein Kernelement ist: Bei Außen‑Abflügen brauchst du vorher das Einverständnis des Grundstücksberechtigten.\n- Wenn die anderen Aussagen ebenfalls zutreffen, ist logisch „Alle Antworten sind richtig“.",
+      "merksatz": "AT Außen‑Abflug: erst Zustimmung holen.\nMehrere richtige Aussagen → „alle richtig“.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1311,32 +797,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) benötigt der Pilot in vielen Ländern neben seiner Fluglizenz die IPPI-Karte mit Stufe 5.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: A) benötigt der Pilot in vielen Ländern neben seiner Fluglizenz die IPPI-Karte mit Stufe 5.\n- Viele Länder verlangen neben deiner nationalen Lizenz eine einheitliche Einstufung: die IPPI‑Karte.\n- Für Streckenfliegen wird häufig IPPI Stufe 5 verlangt (zeigt Erfahrung/Überlandniveau).\n- Darum ist die Antwort mit IPPI 5 die sichere Regel‑Aussage.",
+      "merksatz": "Ausland = oft IPPI‑Nachweis.\nStrecke meist: IPPI 5.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   },
   {
@@ -1356,32 +824,14 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich („für Dummies“), aber korrekt. Beziehe dich IMMER direkt auf die konkrete Frage und die Antwortoptionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + exakt der Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt, sachbezogen).\n3) 1–2 Bulletpoints: typische Fallen/warum andere Optionen nicht passen.\n4) Quellen: IMMER mindestens 1 offizielle Quelle. Nutze Deep-Link: Gesetz-Paragraph-Link oder PDF-Link mit #page=... und liefere einen kurzen Evidenz-Snippet aus der Seite.\n5) Wenn du keine passende amtliche Stelle findest: markiere 'QUELLE_FEHLT' und nenne Suchbegriffe + welche Behörde/Dokument (AIP, SERA, LuftVO, EASA/DFS/AC) zu prüfen ist.",
-      "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Welche typische Prüfungsfalle steckt hier drin?",
-        "Warum sind die anderen Optionen falsch?",
-        "Zeig mir die Textstelle/Seite aus der Quelle."
-      ]
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das ist pauschal nicht zu sagen, der Pilot muss sich beim jeweiligen ausländischen Verband bzw. der FAI/CIVL informieren.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welcher Begriff dich verwirrt, breche ich ihn dir in 2 Sätzen runter.",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
-      "nachlesen": [
-        {
-          "title": "DFS – Sicherer Sichtflug (PDF)",
-          "type": "pdf",
-          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=3",
-          "locator": "PDF Seite 3 (Begriffe: Flugplanung; Kontext: Luftraum)",
-          "relevance": "DFS beschreibt Informationsbedarf/Flugplanung als offiziellen Kontext.",
-          "direct_open": {
-            "mode": "pdf_page",
-            "page": 3
-          },
-          "evidence_snippet": "ahrzeug abhebt, muss sich vorher genau darüber im Klaren sein, was er vorhat. Vor allem Überlandflüge bedürfen einer sorgfältigen Planung. Vor der eigentlichen Flugplanung ist"
-        }
-      ],
-      "reliability_note": "Fallback-Quelle: amtliche DFS Flugplanung/Informationsbedarf."
+      "explanation": "- Richtig ist: D) Das ist pauschal nicht zu sagen, der Pilot muss sich beim jeweiligen ausländischen Verband bzw. der FAI/CIVL informieren.\n- Regeln im Ausland sind nicht einheitlich: jedes Land kann eigene Anforderungen haben.\n- IPPI hilft oft, ersetzt aber nicht automatisch nationale Regeln/Startplatz‑/Luftraum‑Vorgaben.\n- Darum ist die einzig sichere Aussage: pauschal nicht – du musst dich vor Ort informieren.",
+      "merksatz": "Ausland: keine Pauschal‑Erlaubnis.\nVorher lokale Regeln checken.",
+      "nachlesen": [],
+      "reliability_note": "Keine Quellen hinterlegt; Fokus auf verständliche, fragebezogene Erklärung."
     }
   }
 ]

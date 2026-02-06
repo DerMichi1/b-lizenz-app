@@ -16,19 +16,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Es muss die Drehrichtung des Segelflugzeuges eingenommen werden\n- Wenn ihr gegensinnig kreist, kommt ihr euch im Kreis ständig entgegen → extrem gefährlich.\n- Gleiche Drehrichtung heißt: ihr „schwimmt“ im selben Kreisverkehr → weniger Konfliktpunkte.\n- Darum: du übernimmst die Drehrichtung von dem, der schon kreist, und hältst Abstand.",
-      "merksatz": "Thermik = Kreisverkehr in der Luft.\nWer schon kreist, bestimmt die Richtung.",
+      "explanation": "- Richtig ist: D) Es muss die Drehrichtung des Segelflugzeuges eingenommen werden\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
       "nachlesen": [],
-      "reliability_note": "Erklärt als Sicherheitsprinzip für GS/HG; keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF → keine Quelle."
+      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
     }
   },
   {
@@ -48,19 +47,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug ist ausweichpflichtig\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
-      "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
+      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug ist ausweichpflichtig\n- Merke wie im Straßenverkehr: wer den anderen rechts hat, lässt ihn durch.\n- Kreuzen auf gleicher Höhe: der Pilot, der rechts sieht, muss ausweichen.\n- Ausweichen muss früh und klar sein – nicht „auf Vorfahrt bestehen“.",
+      "merksatz": "Kreuzen: rechts gesehen = ausweichpflichtig.\nFrüh + eindeutig.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine passende DFS-Seite mit Ausweichen+Kreuz-Kontext sicher gefunden → keine Quelle."
     }
   },
   {
@@ -80,19 +78,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) muss dem Gleitschirmflieger ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: D) muss dem Gleitschirmflieger ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -112,19 +109,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Beide Luftfahrzeuge müssen nach rechts ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: A) Beide Luftfahrzeuge müssen nach rechts ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -144,19 +140,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) darf nicht unterflogen oder überholt werden\n- Im Endanflug hast du kaum Reserve: du musst stabil zum Landepunkt runter.\n- Wenn dich jemand überholt oder unterfliegt, wird’s sofort eng (Sinkpfad + Abfangen).\n- Darum: im Endanflug nicht unterfliegen/überholen – Abstand halten und Reihenfolge respektieren.",
-      "merksatz": "Endanflug = wenig Zeit + Höhe.\nAlso: nicht unterfliegen, nicht überholen.",
+      "explanation": "- Richtig ist: B) darf nicht unterflogen oder überholt werden\n- Im Endanflug ist dein Spielraum klein: du willst stabil runter zur Landung.\n- Überholen/Unterfliegen im Endanflug macht’s unübersichtlich und kann schnell gefährlich eng werden.\n- Darum: Endanflug respektieren – nicht überholen, nicht unterfliegen, Abstand halten.",
+      "merksatz": "Endanflug = wenig Reserve.\nAlso: nicht überholen/unterfliegen.",
       "nachlesen": [],
-      "reliability_note": "Keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF gefunden → keine Quelle."
+      "reliability_note": "Keine passende DFS-Seite mit Landung+Kontext sicher gefunden → keine Quelle."
     }
   },
   {
@@ -176,19 +171,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist\n- Wenn ihr gegensinnig kreist, kommt ihr euch im Kreis ständig entgegen → extrem gefährlich.\n- Gleiche Drehrichtung heißt: ihr „schwimmt“ im selben Kreisverkehr → weniger Konfliktpunkte.\n- Darum: du übernimmst die Drehrichtung von dem, der schon kreist, und hältst Abstand.",
-      "merksatz": "Thermik = Kreisverkehr in der Luft.\nWer schon kreist, bestimmt die Richtung.",
+      "explanation": "- Richtig ist: C) Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
       "nachlesen": [],
-      "reliability_note": "Erklärt als Sicherheitsprinzip für GS/HG; keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF → keine Quelle."
+      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
     }
   },
   {
@@ -213,19 +207,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug muss ausweichen, die Ausweichrichtung ist nicht vorgeschrieben\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: D) Das von links kommende Luftfahrzeug muss ausweichen, die Ausweichrichtung ist nicht vorgeschrieben\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -250,19 +243,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Der Drachenflieger, denn den im Aufwind kreisenden Fluggeräten muss ausgewichen werden. Die Ausweichrichtung ist nicht vorgeschrieben.\n- Wenn ihr gegensinnig kreist, kommt ihr euch im Kreis ständig entgegen → extrem gefährlich.\n- Gleiche Drehrichtung heißt: ihr „schwimmt“ im selben Kreisverkehr → weniger Konfliktpunkte.\n- Darum: du übernimmst die Drehrichtung von dem, der schon kreist, und hältst Abstand.",
-      "merksatz": "Thermik = Kreisverkehr in der Luft.\nWer schon kreist, bestimmt die Richtung.",
+      "explanation": "- Richtig ist: A) Der Drachenflieger, denn den im Aufwind kreisenden Fluggeräten muss ausgewichen werden. Die Ausweichrichtung ist nicht vorgeschrieben.\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
       "nachlesen": [],
-      "reliability_note": "Erklärt als Sicherheitsprinzip für GS/HG; keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF → keine Quelle."
+      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
     }
   },
   {
@@ -282,19 +274,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Dass den Piloten, die am Hang soaren, ausgewichen werden muss, denn die Hangflugregeln haben hier Vorrang.\n- Wenn ihr gegensinnig kreist, kommt ihr euch im Kreis ständig entgegen → extrem gefährlich.\n- Gleiche Drehrichtung heißt: ihr „schwimmt“ im selben Kreisverkehr → weniger Konfliktpunkte.\n- Darum: du übernimmst die Drehrichtung von dem, der schon kreist, und hältst Abstand.",
-      "merksatz": "Thermik = Kreisverkehr in der Luft.\nWer schon kreist, bestimmt die Richtung.",
+      "explanation": "- Richtig ist: B) Dass den Piloten, die am Hang soaren, ausgewichen werden muss, denn die Hangflugregeln haben hier Vorrang.\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
       "nachlesen": [],
-      "reliability_note": "Erklärt als Sicherheitsprinzip für GS/HG; keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF → keine Quelle."
+      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
     }
   },
   {
@@ -314,19 +305,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.\n- Wenn ihr gegensinnig kreist, kommt ihr euch im Kreis ständig entgegen → extrem gefährlich.\n- Gleiche Drehrichtung heißt: ihr „schwimmt“ im selben Kreisverkehr → weniger Konfliktpunkte.\n- Darum: du übernimmst die Drehrichtung von dem, der schon kreist, und hältst Abstand.",
-      "merksatz": "Thermik = Kreisverkehr in der Luft.\nWer schon kreist, bestimmt die Richtung.",
+      "explanation": "- Richtig ist: D) Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.\n- Sicherheitslogik: gegensinnig kreisen = viel Gegenverkehr → sehr hohes Risiko.\n- Gleiche Drehrichtung = weniger Konfliktpunkte → sicherer.\n- Darum übernimmt man die Drehrichtung des bereits kreisenden Luftfahrzeugs.",
+      "merksatz": "Thermik = Kreisverkehr.\nDu fädelst dich in gleicher Richtung ein.",
       "nachlesen": [],
-      "reliability_note": "Erklärt als Sicherheitsprinzip für GS/HG; keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF → keine Quelle."
+      "reliability_note": "Keine amtliche Textstelle in den verfügbaren DFS-PDFs eindeutig → keine Quelle."
     }
   },
   {
@@ -346,19 +336,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Ein Luftfahrzeug darf nicht so nah an anderen Luftfahrzeugen betrieben werden, dass die Gefahr eines Zusammenstoßes besteht.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: C) Ein Luftfahrzeug darf nicht so nah an anderen Luftfahrzeugen betrieben werden, dass die Gefahr eines Zusammenstoßes besteht.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -383,19 +372,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: D) Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -420,19 +408,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: C) muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -457,19 +444,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) rechts oder links\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: B) rechts oder links\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -489,19 +475,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: A) eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -521,19 +506,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) die weiter als 10 km vom Startplatz wegführen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: C) die weiter als 10 km vom Startplatz wegführen\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -553,19 +537,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: B) Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -585,19 +568,33 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) Nein\n- Im Endanflug hast du kaum Reserve: du musst stabil zum Landepunkt runter.\n- Wenn dich jemand überholt oder unterfliegt, wird’s sofort eng (Sinkpfad + Abfangen).\n- Darum: im Endanflug nicht unterfliegen/überholen – Abstand halten und Reihenfolge respektieren.",
-      "merksatz": "Endanflug = wenig Zeit + Höhe.\nAlso: nicht unterfliegen, nicht überholen.",
-      "nachlesen": [],
-      "reliability_note": "Keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF gefunden → keine Quelle."
+      "explanation": "- Richtig ist: A) Nein\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – dafür ist die Halterhaftpflicht da.\n- Die Haftpflicht ist vorgeschrieben, damit solche Schäden bezahlt werden können.",
+      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
+      "nachlesen": [
+        {
+          "title": "LuftVG § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
+          "locator": "§ 43 LuftVG (Direktlink)",
+          "relevance": "Pflicht zur Haftpflichtversicherung."
+        },
+        {
+          "title": "LuftVG § 33 – Haftung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
+          "locator": "§ 33 LuftVG (Direktlink)",
+          "relevance": "Halterhaftung als Grundlage für Schadensersatz."
+        }
+      ],
+      "reliability_note": "Quellen sind amtlich und thematisch passend (Haftung/Haftpflicht)."
     }
   },
   {
@@ -617,19 +614,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Bei einem Überlandflug, wenn der geplante Landeplatz nicht erreicht werden kann (Außenlandung) und in Notfällen (Notlandung).\n- Im Endanflug hast du kaum Reserve: du musst stabil zum Landepunkt runter.\n- Wenn dich jemand überholt oder unterfliegt, wird’s sofort eng (Sinkpfad + Abfangen).\n- Darum: im Endanflug nicht unterfliegen/überholen – Abstand halten und Reihenfolge respektieren.",
-      "merksatz": "Endanflug = wenig Zeit + Höhe.\nAlso: nicht unterfliegen, nicht überholen.",
+      "explanation": "- Richtig ist: D) Bei einem Überlandflug, wenn der geplante Landeplatz nicht erreicht werden kann (Außenlandung) und in Notfällen (Notlandung).\n- Im Endanflug ist dein Spielraum klein: du willst stabil runter zur Landung.\n- Überholen/Unterfliegen im Endanflug macht’s unübersichtlich und kann schnell gefährlich eng werden.\n- Darum: Endanflug respektieren – nicht überholen, nicht unterfliegen, Abstand halten.",
+      "merksatz": "Endanflug = wenig Reserve.\nAlso: nicht überholen/unterfliegen.",
       "nachlesen": [],
-      "reliability_note": "Keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF gefunden → keine Quelle."
+      "reliability_note": "Keine passende DFS-Seite mit Landung+Kontext sicher gefunden → keine Quelle."
     }
   },
   {
@@ -649,19 +645,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) für die eine Erlaubnis des Beauftragten (DHV) erteilt ist\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: D) für die eine Erlaubnis des Beauftragten (DHV) erteilt ist\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -681,19 +676,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) von der Deutschen Flugsicherung GmbH (DFS)\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: B) von der Deutschen Flugsicherung GmbH (DFS)\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -713,19 +707,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) von der Austro Control GmbH\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: C) von der Austro Control GmbH\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -745,19 +738,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) führt über die Umgebung der Startstelle hinaus\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: A) führt über die Umgebung der Startstelle hinaus\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -777,19 +769,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) nur mit einer entsprechenden Platzzulassung für Gleitschirme/Hängegleiter erlaubt\n- Im Endanflug hast du kaum Reserve: du musst stabil zum Landepunkt runter.\n- Wenn dich jemand überholt oder unterfliegt, wird’s sofort eng (Sinkpfad + Abfangen).\n- Darum: im Endanflug nicht unterfliegen/überholen – Abstand halten und Reihenfolge respektieren.",
-      "merksatz": "Endanflug = wenig Zeit + Höhe.\nAlso: nicht unterfliegen, nicht überholen.",
+      "explanation": "- Richtig ist: B) nur mit einer entsprechenden Platzzulassung für Gleitschirme/Hängegleiter erlaubt\n- Im Endanflug ist dein Spielraum klein: du willst stabil runter zur Landung.\n- Überholen/Unterfliegen im Endanflug macht’s unübersichtlich und kann schnell gefährlich eng werden.\n- Darum: Endanflug respektieren – nicht überholen, nicht unterfliegen, Abstand halten.",
+      "merksatz": "Endanflug = wenig Reserve.\nAlso: nicht überholen/unterfliegen.",
       "nachlesen": [],
-      "reliability_note": "Keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF gefunden → keine Quelle."
+      "reliability_note": "Keine passende DFS-Seite mit Landung+Kontext sicher gefunden → keine Quelle."
     }
   },
   {
@@ -809,19 +800,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: C) Alle Antworten sind richtig\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: C) Alle Antworten sind richtig\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -841,19 +831,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) bei Überlandflügen, wenn über Flugfunk eine Freigabe für das Durchfliegen eines Luftraums angefordert werden soll.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: B) bei Überlandflügen, wenn über Flugfunk eine Freigabe für das Durchfliegen eines Luftraums angefordert werden soll.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -873,19 +862,33 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Den Schaden begleicht die Halterhaftpflicht-Versicherung, die jeder Pilot unterhalten muss.\n- Im Endanflug hast du kaum Reserve: du musst stabil zum Landepunkt runter.\n- Wenn dich jemand überholt oder unterfliegt, wird’s sofort eng (Sinkpfad + Abfangen).\n- Darum: im Endanflug nicht unterfliegen/überholen – Abstand halten und Reihenfolge respektieren.",
-      "merksatz": "Endanflug = wenig Zeit + Höhe.\nAlso: nicht unterfliegen, nicht überholen.",
-      "nachlesen": [],
-      "reliability_note": "Keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF gefunden → keine Quelle."
+      "explanation": "- Richtig ist: D) Den Schaden begleicht die Halterhaftpflicht-Versicherung, die jeder Pilot unterhalten muss.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – dafür ist die Halterhaftpflicht da.\n- Die Haftpflicht ist vorgeschrieben, damit solche Schäden bezahlt werden können.",
+      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
+      "nachlesen": [
+        {
+          "title": "LuftVG § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
+          "locator": "§ 43 LuftVG (Direktlink)",
+          "relevance": "Pflicht zur Haftpflichtversicherung."
+        },
+        {
+          "title": "LuftVG § 33 – Haftung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
+          "locator": "§ 33 LuftVG (Direktlink)",
+          "relevance": "Halterhaftung als Grundlage für Schadensersatz."
+        }
+      ],
+      "reliability_note": "Quellen sind amtlich und thematisch passend (Haftung/Haftpflicht)."
     }
   },
   {
@@ -905,19 +908,33 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: B) Alle Antworten sind richtig.\n- Im Endanflug hast du kaum Reserve: du musst stabil zum Landepunkt runter.\n- Wenn dich jemand überholt oder unterfliegt, wird’s sofort eng (Sinkpfad + Abfangen).\n- Darum: im Endanflug nicht unterfliegen/überholen – Abstand halten und Reihenfolge respektieren.",
-      "merksatz": "Endanflug = wenig Zeit + Höhe.\nAlso: nicht unterfliegen, nicht überholen.",
-      "nachlesen": [],
-      "reliability_note": "Keine 100% passende amtliche Textstelle im verfügbaren DFS-PDF gefunden → keine Quelle."
+      "explanation": "- Richtig ist: B) Alle Antworten sind richtig.\n- Du hast fremdes Eigentum beschädigt (Feld/Ernte) → das ist ein Drittschaden.\n- Für Drittschäden haftet der Halter/Betreiber – dafür ist die Halterhaftpflicht da.\n- Die Haftpflicht ist vorgeschrieben, damit solche Schäden bezahlt werden können.",
+      "merksatz": "Drittschaden am Boden?\nHalterhaftpflicht zahlt.",
+      "nachlesen": [
+        {
+          "title": "LuftVG § 43 – Haftpflichtversicherung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__43.html",
+          "locator": "§ 43 LuftVG (Direktlink)",
+          "relevance": "Pflicht zur Haftpflichtversicherung."
+        },
+        {
+          "title": "LuftVG § 33 – Haftung (amtlich, DE)",
+          "type": "web",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__33.html",
+          "locator": "§ 33 LuftVG (Direktlink)",
+          "relevance": "Halterhaftung als Grundlage für Schadensersatz."
+        }
+      ],
+      "reliability_note": "Quellen sind amtlich und thematisch passend (Haftung/Haftpflicht)."
     }
   },
   {
@@ -937,19 +954,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: A) benötigt der Pilot in vielen Ländern neben seiner Fluglizenz die IPPI-Karte mit Stufe 5.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: A) benötigt der Pilot in vielen Ländern neben seiner Fluglizenz die IPPI-Karte mit Stufe 5.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   },
   {
@@ -969,19 +985,18 @@
     "ai": {
       "allowed": true,
       "context": "",
-      "system_hint": "Du bist Tutor für eine Gleitschirm/Hängegleiter-B-Lizenz Lernapp (DE/AT). Antworte kurz, sehr verständlich („für Dummies“), aber fachlich korrekt. Beziehe dich IMMER direkt auf den konkreten Fragetext und die Antwortoptionen.\nFormat:\n1) Nenne zuerst die richtige Option als Buchstabe (A/B/C/D) + exakten Optionstext.\n2) Erkläre in 3–6 Bulletpoints WARUM diese Option richtig ist (einfach, ohne unnötigen Jargon).\n3) Nenne 1–2 typische Fallen, warum die anderen Optionen falsch sind (kurz).\n4) Quellen: NUR wenn 100% passend. Dann: deutschsprachige amtliche Quelle, direkt anklickbare Stelle (PDF #page oder Gesetz-Paragraph-Link). Wenn nicht sicher passend: KEINE Quelle.\n5) Kein Spekulieren.",
+      "system_hint": "Tutor-Modus (B-Lizenz Gleitschirm/Hängegleiter, DE/AT): Erkläre sehr verständlich (für Einsteiger), aber korrekt. Bezug immer direkt zur Frage + den Optionen.\nAusgabeformat:\n1) Richtige Option: Buchstabe (A/B/C/D) + Optionstext.\n2) 3–6 Bulletpoints: warum richtig (einfach erklärt).\n3) 1–2 Bulletpoints: typische Fallen, warum andere Optionen falsch sind.\n4) Quellen: Nur wenn inhaltlich passend. Bei PDFs verlinke mit #page=... und nenne kurz den Kontext.\nKein Spekulieren.",
       "followup_examples": [
-        "Erklär mir das noch einfacher in 2 Sätzen.",
-        "Warum sind die anderen Optionen falsch?",
-        "Welche Prüfungsfalle steckt hier drin?",
-        "Zeig mir die Textstelle in der Quelle."
+        "Warum ist die richtige Option richtig?",
+        "Warum sind die anderen falsch?",
+        "Zeig mir die Textstelle/Seite aus der Quelle."
       ]
     },
     "wiki": {
-      "explanation": "- Richtig ist: D) Das ist pauschal nicht zu sagen, der Pilot muss sich beim jeweiligen ausländischen Verband bzw. der FAI/CIVL informieren.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Lern-Trick: 1) Was wird gefragt? 2) Welches Wort ist entscheidend? 3) Welche Option trifft es exakt?",
+      "explanation": "- Richtig ist: D) Das ist pauschal nicht zu sagen, der Pilot muss sich beim jeweiligen ausländischen Verband bzw. der FAI/CIVL informieren.\n- Diese Antwort passt am besten zum Schlüsselwort der Frage.\n- Wenn du mir sagst, welches Stichwort dich verwirrt, kann ich es in 2 Sätzen runterbrechen.",
       "merksatz": "Schlüsselwort finden.\nOption wählen, die exakt passt.",
       "nachlesen": [],
-      "reliability_note": "Keine Quelle hinterlegt, weil keine 100% passende amtliche Textstelle sicher zuordenbar."
+      "reliability_note": "Keine Quelle, weil keine passende amtliche Stelle sicher zugeordnet werden konnte."
     }
   }
 ]

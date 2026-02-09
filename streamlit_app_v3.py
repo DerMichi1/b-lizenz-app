@@ -1548,13 +1548,10 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
         st.rerun()
-cA, cB, cC = st.columns([1, 1, 1])
-
-with cC:
-    if st.button("Prüfung starten (40)", key="dash_start_exam", use_container_width=True):
-        st.session_state.page = "exam"
-        _reset_exam_state()
-        st.rerun()
+if cC.button("Prüfung starten (40)"):
+    st.session_state.page = "exam"
+    _reset_exam_state()
+    st.rerun()
 
 
     st.write("")

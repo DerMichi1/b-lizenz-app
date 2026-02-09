@@ -2557,7 +2557,7 @@
       "links": []
     },
     "correctAnswerText": "Europa-Deutschland-Danger Area"
-  }.
+  },
   {
     "id": "Q081",
     "category": "Luftrecht",
@@ -2584,15 +2584,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf der Abbildung ist unter „Luftraumbeschränkungen“ zu sehen, dass „ED-D …“ als „Danger area“ erklärt wird. Gemeint ist ein Luftraum mit festgelegten Ausmaßen, in dem zeitweise Tätigkeiten stattfinden können, die für Luftfahrzeuge gefährlich sind (z.B. Übungsbetrieb). Der wichtige Unterschied zu den anderen Optionen: Es ist keine „Sperre“ wie ein ED-P, sondern eine Gefahrenwarnung – der Durchflug ist grundsätzlich möglich, aber du trägst das Risiko und solltest solche Bereiche nach Möglichkeit meiden oder vorher den Status prüfen.",
+      "merksatz": "ED-D = Warngebiet: Durchflug auf eigenes Risiko.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS NOTAM-Heftchen: Danger area (ED-D) / Restricted area (ED-R)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/Notam_Heftchen_online_final_dfs.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Gefahrengebiet"
   },
   {
     "id": "Q082",
@@ -2620,15 +2621,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Abbildung und die ICAO-Systematik nutzen den Länderpräfix „ED“ für Deutschland; der Buchstabe nach dem Bindestrich steht für den Gebietstyp. „R“ ist international die Kennung für „Restricted area“ – das ist kein „Luftraum“ im Sinne einer Klasse und auch keine Kontrollzone. Der Zweck ist eine Flugbeschränkung für nicht berechtigten Verkehr (z.B. militärische Nutzung); deshalb werden diese Gebiete über Aktivierungszeiten/NOTAM gesteuert.",
+      "merksatz": "ED-R: R wie „Restricted“ (beschränkt).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS NOTAM-Heftchen: Restricted area (ED-R)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/Notam_Heftchen_online_final_dfs.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Europa-Deutschland-Restricted Area"
   },
   {
     "id": "Q083",
@@ -2656,15 +2658,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In der Legende der Abbildung wird „ED-R …“ als „Restricted area“ beschrieben. Das ist ein Gebiet, in dem Flüge für nicht berechtigte Luftfahrzeuge beschränkt werden (z.B. wegen militärischer Aktivitäten). Der Unterschied zum „Danger“-Gebiet: Hier ist die Einschränkung rechtlich stärker – du kannst nicht einfach „auf eigenes Risiko“ durchfliegen, sondern musst die Regeln und den Aktivierungsstatus beachten.",
+      "merksatz": "ED-R: erst Status prüfen – sonst tabu.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS NOTAM-Heftchen: Restricted area (ED-R)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/Notam_Heftchen_online_final_dfs.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugbeschränkungsgebiet"
   },
   {
     "id": "Q084",
@@ -2687,15 +2690,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In Österreich beginnt die Kennung solcher Gebiete mit dem Länderpräfix „LO“. Danach folgt – wie international üblich – ein Buchstabe für den Gebietstyp. Für „Danger area“ wird der Buchstabe „D“ verwendet; das ist also keine deutsche „ED“-Kennung, sondern die österreichische Systematik mit LO-…",
+      "merksatz": "AT = LO-, Danger = D.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria GEN 2.2: Kennungen (D = Danger area)",
+          "url": "https://eaip.austrocontrol.at/lo/260319/PART_1/LO_GEN_2_2_en.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "LO-D"
   },
   {
     "id": "Q085",
@@ -2718,15 +2722,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wie bei den ICAO-Kennungen allgemein: Länderpräfix plus Gebietstyp. In Österreich ist das Präfix „LO“; für „Restricted area“ wird „R“ verwendet. Deshalb tragen Flugbeschränkungsgebiete dort die Kennung LO-R … (nicht ED-R und nicht LO-D).",
+      "merksatz": "AT = LO-, Restricted = R.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria GEN 2.2: Kennungen (R = Restricted area)",
+          "url": "https://eaip.austrocontrol.at/lo/260219/PART_1/LO_GEN_2_2_en.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "LO-R"
   },
   {
     "id": "Q086",
@@ -2754,15 +2759,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Abbildung zeigt, dass „ED-R …“ ein beschränktes Gebiet („Restricted area“) ist. Der entscheidende Praxispunkt ist die zeitliche Wirksamkeit: Solche Gebiete werden aktiviert/deaktiviert (AIP/NOTAM). Wenn sie aktiv sind, gelten die dort festgelegten Flugbeschränkungen – typischerweise ist der Durchflug für nicht berechtigten Verkehr untersagt. Das unterscheidet sie von „Danger“-Gebieten, bei denen es primär um Warnung vor Gefahr geht.",
+      "merksatz": "ED-R aktiv = nicht durchfliegen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "BAF: Gebiete mit Flugbeschränkungen (ED-R) nach §17 LuftVO",
+          "url": "https://www.baf.bund.de/DE/Themen/Luftraum_Flugverfahren_Recht/Flugbeschraenkungsgebiete_UAS/Flugbeschraenkungsgebiete_UAS_node.html"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugbeschränkungsgebiet, Durchflug während der Aktivierungszeit verboten"
   },
   {
     "id": "Q087",
@@ -2790,15 +2796,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Legende der Abbildung ordnet „ED-D …“ als „Danger area“ ein. Der Kerngedanke ist eine Gefahrenwarnung: In diesem Luftraum können zeitweise gefährliche Vorgänge auftreten. Rechtlich ist es keine generelle Sperre; der Durchflug ist grundsätzlich möglich, aber du musst selbst beurteilen, ob es sicher ist (und solltest – wenn möglich – Status/NOTAM prüfen und ausweichen).",
+      "merksatz": "ED-D: möglich, aber Risiko bei dir.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS NOTAM-Heftchen: Danger area (ED-D)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/Notam_Heftchen_online_final_dfs.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Gefahrengebiet, Durchflug auf eigene Gefahr möglich"
   },
   {
     "id": "Q088",
@@ -2821,15 +2828,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„HX“ kennzeichnet Lufträume, die nicht ständig aktiv sind – es gibt keine fest durchgehenden Betriebszeiten wie bei „H24“. Bei Kontrollzonen bedeutet das: Sie können je nach Verkehrslage kurzfristig aktiviert oder deaktiviert werden. Wenn du den Status nicht aktiv bei FIS/INFO/TWR/ATIS abfragst, musst du für deine Planung davon ausgehen, dass der Luftraum aktiv ist, weil eine Aktivierung jederzeit möglich ist.",
+      "merksatz": "HX = nicht ständig – Status abfragen, sonst aktiv.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – HX (nicht ständig aktiv)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Kontrollzone kann jederzeit aktiviert werden."
   },
   {
     "id": "Q089",
@@ -2852,15 +2860,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Unabhängig davon, ob Deutschland (ED-R) oder Österreich (LO-R): Das „R“ steht für „Restricted area“, also ein Gebiet mit Flugbeschränkungen. Das Entscheidende ist die Aktivierung: Während der Wirksamkeit gelten die veröffentlichten Beschränkungen – in der Praxis heißt das für nicht berechtigten Verkehr meist „nicht durchfliegen“. „Auf eigene Verantwortung“ passt dagegen zu Danger‑Gebieten, nicht zu Restricted‑Gebieten.",
+      "merksatz": "R = Restricted: aktiv meist tabu.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS NOTAM-Heftchen: Restricted area (ED-R)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/Notam_Heftchen_online_final_dfs.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugbeschränkungsgebiet, Durchflug während der Aktivierungszeit verboten"
   },
   {
     "id": "Q090",
@@ -2883,15 +2892,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein „Danger area“-Gebiet ist eine Gefahrenwarnung: Es kann Tätigkeiten geben, die für Luftfahrzeuge gefährlich sind. Es ist daher nicht automatisch „immer verboten“ und auch nicht per Definition „nur mit Sondererlaubnis“. Der Punkt ist Risiko- und Sicherheitsverantwortung: Du darfst grundsätzlich einfliegen, musst aber selbst entscheiden, ob das verantwortbar ist, und solltest – wenn möglich – Zeiten/Status über Flugvorbereitung (AIP/NOTAM) klären und den Bereich meiden, wenn Aktivität zu erwarten ist.",
+      "merksatz": "Danger area: darf – aber Risiko bei dir.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS NOTAM-Heftchen: Danger area (ED-D) Begriff",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/Notam_Heftchen_online_final_dfs.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ist auf eigenes Risiko möglich."
   },
   {
     "id": "Q091",

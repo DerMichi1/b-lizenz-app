@@ -1314,15 +1314,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Flugverkehrsfreigabe“ brauchst du nur dort, wo Flugverkehrskontrolle den Verkehr aktiv führt und Einflug nur nach ausdrücklicher Erlaubnis zulässt. Das ist typischerweise der örtliche Schutzbereich um kontrollierte Flugplätze (von Boden bis zu einer festgelegten Höhe), damit der Start‑/Landeverkehr geschützt bleibt. Ein Fluginformationsgebiet ist dagegen kein Einflugverbot, sondern eine große Gebietseinteilung für Informationsdienst; Luftraum G ist unkontrolliert.",
+      "merksatz": "Freigabe nur im Platz‑Schutzbereich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 144: Beschreibung Lufträume (CTR nur mit Freigabe)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=62"
         }
       ]
-    }
+    },
+    "correctAnswerText": "eine Kontrollzone"
   },
   {
     "id": "Q042",
@@ -1345,15 +1346,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Basis“ ist die Wolkenuntergrenze; „aufdrehen“ heißt, bis knapp darunter zu steigen, ohne Wolken zu berühren. Ob das zulässig ist, hängt von den Sichtflug‑Wetterminima ab, die sich nach Höhe richten: Die Schwelle wird als Kombination aus MSL (über Meeresspiegel) und AGL (über Grund) angegeben – maßgeblich ist jeweils der höhere Wert. Unterhalb dieser Schwelle gelten „nahe‑am‑Boden“-Minima (z.B. Erdsicht und wolkenfrei), oberhalb gelten definierte Mindestabstände zu Wolken und Mindest‑Flugsichten. Darum ist nicht „immer bis zur Basis“ pauschal richtig.",
+      "merksatz": "AGL/MSL‑Schwelle: höherer Wert zählt.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – VMC‑Minima (3000 AMSL / 1000 AGL)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "unterhalb 1000 ft AGL sowie unterhalb 3000 ft MSL bis zur Basis aufdrehen"
   },
   {
     "id": "Q043",
@@ -1376,15 +1378,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Es gibt in Österreich keine pauschale „bis Tropopause“‑ oder „bis Thermik reicht“‑Regel. Wie hoch du darfst, ergibt sich daraus, welche Lufträume an deinem Ort in der Höhe beginnen/enden und ob diese für Gleitschirme zugelassen sind. Sobald oberhalb die nächsten Lufträume liegen, die für dich gesperrt oder nur mit besonderen Voraussetzungen nutzbar sind, ist dort Schluss – die Grenze ist also kartengebunden und ortsabhängig.",
+      "merksatz": "Obergrenze steht in der Karte, nicht im Bauchgefühl.",
+      "links": []
+    },
+    "correctAnswerText": "So hoch, bis die jeweilige Obergrenze der für Gleitschirme erlaubten Lufträume G und E an die nicht erlaubten Lufträume C oder D oder eine TMZ grenzen"
   },
   {
     "id": "Q044",
@@ -1407,15 +1405,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Luftraum G ist ein unkontrollierter Luftraum: Du brauchst dort in der Regel keine Freigabe, aber du trägst die Verantwortung, andere Luftfahrzeuge und Hindernisse rechtzeitig zu erkennen und auszuweichen. „VFR“ (Sichtflugregeln) bedeutet, dass du nach Sicht fliegst und die vorgeschriebenen Sicht‑/Wolken‑Minima einhältst; je nach Höhe können dabei Erdsicht bzw. definierte Wolkenabstände relevant sein. Unkontrolliert heißt außerdem nicht, dass keine militärischen Tiefflüge vorkommen können.",
+      "merksatz": "Unkontrolliert ≠ ungefährlich.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 144: Luftraum G – unkontrolliert, Sichtflugregeln",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=62"
         }
       ]
-    }
+    },
+    "correctAnswerText": "sind Sichtflüge (VFR-Flüge) erlaubt"
   },
   {
     "id": "Q045",
@@ -1438,15 +1437,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "„Kontrolliert“ bedeutet: Es gibt Flugverkehrskontrolle für bestimmten Verkehr (v.a. IFR), und der Luftraum ist als kontrollierte Klasse festgelegt, auch wenn VFR dort nicht zwingend ständig „geführt“ wird. Der Beginn (Untergrenze) von Luftraum E ist nicht überall gleich, sondern regional definiert (z.B. häufig ab 2.500 ft AGL, in manchen Gebieten anders). Aussagen wie „umfasst keine TMA“ oder „un-kontrolliert“ passen deshalb nicht zuverlässig; wichtig ist die Klassifizierung als kontrollierter Luftraum.",
+      "merksatz": "E = kontrolliert, Grenzen sind regional.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 144: Luftraum E – kontrolliert, typischer Höhenbereich",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=62"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ist kontrollierter Luftraum"
   },
   {
     "id": "Q046",
@@ -1469,15 +1469,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "AGL bedeutet „Above Ground Level“ (Höhe über Grund), MSL bedeutet „Mean Sea Level“ (Höhe über Meeresspiegel). In Deutschland ist oberhalb von 2.500 ft AGL nicht automatisch „alles verboten“, sondern die Luftraumklasse wechselt in vielen Gebieten in einen kontrollierten Bereich, in dem andere Regeln gelten (z.B. andere Sichtflug‑Minima und ggf. zusätzliche Ausrüstung/Verfahren). Entscheidend ist: Ab dieser Schwelle befindest du dich in einem Luftraum, der nicht mehr als unkontrolliert geführt wird.",
+      "merksatz": "Über 2500 AGL: anderes Regel‑Set.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 144: Luftraum G bis 2500 ft AGL; darüber Luftraumstruktur",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=62"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ist ausschließlich kontrollierter Luftraum"
   },
   {
     "id": "Q047",
@@ -1500,15 +1501,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "„FL“ (Flight Level) ist eine Druckhöhe relativ zu einem Standardluftdruck, nicht direkt eine Meter‑MSL‑Angabe; deshalb braucht man Tabellen/Altimeter‑Einstellung, um es richtig zu interpretieren. In Deutschland ist das Fliegen nach oben nicht grenzenlos, weil ab bestimmten Flight Levels andere Lufträume beginnen (mit strengeren Regeln und Freigaben), und in den Alpen gelten teils abweichende Obergrenzen. Die Frage zielt auf diese fest definierten maximalen Höhenbereiche außerhalb von Sperr‑/Beschränkungsgebieten.",
+      "merksatz": "FL‑Grenzen sind fest – nicht „unendlich“.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 144: Luftraumstruktur & FL‑Grenzen (inkl. Alpenbereich)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=62"
         }
       ]
-    }
+    },
+    "correctAnswerText": "bis FL 100, im Alpenbereich bis FL 130, geflogen werden"
   },
   {
     "id": "Q048",
@@ -1531,15 +1533,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "In kontrolliertem Luftraum gelten je nach Höhe abgestufte Sichtflug‑Wetterminima: „Flugsicht“ ist die Sichtweite nach vorn im Flug, „Wolkenabstand“ sind Mindestabstände zu Wolken (horizontal/vertikal). Bei 3.200 m MSL liegst du deutlich oberhalb der typischen Schwelle, ab der die strengeren Minima für kontrollierten Luftraum greifen; dadurch erhöht sich die geforderte Mindest‑Flugsicht und es gelten feste Wolkenabstände (statt „frei von Wolken“).",
+      "merksatz": "Hoch in E: mehr Sicht + Wolkenabstand.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS: Sicherer Sichtflug – VMC‑Minima in/oberhalb FL100",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugsicht 8 km, 300 m vertikaler und 1,5 km horizontaler Wolkenabstand"
   },
   {
     "id": "Q049",
@@ -1562,15 +1565,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die Kombination „1,5 km Flugsicht + Erdsicht + keine Wolkenberührung“ beschreibt die Sonder‑Minima für sehr niedrige Höhen in unkontrolliertem Luftraum: Du musst den Boden dauerhaft sehen können und darfst nicht in Wolken einfliegen, weil du dort ohne Instrumentenverfahren und ohne Staffelung unterwegs bist. „Luftraum D/C“ sind kontrollierte Lufträume mit anderen Minima (Wolkenabstände statt „frei von Wolken“) und passen deshalb nicht zu dieser Kombination.",
+      "merksatz": "Ganz unten: Erdsicht + wolkenfrei.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 144: Sichtflugregeln Luftraum G (1,5 km, Erdsicht, wolkenfrei)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=62"
         }
       ]
-    }
+    },
+    "correctAnswerText": "für  den  Luftraum  G  unterhalb  von  3000  ft  (900  m)  MSL,  oberhalb  von  3000  ft  (900  m)  MSL, wenn dabei eine Höhe über Grund (AGL) von 1000 ft (300 m) nicht überschritten wird"
   },
   {
     "id": "Q050",
@@ -1593,15 +1597,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Im kontrollierten Luftraum gelten Mindest‑Flugsichten, die sich u.a. mit der Höhe ändern: Unterhalb höherer Schwellen sind es typischerweise 5 km, darüber (in/oberhalb FL 100) steigt die Mindest‑Flugsicht auf 8 km. Die Frage zielt genau auf diese Staffelung plus den Zusatz „oberhalb FL100“; Angaben wie „nur 800 m“ oder „bis zum Boden“ sind entweder Sonderfälle anderer Luftfahrzeugarten oder keine definierte Mindest‑Flugsicht‑Regel.",
+      "merksatz": "Je höher, desto mehr Sicht.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS: Sicherer Sichtflug – Mindestflugsicht im Luftraum E",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "5 km, oberhalb FL 100, 8 km"
   },
   {
     "id": "Q051",
@@ -1624,15 +1629,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Hier geht es um die Sichtflug-Wetterminima (VMC) in Luftraum G in einer Höhe, in der nicht mehr nur „Erdsicht und wolkenfrei“ gilt. MSL bedeutet Höhe über Meeresspiegel, AGL Höhe über Grund; für die Schwelle wird immer der höhere Vergleichswert herangezogen. Oberhalb dieser Schwelle gilt ein festes Wolkenabstandsmaß: Du musst unter der Wolkenbasis genügend vertikalen Abstand halten, damit du nicht in die Wolke gerätst und weiterhin zuverlässig Ausweichverkehr sehen kannst.",
+      "merksatz": "Über der Schwelle: 1000 ft Abstand zur Wolke.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS – Sicherer Sichtflug (VMC-Minima)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "1.000 ft"
   },
   {
     "id": "Q052",
@@ -1655,15 +1661,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die „Trennfläche“ ist eine Pufferzone zwischen zwei Lufträumen, damit du bei Druckfehlern am Höhenmesser, Turbulenzen oder kleinen Steig-/Sinkraten nicht unbeabsichtigt in den darüberliegenden, strengeren Luftraum gerätst. FL bedeutet Flugfläche auf Standarddruck (1013 hPa), also eine druckbezogene Höhenangabe. Die Trennfläche legt deshalb einen Sicherheitsabstand fest, den VFR-Piloten in Luftraum E nach oben einhalten sollen, wenn darüber Luftraum C beginnt.",
+      "merksatz": "Trennfläche = 500‑ft Puffer zur C‑Grenze.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-Info 144 – Luftraumstruktur Deutschland",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "VFR-Piloten sollen im Luftraum E 500 ft Höhenabstand von Luftraum C (FL 100) einhalten."
   },
   {
     "id": "Q053",
@@ -1686,15 +1693,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Über einer Stadt gelten strengere Mindesthöhen, weil eine Außenlandung praktisch kaum ohne Risiko möglich ist. „Höchstes Hindernis“ meint z.B. Dach, Mast oder Antenne; der Bezug „im Umkreis“ stellt sicher, dass du auch seitlich genug Reserve hast. Die Regel setzt deshalb eine Mindesthöhe über dem höchsten Hindernis innerhalb eines definierten Radius fest, um im Notfall noch manövrieren zu können, ohne Menschen und Sachwerte am Boden zu gefährden.",
+      "merksatz": "Über Stadt: 1000 ft über Hindernis (600 m Radius).",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "EU-SERA (VO 923/2012) – Sichtflugregeln/Mindesthöhen",
+          "url": "https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32012R0923"
         }
       ]
-    }
+    },
+    "correctAnswerText": "300 m über dem höchsten Hindernis innerhalb eines Umkreises von 600 m"
   },
   {
     "id": "Q054",
@@ -1717,15 +1725,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die 150‑m‑Regel ist ein Sicherheitsabstand zu Personen, Fahrzeugen und Bauwerken, damit ein Ausweichmanöver oder ein unerwarteter Sinkstoß nicht sofort zu einer Gefährdung am Boden führt. Beim Gleitschirm sind Start, Landung und Hang-/Geländeflug oft nur möglich, wenn man zeitweise näher am Gelände oder an Hindernissen ist. Entscheidend ist deshalb: Unterschreiten ist nur dann vertretbar, wenn es betrieblich notwendig ist und dabei keine Gefahr für Personen oder Sachen entsteht.",
+      "merksatz": "150 m nur unterschreiten, wenn nötig UND ungefährlich.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "EU-SERA (VO 923/2012) – Sichtflugregeln/Mindesthöhen",
+          "url": "https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=CELEX%3A32012R0923"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ja, wenn der Flug dies erforderlich macht und keine Personen oder Sachen gefährdet werden."
   },
   {
     "id": "Q055",
@@ -1748,15 +1757,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Luftraum E ist „kontrollierter Luftraum“, aber VFR braucht dort normalerweise keine Freigabe; deshalb können IFR- und VFR-Verkehre gleichzeitig vorkommen. IFR bedeutet Instrumentenflug, VFR Sichtflug; die Flugsicherung staffelt IFR-Verkehr untereinander, VFR wird in der Regel nicht aktiv getrennt, sondern erhält Verkehrsinformationen soweit möglich. Für dich heißt das: Auch ohne Freigabe können dir in Luftraum E IFR-Flugzeuge begegnen – Sicht, Luftraumbeobachtung und vorausschauendes Fliegen sind Pflicht.",
+      "merksatz": "E = IFR+VFR gemischt, aber keine VFR‑Staffelung.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-Info 144 – Luftraum E und Mischverkehr",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "mischt sich VFR-Verkehr mit IFR-Verkehr"
   },
   {
     "id": "Q056",
@@ -1779,15 +1789,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
-      "links": [
-        {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
-        }
-      ]
-    }
+      "explanation": "Hier wird nach den VMC-Minima in Österreich in Luftraum G oberhalb der Schwelle FL100 gefragt. FL100 ist eine Flugfläche (Standarddruck 1013 hPa) und markiert den Bereich, in dem höhere Sichtweiten gefordert werden, weil Verkehrs- und Geschwindigkeitsniveau zunehmen. Dazu kommen feste Wolkenabstände (seitlich und vertikal), damit du ausreichend Zeit hast, anderen Verkehr rechtzeitig zu erkennen und Ausweichentscheidungen zu treffen.",
+      "merksatz": "Ab FL100: mehr Sicht – gleiche Wolkenabstände.",
+      "links": []
+    },
+    "correctAnswerText": "8 km Flugsicht, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m"
   },
   {
     "id": "Q057",
@@ -1810,15 +1816,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Luftraum G ist der unkontrollierte Luftraum; er liegt in Deutschland typischerweise bodennah und endet dort, wo der nächsthöhere Luftraum (meist E) beginnt. AGL (über Grund) ist hier entscheidend, weil die Grenze als Höhe über dem Gelände definiert wird, nicht als MSL. Damit du Lufträume sauber trennst, musst du die Obergrenze von G aus Karte/Regel kennen und beim Steigen rechtzeitig prüfen, ob du bereits in E oder in eine Sonderstruktur (z.B. CTR/TMZ/RMZ) kommst.",
+      "merksatz": "Deutschland: G meistens bis 2500 ft AGL.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-Info 144 – Luftraum G (Ausdehnung)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "2.500 ft AGL"
   },
   {
     "id": "Q058",
@@ -1841,15 +1848,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
-      "links": [
-        {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
-        }
-      ]
-    }
+      "explanation": "In Österreich ist die vertikale Luftraumstruktur regional unterschiedlich: Täler, Kontrollzonen, An-/Abflugbereiche und spezielle Lufträume führen dazu, dass die Obergrenze von G nicht überall gleich ist. Die Obergrenze ergibt sich deshalb aus der jeweiligen Luftraumzuweisung auf der Karte bzw. im Luftfahrthandbuch, nicht aus einem einzigen Standardwert. Praktisch heißt das: Du kannst dich nicht auf eine fixe Zahl verlassen, sondern musst für das Gebiet, in dem du fliegst, die Obergrenzen aktiv prüfen.",
+      "merksatz": "AT: G‑Obergrenze immer gebietsabhängig prüfen.",
+      "links": []
+    },
+    "correctAnswerText": "in unterschiedlicher Höhe"
   },
   {
     "id": "Q059",
@@ -1872,15 +1875,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Gefragt ist die Mindest-Flugsicht in Luftraum G in einem Höhenband, in dem die „reduzierten“ Sichtflug-Minima gelten können. MSL ist Höhe über Meeresspiegel, AGL über Grund; maßgeblich ist wieder der höhere Vergleichswert zur Schwelle. Wenn du in diesem Bereich unterwegs bist, musst du so viel Sicht haben, dass du anderen Verkehr und Hindernisse rechtzeitig erkennst und ausweichen kannst – deshalb gilt hier ein definierter Mindestwert in Kilometern.",
+      "merksatz": "Unter der Schwelle: 1,5 km (nur langsam & Erdsicht).",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS – Sicherer Sichtflug (VMC-Minima)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugsicht 5 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)"
   },
   {
     "id": "Q060",
@@ -1903,16 +1907,17 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Hier geht es um den Wolkenbezug in Luftraum G unterhalb der Schwelle, bei der noch keine festen Wolkenabstände gefordert werden. „Wolken dürfen nicht berührt werden“ bedeutet: kein Einflug und kein Streifen der Wolke – du bleibst komplett wolkenfrei und hältst dauernd Erdsicht, damit du Gelände, Hindernisse und Verkehr jederzeit sicher beurteilen kannst. Der Sinn ist simpel: In diesem niedrigen Sichtflugbereich sollst du nicht in Situationen geraten, in denen du plötzlich ohne Außensicht bist.",
+      "merksatz": "Unter der Schwelle: wolkenfrei + Erdsicht.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS – Sicherer Sichtflug (VMC-Minima)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf"
         }
       ]
-    }
-  },
+    },
+    "correctAnswerText": "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken"
+  }.
   {
     "id": "Q061",
     "category": "Luftrecht",

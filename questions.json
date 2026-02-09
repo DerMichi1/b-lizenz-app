@@ -4869,15 +4869,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "„Vertikale Mächtigkeit“ heißt: wie dick die Wolke von der Basis nach oben werden kann. Schichtwolken (z.B. Stratus/Altostratus/Nimbostratus) sind meist flächig und nicht extrem hoch, während Gewitterwolken durch starke Aufwinde bis an die obere Grenze der Wetterschicht wachsen können. Genau diese „Turm“-Entwicklung ist das Merkmal, das zur größten Mächtigkeit führt.",
+      "merksatz": "Am höchsten wächst die Gewitterwolke.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – Gewitterwolke (Cumulonimbus) mit großer Mächtigkeit",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=55"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Nimbostratus"
   },
   {
     "id": "Q152",
@@ -4900,15 +4901,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "„Schauer“ sind kurzzeitig kräftige Niederschläge, die typischerweise aus konvektiven Wolken kommen: Aufwinde tragen Feuchte nach oben, es entstehen starke vertikale Bewegungen und lokal begrenzter Niederschlag. Dauerregen aus Schichtwolken ist dagegen gleichmäßiger. Die Wolkengattung, die für konvektive, schauerartige Niederschläge steht, ist diejenige mit starker Turmstruktur und Vereisungszone.",
+      "merksatz": "Schauer = konvektiv, nicht Schichtregen.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – Schauer/ Gewitter aus konvektiven Wolken",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=55"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Cumulonimbus"
   },
   {
     "id": "Q153",
@@ -4931,15 +4933,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Der Namenszusatz bei Wolken zeigt das Stockwerk an. Für hohe Wolken wird der Zusatz verwendet, der „hoch“ markiert: Diese Wolken bestehen oft aus Eis und liegen typischerweise in mehreren Kilometern Höhe. Zusätze wie „Alto“ stehen für mittelhoch, „Strato“ beschreibt die Form (Schicht), nicht die Höhe.",
+      "merksatz": "Hoch = „Cirro-“ am Namen.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – Wolkenstockwerke und Bezeichnungen",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=53"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Cirro, sie treten in Höhen zwischen 6 und 11 km auf"
   },
   {
     "id": "Q154",
@@ -4962,15 +4965,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die Wolkenstockwerke werden grob in niedrig, mittel und hoch eingeteilt. Das mittlere Stockwerk liegt zwischen den typischen Untergrenzen der tiefen Wolken und den Höhen, in denen bereits die hohen Eiswolken dominieren. Wolken in diesem Bereich tragen den Zusatz „Alto“; damit grenzt man sie sprachlich klar von den hohen „Cirro“-Wolken und den tiefen „Stratus“-Typen ab.",
+      "merksatz": "Mittel = „Alto-“ (zwischen tief und hoch).",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – mittleres Wolkenstockwerk („Alto“)",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=53"
         }
       ]
-    }
+    },
+    "correctAnswerText": "von ca. 2 km bis ca. 7 km Höhe, die Wolken in diesem Bereich haben den Namenszusatz Alto."
   },
   {
     "id": "Q155",
@@ -4998,15 +5002,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Abbildung ist eine Höhenwind‑Prognosekarte für eine Standarddruckfläche: „850 hPa“ entspricht grob der Strömung in etwa 1,5 km Höhe über Meeresspiegel (MSL). Die kleinen Pfeile/Stromlinien zeigen die Windrichtung, und die Farbskala rechts ordnet die Windstärke in Knoten (kt) ein. „Init“ ist der Modellstartzeitpunkt, „Valid“ der Prognosezeitpunkt.",
+      "merksatz": "850 hPa ≈ 1500 m: Pfeile = Richtung, Farben = kt.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Grundlagen Höhenwind – 850 hPa entspricht ca. 1.500 m",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/08_2011_171_grundlagen_hoehenwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "die Windprognose in kt für die 850 hPa Druckfläche (ca. 1.500 m MSL)"
   },
   {
     "id": "Q156",
@@ -5034,15 +5039,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Um den Wind für eine Region abzulesen, schaust du in der Karte an die Stelle der Region: (1) Pfeilrichtung/Stromlinien geben an, aus welcher Richtung die Luft in der Höhe strömt, (2) die Farbe zeigt die Größenordnung der Windstärke über die kt‑Skala. Für den Alpenrand im markierten Zeitraum zeigen die Vektoren eine Strömung aus einem südöstlichen Quadranten, und die Farbgebung liegt im unteren bis mittleren Bereich der Skala – also kein Starkwind‑Signal, aber spürbarer Höhenwind, der in den Alpen schon Turbulenz/Lee-Effekte verstärken kann.",
+      "merksatz": "Erst Richtung, dann Stärke von der Skala.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Grundlagen Höhenwind – Windkarte 850 hPa lesen & Bodenwirkung",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/08_2011_171_grundlagen_hoehenwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Wind mit 10-15 kt aus SO bis OSO prognostiziert"
   },
   {
     "id": "Q157",
@@ -5065,15 +5071,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf Bodenwetterkarten werden Linien gleichen Luftdrucks eingezeichnet, damit man Hoch‑/Tiefdruckgebiete und das Druckgefälle erkennen kann. Diese Linien sind die Basis, um Wind (durch Druckunterschiede) grob abzuschätzen: je enger die Linien, desto stärker ist das Druckgefälle.",
+      "merksatz": "Linien gleichen Drucks = Isobaren.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 74: Bodenwetterkarte – Isobaren (Linien gleichen Luftdrucks)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1994/dhvinfo74.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Isobaren"
   },
   {
     "id": "Q158",
@@ -5096,15 +5103,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der Luftdruck auf einer Bodenwetterkarte wird auf Meereshöhe zurückgerechnet, damit Stationen auf unterschiedlichen Höhen vergleichbar sind. Dieser auf Meereshöhe reduzierte Druck heißt QFF. Isobaren verbinden deshalb nicht „gleiche Höhe“ oder „gleiche Temperatur“, sondern Orte mit gleichem auf Meereshöhe bezogenem Druckwert.",
+      "merksatz": "Isobaren verbinden gleichen QFF.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 74: QFF (Druck auf Meereshöhe) und Isobaren",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1994/dhvinfo74.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "gleichem QFF verbinden"
   },
   {
     "id": "Q159",
@@ -5127,15 +5135,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wind entsteht durch Druckunterschiede: Je stärker das Druckgefälle zwischen Hoch und Tief ist, desto mehr „Antrieb“ hat die Luft. Auf der Karte erkennst du ein starkes Druckgefälle daran, dass die Isobaren dicht beieinander liegen. Große Abstände deuten dagegen auf ein schwaches Druckgefälle und damit eher schwache Winde.",
+      "merksatz": "Eng = stark, weit = schwach.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 74: Isobarenabstand als Hinweis auf Windstärke",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1994/dhvinfo74.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "geringe Isobarenabstände"
   },
   {
     "id": "Q160",
@@ -5158,15 +5167,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wenn Isobaren weit auseinander liegen, ändert sich der Druck über große Strecken nur wenig. Das bedeutet: Das Druckgefälle ist klein, also fehlt der „Motor“ für kräftigen Wind. In solchen Lagen ist der großräumige Wind meist schwach; lokale Thermik-/Talwinde können trotzdem auftreten, aber die Karte signalisiert keine starke großräumige Strömung.",
+      "merksatz": "Weite Isobaren = kaum Druckgefälle.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 74: Isobarenabstand und Wind",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1994/dhvinfo74.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "schwachen Wind"
   },
   {
     "id": "Q161",
@@ -5194,15 +5204,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf der Karte ist eine großräumige Druckverteilung zu sehen, bei der die Strömung über dem Alpenraum deutlich überregional geprägt ist (Wind in der freien Atmosphäre = der großräumige Wind, der aus Hoch‑/Tiefdruckverteilung entsteht). Gleichzeitig liegt die Wetterscheide so, dass auf der einen Alpenflanke Stau entsteht (Stau = feuchte Luft wird an der Luvseite eines Gebirges zum Aufsteigen gezwungen, dadurch Wolken/Niederschlag), während auf der anderen Seite trocknendere, böige Lee‑Effekte auftreten (Föhn = warmer, trockener Fallwind auf der Leeseite). Diese Kombination ist typisch für eine Alpenquerströmung mit markantem Stau an einer Seite.",
+      "merksatz": "Stau auf einer Seite, böig-trocken auf der anderen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Stau/Föhn/Alpen-Wetterscheide (Begriffe)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Südföhnlage mit Südstau und Niederschlägen an der Alpensüdseite"
   },
   {
     "id": "Q162",
@@ -5230,15 +5241,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei der überregionalen Windrichtung orientierst du dich an der Druckverteilung: Luft strömt großräumig entlang der Isobaren (Isobaren = Linien gleichen Luftdrucks) um Hoch/Tief herum. In der gezeigten Lage liegt der Alpenraum im Strömungsfeld, das Luft über den Alpenhauptkamm „heranführt“ – dadurch wird auf der einen Seite Stau ausgelöst und auf der Leeseite Föhn. Für die grobe Hauptwindrichtung zählt hier die Anströmung quer zu den Alpen.",
+      "merksatz": "Isobaren zeigen: Strömung drückt über die Alpen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Wind der freien Atmosphäre & Alpeneffekte",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "südliche Richtungen"
   },
   {
     "id": "Q163",
@@ -5266,15 +5278,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die markante „Beule“/Ausbuchtung der Isobaren direkt im zentralen Alpenbereich ist ein typisches Kartenmerkmal bei Alpenquerströmung: Der Druckverlauf wird durch das Gebirge deformiert, weil die Strömung nicht frei „durch“ den Alpenhauptkamm kann. Genau diese Ausbuchtung wird in der Fliegermeteorologie als spezieller Begriff für den Knick im Isobarenfeld im Alpenraum verwendet und ist ein Hinweis auf eine Föhn‑/Leelage (Lee = Windschattenseite).",
+      "merksatz": "Beule der Isobaren an den Alpen = Föhn-Hinweis.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Föhneffekt/Leebegünstigt im Alpenraum",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Föhnknie (auch Föhnknick)"
   },
   {
     "id": "Q164",
@@ -5302,15 +5315,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die höchsten Windgeschwindigkeiten findest du dort, wo das Druckgefälle am stärksten ist: eng stehende Isobaren bedeuten starkes Druckgefälle und damit mehr „Antrieb“ für Wind. Zusätzlich kann das Gelände den Wind in typischen Föhntälern und Einschnitten beschleunigen (Düseneffekt), selbst wenn es großräumig nicht wie Sturm aussieht. In der gezeigten Karte ist der engste Isobarenabstand im Alpenraum dort, wo die Strömung am stärksten über/entlang der Alpen geführt wird.",
+      "merksatz": "Engste Isobaren + Gelände = stärkster Wind.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Druckgegensätze/typische Föhngebiete",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der zentrale Alpenbereich"
   },
   {
     "id": "Q165",
@@ -5338,15 +5352,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Okklusion entsteht, wenn die schnellere Kaltfront die Warmfront einholt: Dann wird die Warmluft vom Boden abgehoben und die Front „verschmilzt“ im nördlichen Bereich (Okklusion = Mischfront, wenn Kaltfront die Warmfront eingeholt hat). In der Abbildung ist genau so ein Abschnitt als okkludierter Fronttyp markiert, zusätzlich sind Warmfront (Halbkreise) und Kaltfront (Dreiecke) erkennbar. Entscheidend ist also: Welche Front holt welche ein – und dass der Okklusionsabschnitt im nördlichen Teil des Systems liegt.",
+      "merksatz": "Okklusion = Kaltfront holt Warmfront ein.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Frontenbegriffe & Okklusion (Prinzip)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Kaltfront des Tiefs mit Zentrum über der Biskaya hat in ihrem nördlichen Bereich mit der voraus ziehenden Warmfront eine Okklusion  gebildet."
   },
   {
     "id": "Q166",
@@ -5374,15 +5389,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In der Karte liegt die Strömung so, dass feuchte Luft gegen die Alpennordseite gedrückt wird: Luv (Luv = dem Wind zugewandte Seite) führt zur Hebung und damit zu dichter Bewölkung und anhaltendem Niederschlag (Stau). Südlich des Alpenhauptkamms ist gleichzeitig die Leeseite (Lee = Windschattenseite) begünstigt: dort kann sich die Bewölkung eher auflösen und es wird trockener, oft aber mit böigem Fallwind (Föhn). Diese Nord‑Süd‑Aufteilung ist typisch für eine Lage mit großräumiger Anströmung aus dem nördlichen Sektor.",
+      "merksatz": "Nord: Stau & nass — Süd: Lee & böig-trocken.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Nordstau/Leebegünstigt/Föhnprinzip",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Nordwestlage  mit  Nordstau  und  anhaltenden  Niederschlägen  an  der  Alpennordseite  und Nordföhn an der Alpensüdseite"
   },
   {
     "id": "Q167",
@@ -5410,15 +5426,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei der Kaltfront‑Bewegung schaust du auf die Lage der Frontlinie und das Strömungsfeld: Eine Kaltfront (Dreiecke) zieht in Richtung der Dreiecksspitzen und wird vom überregionalen Windfeld „geschoben“. In der Abbildung liegt die Front so am Alpenbogen, dass der nächste Schritt der Verlagerung über den Alpenraum hinweg in den südlichen Alpenraum führt. Das passt auch zur typischen Rückseitenlage: Hinter der Front dreht der Wind auf nördliche Komponenten und staut Feuchte an der Nordseite an.",
+      "merksatz": "Dreiecke zeigen, wohin die Kaltfront zieht.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: verwellende Front/Strömung & Alpen-Wetterablauf",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Kaltfront wird in südliche Richtung über die Alpen ziehen"
   },
   {
     "id": "Q168",
@@ -5446,15 +5463,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Windrichtung im Alpenbereich folgt der Druckverteilung: um Hoch (H) herum im Uhrzeigersinn, um Tief (T) gegen den Uhrzeigersinn; daraus ergibt sich im Zwischenfeld die Hauptströmung entlang der Isobaren. In der gezeigten Lage liegt der Alpenraum auf der „Rückseite“ des Frontensystems, wo typischerweise kühlerer Luftstrom aus dem nördlichen Sektor nachdrückt. Das erklärt auch den Nordstau an der Alpennordseite.",
+      "merksatz": "Rückseite nach Front: Wind dreht auf Nord.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter-Basics: Nordstau und Wind in der freien Atmosphäre",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/04_2009_158_wetter_grundlagen.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "nördliche Richtungen"
   },
   {
     "id": "Q169",
@@ -5482,15 +5500,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Symbole sind Bedeckungsgrad‑Zeichen: Der ausgefüllte Anteil des Kreises entspricht dem Anteil des Himmels, der mit Wolken bedeckt ist. Diese Angabe läuft in Achteln (Okta): leer bedeutet wolkenlos, halb gefüllt bedeutet etwa die Hälfte bedeckt, und komplett gefüllt bedeutet bedeckt. Je größer der schwarze Anteil, desto größer die Bewölkung.",
+      "merksatz": "Je mehr Schwarz im Kreis, desto mehr Bewölkung.",
+      "links": []
+    },
+    "correctAnswerText": "0/8  Bedeckung  (wolkenlos),  2/8  Bedeckung  (heiter),  4/8  Bedeckung  (wolkig),  8/8  Bedeckung (bedeckt)"
   },
   {
     "id": "Q170",
@@ -5518,15 +5532,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Abbildung ist eine farbcodierte Niederschlagsdarstellung: Sie zeigt, wo und wie intensiv Niederschlag aktuell gemessen wird. Das entsteht durch Radar, das Niederschlagsteilchen in der Atmosphäre erfasst und als Flächenkarte darstellt; die Farben stehen für unterschiedliche Intensitäten. Das ist keine Windkarte (die würde Pfeile/Strömungsfelder zeigen) und auch keine Temperaturkarte (Isothermen/Temperaturfelder), sondern explizit eine Niederschlags‑Messdarstellung.",
+      "merksatz": "Radar zeigt: wo es regnet und wie stark.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 141: Regenradar als Hilfsmittel (Niederschlagsverteilung)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2006/dhvinfo141.pdf#page=38"
         }
       ]
-    }
+    },
+    "correctAnswerText": "die aus Radarmessungen erzeugte grafische Darstellung von Niederschlag (Niederschlagsradar)."
   },
   {
     "id": "Q171",

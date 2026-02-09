@@ -20,15 +20,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- „Thermikschlauch“ = aufsteigende Warmluftsäule; zum Steigen kreist man darin.\n- Wenn schon ein Segelflugzeug in deiner Höhe kreist, vermeidest du Gegenverkehr im selben Kreis.\n- Du übernimmst die Drehrichtung des bereits kreisenden Fluggeräts (du passt dich an, nicht umgekehrt).\n🟩 Richtige Antwort: Es muss die Drehrichtung des Segelflugzeuges eingenommen werden",
-      "merksatz": "Thermik-Kreisel: Der Erste bestimmt die Richtung.",
+      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden"
   },
   {
     "id": "Q002",
@@ -51,15 +52,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- „Kreuzender Kurs“ heißt: eure Flugwege schneiden sich.\n- Sicherheitsregel: Das von links kommende Fluggerät muss ausweichen, damit kein Zusammenstoß entsteht.\n- Praktisch: frühzeitig Kurs ändern, nicht erst im letzten Moment „zucken“.\n🟩 Richtige Antwort: Das von links kommende Luftfahrzeug ist ausweichpflichtig",
-      "merksatz": "Kreuzt es: Links weicht aus.",
+      "explanation": "Kreuzender Kurs heißt: zwei Flugwege schneiden sich. Damit klar ist, wer aktiv ausweicht, gibt es eine feste Seitenregel.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Das von links kommende Luftfahrzeug ist ausweichpflichtig"
   },
   {
     "id": "Q003",
@@ -82,15 +84,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Situation ist wieder ein kreuzender Kurs (kein Gegenkurs, kein Überholen).\n- Entscheidend ist, wer von links kommt: Dieses Fluggerät ist ausweichpflichtig.\n- Du hältst deinen Kurs nur dann, wenn du nicht ausweichpflichtig bist und es sicher bleibt.\n🟩 Richtige Antwort: muss dem Gleitschirmflieger ausweichen",
-      "merksatz": "Von links kommend = ausweichen.",
+      "explanation": "Im Landeanflug ist ein Fluggerät nahe am Boden und nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang gegenüber durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "muss dem Gleitschirmflieger ausweichen"
   },
   {
     "id": "Q004",
@@ -113,15 +116,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- „Gegenkurs“ = ihr fliegt frontal aufeinander zu.\n- Damit beide die gleiche, vorhersehbare Lösung wählen, weichen beide nach rechts aus.\n- Das verhindert, dass einer nach links und der andere nach rechts ausweicht (Chaos).\n🟩 Richtige Antwort: Beide Luftfahrzeuge müssen nach rechts ausweichen",
-      "merksatz": "Frontal: beide nach rechts.",
+      "explanation": "Es gilt die allgemeine Ausweichregel: Manöver müssen früh, klar und mit Abstand erfolgen, damit der andere Pilot sie eindeutig erkennt.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Beide Luftfahrzeuge müssen nach rechts ausweichen"
   },
   {
     "id": "Q005",
@@ -144,15 +148,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- „Landeeinteilung/Endanflug“: im Landeprozess ist man oft weniger flexibel und sehr nah am Boden.\n- Daher gilt: Tiefer fliegenden (und landenden) Fluggeräten muss ausgewichen werden.\n- Du planst deine Bahn so, dass du niemanden im Landeanflug schneidest oder überholst.\n🟩 Richtige Antwort: darf nicht unterflogen oder überholt werden",
-      "merksatz": "Bei Landung: Tiefer fliegt = hat Vorrang.",
+      "explanation": "Im Landeanflug ist ein Fluggerät nahe am Boden und nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang gegenüber durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "darf nicht unterflogen oder überholt werden"
   },
   {
     "id": "Q006",
@@ -175,15 +180,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- „Im Aufwind kreisend“ bedeutet: ein Fluggerät ist bereits in der Thermik im Kreis.\n- Wer neu dazu kommt, darf den Kreis nicht schneiden → sonst kreuzt man direkt die Flugbahn.\n- Deshalb muss dem kreisenden Fluggerät ausgewichen werden.\n🟩 Richtige Antwort: Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist",
-      "merksatz": "Thermik: Kreisende schützen – nicht schneiden.",
+      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist"
   },
   {
     "id": "Q007",
@@ -211,15 +217,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Hier geht’s um die Standard-Regel bei kreuzenden Flugwegen.\n- Das von links kommende Fluggerät muss ausweichen; dadurch ist klar, wer aktiv handeln muss.\n- Wichtig: Ausweichen heißt Abstand schaffen, nicht knapp vor dem anderen vorbeiziehen.\n🟩 Richtige Antwort: Das  von  links  kommende  Luftfahrzeug  muss  ausweichen,  die  Ausweichrichtung  ist  nicht vorgeschrieben",
-      "merksatz": "Kreuzung: links ausweichen, Abstand groß.",
+      "explanation": "Kreuzender Kurs heißt: zwei Flugwege schneiden sich. Damit klar ist, wer aktiv ausweicht, gibt es eine feste Seitenregel.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Das  von  links  kommende  Luftfahrzeug  muss  ausweichen,  die  Ausweichrichtung  ist  nicht vorgeschrieben"
   },
   {
     "id": "Q008",
@@ -247,15 +254,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Thermik ist ein gemeinsamer „Arbeitsbereich“; mehrere können dort steigen.\n- Wer schon kreist, hat eine feste Bahn. Neuankommende passen sich an und weichen aus.\n- Zusätzlich gilt: Der Erste in der Thermik gibt die Drehrichtung vor.\n🟩 Richtige Antwort: Der  Drachenflieger,  denn  den  im  Aufwind  kreisenden  Fluggeräten  muss  ausgewichen  werden. Die Ausweichrichtung ist nicht vorgeschrieben.",
-      "merksatz": "Thermik: erst drin → Richtung + Vorrang.",
+      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der  Drachenflieger,  denn  den  im  Aufwind  kreisenden  Fluggeräten  muss  ausgewichen  werden. Die Ausweichrichtung ist nicht vorgeschrieben."
   },
   {
     "id": "Q009",
@@ -278,15 +286,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- „Soaren/Hangsoaring“ = entlang eines Hangs im Aufwind fliegen, oft mit wenig Platz zum Ausweichen.\n- Regel: Das Fluggerät mit dem Hang auf der linken Seite muss nach rechts ausweichen.\n- Dadurch bleibt das Ausweichen einheitlich und vorhersehbar, obwohl der Raum eng ist.\n🟩 Richtige Antwort: Dass  den  Piloten,  die  am  Hang  soaren,  ausgewichen  werden  muss,  denn  die  Hangflugregeln haben hier Vorrang.",
-      "merksatz": "Hang links = nach rechts ausweichen.",
+      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Dass  den  Piloten,  die  am  Hang  soaren,  ausgewichen  werden  muss,  denn  die  Hangflugregeln haben hier Vorrang."
   },
   {
     "id": "Q010",
@@ -309,15 +318,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Wenn du in eine Thermik „einfliegst“, gibt es schon eine Drehrichtung im Kreis.\n- Damit ihr euch nicht im Kreis begegnet, gilt: Das erste kreisende Fluggerät bestimmt die Drehrichtung.\n- Du übernimmst diese Richtung und hältst Abstand beim Einfädeln.\n🟩 Richtige Antwort: Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.",
-      "merksatz": "In Thermik rein: Richtung vom Ersten übernehmen.",
+      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
+      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist."
   },
   {
     "id": "Q011",
@@ -340,15 +350,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "Hier gilt die allgemeine Ausweichregel: früh reagieren, klar ausweichen und genügend Abstand halten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ein  Luftfahrzeug  darf  nicht  so  nah  an  anderen  Luftfahrzeugen  betrieben  werden,  dass  die Gefahr eines Zusammenstoßes besteht."
   },
   {
     "id": "Q012",
@@ -376,15 +387,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "Hangflug findet nah am Gelände statt, mit wenig Platz zum Ausweichen. Darum gelten feste Hang‑Ausweichregeln, damit Entscheidungen eindeutig sind.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen"
   },
   {
     "id": "Q013",
@@ -412,15 +424,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "Hangflug findet nah am Gelände statt, mit wenig Platz zum Ausweichen. Darum gelten feste Hang‑Ausweichregeln, damit Entscheidungen eindeutig sind.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat"
   },
   {
     "id": "Q014",
@@ -448,15 +461,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Überholen: das überholende Luftfahrzeug hält ausreichend Abstand und bleibt klar aus dem Weg.\n- Überholt wird grundsätzlich auf der rechten Seite (so, dass der Überholte nicht ausweichen muss).\n- Überholen im Endanflug/bei Landephase vermeiden.",
-      "merksatz": "Überholen: der Hintermann weicht.\nVorne bleibt stabil.",
+      "explanation": "Überholen bedeutet: ein schnelleres Fluggerät kommt von hinten und fliegt vorbei. Der Überholende trägt die volle Verantwortung für Abstand und Sicherheit. Er darf die Flugbahn des Vorausfliegenden nicht schneiden.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "rechts oder links"
   },
   {
     "id": "Q015",
@@ -479,15 +493,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann."
   },
   {
     "id": "Q016",
@@ -510,15 +525,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "die weiter als 10 km vom Startplatz wegführen"
   },
   {
     "id": "Q017",
@@ -541,15 +557,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren"
   },
   {
     "id": "Q018",
@@ -572,23 +589,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Start/Landung außerhalb genehmigter Flugplätze ist grundsätzlich erlaubnispflichtig.\n- Für nicht motorgetriebene Luftsportgeräte gelten besondere Zuständigkeiten (Beauftragter nach § 31c LuftVG).\n- Not-/Sicherheitslandungen sind separat geregelt; trotzdem: Eigentümerrechte und Behördenauflagen beachten.",
-      "merksatz": "Außenstart/-landung: grundsätzlich nur mit Erlaubnis.\nZuständigkeit prüfen.",
+      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 25 Start und Landung außerhalb genehmigter Flugplätze (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__25.html"
-        },
-        {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 31c Beauftragter für Luftsportgeräte (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__31c.html"
-        },
-        {
-          "title": "Luftfahrtgesetz (Österreich) – § 10 (RIS)",
-          "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Nein"
   },
   {
     "id": "Q019",
@@ -611,15 +621,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Bei  einem  Überlandflug,  wenn  der  geplante  Landeplatz  nicht  erreicht  werden  kann (Außenlandung) und in Notfällen (Notlandung)."
   },
   {
     "id": "Q020",
@@ -642,15 +653,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
+      "merksatz": "Ausweichregel: klar + früh + Abstand.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "für die eine Erlaubnis des Beauftragten (DHV) erteilt ist"
   },
   {
     "id": "Q021",

@@ -1640,6 +1640,22 @@ with cC:
 # =============================================================================
 # LEARN
 # =============================================================================
+
+def _next_unanswered_idx(queue: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]], start_idx: int) -> int:
+    """Return index of the next unanswered question (seen<=0) from start_idx forward."""
+    if not queue:
+        return 0
+    n = len(queue)
+    i = max(0, min(int(start_idx or 0), n - 1))
+    for j in range(i, n):
+        qid = str(queue[j].get("id"))
+        row = (progress or {}).get(qid)
+        seen = int(row.get("seen", 0)) if isinstance(row, dict) else 0
+        if seen <= 0:
+            return j
+    return i
+
+
 def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
     st.title("Lernen")
     _init_learn_runtime_state()
@@ -1706,7 +1722,8 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     li = int(latest.get("last_question_idx") or 0)
                 except Exception:
                     li = 0
-                st.session_state.idx = max(0, min(li, len(q) - 1))
+                li = max(0, min(li, len(q) - 1))
+                st.session_state.idx = _next_unanswered_idx(q, progress, li)
                 st.session_state.answered = False
                 st.session_state.learn_answers = {}
                 st.session_state.learn_started = True
@@ -1767,7 +1784,9 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     only_unseen=False,
                     only_wrong=False,
                 )
-                st.session_state.idx = max(0, min(cp, max(0, len(st.session_state.queue) - 1)))
+                q = st.session_state.queue or []
+                cp = max(0, min(cp, max(0, len(q) - 1)))
+                st.session_state.idx = _next_unanswered_idx(q, progress, cp)
                 st.session_state.answered = False
                 st.session_state.learn_answers = {}
                 st.session_state.learn_started = True
@@ -2243,6 +2262,45 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     st.success("Gespeichert")
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
+
+
+def _exam_compute_result(
+    qlist: List[Dict[str, Any]],
+    answers: Dict[str, Optional[int]],
+) -> Dict[str, Any]:
+    """Compute exam result deterministically from queue + selected answers."""
+    total = len(qlist or [])
+    correct_cnt = 0
+    details: List[Dict[str, Any]] = []
+
+    for q in (qlist or []):
+        qid = str(q.get("id"))
+        ci = int(q.get("correctIndex") if q.get("correctIndex") is not None else -1)
+        sel = answers.get(qid, None)
+
+        if (sel is not None) and (ci >= 0) and (int(sel) == ci):
+            correct_cnt += 1
+
+        details.append(
+            {
+                "qid": qid,
+                "q": q,
+                "selected": (None if sel is None else int(sel)),
+                "correct": ci,
+            }
+        )
+
+    pct = int(round((correct_cnt / total) * 100)) if total else 0
+    passed = bool(pct >= int(PASS_PCT))
+
+    return {
+        "total": total,
+        "correct": correct_cnt,
+        "pct": pct,
+        "passed": passed,
+        "details": details,
+    }
+
 
 def _exam_submit(uid: str, reason: str = "manual") -> None:
     # idempotent: nicht doppelt submitten

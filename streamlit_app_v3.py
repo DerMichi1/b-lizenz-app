@@ -1389,7 +1389,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     render_figures(q, max_n=3)
 
     labels = ["A", "B", "C", "D"]
-
     if not st.session_state.get("answered", False):
         for i_opt in range(4):
             opt = options[i_opt]
@@ -1404,10 +1403,10 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.last_selected_index = i_opt
                 st.session_state.last_correct_index = correct_index
                 st.rerun()
-else:
-    ok = bool(st.session_state.get("last_ok"))
-    corr_i = st.session_state.get("last_correct_index")
-    sel_i = st.session_state.get("last_selected_index")
+    else:
+        ok = bool(st.session_state.get("last_ok"))
+        corr_i = st.session_state.get("last_correct_index")
+        sel_i = st.session_state.get("last_selected_index")
 
     if ok:
         if sel_i is not None and 0 <= int(sel_i) < len(options):

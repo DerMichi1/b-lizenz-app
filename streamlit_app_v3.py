@@ -547,6 +547,31 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     return {str(x["question_id"]): x for x in (r.data or [])}
 
 
+
+def db_get_teacher_state(uid: str) -> Dict[str, Any]:
+    """Load persistent teacher-path state for a user. Returns dict (may be empty)."""
+    try:
+        resp = supa().table("learn_state").select("teacher_state").eq("user_id", uid).limit(1).execute()
+        rows = getattr(resp, "data", None) or []
+        if rows:
+            return rows[0].get("teacher_state") or {}
+    except Exception:
+        pass
+    return {}
+
+
+def db_upsert_teacher_state(uid: str, teacher_state: Dict[str, Any]) -> None:
+    """Persist teacher-path state for a user. Best-effort; app works without it."""
+    try:
+        supa().table("learn_state").upsert(
+            {"user_id": uid, "teacher_state": teacher_state},
+            on_conflict="user_id",
+        ).execute()
+    except Exception:
+        # ignore hard failures; UI still works without persistence
+        return
+
+
 def db_upsert_progress(uid: str, qid: str, ok: bool) -> Dict[str, int]:
     """
     Returns the new counters for this (uid,qid) so caller can update local session_state
@@ -1109,6 +1134,38 @@ def _learn_meta(q: Dict[str, Any]) -> Tuple[int, int, int]:
     return 999, 999, 999
 
 
+
+def build_teacher_block_queue(
+    questions: List[Dict[str, Any]],
+    progress: Dict[str, Dict[str, Any]],
+    block: int,
+    only_unseen: bool,
+    only_wrong: bool,
+) -> List[Dict[str, Any]]:
+    """Subset of teacher-path questions for a given block, sorted didactically."""
+    qset = [q for q in questions if _learn_meta(q)[0] == int(block)]
+
+    if only_unseen:
+        qset = [
+            q for q in qset
+            if (str(q.get("id")) not in progress) or int(progress[str(q.get("id"))].get("seen", 0)) == 0
+        ]
+    if only_wrong:
+        qset = [
+            q for q in qset
+            if (str(q.get("id")) in progress) and int(progress[str(q.get("id"))].get("wrong", 0)) > 0
+        ]
+
+    qset.sort(
+        key=lambda q: (
+            _learn_meta(q),
+            int(q.get("local_number") or 0),
+            str(q.get("id") or ""),
+        )
+    )
+    return qset
+
+
 def build_learning_queue_teacher_path(
     questions: List[Dict[str, Any]],
     progress: Dict[str, Dict[str, Any]],
@@ -1394,6 +1451,38 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     st.title("Lernen")
     _init_learn_runtime_state()
 
+    # ----------------------------
+    # Persistent teacher state (best-effort)
+    # ----------------------------
+    if "teacher_state" not in st.session_state:
+        st.session_state.teacher_state = db_get_teacher_state(uid) or {}
+
+    def _teacher_defaults() -> Dict[str, Any]:
+        # teacher_state schema (jsonb):
+        # {
+        #   "pathVersion": "teacherPath_v2",
+        #   "unlockedBlock": 1,
+        #   "checkpoints": {"1": 0, "2": 0, ...},
+        #   "lastBlock": 1
+        # }
+        ts = st.session_state.teacher_state or {}
+        if not isinstance(ts, dict):
+            ts = {}
+        if "pathVersion" not in ts:
+            ts["pathVersion"] = "teacherPath_v2"
+        if "unlockedBlock" not in ts or not isinstance(ts.get("unlockedBlock"), int):
+            ts["unlockedBlock"] = 1
+        if "checkpoints" not in ts or not isinstance(ts.get("checkpoints"), dict):
+            ts["checkpoints"] = {str(b): 0 for b in sorted(LEARN_BLOCK_LABELS.keys())}
+        else:
+            for b in sorted(LEARN_BLOCK_LABELS.keys()):
+                ts["checkpoints"].setdefault(str(b), 0)
+        if "lastBlock" not in ts or not isinstance(ts.get("lastBlock"), int):
+            ts["lastBlock"] = 1
+        return ts
+
+    st.session_state.teacher_state = _teacher_defaults()
+
     if "learn_plan" not in st.session_state:
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
     if "learn_started" not in st.session_state:
@@ -1406,60 +1495,104 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         st.session_state.answered = False
 
     # ----------------------------
-    # Start / Plan screen
+    # Sidebar: global controls + (teacher) block navigation
+    # ----------------------------
+    with st.sidebar:
+        st.subheader("Lernen – Steuerung")
+        if st.session_state.learn_started:
+            if st.button("Session beenden", use_container_width=True):
+                _reset_learning_state()
+                st.rerun()
+
+        st.divider()
+
+        # Teacher block navigation (only if unlocked)
+        ts = st.session_state.teacher_state
+        unlocked = int(ts.get("unlockedBlock", 1))
+
+        st.markdown("**Lehrerpfad – Kapitel**")
+        for b in sorted(LEARN_BLOCK_LABELS.keys()):
+            label = LEARN_BLOCK_LABELS[b]
+            cp = int((ts.get("checkpoints", {}) or {}).get(str(b), 0))
+            disabled = b > unlocked
+            btn = st.button(
+                f"{b}. {label}",
+                disabled=disabled,
+                use_container_width=True,
+                help=("Gesperrt: erst vorheriges Kapitel abschließen." if disabled else f"Fortschritt: Frage {cp+1} (Checkpoint)"),
+                key=f"tp_jump_{b}",
+            )
+            if btn:
+                # Start/continue teacher block session at checkpoint
+                st.session_state.learn_plan = {
+                    "mode": "Lehrerpfad",
+                    "teacher_block": b,
+                    "only_unseen": False,
+                    "only_wrong": False,
+                    "category": "Alle",
+                    "subchapter": "Alle",
+                }
+                st.session_state.queue = build_teacher_block_queue(
+                    questions=questions,
+                    progress=progress,
+                    block=b,
+                    only_unseen=False,
+                    only_wrong=False,
+                )
+                st.session_state.idx = max(0, min(cp, max(0, len(st.session_state.queue) - 1)))
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+                st.rerun()
+
+        st.caption("Hinweis: Kapitel werden erst freigeschaltet, wenn du das vorherige Kapitel bis zum Ende durchgearbeitet hast.")
+
+    # ----------------------------
+    # Start / Plan screen (main)
     # ----------------------------
     if not st.session_state.learn_started:
         plan = st.session_state.learn_plan
 
-        learn_mode_ui = st.selectbox(
+        mode_ui = st.radio(
             "Lernmodus",
-            ["Zufällig", "Lehrerpfad (vom Einfachen zum Komplexen)"],
+            ["Zufällig", "Lehrerpfad"],
+            horizontal=True,
             index=0 if plan.get("mode", "Zufällig") == "Zufällig" else 1,
-            key="learn_mode",
         )
 
-        cats = sorted(set((q.get("category") or "").strip() for q in questions if q.get("category")))
-        sel_category = st.selectbox(
-            "Kategorie",
-            ["Alle"] + cats,
-            index=(["Alle"] + cats).index(plan.get("category", "Alle")) if plan.get("category", "Alle") in (["Alle"] + cats) else 0,
-            disabled=(learn_mode_ui != "Zufällig"),
-            key="sel_category",
-            help="Im Lehrerpfad ist die Reihenfolge didaktisch vorgegeben.",
-        )
+        if mode_ui == "Zufällig":
+            st.markdown("### Zufallslernen")
+            cats = sorted(set((q.get("category") or "").strip() for q in questions if q.get("category")))
+            sel_category = st.selectbox(
+                "Kategorie",
+                ["Alle"] + cats,
+                index=(["Alle"] + cats).index(plan.get("category", "Alle")) if plan.get("category", "Alle") in (["Alle"] + cats) else 0,
+            )
 
-        subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
-        if sel_category != "Alle":
-            subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if (q.get("category") or "") == sel_category))
-        sel_subchapter = st.selectbox(
-            "Unterkapitel",
-            ["Alle"] + subs,
-            index=(["Alle"] + subs).index(plan.get("subchapter", "Alle")) if plan.get("subchapter", "Alle") in (["Alle"] + subs) else 0,
-            disabled=(learn_mode_ui != "Zufällig"),
-            key="sel_subchapter",
-        )
+            subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if q.get("subchapter")))
+            if sel_category != "Alle":
+                subs = sorted(set((q.get("subchapter") or "").strip() for q in questions if (q.get("category") or "") == sel_category))
+            sel_subchapter = st.selectbox(
+                "Unterkapitel",
+                ["Alle"] + subs,
+                index=(["Alle"] + subs).index(plan.get("subchapter", "Alle")) if plan.get("subchapter", "Alle") in (["Alle"] + subs) else 0,
+            )
 
-        only_unseen = st.checkbox("Nur ungelernt", value=bool(plan.get("only_unseen", False)), key="only_unseen")
-        only_wrong = st.checkbox("Nur falsch beantwortete", value=bool(plan.get("only_wrong", False)), key="only_wrong")
+            only_unseen = st.checkbox("Nur ungelernt", value=bool(plan.get("only_unseen", False)))
+            only_wrong = st.checkbox("Nur falsch beantwortete", value=bool(plan.get("only_wrong", False)))
 
-        if learn_mode_ui != "Zufällig":
-            preview_queue = build_learning_queue_teacher_path(questions=questions, progress=progress, only_unseen=only_unseen, only_wrong=only_wrong)
-            stats = _teacher_path_stats(preview_queue)
-            with st.expander("Lehrerpfad – Inhalte", expanded=False):
-                for b in sorted(LEARN_BLOCK_LABELS.keys()):
-                    st.write(f"- {LEARN_BLOCK_LABELS[b]}: {stats.get(b, 0)} Fragen")
-
-        c1, c2 = st.columns([1, 1])
-        if c1.button("Session starten", type="primary"):
-            st.session_state.learn_plan = {
-                "mode": "Zufällig" if learn_mode_ui == "Zufällig" else "Lehrerpfad",
-                "category": sel_category,
-                "subchapter": sel_subchapter,
-                "only_unseen": bool(only_unseen),
-                "only_wrong": bool(only_wrong),
-            }
-
-            if learn_mode_ui == "Zufällig":
+            c1, c2 = st.columns([1, 1])
+            if c1.button("Session starten", type="primary", use_container_width=True):
+                st.session_state.learn_plan = {
+                    "mode": "Zufällig",
+                    "category": sel_category,
+                    "subchapter": sel_subchapter,
+                    "only_unseen": bool(only_unseen),
+                    "only_wrong": bool(only_wrong),
+                }
                 st.session_state.queue = build_learning_queue(
                     questions=questions,
                     progress=progress,
@@ -1468,27 +1601,57 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     only_unseen=bool(only_unseen),
                     only_wrong=bool(only_wrong),
                 )
-            else:
-                st.session_state.queue = build_learning_queue_teacher_path(
-                    questions=questions,
-                    progress=progress,
-                    only_unseen=bool(only_unseen),
-                    only_wrong=bool(only_wrong),
-                )
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
+                st.rerun()
+            if c2.button("Zur Übersicht", use_container_width=True):
+                st.session_state.page = "dashboard"
+                _reset_learning_state()
+                st.rerun()
 
-            st.session_state.idx = 0
-            st.session_state.answered = False
-            st.session_state.last_ok = None
-            st.session_state.last_correct_index = None
-            st.session_state.last_selected_index = None
-            st.session_state.learn_answers = {}
-            st.session_state.learn_started = True
-            st.rerun()
+        else:
+            st.markdown("### Lehrerpfad (vom Einfachen zum Komplexen)")
+            ts = st.session_state.teacher_state
+            unlocked = int(ts.get("unlockedBlock", 1))
+            last_block = int(ts.get("lastBlock", 1))
+            cp = int((ts.get("checkpoints", {}) or {}).get(str(last_block), 0))
+            st.info(f"Freigeschaltet bis Kapitel **{unlocked}**. Letztes Kapitel: **{LEARN_BLOCK_LABELS.get(last_block, last_block)}** (Checkpoint: Frage {cp+1}).")
 
-        if c2.button("Zur Übersicht"):
-            st.session_state.page = "dashboard"
-            _reset_learning_state()
-            st.rerun()
+            c1, c2, c3 = st.columns([1, 1, 1])
+            if c1.button("Fortsetzen", type="primary", use_container_width=True):
+                b = last_block
+                st.session_state.learn_plan = {"mode": "Lehrerpfad", "teacher_block": b, "only_unseen": False, "only_wrong": False, "category":"Alle", "subchapter":"Alle"}
+                st.session_state.queue = build_teacher_block_queue(questions, progress, b, False, False)
+                st.session_state.idx = max(0, min(cp, max(0, len(st.session_state.queue) - 1)))
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
+                st.rerun()
+
+            if c2.button("Neu starten (Kapitel 1)", use_container_width=True):
+                ts["unlockedBlock"] = max(1, int(ts.get("unlockedBlock", 1)))
+                ts["lastBlock"] = 1
+                ts["checkpoints"][str(1)] = 0
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+
+                st.session_state.learn_plan = {"mode": "Lehrerpfad", "teacher_block": 1, "only_unseen": False, "only_wrong": False, "category":"Alle", "subchapter":"Alle"}
+                st.session_state.queue = build_teacher_block_queue(questions, progress, 1, False, False)
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
+                st.rerun()
+
+            if c3.button("Kapitel wählen (Sidebar)", use_container_width=True):
+                st.warning("Wähle ein Kapitel links in der Sidebar (gesperrte Kapitel sind deaktiviert).")
+
+            if st.button("Zur Übersicht", use_container_width=True):
+                st.session_state.page = "dashboard"
+                _reset_learning_state()
+                st.rerun()
 
         st.stop()
 
@@ -1504,15 +1667,14 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         _reset_learning_state()
         st.stop()
 
-    # Session end screen
+    # Session end handling
     if idx >= len(queue):
         st.subheader("Session beendet")
 
-        if plan.get("mode", "Zufällig") == "Zufällig":
+        if plan.get("mode") == "Zufällig":
             sel_cat = plan.get("category", "Alle")
             sel_sub = plan.get("subchapter", "Alle")
 
-            # auto-advance only if user selected a specific subchapter
             if sel_sub != "Alle" and sel_sub:
                 nxt = _next_subchapter(questions, sel_cat, sel_sub)
                 if nxt:
@@ -1522,7 +1684,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                         if st.button("Ja, nächsten Abschnitt starten", type="primary"):
                             st.session_state.learn_plan = dict(plan)
                             st.session_state.learn_plan["subchapter"] = nxt
-
                             st.session_state.queue = build_learning_queue(
                                 questions=questions,
                                 progress=progress,
@@ -1548,10 +1709,47 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 if st.button("Zurück zur Lernübersicht", type="primary"):
                     _reset_learning_state()
                     st.rerun()
+
         else:
-            if st.button("Zurück zur Lernübersicht", type="primary"):
-                _reset_learning_state()
-                st.rerun()
+            # teacher mode: unlock next block on completion
+            ts = st.session_state.teacher_state
+            b = int(plan.get("teacher_block", int(ts.get("lastBlock", 1))))
+            ts["checkpoints"][str(b)] = len(queue)  # mark completed
+            ts["lastBlock"] = b
+
+            # unlock next block
+            if int(ts.get("unlockedBlock", 1)) <= b and b < max(LEARN_BLOCK_LABELS.keys()):
+                ts["unlockedBlock"] = b + 1
+                ts["checkpoints"].setdefault(str(b + 1), 0)
+
+            st.session_state.teacher_state = ts
+            db_upsert_teacher_state(uid, ts)
+
+            nxt_b = b + 1 if b < max(LEARN_BLOCK_LABELS.keys()) else None
+            if nxt_b and nxt_b <= int(ts.get("unlockedBlock", 1)):
+                st.write(f"Nächstes Kapitel: **{LEARN_BLOCK_LABELS.get(nxt_b, nxt_b)}**")
+                a1, a2 = st.columns([1, 1])
+                with a1:
+                    if st.button("Ja, nächstes Kapitel starten", type="primary"):
+                        st.session_state.learn_plan = {"mode": "Lehrerpfad", "teacher_block": nxt_b, "only_unseen": False, "only_wrong": False, "category":"Alle", "subchapter":"Alle"}
+                        st.session_state.queue = build_teacher_block_queue(questions, progress, nxt_b, False, False)
+                        st.session_state.idx = int(ts["checkpoints"].get(str(nxt_b), 0) or 0)
+                        st.session_state.answered = False
+                        st.session_state.learn_answers = {}
+                        st.session_state.learn_started = True
+                        ts["lastBlock"] = nxt_b
+                        st.session_state.teacher_state = ts
+                        db_upsert_teacher_state(uid, ts)
+                        st.rerun()
+                with a2:
+                    if st.button("Nein, zurück zur Lernübersicht"):
+                        _reset_learning_state()
+                        st.rerun()
+            else:
+                st.info("Lehrerpfad abgeschlossen oder kein weiteres Kapitel verfügbar.")
+                if st.button("Zurück zur Lernübersicht", type="primary"):
+                    _reset_learning_state()
+                    st.rerun()
 
         st.stop()
 
@@ -1563,47 +1761,12 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     correct_index = int(q.get("correctIndex", -1))
 
     # Header
-    mode = plan.get("mode", "Zufällig")
-    if mode == "Lehrerpfad":
+    if plan.get("mode") == "Lehrerpfad":
         b, s, d = _learn_meta(q)
         block_label = LEARN_BLOCK_LABELS.get(b, f"Block {b}")
         st.caption(f"Lehrerpfad · {block_label} | Stufe {s} · Schwierigkeit {d} · {idx+1}/{len(queue)}")
     else:
         st.caption(f"{plan.get('category','Alle')} · {plan.get('subchapter','Alle')} · {idx+1}/{len(queue)}")
-
-    # Top controls
-    h1, h2, h3 = st.columns([1, 1, 1])
-    if h1.button("Session beenden"):
-        _reset_learning_state()
-        st.rerun()
-    if h2.button("Neu mischen"):
-        # rebuild queue with same plan
-        if mode == "Lehrerpfad":
-            st.session_state.queue = build_learning_queue_teacher_path(
-                questions=questions,
-                progress=progress,
-                only_unseen=bool(plan.get("only_unseen", False)),
-                only_wrong=bool(plan.get("only_wrong", False)),
-            )
-        else:
-            st.session_state.queue = build_learning_queue(
-                questions=questions,
-                progress=progress,
-                category=plan.get("category", "Alle"),
-                subchapter=plan.get("subchapter", "Alle"),
-                only_unseen=bool(plan.get("only_unseen", False)),
-                only_wrong=bool(plan.get("only_wrong", False)),
-            )
-        st.session_state.idx = 0
-        st.session_state.answered = False
-        st.session_state.learn_answers = {}
-        st.rerun()
-    if h3.button("Zur Übersicht"):
-        st.session_state.page = "dashboard"
-        _reset_learning_state()
-        st.rerun()
-
-    st.write("")
 
     # Question card
     st.markdown(
@@ -1611,13 +1774,15 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 <div class="pp-muted">{q.get("category","")} · {q.get("subchapter","")} · ID {qid}</div></div>""",
         unsafe_allow_html=True,
     )
-    st.write("")
 
-    # Navigation + progress (allow review + jump)
-    st.progress(min(1.0, (idx + 1) / max(1, len(queue))))
-    nav1, nav2, nav3 = st.columns([1, 1, 2])
+    # Navigation bar (cleaner, more compact)
+    st.write("")
+    total = len(queue)
+    st.progress(min(1.0, (idx + 1) / max(1, total)))
+
+    nav1, nav2, nav3, nav4 = st.columns([1, 1, 2, 1])
     with nav1:
-        if st.button("← Zurück", disabled=(idx <= 0), key=f"nav_back_{qid}"):
+        if st.button("← Zurück", disabled=(idx <= 0), use_container_width=True, key=f"nav_back_{qid}"):
             st.session_state.idx = max(0, idx - 1)
             prev_q = queue[st.session_state.idx]
             prev_id = str(prev_q.get("id"))
@@ -1633,17 +1798,29 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.last_correct_index = None
                 st.session_state.last_selected_index = None
             st.rerun()
+
     with nav2:
-        if st.button("Weiter →", disabled=(not st.session_state.get("answered", False)), key=f"nav_next_{qid}"):
+        if st.button("Weiter →", disabled=(not st.session_state.get("answered", False)), use_container_width=True, key=f"nav_next_{qid}"):
             st.session_state.idx = idx + 1
             st.session_state.answered = False
             st.session_state.last_ok = None
             st.session_state.last_correct_index = None
             st.session_state.last_selected_index = None
+
+            # persist teacher checkpoint on move
+            if plan.get("mode") == "Lehrerpfad":
+                ts = st.session_state.teacher_state
+                b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+                ts["checkpoints"][str(b)] = int(st.session_state.idx)
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+
             st.rerun()
+
     with nav3:
-        jump = st.number_input("Springe zu Frage", min_value=1, max_value=len(queue), value=idx + 1, step=1, key=f"jump_{qid}")
-        if int(jump) != (idx + 1) and st.button("Springen", key=f"jump_btn_{qid}"):
+        jump = st.number_input("Springe zu Frage", min_value=1, max_value=total, value=idx + 1, step=1, key=f"jump_{qid}")
+        if int(jump) != (idx + 1) and st.button("Springen", use_container_width=True, key=f"jump_btn_{qid}"):
             st.session_state.idx = int(jump) - 1
             j_q = queue[st.session_state.idx]
             j_id = str(j_q.get("id"))
@@ -1658,7 +1835,30 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.last_ok = None
                 st.session_state.last_correct_index = None
                 st.session_state.last_selected_index = None
+
+            if plan.get("mode") == "Lehrerpfad":
+                ts = st.session_state.teacher_state
+                b = int(plan.get("teacher_block", _learn_meta(j_q)[0]))
+                ts["checkpoints"][str(b)] = int(st.session_state.idx)
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+
             st.rerun()
+
+    with nav4:
+        if plan.get("mode") == "Lehrerpfad":
+            ts = st.session_state.teacher_state
+            b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+            if st.button("Kapitel neu", use_container_width=True, key=f"restart_block_{qid}"):
+                ts["checkpoints"][str(b)] = 0
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.rerun()
 
     st.write("")
     render_figures(q, max_n=3)
@@ -1669,7 +1869,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     if not st.session_state.get("answered", False):
         for i_opt in range(4):
             opt = options[i_opt]
-            if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}"):
+            if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}", use_container_width=True):
                 ok = (i_opt == correct_index)
 
                 counters = db_upsert_progress(uid, qid, ok)
@@ -1680,7 +1880,18 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.last_selected_index = i_opt
                 st.session_state.last_correct_index = correct_index
                 st.session_state.learn_answers[qid] = {"selected": int(i_opt), "ok": bool(ok)}
+
+                # Persist teacher checkpoint immediately (best-effort)
+                if plan.get("mode") == "Lehrerpfad":
+                    ts = st.session_state.teacher_state
+                    b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+                    ts["checkpoints"][str(b)] = int(st.session_state.idx)
+                    ts["lastBlock"] = b
+                    st.session_state.teacher_state = ts
+                    db_upsert_teacher_state(uid, ts)
+
                 st.rerun()
+
     else:
         is_ok = bool(st.session_state.get("last_ok") or False)
         corr_i = st.session_state.get("last_correct_index")
@@ -1694,7 +1905,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
         w = get_wiki(q)
-        with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):
+        with st.expander("Wiki (kurz + Merksatz + Links)", expanded=False):
             if w["explanation"]:
                 st.markdown(w["explanation"])
             else:
@@ -1732,39 +1943,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     st.success("Gespeichert")
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
-
-        c1, c2 = st.columns([1, 1])
-        if c1.button("Weiter", type="primary"):
-            st.session_state.idx = idx + 1
-            st.session_state.answered = False
-            st.session_state.last_ok = None
-            st.session_state.last_correct_index = None
-            st.session_state.last_selected_index = None
-            st.rerun()
-        if c2.button("Gezielt: nur falsch in diesem Set"):
-            plan2 = dict(plan)
-            plan2["only_wrong"] = True
-            st.session_state.learn_plan = plan2
-            if mode == "Lehrerpfad":
-                st.session_state.queue = build_learning_queue_teacher_path(
-                    questions=questions,
-                    progress=st.session_state.progress,
-                    only_unseen=bool(plan2.get("only_unseen", False)),
-                    only_wrong=True,
-                )
-            else:
-                st.session_state.queue = build_learning_queue(
-                    questions=questions,
-                    progress=st.session_state.progress,
-                    category=plan2["category"],
-                    subchapter=plan2["subchapter"],
-                    only_unseen=bool(plan2["only_unseen"]),
-                    only_wrong=True,
-                )
-            st.session_state.idx = 0
-            st.session_state.answered = False
-            st.session_state.learn_answers = {}
-            st.rerun()
 
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:

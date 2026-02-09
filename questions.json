@@ -2924,15 +2924,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Flugbeschränkungsgebiet ist an Regeln und Wirksamkeitszeiten gebunden. Während der Wirksamkeit können dort zusätzliche Auflagen gelten oder der Durchflug für nicht berechtigten Verkehr untersagt sein. Für dich heißt das praktisch: Du planst so, dass du das Gebiet nur dann querst, wenn es nicht wirksam ist oder die veröffentlichten Bedingungen es ausdrücklich zulassen.",
+      "merksatz": "ED‑R aktiv? Wenn ja: meiden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung (AIP/NOTAM/Briefing)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Durchflug grundsätzlich nur außerhalb der Beschränkungszeiten möglich"
   },
   {
     "id": "Q092",
@@ -2955,15 +2956,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die ICAO‑Karte zeigt dir Lage und Kennung, aber nicht zuverlässig die tagesaktuelle Wirksamkeit. Dafür brauchst du dynamische und offizielle Veröffentlichungen: das Luftfahrthandbuch (AIP) enthält dauerhafte Regeln/Strukturen, NOTAM melden zeitlich befristete Änderungen, und der Flugberatungsdienst (AIS) bündelt diese Informationen als Briefing. Zusätzlich stellen die offiziellen Dienste (z.B. DFS/Austro Control) diese Informationen auch online bereit.",
+      "merksatz": "Wirksamkeit = AIP + NOTAM + AIS‑Briefing.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung (AIP/NOTAM/Briefing)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ja,  im  Luftfahrthandbuch  (AIP),  telefonisch  beim  Flugberatungsdienst  (AIS)  und  auf  den Websites von DFS und der Austrocontrol GmbH"
   },
   {
     "id": "Q093",
@@ -2986,15 +2988,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Für einen Überlandflug brauchst du eine Karte, die die aktuelle Luftraumstruktur, Beschränkungsgebiete und relevante Platz-/Geländeinfos abbildet. Entscheidend ist nicht nur der Kartentyp, sondern auch der Gültigkeitsstand: Luftraumgrenzen, Frequenzen oder Beschränkungen können sich ändern. Darum darfst du dich nicht auf eine alte Ausgabe verlassen, selbst wenn sie „inhaltlich ähnlich“ wirkt.",
+      "merksatz": "Überland: nur mit aktueller ICAO‑Karte.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: ICAO‑Karte 1:500 000 Deutschland (Info 2026)",
+          "url": "https://www.dfs.de/homepage/de/medien/presse/2026/27-01-2026-icao-karte-2026-mit-optimierter-darstellung-und-erweiterten-informationen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ICAO-Karte mit aktueller Gültigkeit"
   },
   {
     "id": "Q094",
@@ -3017,15 +3020,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Flugbeschränkungsgebiete erkennst du in der ICAO‑Karte an der speziellen Flächenmarkierung und der Kennung des Gebietstyps. Typisch ist eine farbige Umrandung mit Schraffur (damit die Fläche auch über der Topografie gut auffällt) und eine Gebietsbezeichnung mit laufender Nummer. So unterscheidet sich ein „beschränktes Gebiet“ klar von normalen Luftraumklassen, die nur als Linien/Labels dargestellt werden.",
+      "merksatz": "Beschränkung = markierte Fläche + Kennung + Nummer.",
+      "links": []
+    },
+    "correctAnswerText": "ED-R.. (Nr) rot umrandet (Schraffur und Außenstrich)"
   },
   {
     "id": "Q095",
@@ -3053,10 +3052,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "In der Abbildung ist die Legende für „Luftraumbeschränkungen“ gezeigt: Dort siehst du, dass Deutschland ein Länderpräfix nutzt und der Buchstabe nach dem Bindestrich den Gebietstyp beschreibt. Ein „Gefahrengebiet“ ist dabei als eigene Kategorie in der Legende aufgeführt und wird genau über diesen Gebietstyp‑Buchstaben gekennzeichnet; die laufende Nummer dient nur der eindeutigen Identifikation des конкретen Gebiets.",
+      "merksatz": "Legende lesen: Buchstabe = Gebietstyp.",
       "links": []
-    }
+    },
+    "correctAnswerText": "ED-D"
   },
   {
     "id": "Q096",
@@ -3079,15 +3079,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine ICAO‑Karte ist eine Luftfahrtkarte für Sichtnavigation, die dir vor allem die Luftraumstruktur (Klassen, Kontrollzonen, Pflichtgebiete), Flugplätze/Landeplätze, Hindernisse und wichtige Höhen-/Frequenzangaben darstellt. Sie ist damit primär ein Werkzeug für Flugplanung und sichere Routenwahl im VFR‑Betrieb, nicht eine militärische Spezialkarte oder eine reine Gelände-/Reliefkarte.",
+      "merksatz": "ICAO‑Karte = Luftraum + Plätze + Höhen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: ICAO‑Karte 1:500 000 Deutschland (Info 2026)",
+          "url": "https://www.dfs.de/homepage/de/medien/presse/2026/27-01-2026-icao-karte-2026-mit-optimierter-darstellung-und-erweiterten-informationen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Karte mit Darstellung der Luftraumgliederung"
   },
   {
     "id": "Q097",
@@ -3110,15 +3111,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Eine Kontrollzone ist ein Bereich um einen kontrollierten Flugplatz, der auf der ICAO‑Karte als Fläche hervorgehoben wird, damit du sie sofort erkennst. Zusätzlich ist die Grenze grafisch markiert und es stehen Angaben zu Obergrenze/Untergrenze in der Beschriftung. Der Sinn dieser Darstellung: Schon beim „drüber schauen“ soll klar sein, wo ein besonders sensibler Bereich für Start-/Landeverkehr beginnt.",
+      "merksatz": "CTR = farbige Fläche + klarer Rand.",
+      "links": []
+    },
+    "correctAnswerText": "Transparent rot mit blau gestricheltem Rand"
   },
   {
     "id": "Q098",
@@ -3141,15 +3138,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "MSL bedeutet „Mean Sea Level“: Höhenangaben beziehen sich auf den mittleren Meeresspiegel als Bezugsebene. Das ist wichtig, weil du damit Höhen unabhängig vom Gelände vergleichbar angibst. Im Gegensatz dazu ist AGL/GND eine Höhe über Grund (geländeabhängig), und Flugflächen (FL) beziehen sich auf eine Druckfläche (Standardatmosphäre).",
+      "merksatz": "MSL = über Meeresspiegel.",
+      "links": []
+    },
+    "correctAnswerText": "dem mittleren Meeresspiegel"
   },
   {
     "id": "Q099",
@@ -3172,15 +3165,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die jährliche Neuherausgabe ist nötig, weil Lufträume, Verfahren, Frequenzen und Einträge (z.B. neue/wegfallende Strukturen) sich ändern können. In Deutschland wird diese ICAO‑Karte als offizielles Kartenwerk durch den nationalen Flugsicherungsdienst veröffentlicht; dadurch ist sichergestellt, dass sie den aktuellen Stand der Luftfahrtinformationen zum Wirksamkeitsdatum abbildet.",
+      "merksatz": "DE‑ICAO: jährlich von der Flugsicherung.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: ICAO‑Karte 1:500 000 Deutschland (Info 2026)",
+          "url": "https://www.dfs.de/homepage/de/medien/presse/2026/27-01-2026-icao-karte-2026-mit-optimierter-darstellung-und-erweiterten-informationen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "von der Deutschen Flugsicherung GmbH"
   },
   {
     "id": "Q100",
@@ -3203,15 +3197,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In Österreich werden offizielle Luftfahrtkarten im Zuständigkeitsbereich der nationalen Luftfahrtorganisation herausgegeben. Für die praktische Flugplanung heißt das: Du nutzt die österreichische ICAO‑Karte aus der offiziellen Veröffentlichungslinie, damit Luftraumstruktur und Einträge dem aktuellen Stand entsprechen.",
+      "merksatz": "AT‑ICAO: offiziell von Austro Control.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria GEN 3.2: Aeronautical Charts (Herausgeber)",
+          "url": "https://eaip.austrocontrol.at/lo/260319/PART_1/LO_GEN_3_2_en.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "von der Austro Control GmbH"
   },
   {
     "id": "Q101",

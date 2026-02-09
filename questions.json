@@ -29,7 +29,17 @@
         }
       ]
     },
-    "correctAnswerText": "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden"
+    "correctAnswerText": "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q002",
@@ -61,7 +71,17 @@
         }
       ]
     },
-    "correctAnswerText": "Das von links kommende Luftfahrzeug ist ausweichpflichtig"
+    "correctAnswerText": "Das von links kommende Luftfahrzeug ist ausweichpflichtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q003",
@@ -93,7 +113,17 @@
         }
       ]
     },
-    "correctAnswerText": "muss dem Gleitschirmflieger ausweichen"
+    "correctAnswerText": "muss dem Gleitschirmflieger ausweichen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q004",
@@ -125,7 +155,17 @@
         }
       ]
     },
-    "correctAnswerText": "Beide Luftfahrzeuge müssen nach rechts ausweichen"
+    "correctAnswerText": "Beide Luftfahrzeuge müssen nach rechts ausweichen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q005",
@@ -157,7 +197,17 @@
         }
       ]
     },
-    "correctAnswerText": "darf nicht unterflogen oder überholt werden"
+    "correctAnswerText": "darf nicht unterflogen oder überholt werden",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q006",
@@ -189,7 +239,17 @@
         }
       ]
     },
-    "correctAnswerText": "Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist"
+    "correctAnswerText": "Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q007",
@@ -226,7 +286,18 @@
         }
       ]
     },
-    "correctAnswerText": "Das  von  links  kommende  Luftfahrzeug  muss  ausweichen,  die  Ausweichrichtung  ist  nicht vorgeschrieben"
+    "correctAnswerText": "Das  von  links  kommende  Luftfahrzeug  muss  ausweichen,  die  Ausweichrichtung  ist  nicht vorgeschrieben",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q008",
@@ -263,7 +334,18 @@
         }
       ]
     },
-    "correctAnswerText": "Der  Drachenflieger,  denn  den  im  Aufwind  kreisenden  Fluggeräten  muss  ausgewichen  werden. Die Ausweichrichtung ist nicht vorgeschrieben."
+    "correctAnswerText": "Der  Drachenflieger,  denn  den  im  Aufwind  kreisenden  Fluggeräten  muss  ausgewichen  werden. Die Ausweichrichtung ist nicht vorgeschrieben.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q009",
@@ -295,7 +377,17 @@
         }
       ]
     },
-    "correctAnswerText": "Dass  den  Piloten,  die  am  Hang  soaren,  ausgewichen  werden  muss,  denn  die  Hangflugregeln haben hier Vorrang."
+    "correctAnswerText": "Dass  den  Piloten,  die  am  Hang  soaren,  ausgewichen  werden  muss,  denn  die  Hangflugregeln haben hier Vorrang.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q010",
@@ -322,7 +414,17 @@
       "merksatz": "Im Ausland gilt’s lokal: In AT hat Thermikverkehr Vorrang.",
       "links": []
     },
-    "correctAnswerText": "Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist."
+    "correctAnswerText": "Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q011",
@@ -354,7 +456,17 @@
         }
       ]
     },
-    "correctAnswerText": "Ein  Luftfahrzeug  darf  nicht  so  nah  an  anderen  Luftfahrzeugen  betrieben  werden,  dass  die Gefahr eines Zusammenstoßes besteht."
+    "correctAnswerText": "Ein  Luftfahrzeug  darf  nicht  so  nah  an  anderen  Luftfahrzeugen  betrieben  werden,  dass  die Gefahr eines Zusammenstoßes besteht.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q012",
@@ -391,7 +503,18 @@
         }
       ]
     },
-    "correctAnswerText": "Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen"
+    "correctAnswerText": "Der Pilot, der den Leebereich an seiner linken Seite hat muss nach rechts ausweichen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "hasFigure",
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q013",
@@ -428,7 +551,18 @@
         }
       ]
     },
-    "correctAnswerText": "muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat"
+    "correctAnswerText": "muss das Fluggerät nach rechts ausweichen, das den Hang an seiner linken Seite hat",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q014",
@@ -460,7 +594,18 @@
       "merksatz": "Überholer trägt die ganze Verantwortung.",
       "links": []
     },
-    "correctAnswerText": "rechts oder links"
+    "correctAnswerText": "rechts oder links",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q015",
@@ -492,7 +637,17 @@
         }
       ]
     },
-    "correctAnswerText": "eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann."
+    "correctAnswerText": "eine grundsätzliche Außenlandeerlaubnis nur bei Überlandflügen, wenn der geplante Landeplatz nicht erreicht werden kann.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q016",
@@ -519,7 +674,17 @@
       "merksatz": "Österreich: Überland = weiter als 10 km weg vom Start.",
       "links": []
     },
-    "correctAnswerText": "die weiter als 10 km vom Startplatz wegführen"
+    "correctAnswerText": "die weiter als 10 km vom Startplatz wegführen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q017",
@@ -551,7 +716,17 @@
         }
       ]
     },
-    "correctAnswerText": "Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren"
+    "correctAnswerText": "Seinen Flug zu planen und sich über Lufträume und Flugwetter zu informieren",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q018",
@@ -578,7 +753,17 @@
       "merksatz": "Daten geben – dann darfst du dein Gerät holen.",
       "links": []
     },
-    "correctAnswerText": "Nein"
+    "correctAnswerText": "Nein",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q019",
@@ -610,7 +795,17 @@
         }
       ]
     },
-    "correctAnswerText": "Bei  einem  Überlandflug,  wenn  der  geplante  Landeplatz  nicht  erreicht  werden  kann (Außenlandung) und in Notfällen (Notlandung)."
+    "correctAnswerText": "Bei  einem  Überlandflug,  wenn  der  geplante  Landeplatz  nicht  erreicht  werden  kann (Außenlandung) und in Notfällen (Notlandung).",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q020",
@@ -642,7 +837,17 @@
         }
       ]
     },
-    "correctAnswerText": "für die eine Erlaubnis des Beauftragten (DHV) erteilt ist"
+    "correctAnswerText": "für die eine Erlaubnis des Beauftragten (DHV) erteilt ist",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q021",
@@ -677,6 +882,16 @@
           "url": "https://eaip.austrocontrol.at/"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -712,6 +927,16 @@
           "url": "https://eaip.austrocontrol.at/"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -743,6 +968,16 @@
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -774,6 +1009,16 @@
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
     }
   },
   {
@@ -805,6 +1050,16 @@
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -836,6 +1091,16 @@
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -875,6 +1140,16 @@
           "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
     }
   },
   {
@@ -914,6 +1189,16 @@
           "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
     }
   },
   {
@@ -945,6 +1230,16 @@
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -976,6 +1271,17 @@
           "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
         }
       ]
+    },
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
     }
   },
   {
@@ -1008,7 +1314,17 @@
         }
       ]
     },
-    "correctAnswerText": "sollte, insbesondere für Flüge im außereuropäischen Ausland, überprüft werden."
+    "correctAnswerText": "sollte, insbesondere für Flüge im außereuropäischen Ausland, überprüft werden.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q032",
@@ -1040,7 +1356,17 @@
         }
       ]
     },
-    "correctAnswerText": "Auslands-Krankenversicherung mit Rücktransport"
+    "correctAnswerText": "Auslands-Krankenversicherung mit Rücktransport",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q033",
@@ -1072,7 +1398,17 @@
         }
       ]
     },
-    "correctAnswerText": "Visual Flight Rules (Sichtflugregeln)"
+    "correctAnswerText": "Visual Flight Rules (Sichtflugregeln)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q034",
@@ -1104,7 +1440,17 @@
         }
       ]
     },
-    "correctAnswerText": "bedeutet 10.000 ft über der Druckfläche des ICAO-Standarddrucks von 1013,25 hPa"
+    "correctAnswerText": "bedeutet 10.000 ft über der Druckfläche des ICAO-Standarddrucks von 1013,25 hPa",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q035",
@@ -1136,7 +1482,17 @@
         }
       ]
     },
-    "correctAnswerText": "Verkehr nach Instrumentenflugregeln (Instrumental Flight Rules)"
+    "correctAnswerText": "Verkehr nach Instrumentenflugregeln (Instrumental Flight Rules)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q036",
@@ -1163,7 +1519,17 @@
       "merksatz": "Gleitschirm ist Sichtfluggerät – keine IFR-Ausrüstung/Verfahren.",
       "links": []
     },
-    "correctAnswerText": "Nein"
+    "correctAnswerText": "Nein",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q037",
@@ -1195,7 +1561,17 @@
         }
       ]
     },
-    "correctAnswerText": "Bis 300 m Abstand"
+    "correctAnswerText": "Bis 300 m Abstand",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q038",
@@ -1227,7 +1603,17 @@
         }
       ]
     },
-    "correctAnswerText": "bis 300 m an die Wolkenbasis heran fliegen"
+    "correctAnswerText": "bis 300 m an die Wolkenbasis heran fliegen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q039",
@@ -1259,7 +1645,17 @@
         }
       ]
     },
-    "correctAnswerText": "ist eine Ordnungswidrigkeit"
+    "correctAnswerText": "ist eine Ordnungswidrigkeit",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q040",
@@ -1291,7 +1687,17 @@
         }
       ]
     },
-    "correctAnswerText": "kontrollierter Luftraum"
+    "correctAnswerText": "kontrollierter Luftraum",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q041",
@@ -1323,7 +1729,17 @@
         }
       ]
     },
-    "correctAnswerText": "eine Kontrollzone"
+    "correctAnswerText": "eine Kontrollzone",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q042",
@@ -1355,7 +1771,17 @@
         }
       ]
     },
-    "correctAnswerText": "unterhalb 1000 ft AGL sowie unterhalb 3000 ft MSL bis zur Basis aufdrehen"
+    "correctAnswerText": "unterhalb 1000 ft AGL sowie unterhalb 3000 ft MSL bis zur Basis aufdrehen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q043",
@@ -1382,7 +1808,18 @@
       "merksatz": "Obergrenze steht in der Karte, nicht im Bauchgefühl.",
       "links": []
     },
-    "correctAnswerText": "So hoch, bis die jeweilige Obergrenze der für Gleitschirme erlaubten Lufträume G und E an die nicht erlaubten Lufträume C oder D oder eine TMZ grenzen"
+    "correctAnswerText": "So hoch, bis die jeweilige Obergrenze der für Gleitschirme erlaubten Lufträume G und E an die nicht erlaubten Lufträume C oder D oder eine TMZ grenzen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q044",
@@ -1414,7 +1851,17 @@
         }
       ]
     },
-    "correctAnswerText": "sind Sichtflüge (VFR-Flüge) erlaubt"
+    "correctAnswerText": "sind Sichtflüge (VFR-Flüge) erlaubt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q045",
@@ -1446,7 +1893,17 @@
         }
       ]
     },
-    "correctAnswerText": "ist kontrollierter Luftraum"
+    "correctAnswerText": "ist kontrollierter Luftraum",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q046",
@@ -1478,7 +1935,18 @@
         }
       ]
     },
-    "correctAnswerText": "ist ausschließlich kontrollierter Luftraum"
+    "correctAnswerText": "ist ausschließlich kontrollierter Luftraum",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q047",
@@ -1510,7 +1978,17 @@
         }
       ]
     },
-    "correctAnswerText": "bis FL 100, im Alpenbereich bis FL 130, geflogen werden"
+    "correctAnswerText": "bis FL 100, im Alpenbereich bis FL 130, geflogen werden",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q048",
@@ -1542,7 +2020,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugsicht 8 km, 300 m vertikaler und 1,5 km horizontaler Wolkenabstand"
+    "correctAnswerText": "Flugsicht 8 km, 300 m vertikaler und 1,5 km horizontaler Wolkenabstand",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q049",
@@ -1574,7 +2063,18 @@
         }
       ]
     },
-    "correctAnswerText": "für  den  Luftraum  G  unterhalb  von  3000  ft  (900  m)  MSL,  oberhalb  von  3000  ft  (900  m)  MSL, wenn dabei eine Höhe über Grund (AGL) von 1000 ft (300 m) nicht überschritten wird"
+    "correctAnswerText": "für  den  Luftraum  G  unterhalb  von  3000  ft  (900  m)  MSL,  oberhalb  von  3000  ft  (900  m)  MSL, wenn dabei eine Höhe über Grund (AGL) von 1000 ft (300 m) nicht überschritten wird",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q050",
@@ -1606,7 +2106,17 @@
         }
       ]
     },
-    "correctAnswerText": "5 km, oberhalb FL 100, 8 km"
+    "correctAnswerText": "5 km, oberhalb FL 100, 8 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q051",
@@ -1638,7 +2148,18 @@
         }
       ]
     },
-    "correctAnswerText": "1.000 ft"
+    "correctAnswerText": "1.000 ft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q052",
@@ -1670,7 +2191,17 @@
         }
       ]
     },
-    "correctAnswerText": "VFR-Piloten sollen im Luftraum E 500 ft Höhenabstand von Luftraum C (FL 100) einhalten."
+    "correctAnswerText": "VFR-Piloten sollen im Luftraum E 500 ft Höhenabstand von Luftraum C (FL 100) einhalten.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q053",
@@ -1702,7 +2233,17 @@
         }
       ]
     },
-    "correctAnswerText": "300 m über dem höchsten Hindernis innerhalb eines Umkreises von 600 m"
+    "correctAnswerText": "300 m über dem höchsten Hindernis innerhalb eines Umkreises von 600 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q054",
@@ -1734,7 +2275,18 @@
         }
       ]
     },
-    "correctAnswerText": "Ja, wenn der Flug dies erforderlich macht und keine Personen oder Sachen gefährdet werden."
+    "correctAnswerText": "Ja, wenn der Flug dies erforderlich macht und keine Personen oder Sachen gefährdet werden.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q055",
@@ -1766,7 +2318,17 @@
         }
       ]
     },
-    "correctAnswerText": "mischt sich VFR-Verkehr mit IFR-Verkehr"
+    "correctAnswerText": "mischt sich VFR-Verkehr mit IFR-Verkehr",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q056",
@@ -1793,7 +2355,17 @@
       "merksatz": "Ab FL100: mehr Sicht – gleiche Wolkenabstände.",
       "links": []
     },
-    "correctAnswerText": "8 km Flugsicht, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m"
+    "correctAnswerText": "8 km Flugsicht, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q057",
@@ -1825,7 +2397,17 @@
         }
       ]
     },
-    "correctAnswerText": "2.500 ft AGL"
+    "correctAnswerText": "2.500 ft AGL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q058",
@@ -1852,7 +2434,17 @@
       "merksatz": "AT: G‑Obergrenze immer gebietsabhängig prüfen.",
       "links": []
     },
-    "correctAnswerText": "in unterschiedlicher Höhe"
+    "correctAnswerText": "in unterschiedlicher Höhe",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q059",
@@ -1884,7 +2476,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugsicht 5 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)"
+    "correctAnswerText": "Flugsicht 5 km, horizontaler Wolkenabstand 1,5 km, vertikaler Wolkenabstand 300 m (1000 ft)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q060",
@@ -1916,7 +2519,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken"
+    "correctAnswerText": "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q061",
@@ -1948,7 +2562,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken"
+    "correctAnswerText": "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q062",
@@ -1980,7 +2605,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugsicht 1,5 km, frei von Wolken, Erdsicht"
+    "correctAnswerText": "Flugsicht 1,5 km, frei von Wolken, Erdsicht",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q063",
@@ -2012,7 +2648,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugsicht 5 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal"
+    "correctAnswerText": "Flugsicht 5 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q064",
@@ -2044,7 +2691,18 @@
         }
       ]
     },
-    "correctAnswerText": "für den Luftraum G oberhalb 3000 ft MSL (900 m), wenn gleichzeitig in einer Höhe von mehr als 1000 ft (300 m) über Grund (AGL) geflogen wird und für den Luftraum E bis FL 100"
+    "correctAnswerText": "für den Luftraum G oberhalb 3000 ft MSL (900 m), wenn gleichzeitig in einer Höhe von mehr als 1000 ft (300 m) über Grund (AGL) geflogen wird und für den Luftraum E bis FL 100",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q065",
@@ -2076,7 +2734,18 @@
         }
       ]
     },
-    "correctAnswerText": "für die Lufträume G und E oberhalb von 10.000 ft in Österreich und für den Luftraum E oberhalb von FL 100 in Deutschland"
+    "correctAnswerText": "für die Lufträume G und E oberhalb von 10.000 ft in Österreich und für den Luftraum E oberhalb von FL 100 in Deutschland",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q066",
@@ -2108,7 +2777,18 @@
         }
       ]
     },
-    "correctAnswerText": "Du hast Dich falsch verhalten, weil Du im Luftraum E mindestens 300 m vertikalen und 1500 m horizontalen Abstand zur Wolke halten musst."
+    "correctAnswerText": "Du hast Dich falsch verhalten, weil Du im Luftraum E mindestens 300 m vertikalen und 1500 m horizontalen Abstand zur Wolke halten musst.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q067",
@@ -2140,7 +2820,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die Luftraum-Struktur und die Berechtigung zur Nutzung von Lufträumen für Gleitschirme und Hängegleiter ist von Land zu Land unterschiedlich."
+    "correctAnswerText": "Die Luftraum-Struktur und die Berechtigung zur Nutzung von Lufträumen für Gleitschirme und Hängegleiter ist von Land zu Land unterschiedlich.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q068",
@@ -2172,7 +2862,17 @@
         }
       ]
     },
-    "correctAnswerText": "GND"
+    "correctAnswerText": "GND",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q069",
@@ -2204,7 +2904,17 @@
         }
       ]
     },
-    "correctAnswerText": "zum Schutz des Start- und Landeverkehrs"
+    "correctAnswerText": "zum Schutz des Start- und Landeverkehrs",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q070",
@@ -2236,7 +2946,17 @@
         }
       ]
     },
-    "correctAnswerText": "CTR"
+    "correctAnswerText": "CTR",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q071",
@@ -2268,7 +2988,17 @@
         }
       ]
     },
-    "correctAnswerText": "Nein"
+    "correctAnswerText": "Nein",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q072",
@@ -2300,7 +3030,17 @@
         }
       ]
     },
-    "correctAnswerText": "reicht immer bis zum Boden"
+    "correctAnswerText": "reicht immer bis zum Boden",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q073",
@@ -2332,7 +3072,17 @@
         }
       ]
     },
-    "correctAnswerText": "erstreckt sich nahezu über ganz Deutschland."
+    "correctAnswerText": "erstreckt sich nahezu über ganz Deutschland.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q074",
@@ -2364,7 +3114,17 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q075",
@@ -2396,7 +3156,17 @@
         }
       ]
     },
-    "correctAnswerText": "im Höhenband zwischen 1.000 - 2.000 ft GND"
+    "correctAnswerText": "im Höhenband zwischen 1.000 - 2.000 ft GND",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q076",
@@ -2428,7 +3198,17 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q077",
@@ -2460,7 +3240,17 @@
         }
       ]
     },
-    "correctAnswerText": "Nur in Tiefflugstrecken und Tieffluggebieten"
+    "correctAnswerText": "Nur in Tiefflugstrecken und Tieffluggebieten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q078",
@@ -2492,7 +3282,17 @@
         }
       ]
     },
-    "correctAnswerText": "150m AGL"
+    "correctAnswerText": "150m AGL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q079",
@@ -2524,7 +3324,17 @@
         }
       ]
     },
-    "correctAnswerText": "jederzeit aktivierbar."
+    "correctAnswerText": "jederzeit aktivierbar.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q080",
@@ -2556,7 +3366,18 @@
       "merksatz": "ED-… = deutsches Beschränkungsgebiet-Kürzel.",
       "links": []
     },
-    "correctAnswerText": "Europa-Deutschland-Danger Area"
+    "correctAnswerText": "Europa-Deutschland-Danger Area",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition",
+        "hasFigure"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q081",
@@ -2593,7 +3414,18 @@
         }
       ]
     },
-    "correctAnswerText": "Gefahrengebiet"
+    "correctAnswerText": "Gefahrengebiet",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q082",
@@ -2630,7 +3462,18 @@
         }
       ]
     },
-    "correctAnswerText": "Europa-Deutschland-Restricted Area"
+    "correctAnswerText": "Europa-Deutschland-Restricted Area",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition",
+        "hasFigure"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q083",
@@ -2667,7 +3510,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugbeschränkungsgebiet"
+    "correctAnswerText": "Flugbeschränkungsgebiet",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q084",
@@ -2699,7 +3553,17 @@
         }
       ]
     },
-    "correctAnswerText": "LO-D"
+    "correctAnswerText": "LO-D",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q085",
@@ -2731,7 +3595,17 @@
         }
       ]
     },
-    "correctAnswerText": "LO-R"
+    "correctAnswerText": "LO-R",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q086",
@@ -2768,7 +3642,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugbeschränkungsgebiet, Durchflug während der Aktivierungszeit verboten"
+    "correctAnswerText": "Flugbeschränkungsgebiet, Durchflug während der Aktivierungszeit verboten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q087",
@@ -2805,7 +3690,18 @@
         }
       ]
     },
-    "correctAnswerText": "Gefahrengebiet, Durchflug auf eigene Gefahr möglich"
+    "correctAnswerText": "Gefahrengebiet, Durchflug auf eigene Gefahr möglich",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q088",
@@ -2837,7 +3733,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die Kontrollzone kann jederzeit aktiviert werden."
+    "correctAnswerText": "Die Kontrollzone kann jederzeit aktiviert werden.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q089",
@@ -2869,7 +3775,18 @@
         }
       ]
     },
-    "correctAnswerText": "Flugbeschränkungsgebiet, Durchflug während der Aktivierungszeit verboten"
+    "correctAnswerText": "Flugbeschränkungsgebiet, Durchflug während der Aktivierungszeit verboten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q090",
@@ -2901,7 +3818,17 @@
         }
       ]
     },
-    "correctAnswerText": "ist auf eigenes Risiko möglich."
+    "correctAnswerText": "ist auf eigenes Risiko möglich.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q091",
@@ -2933,7 +3860,18 @@
         }
       ]
     },
-    "correctAnswerText": "Durchflug grundsätzlich nur außerhalb der Beschränkungszeiten möglich"
+    "correctAnswerText": "Durchflug grundsätzlich nur außerhalb der Beschränkungszeiten möglich",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 4,
+      "difficulty": 4,
+      "tags": [
+        "exception",
+        "multiCondition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q092",
@@ -2965,7 +3903,17 @@
         }
       ]
     },
-    "correctAnswerText": "Ja,  im  Luftfahrthandbuch  (AIP),  telefonisch  beim  Flugberatungsdienst  (AIS)  und  auf  den Websites von DFS und der Austrocontrol GmbH"
+    "correctAnswerText": "Ja,  im  Luftfahrthandbuch  (AIP),  telefonisch  beim  Flugberatungsdienst  (AIS)  und  auf  den Websites von DFS und der Austrocontrol GmbH",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 4,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q093",
@@ -2997,7 +3945,17 @@
         }
       ]
     },
-    "correctAnswerText": "ICAO-Karte mit aktueller Gültigkeit"
+    "correctAnswerText": "ICAO-Karte mit aktueller Gültigkeit",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q094",
@@ -3024,7 +3982,18 @@
       "merksatz": "Beschränkung = markierte Fläche + Kennung + Nummer.",
       "links": []
     },
-    "correctAnswerText": "ED-R.. (Nr) rot umrandet (Schraffur und Außenstrich)"
+    "correctAnswerText": "ED-R.. (Nr) rot umrandet (Schraffur und Außenstrich)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q095",
@@ -3056,7 +4025,18 @@
       "merksatz": "Legende lesen: Buchstabe = Gebietstyp.",
       "links": []
     },
-    "correctAnswerText": "ED-D"
+    "correctAnswerText": "ED-D",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition",
+        "hasFigure"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q096",
@@ -3088,7 +4068,18 @@
         }
       ]
     },
-    "correctAnswerText": "Karte mit Darstellung der Luftraumgliederung"
+    "correctAnswerText": "Karte mit Darstellung der Luftraumgliederung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q097",
@@ -3115,7 +4106,18 @@
       "merksatz": "CTR = farbige Fläche + klarer Rand.",
       "links": []
     },
-    "correctAnswerText": "Transparent rot mit blau gestricheltem Rand"
+    "correctAnswerText": "Transparent rot mit blau gestricheltem Rand",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q098",
@@ -3142,7 +4144,17 @@
       "merksatz": "MSL = über Meeresspiegel.",
       "links": []
     },
-    "correctAnswerText": "dem mittleren Meeresspiegel"
+    "correctAnswerText": "dem mittleren Meeresspiegel",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q099",
@@ -3174,7 +4186,17 @@
         }
       ]
     },
-    "correctAnswerText": "von der Deutschen Flugsicherung GmbH"
+    "correctAnswerText": "von der Deutschen Flugsicherung GmbH",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q100",
@@ -3206,7 +4228,17 @@
         }
       ]
     },
-    "correctAnswerText": "von der Austro Control GmbH"
+    "correctAnswerText": "von der Austro Control GmbH",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q101",
@@ -3243,7 +4275,18 @@
         }
       ]
     },
-    "correctAnswerText": "darf bis 1.000 ft unter die Basis aufgedreht werden, jedoch nicht höher als (13.000 ft) ca. 3.950 m über Druckfläche 1013,2 hPa.."
+    "correctAnswerText": "darf bis 1.000 ft unter die Basis aufgedreht werden, jedoch nicht höher als (13.000 ft) ca. 3.950 m über Druckfläche 1013,2 hPa..",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q102",
@@ -3280,7 +4323,18 @@
         }
       ]
     },
-    "correctAnswerText": "darf die Flughöhe maximal 9.500 ft MSL betragen"
+    "correctAnswerText": "darf die Flughöhe maximal 9.500 ft MSL betragen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q103",
@@ -3317,7 +4371,18 @@
         }
       ]
     },
-    "correctAnswerText": "durch die Absenkung des Luftraums D auf 8.500 ft MSL geschützt"
+    "correctAnswerText": "durch die Absenkung des Luftraums D auf 8.500 ft MSL geschützt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q104",
@@ -3354,7 +4419,18 @@
         }
       ]
     },
-    "correctAnswerText": "Ein Gebiet mit Transponderpflicht (TMZ) oberhalb 11.000 ft MSL, ausgenommen der Bereiche unterhalb 1500 ft AGL"
+    "correctAnswerText": "Ein Gebiet mit Transponderpflicht (TMZ) oberhalb 11.000 ft MSL, ausgenommen der Bereiche unterhalb 1500 ft AGL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q105",
@@ -3391,7 +4467,18 @@
         }
       ]
     },
-    "correctAnswerText": "nördlich der Linie, Luftraum E bis FL 100, südlich der Linie Luftraum E bis FL 130"
+    "correctAnswerText": "nördlich der Linie, Luftraum E bis FL 100, südlich der Linie Luftraum E bis FL 130",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q106",
@@ -3428,7 +4515,18 @@
         }
       ]
     },
-    "correctAnswerText": "ein Gefahrengebiet in Österreich."
+    "correctAnswerText": "ein Gefahrengebiet in Österreich.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q107",
@@ -3465,7 +4563,18 @@
         }
       ]
     },
-    "correctAnswerText": "Absenkung des Luftraums E innerhalb des markierten Bereichs. Je nach Höhenangabe liegt die Untergrenze von Luftraum E bei 1.000 ft oder 1.700 ft AGL"
+    "correctAnswerText": "Absenkung des Luftraums E innerhalb des markierten Bereichs. Je nach Höhenangabe liegt die Untergrenze von Luftraum E bei 1.000 ft oder 1.700 ft AGL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition",
+        "hasFigure"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q108",
@@ -3502,7 +4611,18 @@
         }
       ]
     },
-    "correctAnswerText": "Gebiet  mit  luftfahrtrelevanten  Vogelvorkommen  (ABA),  Überflüge  unter  2000  ft  GND  und Außenlandungen sind von Dezember bis Juli zu vermeiden."
+    "correctAnswerText": "Gebiet  mit  luftfahrtrelevanten  Vogelvorkommen  (ABA),  Überflüge  unter  2000  ft  GND  und Außenlandungen sind von Dezember bis Juli zu vermeiden.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q109",
@@ -3539,7 +4659,18 @@
         }
       ]
     },
-    "correctAnswerText": "Überflug im Luftraum E erlaubt, wenn eine ständige Höhe von mehr als 1000 ft AGL eingehalten werden kann"
+    "correctAnswerText": "Überflug im Luftraum E erlaubt, wenn eine ständige Höhe von mehr als 1000 ft AGL eingehalten werden kann",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q110",
@@ -3576,7 +4707,18 @@
         }
       ]
     },
-    "correctAnswerText": "Alle sind richtig"
+    "correctAnswerText": "Alle sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q111",
@@ -3613,7 +4755,18 @@
         }
       ]
     },
-    "correctAnswerText": "In diesem Bereich reicht Luftraum G immer mindestens (MNM) bis 1000 ft AGL, größte erlaubte Flughöhe in Luftraum E ist 9500 ft MSL, darüber verbotener Luftraum D"
+    "correctAnswerText": "In diesem Bereich reicht Luftraum G immer mindestens (MNM) bis 1000 ft AGL, größte erlaubte Flughöhe in Luftraum E ist 9500 ft MSL, darüber verbotener Luftraum D",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q112",
@@ -3650,7 +4803,19 @@
         }
       ]
     },
-    "correctAnswerText": "Ich verlasse die Thermik und achte darauf, nicht weiter zu steigen, weil knapp 100 m höher, bei 9500 ft (2895 m) MSL, der verbotene Luftraum D beginnt"
+    "correctAnswerText": "Ich verlasse die Thermik und achte darauf, nicht weiter zu steigen, weil knapp 100 m höher, bei 9500 ft (2895 m) MSL, der verbotene Luftraum D beginnt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "hasFigure",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q113",
@@ -3687,7 +4852,18 @@
         }
       ]
     },
-    "correctAnswerText": "Nördlich  der  blauen  Linie  mit  blauem  Band  dürfen  Gleitschirme  und  Hängegleiter  bis  FL  100 (ca. 3050 m MSL), südlich davon bis FL 130 (ca. 3950 m MSL) fliegen"
+    "correctAnswerText": "Nördlich  der  blauen  Linie  mit  blauem  Band  dürfen  Gleitschirme  und  Hängegleiter  bis  FL  100 (ca. 3050 m MSL), südlich davon bis FL 130 (ca. 3950 m MSL) fliegen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q114",
@@ -3724,7 +4900,18 @@
         }
       ]
     },
-    "correctAnswerText": "ist die Obergrenze von Luftraum E von FL 130 auf FL 100 abgesenkt und es befindet sich ein Flugbeschränkungsgebiet in Flugrichtung"
+    "correctAnswerText": "ist die Obergrenze von Luftraum E von FL 130 auf FL 100 abgesenkt und es befindet sich ein Flugbeschränkungsgebiet in Flugrichtung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q115",
@@ -3761,7 +4948,18 @@
         }
       ]
     },
-    "correctAnswerText": "GND bis 5000 ft MSL"
+    "correctAnswerText": "GND bis 5000 ft MSL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q116",
@@ -3793,7 +4991,17 @@
         }
       ]
     },
-    "correctAnswerText": "Freitag  bis  Sonntag  ist  die  ED-R  145  nicht  in  Betrieb  und  darf  durchflogen  werden.  Mögliche Aktivierung per NOTAM beachten."
+    "correctAnswerText": "Freitag  bis  Sonntag  ist  die  ED-R  145  nicht  in  Betrieb  und  darf  durchflogen  werden.  Mögliche Aktivierung per NOTAM beachten.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 1,
+      "difficulty": 2,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q117",
@@ -3830,7 +5038,18 @@
         }
       ]
     },
-    "correctAnswerText": "markiert die blaue Linie den Nahverkehrsbereich (TMA Sektor A) des Flughafen München, das bedeutet, der kontrollierte Luftraum beginnt bei 1000 ft AGL"
+    "correctAnswerText": "markiert die blaue Linie den Nahverkehrsbereich (TMA Sektor A) des Flughafen München, das bedeutet, der kontrollierte Luftraum beginnt bei 1000 ft AGL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q118",
@@ -3867,7 +5086,18 @@
         }
       ]
     },
-    "correctAnswerText": "wird die Obergrenze von Luftraum E von FL 100 auf FL 85 (ca. 2590 m MSL) abgesenkt"
+    "correctAnswerText": "wird die Obergrenze von Luftraum E von FL 100 auf FL 85 (ca. 2590 m MSL) abgesenkt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q119",
@@ -3904,7 +5134,18 @@
         }
       ]
     },
-    "correctAnswerText": "Gute  Entscheidung,  statt  der  hochriskanten  See-Querung,  eine  nach  §  18  LuftVO  erlaubte Außenlandung bei einem Streckenflug durchzuführen"
+    "correctAnswerText": "Gute  Entscheidung,  statt  der  hochriskanten  See-Querung,  eine  nach  §  18  LuftVO  erlaubte Außenlandung bei einem Streckenflug durchzuführen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q120",
@@ -3931,7 +5172,17 @@
       "merksatz": "Erde hat eine Lufthülle mit Schichten.",
       "links": []
     },
-    "correctAnswerText": "Atmosphäre"
+    "correctAnswerText": "Atmosphäre",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q121",
@@ -3958,7 +5209,17 @@
       "merksatz": "Wetter = Verdunstung/Kondensation.",
       "links": []
     },
-    "correctAnswerText": "Wasserdampf"
+    "correctAnswerText": "Wasserdampf",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q122",
@@ -3990,7 +5251,17 @@
         }
       ]
     },
-    "correctAnswerText": "Troposphäre"
+    "correctAnswerText": "Troposphäre",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q123",
@@ -4022,7 +5293,17 @@
         }
       ]
     },
-    "correctAnswerText": "An der Tropopause"
+    "correctAnswerText": "An der Tropopause",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q124",
@@ -4054,7 +5335,18 @@
         }
       ]
     },
-    "correctAnswerText": "Tropopause, 11 km MSL"
+    "correctAnswerText": "Tropopause, 11 km MSL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q125",
@@ -4081,7 +5373,18 @@
       "merksatz": "Atmung = grob ein Fünftel.",
       "links": []
     },
-    "correctAnswerText": "21 %"
+    "correctAnswerText": "21 %",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q126",
@@ -4108,7 +5411,17 @@
       "merksatz": "Druck fällt exponentiell – Halbierung ist die Faustregel.",
       "links": []
     },
-    "correctAnswerText": "nimmt näherungsweise alle 5.500 m um die Hälfte ab"
+    "correctAnswerText": "nimmt näherungsweise alle 5.500 m um die Hälfte ab",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q127",
@@ -4140,7 +5453,17 @@
         }
       ]
     },
-    "correctAnswerText": "hPa"
+    "correctAnswerText": "hPa",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q128",
@@ -4172,7 +5495,17 @@
         }
       ]
     },
-    "correctAnswerText": "5.500 m"
+    "correctAnswerText": "5.500 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q129",
@@ -4204,7 +5537,18 @@
         }
       ]
     },
-    "correctAnswerText": "Der Luftdruck ist über Nacht gefallen"
+    "correctAnswerText": "Der Luftdruck ist über Nacht gefallen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q130",
@@ -4236,7 +5580,18 @@
         }
       ]
     },
-    "correctAnswerText": "800 m"
+    "correctAnswerText": "800 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q131",
@@ -4268,7 +5623,17 @@
         }
       ]
     },
-    "correctAnswerText": "Starke Abkühlung der bodennahen Luftschicht, verursacht durch Abstrahlung in der Nacht."
+    "correctAnswerText": "Starke Abkühlung der bodennahen Luftschicht, verursacht durch Abstrahlung in der Nacht.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q132",
@@ -4300,7 +5665,17 @@
         }
       ]
     },
-    "correctAnswerText": "nimmt mit steigender Höhe ab"
+    "correctAnswerText": "nimmt mit steigender Höhe ab",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q133",
@@ -4332,7 +5707,17 @@
         }
       ]
     },
-    "correctAnswerText": "das  Verhältnis  des  tatsächlich  vorhandenen  Wasserdampfgehaltes  zum  maximal  möglichen, ausgedrückt in Prozent"
+    "correctAnswerText": "das  Verhältnis  des  tatsächlich  vorhandenen  Wasserdampfgehaltes  zum  maximal  möglichen, ausgedrückt in Prozent",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q134",
@@ -4364,7 +5749,17 @@
         }
       ]
     },
-    "correctAnswerText": "Kondensation"
+    "correctAnswerText": "Kondensation",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q135",
@@ -4396,7 +5791,17 @@
         }
       ]
     },
-    "correctAnswerText": "Sättigung und Kondensationskerne"
+    "correctAnswerText": "Sättigung und Kondensationskerne",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q136",
@@ -4428,7 +5833,17 @@
         }
       ]
     },
-    "correctAnswerText": "nimmt mit zunehmender Temperatur zu"
+    "correctAnswerText": "nimmt mit zunehmender Temperatur zu",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q137",
@@ -4460,7 +5875,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die Taupunktdifferenz verringert sich"
+    "correctAnswerText": "Die Taupunktdifferenz verringert sich",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q138",
@@ -4492,7 +5917,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die Differenz zwischen Temperatur und Taupunkt wird größer"
+    "correctAnswerText": "Die Differenz zwischen Temperatur und Taupunkt wird größer",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q139",
@@ -4519,7 +5954,17 @@
       "merksatz": "Standardatmosphäre = Referenz, nicht Echtwetter.",
       "links": []
     },
-    "correctAnswerText": "Luftdruck in MSL 1013,2 hPa, Temperatur 15°C in MSL, relative Feuchte 0%, Temperaturgradient -0,65° C/100 m"
+    "correctAnswerText": "Luftdruck in MSL 1013,2 hPa, Temperatur 15°C in MSL, relative Feuchte 0%, Temperaturgradient -0,65° C/100 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q140",
@@ -4551,7 +5996,18 @@
         }
       ]
     },
-    "correctAnswerText": "0,65° C / 100m"
+    "correctAnswerText": "0,65° C / 100m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q141",
@@ -4578,7 +6034,17 @@
       "merksatz": "Verdunstung = Wasser wird Dampf.",
       "links": []
     },
-    "correctAnswerText": "flüssig - gasförmig"
+    "correctAnswerText": "flüssig - gasförmig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q142",
@@ -4605,7 +6071,17 @@
       "merksatz": "Kondensation = Dampf wird Tröpfchen.",
       "links": []
     },
-    "correctAnswerText": "gasförmig - flüssig"
+    "correctAnswerText": "gasförmig - flüssig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q143",
@@ -4632,7 +6108,18 @@
       "merksatz": "Relativ = Ist / Max × 100.",
       "links": []
     },
-    "correctAnswerText": "50 %"
+    "correctAnswerText": "50 %",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q144",
@@ -4659,7 +6146,17 @@
       "merksatz": "Wolke = Abkühlen bis Taupunkt.",
       "links": []
     },
-    "correctAnswerText": "Abkühlung der Luft durch Hebung oder durch Ausstrahlung"
+    "correctAnswerText": "Abkühlung der Luft durch Hebung oder durch Ausstrahlung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q145",
@@ -4686,7 +6183,17 @@
       "merksatz": "Dampf → Wasser gibt Wärme ab.",
       "links": []
     },
-    "correctAnswerText": "gasförmig - flüssig"
+    "correctAnswerText": "gasförmig - flüssig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q146",
@@ -4718,7 +6225,17 @@
         }
       ]
     },
-    "correctAnswerText": "Dauerniederschlag"
+    "correctAnswerText": "Dauerniederschlag",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q147",
@@ -4750,7 +6267,17 @@
         }
       ]
     },
-    "correctAnswerText": "Cumuluswolken"
+    "correctAnswerText": "Cumuluswolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q148",
@@ -4782,7 +6309,17 @@
         }
       ]
     },
-    "correctAnswerText": "Cumulus"
+    "correctAnswerText": "Cumulus",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q149",
@@ -4814,7 +6351,17 @@
         }
       ]
     },
-    "correctAnswerText": "Cumulonimbuswolken"
+    "correctAnswerText": "Cumulonimbuswolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q150",
@@ -4846,7 +6393,17 @@
         }
       ]
     },
-    "correctAnswerText": "As, Ns, St"
+    "correctAnswerText": "As, Ns, St",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q151",
@@ -4878,7 +6435,17 @@
         }
       ]
     },
-    "correctAnswerText": "Nimbostratus"
+    "correctAnswerText": "Nimbostratus",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q152",
@@ -4910,7 +6477,17 @@
         }
       ]
     },
-    "correctAnswerText": "Cumulonimbus"
+    "correctAnswerText": "Cumulonimbus",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q153",
@@ -4942,7 +6519,17 @@
         }
       ]
     },
-    "correctAnswerText": "Cirro, sie treten in Höhen zwischen 6 und 11 km auf"
+    "correctAnswerText": "Cirro, sie treten in Höhen zwischen 6 und 11 km auf",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q154",
@@ -4974,7 +6561,17 @@
         }
       ]
     },
-    "correctAnswerText": "von ca. 2 km bis ca. 7 km Höhe, die Wolken in diesem Bereich haben den Namenszusatz Alto."
+    "correctAnswerText": "von ca. 2 km bis ca. 7 km Höhe, die Wolken in diesem Bereich haben den Namenszusatz Alto.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q155",
@@ -5011,7 +6608,18 @@
         }
       ]
     },
-    "correctAnswerText": "die Windprognose in kt für die 850 hPa Druckfläche (ca. 1.500 m MSL)"
+    "correctAnswerText": "die Windprognose in kt für die 850 hPa Druckfläche (ca. 1.500 m MSL)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q156",
@@ -5048,7 +6656,18 @@
         }
       ]
     },
-    "correctAnswerText": "Wind mit 10-15 kt aus SO bis OSO prognostiziert"
+    "correctAnswerText": "Wind mit 10-15 kt aus SO bis OSO prognostiziert",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q157",
@@ -5080,7 +6699,17 @@
         }
       ]
     },
-    "correctAnswerText": "Isobaren"
+    "correctAnswerText": "Isobaren",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q158",
@@ -5112,7 +6741,17 @@
         }
       ]
     },
-    "correctAnswerText": "gleichem QFF verbinden"
+    "correctAnswerText": "gleichem QFF verbinden",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q159",
@@ -5144,7 +6783,17 @@
         }
       ]
     },
-    "correctAnswerText": "geringe Isobarenabstände"
+    "correctAnswerText": "geringe Isobarenabstände",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q160",
@@ -5176,7 +6825,17 @@
         }
       ]
     },
-    "correctAnswerText": "schwachen Wind"
+    "correctAnswerText": "schwachen Wind",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q161",
@@ -5213,7 +6872,18 @@
         }
       ]
     },
-    "correctAnswerText": "Südföhnlage mit Südstau und Niederschlägen an der Alpensüdseite"
+    "correctAnswerText": "Südföhnlage mit Südstau und Niederschlägen an der Alpensüdseite",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q162",
@@ -5250,7 +6920,18 @@
         }
       ]
     },
-    "correctAnswerText": "südliche Richtungen"
+    "correctAnswerText": "südliche Richtungen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q163",
@@ -5287,7 +6968,18 @@
         }
       ]
     },
-    "correctAnswerText": "Föhnknie (auch Föhnknick)"
+    "correctAnswerText": "Föhnknie (auch Föhnknick)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q164",
@@ -5324,7 +7016,18 @@
         }
       ]
     },
-    "correctAnswerText": "Der zentrale Alpenbereich"
+    "correctAnswerText": "Der zentrale Alpenbereich",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q165",
@@ -5361,7 +7064,18 @@
         }
       ]
     },
-    "correctAnswerText": "Die Kaltfront des Tiefs mit Zentrum über der Biskaya hat in ihrem nördlichen Bereich mit der voraus ziehenden Warmfront eine Okklusion  gebildet."
+    "correctAnswerText": "Die Kaltfront des Tiefs mit Zentrum über der Biskaya hat in ihrem nördlichen Bereich mit der voraus ziehenden Warmfront eine Okklusion  gebildet.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q166",
@@ -5398,7 +7112,18 @@
         }
       ]
     },
-    "correctAnswerText": "Nordwestlage  mit  Nordstau  und  anhaltenden  Niederschlägen  an  der  Alpennordseite  und Nordföhn an der Alpensüdseite"
+    "correctAnswerText": "Nordwestlage  mit  Nordstau  und  anhaltenden  Niederschlägen  an  der  Alpennordseite  und Nordföhn an der Alpensüdseite",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q167",
@@ -5435,7 +7160,18 @@
         }
       ]
     },
-    "correctAnswerText": "Die Kaltfront wird in südliche Richtung über die Alpen ziehen"
+    "correctAnswerText": "Die Kaltfront wird in südliche Richtung über die Alpen ziehen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q168",
@@ -5472,7 +7208,18 @@
         }
       ]
     },
-    "correctAnswerText": "nördliche Richtungen"
+    "correctAnswerText": "nördliche Richtungen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q169",
@@ -5504,7 +7251,18 @@
       "merksatz": "Je mehr Schwarz im Kreis, desto mehr Bewölkung.",
       "links": []
     },
-    "correctAnswerText": "0/8  Bedeckung  (wolkenlos),  2/8  Bedeckung  (heiter),  4/8  Bedeckung  (wolkig),  8/8  Bedeckung (bedeckt)"
+    "correctAnswerText": "0/8  Bedeckung  (wolkenlos),  2/8  Bedeckung  (heiter),  4/8  Bedeckung  (wolkig),  8/8  Bedeckung (bedeckt)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q170",
@@ -5541,7 +7299,18 @@
         }
       ]
     },
-    "correctAnswerText": "die aus Radarmessungen erzeugte grafische Darstellung von Niederschlag (Niederschlagsradar)."
+    "correctAnswerText": "die aus Radarmessungen erzeugte grafische Darstellung von Niederschlag (Niederschlagsradar).",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q171",
@@ -5573,7 +7342,18 @@
         }
       ]
     },
-    "correctAnswerText": "21.des  Monats,  12:50  UTC,  Wind  aus  300°  mit  12  KT,  in  Böen  bis  20  KT,  Temperatur  -7°C, Taupunkt, -9°C, Luftdruck 1004 hPa"
+    "correctAnswerText": "21.des  Monats,  12:50  UTC,  Wind  aus  300°  mit  12  KT,  in  Böen  bis  20  KT,  Temperatur  -7°C, Taupunkt, -9°C, Luftdruck 1004 hPa",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q172",
@@ -5610,7 +7390,18 @@
         }
       ]
     },
-    "correctAnswerText": "Kössen: 5 KT SO, Böen 7 KT , Achenkirch: 15 KT NNW, Böen 26 KT, Landeck: 5 KT S, Böen 12 KT, Tannheim: 10 KT W, Böen 28 KT"
+    "correctAnswerText": "Kössen: 5 KT SO, Böen 7 KT , Achenkirch: 15 KT NNW, Böen 26 KT, Landeck: 5 KT S, Böen 12 KT, Tannheim: 10 KT W, Böen 28 KT",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q173",
@@ -5647,7 +7438,18 @@
         }
       ]
     },
-    "correctAnswerText": "Negative  Druckdifferenz  mit  geringerem  Luftdruck  im  Süden.  Da  der  Wind  vom  höheren  zum tieferen Druck weht, ist eine Nordströmung mit Nordföhn zu erwarten."
+    "correctAnswerText": "Negative  Druckdifferenz  mit  geringerem  Luftdruck  im  Süden.  Da  der  Wind  vom  höheren  zum tieferen Druck weht, ist eine Nordströmung mit Nordföhn zu erwarten.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q174",
@@ -5679,7 +7481,17 @@
         }
       ]
     },
-    "correctAnswerText": "www.dhv.de"
+    "correctAnswerText": "www.dhv.de",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q175",
@@ -5711,7 +7523,17 @@
         }
       ]
     },
-    "correctAnswerText": "Bei  den  Online-Segelflugwetterberichten  von  DWD  (Deutscher  Wetterdienst)  bzw.  Austro Control (Österreich)."
+    "correctAnswerText": "Bei  den  Online-Segelflugwetterberichten  von  DWD  (Deutscher  Wetterdienst)  bzw.  Austro Control (Österreich).",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q176",
@@ -5743,7 +7565,17 @@
         }
       ]
     },
-    "correctAnswerText": "Meteo-Parapente.com, XC-Therm.com, windy.com"
+    "correctAnswerText": "Meteo-Parapente.com, XC-Therm.com, windy.com",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q177",
@@ -5780,7 +7612,18 @@
         }
       ]
     },
-    "correctAnswerText": "Leethermik"
+    "correctAnswerText": "Leethermik",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q178",
@@ -5817,7 +7660,18 @@
         }
       ]
     },
-    "correctAnswerText": "Die Wolkenthermik entsteht in der sonnenbeschienenen windabgewandten Seite der Berge und wird über Kammhöhe vom starken Höhenwind verblasen und zerrissen."
+    "correctAnswerText": "Die Wolkenthermik entsteht in der sonnenbeschienenen windabgewandten Seite der Berge und wird über Kammhöhe vom starken Höhenwind verblasen und zerrissen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q179",
@@ -5854,7 +7708,18 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q180",
@@ -5891,7 +7756,18 @@
         }
       ]
     },
-    "correctAnswerText": "Die  an  den  sonnenbeschienenen  Bergflanken  entstehende  Thermik  kann  besonders  kräftig werden, weil sie in ihrer Entstehung nicht von der Höhenströmung gestört wird."
+    "correctAnswerText": "Die  an  den  sonnenbeschienenen  Bergflanken  entstehende  Thermik  kann  besonders  kräftig werden, weil sie in ihrer Entstehung nicht von der Höhenströmung gestört wird.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q181",
@@ -5928,7 +7804,18 @@
         }
       ]
     },
-    "correctAnswerText": "ist die Windrichtung zu erkennen. Der Wind kommt von links"
+    "correctAnswerText": "ist die Windrichtung zu erkennen. Der Wind kommt von links",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q182",
@@ -5965,7 +7852,18 @@
         }
       ]
     },
-    "correctAnswerText": "links von ihrer Mitte, also luvseitig anfliegen"
+    "correctAnswerText": "links von ihrer Mitte, also luvseitig anfliegen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q183",
@@ -6002,7 +7900,18 @@
         }
       ]
     },
-    "correctAnswerText": "zeigt windzerrissene, turbulente Thermik"
+    "correctAnswerText": "zeigt windzerrissene, turbulente Thermik",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q184",
@@ -6039,7 +7948,18 @@
         }
       ]
     },
-    "correctAnswerText": "Cumuluswolken (Cumulus Castelanus), labile Schichtung, im Tagesverlauf Gewittergefahr"
+    "correctAnswerText": "Cumuluswolken (Cumulus Castelanus), labile Schichtung, im Tagesverlauf Gewittergefahr",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q185",
@@ -6076,7 +7996,18 @@
         }
       ]
     },
-    "correctAnswerText": "Im  Tal  Kaltluft  mit  stabiler  Schichtung  und  Inversion,  darüber  wärmere  Luft  mit  labiler Schichtung und Bildung von Thermikwolken"
+    "correctAnswerText": "Im  Tal  Kaltluft  mit  stabiler  Schichtung  und  Inversion,  darüber  wärmere  Luft  mit  labiler Schichtung und Bildung von Thermikwolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q186",
@@ -6113,7 +8044,18 @@
         }
       ]
     },
-    "correctAnswerText": "Oberhalb der Bodeninversion ist wegen der labilen Schichtung Thermikentwicklung möglich."
+    "correctAnswerText": "Oberhalb der Bodeninversion ist wegen der labilen Schichtung Thermikentwicklung möglich.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q187",
@@ -6150,7 +8092,18 @@
         }
       ]
     },
-    "correctAnswerText": "Die Thermikentwicklung oberhalb der Bodeninversion muss keinen Einfluss auf den Nebel im Tal haben, dieser kann ganztägig beständig bleiben."
+    "correctAnswerText": "Die Thermikentwicklung oberhalb der Bodeninversion muss keinen Einfluss auf den Nebel im Tal haben, dieser kann ganztägig beständig bleiben.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q188",
@@ -6187,7 +8140,18 @@
         }
       ]
     },
-    "correctAnswerText": "eine  Gebiet  starken  Niederschlags,  wegen  der  ausfließenden  Kaltluft  können  extreme Turbulenzen auftreten"
+    "correctAnswerText": "eine  Gebiet  starken  Niederschlags,  wegen  der  ausfließenden  Kaltluft  können  extreme Turbulenzen auftreten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q189",
@@ -6224,7 +8188,18 @@
         }
       ]
     },
-    "correctAnswerText": "Sichtbar  ist  die  Grenze  der  Absinkinversion.  Stärkere  thermische  Aufwinde  können  die Sperrschicht durchdringen und oberhalb zur Wolkenbildung führen. Wegen der abtrocknenden Absinkvorgänge bleibt das vertikale Wachstum der Cumuli gering."
+    "correctAnswerText": "Sichtbar  ist  die  Grenze  der  Absinkinversion.  Stärkere  thermische  Aufwinde  können  die Sperrschicht durchdringen und oberhalb zur Wolkenbildung führen. Wegen der abtrocknenden Absinkvorgänge bleibt das vertikale Wachstum der Cumuli gering.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q190",
@@ -6261,7 +8236,18 @@
         }
       ]
     },
-    "correctAnswerText": "eine Föhnwolke (Altocumulus lenticularis) mit darunterliegender Rotorwolke."
+    "correctAnswerText": "eine Föhnwolke (Altocumulus lenticularis) mit darunterliegender Rotorwolke.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q191",
@@ -6298,7 +8284,18 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q192",
@@ -6335,7 +8332,18 @@
         }
       ]
     },
-    "correctAnswerText": "Der sog. Dom in der Mitte der Basis zeigt, dass die Wolke stark saugt, ausreichend Abstand zur Basis halten und rechtzeitig Richtung Wolkenrand fliegen."
+    "correctAnswerText": "Der sog. Dom in der Mitte der Basis zeigt, dass die Wolke stark saugt, ausreichend Abstand zur Basis halten und rechtzeitig Richtung Wolkenrand fliegen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q193",
@@ -6372,7 +8380,19 @@
         }
       ]
     },
-    "correctAnswerText": "Sehr  raschen  Orientierungsverlust  und  wegen  der  nun  feuchtadiabatischen  Abkühlung  der Aufwinde, zunehmendes Steigen."
+    "correctAnswerText": "Sehr  raschen  Orientierungsverlust  und  wegen  der  nun  feuchtadiabatischen  Abkühlung  der Aufwinde, zunehmendes Steigen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "hasFigure",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q194",
@@ -6404,7 +8424,17 @@
         }
       ]
     },
-    "correctAnswerText": "oberhalb des Gebirgskammes und auf der Leeseite"
+    "correctAnswerText": "oberhalb des Gebirgskammes und auf der Leeseite",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q195",
@@ -6436,7 +8466,17 @@
         }
       ]
     },
-    "correctAnswerText": "Geringe Bewölkung, Temperaturanstieg, geringe Luftfeuchte, oftmals böige Winde"
+    "correctAnswerText": "Geringe Bewölkung, Temperaturanstieg, geringe Luftfeuchte, oftmals böige Winde",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q196",
@@ -6468,7 +8508,17 @@
         }
       ]
     },
-    "correctAnswerText": "Südföhnwetterlage mit hoher Windgeschwindigkeit"
+    "correctAnswerText": "Südföhnwetterlage mit hoher Windgeschwindigkeit",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q197",
@@ -6500,7 +8550,17 @@
         }
       ]
     },
-    "correctAnswerText": "nahezu  ortsfest,  weil  sich  die  Wolke  durch  Kondensation  und  Auflösung  am  Scheitelpunkt  der Föhnwelle stets neu bildet und  wieder auflöst."
+    "correctAnswerText": "nahezu  ortsfest,  weil  sich  die  Wolke  durch  Kondensation  und  Auflösung  am  Scheitelpunkt  der Föhnwelle stets neu bildet und  wieder auflöst.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q198",
@@ -6532,7 +8592,17 @@
         }
       ]
     },
-    "correctAnswerText": "herrscht Föhn ohne Ausbildung von Lenticulariswolken"
+    "correctAnswerText": "herrscht Föhn ohne Ausbildung von Lenticulariswolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q199",
@@ -6564,7 +8634,17 @@
         }
       ]
     },
-    "correctAnswerText": "Föhn, der auf die unteren Luftschichten begrenzt ist und keine starke Höhenströmung bildet."
+    "correctAnswerText": "Föhn, der auf die unteren Luftschichten begrenzt ist und keine starke Höhenströmung bildet.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q200",
@@ -6601,7 +8681,18 @@
         }
       ]
     },
-    "correctAnswerText": "ausgeprägten  Nordföhn  an  der  Alpensüdseite  ab  zweiten  Vorhersagetag  und  eine  Umstellung auf eine Südföhnlage an der Alpennordseite für den vierten und fünften Vorhersagetag an"
+    "correctAnswerText": "ausgeprägten  Nordföhn  an  der  Alpensüdseite  ab  zweiten  Vorhersagetag  und  eine  Umstellung auf eine Südföhnlage an der Alpennordseite für den vierten und fünften Vorhersagetag an",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q211",
@@ -6638,7 +8729,18 @@
         }
       ]
     },
-    "correctAnswerText": "1"
+    "correctAnswerText": "1",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q212",
@@ -6675,7 +8777,18 @@
         }
       ]
     },
-    "correctAnswerText": "In diesem Schichtungsdiagramm erreicht die aufsteigende Luft das Kondensationsniveau nicht, Blauthermik bis ca. 3000 m GND"
+    "correctAnswerText": "In diesem Schichtungsdiagramm erreicht die aufsteigende Luft das Kondensationsniveau nicht, Blauthermik bis ca. 3000 m GND",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q213",
@@ -6712,7 +8825,18 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q214",
@@ -6744,7 +8868,18 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q215",
@@ -6776,7 +8911,17 @@
         }
       ]
     },
-    "correctAnswerText": "Wenn das aufsteigende Luftpaket auf die Temperatur der Umgebungsluft abgekühlt ist"
+    "correctAnswerText": "Wenn das aufsteigende Luftpaket auf die Temperatur der Umgebungsluft abgekühlt ist",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q216",
@@ -6808,7 +8953,18 @@
         }
       ]
     },
-    "correctAnswerText": "1,0° C / 100m"
+    "correctAnswerText": "1,0° C / 100m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q217",
@@ -6840,7 +8996,17 @@
         }
       ]
     },
-    "correctAnswerText": "die  Luft  beim  Aufsteigen  sich  um  1°C/100m  abkühlt  oder  beim  Absinken  sich  um  1°C/100m erwärmt und keine Wolkenbildung (Kondensation) zeigt"
+    "correctAnswerText": "die  Luft  beim  Aufsteigen  sich  um  1°C/100m  abkühlt  oder  beim  Absinken  sich  um  1°C/100m erwärmt und keine Wolkenbildung (Kondensation) zeigt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q218",
@@ -6872,7 +9038,17 @@
         }
       ]
     },
-    "correctAnswerText": "Gesättigte Luft steigt auf und kühlt sich mit weniger als 1°C/100m ab"
+    "correctAnswerText": "Gesättigte Luft steigt auf und kühlt sich mit weniger als 1°C/100m ab",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q219",
@@ -6904,7 +9080,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die über eine bestimmte Höhendifferenz gleichbleibende Temperatur"
+    "correctAnswerText": "Die über eine bestimmte Höhendifferenz gleichbleibende Temperatur",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q220",
@@ -6936,7 +9122,17 @@
         }
       ]
     },
-    "correctAnswerText": "nimmt zu"
+    "correctAnswerText": "nimmt zu",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q221",
@@ -6968,7 +9164,17 @@
         }
       ]
     },
-    "correctAnswerText": "stabil"
+    "correctAnswerText": "stabil",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q222",
@@ -7000,7 +9206,17 @@
         }
       ]
     },
-    "correctAnswerText": "der Erdboden - und damit auch die aufliegende Luftschicht - sich durch Ausstrahlung abkühlen"
+    "correctAnswerText": "der Erdboden - und damit auch die aufliegende Luftschicht - sich durch Ausstrahlung abkühlen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q223",
@@ -7032,7 +9248,17 @@
         }
       ]
     },
-    "correctAnswerText": "Thermik ohne Cumulus-Bildung"
+    "correctAnswerText": "Thermik ohne Cumulus-Bildung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q224",
@@ -7064,7 +9290,17 @@
         }
       ]
     },
-    "correctAnswerText": "in Bodennähe, bei der es zur Bildung von Thermik in Verbindung mit Quellwolken kommt"
+    "correctAnswerText": "in Bodennähe, bei der es zur Bildung von Thermik in Verbindung mit Quellwolken kommt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q225",
@@ -7096,7 +9332,17 @@
         }
       ]
     },
-    "correctAnswerText": "Maritime Polarluft, Tropikluft"
+    "correctAnswerText": "Maritime Polarluft, Tropikluft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q226",
@@ -7128,7 +9374,17 @@
         }
       ]
     },
-    "correctAnswerText": "Kontinentale Polarluft"
+    "correctAnswerText": "Kontinentale Polarluft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q227",
@@ -7160,7 +9416,17 @@
         }
       ]
     },
-    "correctAnswerText": "Abkühlung oben und Erwärmung unten"
+    "correctAnswerText": "Abkühlung oben und Erwärmung unten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q228",
@@ -7192,7 +9458,17 @@
         }
       ]
     },
-    "correctAnswerText": "Erwärmung oben und Abkühlung unten"
+    "correctAnswerText": "Erwärmung oben und Abkühlung unten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q229",
@@ -7224,7 +9500,17 @@
         }
       ]
     },
-    "correctAnswerText": "Fast geschlossene Cumulusbewölkung mit eingelagerten Cb, häufige Schauer, einzelne Gewitter"
+    "correctAnswerText": "Fast geschlossene Cumulusbewölkung mit eingelagerten Cb, häufige Schauer, einzelne Gewitter",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q230",
@@ -7256,7 +9542,17 @@
         }
       ]
     },
-    "correctAnswerText": "Quellbewölkung, starke vertikale Luftbewegung, großtropfigem Schauerniederschlag"
+    "correctAnswerText": "Quellbewölkung, starke vertikale Luftbewegung, großtropfigem Schauerniederschlag",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q231",
@@ -7293,7 +9589,18 @@
         }
       ]
     },
-    "correctAnswerText": "mit einer Windzunahme wegen des kanalisierenden Düseneffekts zu rechnen"
+    "correctAnswerText": "mit einer Windzunahme wegen des kanalisierenden Düseneffekts zu rechnen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q232",
@@ -7325,7 +9632,17 @@
         }
       ]
     },
-    "correctAnswerText": "Westwind"
+    "correctAnswerText": "Westwind",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q233",
@@ -7357,7 +9674,17 @@
         }
       ]
     },
-    "correctAnswerText": "im Luv Staubewölkung und im Lee gute Sicht herrschen"
+    "correctAnswerText": "im Luv Staubewölkung und im Lee gute Sicht herrschen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q234",
@@ -7389,7 +9716,17 @@
         }
       ]
     },
-    "correctAnswerText": "Am Nachmittag"
+    "correctAnswerText": "Am Nachmittag",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q235",
@@ -7421,7 +9758,17 @@
         }
       ]
     },
-    "correctAnswerText": "Vor Sonnenaufgang"
+    "correctAnswerText": "Vor Sonnenaufgang",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q236",
@@ -7448,7 +9795,17 @@
       "merksatz": "Radar zeigt Regen – nicht die ganze Dynamik.",
       "links": []
     },
-    "correctAnswerText": "Eine Änderung der Windrichtung oder Windgeschwindigkeit innerhalb eines Höhenintervalls"
+    "correctAnswerText": "Eine Änderung der Windrichtung oder Windgeschwindigkeit innerhalb eines Höhenintervalls",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q237",
@@ -7480,7 +9837,17 @@
         }
       ]
     },
-    "correctAnswerText": "durch  Windimpuls  in  Rotation  versetzte,  kleinräumig  aufwirbelnde  Luftmassen,  entstanden  im Lee, kann Drachen, Schirme mit Piloten, etc. unkontrolliert in die Luft reißen, saugefährlich"
+    "correctAnswerText": "durch  Windimpuls  in  Rotation  versetzte,  kleinräumig  aufwirbelnde  Luftmassen,  entstanden  im Lee, kann Drachen, Schirme mit Piloten, etc. unkontrolliert in die Luft reißen, saugefährlich",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q238",
@@ -7512,7 +9879,17 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q239",
@@ -7544,7 +9921,18 @@
         }
       ]
     },
-    "correctAnswerText": "Es  besteht  die  Gefahr,  dass  der  starke  Höhenwind  durch  die  thermische  Aktivität  auch  in deutlich tieferen Höhen vordringt und kritische Flugbedingungen schafft."
+    "correctAnswerText": "Es  besteht  die  Gefahr,  dass  der  starke  Höhenwind  durch  die  thermische  Aktivität  auch  in deutlich tieferen Höhen vordringt und kritische Flugbedingungen schafft.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q240",
@@ -7576,7 +9964,17 @@
         }
       ]
     },
-    "correctAnswerText": "An seiner Luvseite"
+    "correctAnswerText": "An seiner Luvseite",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q241",
@@ -7608,7 +10006,17 @@
         }
       ]
     },
-    "correctAnswerText": "Er muss deutlich über dem Kamm-Niveau des Berges ankommen, um nicht ins Lee zu geraten."
+    "correctAnswerText": "Er muss deutlich über dem Kamm-Niveau des Berges ankommen, um nicht ins Lee zu geraten.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q242",
@@ -7640,7 +10048,18 @@
         }
       ]
     },
-    "correctAnswerText": "zuviel"
+    "correctAnswerText": "zuviel",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q243",
@@ -7672,7 +10091,17 @@
         }
       ]
     },
-    "correctAnswerText": "Hohe Temperatur, hohe Luftfeuchte, geringer Wind, hohe Labilität"
+    "correctAnswerText": "Hohe Temperatur, hohe Luftfeuchte, geringer Wind, hohe Labilität",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q244",
@@ -7704,7 +10133,17 @@
         }
       ]
     },
-    "correctAnswerText": "Mittelmeer-Biskayaluft"
+    "correctAnswerText": "Mittelmeer-Biskayaluft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q245",
@@ -7736,7 +10175,17 @@
         }
       ]
     },
-    "correctAnswerText": "Süd bis Südwest"
+    "correctAnswerText": "Süd bis Südwest",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q246",
@@ -7768,7 +10217,17 @@
         }
       ]
     },
-    "correctAnswerText": "Starke Vertikalentwicklung der Cumuluswolken zu Schauerwolken"
+    "correctAnswerText": "Starke Vertikalentwicklung der Cumuluswolken zu Schauerwolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q247",
@@ -7800,7 +10259,17 @@
         }
       ]
     },
-    "correctAnswerText": "durch  Zusammenwachsen  von  unterkühlten  Wassertropfen  mit  Eiskristallen  im  Aufwind  von Cumulonimbuswolken"
+    "correctAnswerText": "durch  Zusammenwachsen  von  unterkühlten  Wassertropfen  mit  Eiskristallen  im  Aufwind  von Cumulonimbuswolken",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q248",
@@ -7832,7 +10301,17 @@
         }
       ]
     },
-    "correctAnswerText": "hoch reichende, feuchtlabile Schichtung"
+    "correctAnswerText": "hoch reichende, feuchtlabile Schichtung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q249",
@@ -7864,7 +10343,17 @@
         }
       ]
     },
-    "correctAnswerText": "Starke Temperaturabnahme mit der Höhe"
+    "correctAnswerText": "Starke Temperaturabnahme mit der Höhe",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q250",
@@ -7896,7 +10385,17 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q251",
@@ -7928,7 +10427,17 @@
         }
       ]
     },
-    "correctAnswerText": "Reifestadium"
+    "correctAnswerText": "Reifestadium",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q252",
@@ -7965,7 +10474,18 @@
         }
       ]
     },
-    "correctAnswerText": "Aufbaustadium"
+    "correctAnswerText": "Aufbaustadium",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q253",
@@ -8002,7 +10522,18 @@
         }
       ]
     },
-    "correctAnswerText": "Reifestadium"
+    "correctAnswerText": "Reifestadium",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q254",
@@ -8039,7 +10570,18 @@
         }
       ]
     },
-    "correctAnswerText": "sollten  von  den  Fliegern  unbedingt  gemieden  werden,  weil  hier  der  Talwind  ausgeprägte Leegebiete schafft."
+    "correctAnswerText": "sollten  von  den  Fliegern  unbedingt  gemieden  werden,  weil  hier  der  Talwind  ausgeprägte Leegebiete schafft.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q255",
@@ -8076,7 +10618,18 @@
         }
       ]
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q256",
@@ -8113,7 +10666,18 @@
         }
       ]
     },
-    "correctAnswerText": "Den mit E gekennzeichneten Bereich wählen, weil hier nicht mit erhöhten Talwindgeschwindigkeiten zu rechnen ist."
+    "correctAnswerText": "Den mit E gekennzeichneten Bereich wählen, weil hier nicht mit erhöhten Talwindgeschwindigkeiten zu rechnen ist.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q257",
@@ -8145,7 +10709,17 @@
         }
       ]
     },
-    "correctAnswerText": "ein Hitzetief bildet"
+    "correctAnswerText": "ein Hitzetief bildet",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q258",
@@ -8177,7 +10751,17 @@
         }
       ]
     },
-    "correctAnswerText": "Ja,  Talwinde  entstehen,  weil  Luftmassen  aus  dem  Flachland  in  Richtung  des  tieferen  Drucks (Hitzetief) in die Alpentäler strömen."
+    "correctAnswerText": "Ja,  Talwinde  entstehen,  weil  Luftmassen  aus  dem  Flachland  in  Richtung  des  tieferen  Drucks (Hitzetief) in die Alpentäler strömen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q259",
@@ -8209,7 +10793,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die Höhenströmung kann zu einer deutlichen Verstärkung des Talwindes führen."
+    "correctAnswerText": "Die Höhenströmung kann zu einer deutlichen Verstärkung des Talwindes führen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q260",
@@ -8241,7 +10835,17 @@
         }
       ]
     },
-    "correctAnswerText": "Trockene,  kühle  Festlandsluft,  die  einen  großen  Temperaturgradienten  aufweist,  bewirkt markante  Thermikausbildung,  die  durch  relativ  hohe  Windgeschwindigkeit  zerrissen  und turbulent wird."
+    "correctAnswerText": "Trockene,  kühle  Festlandsluft,  die  einen  großen  Temperaturgradienten  aufweist,  bewirkt markante  Thermikausbildung,  die  durch  relativ  hohe  Windgeschwindigkeit  zerrissen  und turbulent wird.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q261",
@@ -8278,7 +10882,18 @@
         }
       ]
     },
-    "correctAnswerText": "Der  Talwind  kann  an  den  tiefer  gelegenen  sonnenbeschienenen  Südflanken  ausgeprägte  und sehr turbulente Leegebiete schaffen."
+    "correctAnswerText": "Der  Talwind  kann  an  den  tiefer  gelegenen  sonnenbeschienenen  Südflanken  ausgeprägte  und sehr turbulente Leegebiete schaffen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q262",
@@ -8315,7 +10930,18 @@
         }
       ]
     },
-    "correctAnswerText": "Höhenwind  aus  südlicher  Richtung,  Talwind  aus  Nord.  Vorsicht,  Windscherung  mit  starken Turbulenzen im Kammbereich möglich, beim Anflug sorgfältiger Windcheck nötig."
+    "correctAnswerText": "Höhenwind  aus  südlicher  Richtung,  Talwind  aus  Nord.  Vorsicht,  Windscherung  mit  starken Turbulenzen im Kammbereich möglich, beim Anflug sorgfältiger Windcheck nötig.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q263",
@@ -8347,7 +10973,17 @@
         }
       ]
     },
-    "correctAnswerText": "In Tiefdruckgebieten"
+    "correctAnswerText": "In Tiefdruckgebieten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q264",
@@ -8379,7 +11015,17 @@
         }
       ]
     },
-    "correctAnswerText": "Tief gegen den Uhrzeigersinn, Hoch im Uhrzeigersinn"
+    "correctAnswerText": "Tief gegen den Uhrzeigersinn, Hoch im Uhrzeigersinn",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q265",
@@ -8411,7 +11057,17 @@
         }
       ]
     },
-    "correctAnswerText": "Relativ hoher Druck zwischen Tiefdruckgebieten"
+    "correctAnswerText": "Relativ hoher Druck zwischen Tiefdruckgebieten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q266",
@@ -8443,7 +11099,17 @@
         }
       ]
     },
-    "correctAnswerText": "Warmfront an"
+    "correctAnswerText": "Warmfront an",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q267",
@@ -8475,7 +11141,17 @@
         }
       ]
     },
-    "correctAnswerText": "Warmluft gleitet auf kältere Luft auf"
+    "correctAnswerText": "Warmluft gleitet auf kältere Luft auf",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q268",
@@ -8507,7 +11183,18 @@
         }
       ]
     },
-    "correctAnswerText": "400 - 800 km"
+    "correctAnswerText": "400 - 800 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q269",
@@ -8539,7 +11226,17 @@
         }
       ]
     },
-    "correctAnswerText": "Ci, Cs, As, Ns"
+    "correctAnswerText": "Ci, Cs, As, Ns",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q270",
@@ -8571,7 +11268,17 @@
         }
       ]
     },
-    "correctAnswerText": "Wolkenaufzug und Wolkenverdichtung, absinkende Wolkenuntergrenze, einsetzender Dauerniederschlag, auffrischender Wind um Südwest"
+    "correctAnswerText": "Wolkenaufzug und Wolkenverdichtung, absinkende Wolkenuntergrenze, einsetzender Dauerniederschlag, auffrischender Wind um Südwest",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q271",
@@ -8603,7 +11310,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die  Thermik  verschlechtert  sich,  da  die  Cirren  die  Einstrahlung  unterbinden.  Es  nähert  sich wahrscheinlich eine Warmfront."
+    "correctAnswerText": "Die  Thermik  verschlechtert  sich,  da  die  Cirren  die  Einstrahlung  unterbinden.  Es  nähert  sich wahrscheinlich eine Warmfront.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q272",
@@ -8635,7 +11352,17 @@
         }
       ]
     },
-    "correctAnswerText": "Warmsektor"
+    "correctAnswerText": "Warmsektor",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q273",
@@ -8667,7 +11394,17 @@
         }
       ]
     },
-    "correctAnswerText": "Eine  Kaltfront  holt  die  voraus  laufende  Warmfront  ein,  wobei  die  Warmluft  vom  Boden abgehoben wird."
+    "correctAnswerText": "Eine  Kaltfront  holt  die  voraus  laufende  Warmfront  ein,  wobei  die  Warmluft  vom  Boden abgehoben wird.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q274",
@@ -8699,7 +11436,17 @@
         }
       ]
     },
-    "correctAnswerText": "einer Warmfront"
+    "correctAnswerText": "einer Warmfront",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q275",
@@ -8731,7 +11478,17 @@
         }
       ]
     },
-    "correctAnswerText": "Auflockernde Bewölkung und Übergang zu Cu-Bewölkung mit noch einzelnen Schauern"
+    "correctAnswerText": "Auflockernde Bewölkung und Übergang zu Cu-Bewölkung mit noch einzelnen Schauern",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q276",
@@ -8763,7 +11520,17 @@
         }
       ]
     },
-    "correctAnswerText": "Vom Ursprungsort und dem Weg, den sie zurückgelegt hat"
+    "correctAnswerText": "Vom Ursprungsort und dem Weg, den sie zurückgelegt hat",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q277",
@@ -8795,7 +11562,17 @@
         }
       ]
     },
-    "correctAnswerText": "Erwärmung, Inversionsbildung, Wolkenauflösung"
+    "correctAnswerText": "Erwärmung, Inversionsbildung, Wolkenauflösung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q278",
@@ -8827,7 +11604,17 @@
         }
       ]
     },
-    "correctAnswerText": "im Hoch ein Absinken mit Wolkenauflösung vorherrscht"
+    "correctAnswerText": "im Hoch ein Absinken mit Wolkenauflösung vorherrscht",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q279",
@@ -8859,7 +11646,17 @@
         }
       ]
     },
-    "correctAnswerText": "hinter einer Kaltfront"
+    "correctAnswerText": "hinter einer Kaltfront",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q280",
@@ -8891,7 +11688,17 @@
         }
       ]
     },
-    "correctAnswerText": "Gewitterschauer"
+    "correctAnswerText": "Gewitterschauer",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q281",
@@ -8923,7 +11730,17 @@
         }
       ]
     },
-    "correctAnswerText": "Tiefe,  an  den  Berghängen  meist  aufliegende  Bewölkung  bei  Zustrom  feuchter  Luft  aus nördlichen Richtungen"
+    "correctAnswerText": "Tiefe,  an  den  Berghängen  meist  aufliegende  Bewölkung  bei  Zustrom  feuchter  Luft  aus nördlichen Richtungen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q282",
@@ -8955,7 +11772,17 @@
         }
       ]
     },
-    "correctAnswerText": "Ja,  Kaltfronten  kann  ein  Starkwindgebiet  (Druckwelle)  vorauseilen,  das  Stunden  vor  der Frontpassage kritische Flugbedingungen verursacht."
+    "correctAnswerText": "Ja,  Kaltfronten  kann  ein  Starkwindgebiet  (Druckwelle)  vorauseilen,  das  Stunden  vor  der Frontpassage kritische Flugbedingungen verursacht.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 5,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q283",
@@ -8982,7 +11809,17 @@
       "merksatz": "Achse endet an den geographischen Polen.",
       "links": []
     },
-    "correctAnswerText": "geographischer Nordpol und geographischer Südpol"
+    "correctAnswerText": "geographischer Nordpol und geographischer Südpol",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q284",
@@ -9009,7 +11846,18 @@
       "merksatz": "21.600 ist NM – km sind ~40.000.",
       "links": []
     },
-    "correctAnswerText": "Ungefähr 40.000 km"
+    "correctAnswerText": "Ungefähr 40.000 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q285",
@@ -9036,7 +11884,17 @@
       "merksatz": "Tag = Drehung, Jahr = Umlauf.",
       "links": []
     },
-    "correctAnswerText": "Die Erde bewegt sich einmal im Jahr um die Sonne"
+    "correctAnswerText": "Die Erde bewegt sich einmal im Jahr um die Sonne",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q286",
@@ -9063,7 +11921,17 @@
       "merksatz": "Himmel Ost→West scheinbar, Erde dreht West→Ost.",
       "links": []
     },
-    "correctAnswerText": "um die eigene Achse von Westen nach Osten"
+    "correctAnswerText": "um die eigene Achse von Westen nach Osten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q287",
@@ -9090,7 +11958,17 @@
       "merksatz": "Jahreszeiten = Achse schief.",
       "links": []
     },
-    "correctAnswerText": "die Neigung der Erdachse"
+    "correctAnswerText": "die Neigung der Erdachse",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q288",
@@ -9117,7 +11995,18 @@
       "merksatz": "1° = 4 min → 5° = 20 min.",
       "links": []
     },
-    "correctAnswerText": "20 Minuten"
+    "correctAnswerText": "20 Minuten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q289",
@@ -9144,7 +12033,17 @@
       "merksatz": "Weiter ost = Sonnenmittag früher.",
       "links": []
     },
-    "correctAnswerText": "bereits nach SS"
+    "correctAnswerText": "bereits nach SS",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q290",
@@ -9171,7 +12070,17 @@
       "merksatz": "Merke: 40.000 km rum, 12.500–12.700 km durch.",
       "links": []
     },
-    "correctAnswerText": "40.000km Umfang - 12.500km Durchmesser"
+    "correctAnswerText": "40.000km Umfang - 12.500km Durchmesser",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q291",
@@ -9198,7 +12107,17 @@
       "merksatz": "13:00 MESZ = Sonne nahe Süden (≈180°).",
       "links": []
     },
-    "correctAnswerText": "ca. 180 Grad"
+    "correctAnswerText": "ca. 180 Grad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q292",
@@ -9225,7 +12144,17 @@
       "merksatz": "Meridian trifft Äquator im rechten Winkel.",
       "links": []
     },
-    "correctAnswerText": "90 Grad"
+    "correctAnswerText": "90 Grad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q293",
@@ -9252,7 +12181,17 @@
       "merksatz": "Äquator: Großkreis, senkrecht zur Erdachse.",
       "links": []
     },
-    "correctAnswerText": "teilt die Erde in eine südliche und eine nördliche Halbkugel. Seine Ebene steht genau senkrecht zur Erdachse."
+    "correctAnswerText": "teilt die Erde in eine südliche und eine nördliche Halbkugel. Seine Ebene steht genau senkrecht zur Erdachse.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q294",
@@ -9279,7 +12218,17 @@
       "merksatz": "Breite = Grad-Abstand zum Äquator (N/S).",
       "links": []
     },
-    "correctAnswerText": "Breitengraden vom Äquator"
+    "correctAnswerText": "Breitengraden vom Äquator",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q295",
@@ -9306,7 +12255,17 @@
       "merksatz": "Nullmeridian = Greenwich.",
       "links": []
     },
-    "correctAnswerText": "Greenwichmeridian"
+    "correctAnswerText": "Greenwichmeridian",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q296",
@@ -9333,7 +12292,17 @@
       "merksatz": "1° Breite ≈ 111 km (fast überall gleich).",
       "links": []
     },
-    "correctAnswerText": "immer ca. 111 km"
+    "correctAnswerText": "immer ca. 111 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q297",
@@ -9360,7 +12329,17 @@
       "merksatz": "Länge = Grad nach Ost/West ab Greenwich.",
       "links": []
     },
-    "correctAnswerText": "Den Abstand in Grad des Meridianes eines Ortes vom Nullmeridian"
+    "correctAnswerText": "Den Abstand in Grad des Meridianes eines Ortes vom Nullmeridian",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q298",
@@ -9387,7 +12366,17 @@
       "merksatz": "Breite: Grad ab Äquator, nicht km/NM.",
       "links": []
     },
-    "correctAnswerText": "Als Abstand des Ortes vom Äquator angegeben in Bogengraden"
+    "correctAnswerText": "Als Abstand des Ortes vom Äquator angegeben in Bogengraden",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q299",
@@ -9414,7 +12403,17 @@
       "merksatz": "Nullmeridian läuft durch Greenwich-Observatorium.",
       "links": []
     },
-    "correctAnswerText": "Durch die Sternwarte von Greenwich/England"
+    "correctAnswerText": "Durch die Sternwarte von Greenwich/England",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q300",
@@ -9441,7 +12440,17 @@
       "merksatz": "1° Breite = 60 NM ≈ 111 km.",
       "links": []
     },
-    "correctAnswerText": "60 NM - 111,12 km"
+    "correctAnswerText": "60 NM - 111,12 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q301",
@@ -9468,7 +12477,18 @@
       "merksatz": "Längengrade: am Äquator weit, am Pol null.",
       "links": []
     },
-    "correctAnswerText": "Am Äquator - 111,12 km"
+    "correctAnswerText": "Am Äquator - 111,12 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q302",
@@ -9495,7 +12515,17 @@
       "merksatz": "Nordpol = 90° Nord.",
       "links": []
     },
-    "correctAnswerText": "90 Grad N"
+    "correctAnswerText": "90 Grad N",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q303",
@@ -9522,7 +12552,17 @@
       "merksatz": "Meridian = Halbkreis von Pol zu Pol.",
       "links": []
     },
-    "correctAnswerText": "Halbkreise von Pol zu Pol verlaufend"
+    "correctAnswerText": "Halbkreise von Pol zu Pol verlaufend",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q304",
@@ -9549,7 +12589,17 @@
       "merksatz": "Äquator = 0° Breite.",
       "links": []
     },
-    "correctAnswerText": "0 Grad"
+    "correctAnswerText": "0 Grad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q305",
@@ -9576,7 +12626,17 @@
       "merksatz": "Breite läuft parallel zum Äquator.",
       "links": []
     },
-    "correctAnswerText": "Parallel zum Äquator verlaufende Kreise"
+    "correctAnswerText": "Parallel zum Äquator verlaufende Kreise",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q306",
@@ -9603,7 +12663,17 @@
       "merksatz": "1° Breite = sechzig Seemeilen.",
       "links": []
     },
-    "correctAnswerText": "60 NM"
+    "correctAnswerText": "60 NM",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q307",
@@ -9630,7 +12700,17 @@
       "merksatz": "GPS immer: Grad–Minuten–Sekunden + N/E.",
       "links": []
     },
-    "correctAnswerText": "47 Grad 35 Minuten 05 Sekunden Nord, 10 Grad 28 Minuten 41 Sekunden Ost"
+    "correctAnswerText": "47 Grad 35 Minuten 05 Sekunden Nord, 10 Grad 28 Minuten 41 Sekunden Ost",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q308",
@@ -9662,7 +12742,18 @@
       "merksatz": "Nachkommastellen im Gradwert = Minuten/Sekunden „eingerechnet“. ",
       "links": []
     },
-    "correctAnswerText": "Dezimalgrad"
+    "correctAnswerText": "Dezimalgrad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 3,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q309",
@@ -9689,7 +12780,17 @@
       "merksatz": "Knoten → km/h: mal zwei, dann 10% weg.",
       "links": []
     },
-    "correctAnswerText": "kt x 2 - 10 %"
+    "correctAnswerText": "kt x 2 - 10 %",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q310",
@@ -9716,7 +12817,17 @@
       "merksatz": "km → NM: halbieren, dann 10% drauf.",
       "links": []
     },
-    "correctAnswerText": "(km : 2) + 10%"
+    "correctAnswerText": "(km : 2) + 10%",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q311",
@@ -9743,7 +12854,17 @@
       "merksatz": "m→ft: mal 3, dann +10%.",
       "links": []
     },
-    "correctAnswerText": "(m x 3) + 10%"
+    "correctAnswerText": "(m x 3) + 10%",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q312",
@@ -9770,7 +12891,17 @@
       "merksatz": "kt→km/h: mal 2, dann 10% weg.",
       "links": []
     },
-    "correctAnswerText": "ca. 28 km/h"
+    "correctAnswerText": "ca. 28 km/h",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q313",
@@ -9797,7 +12928,18 @@
       "merksatz": "100 m ≈ 330 ft.",
       "links": []
     },
-    "correctAnswerText": "330 ft"
+    "correctAnswerText": "330 ft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q314",
@@ -9824,7 +12966,18 @@
       "merksatz": "m/s→km/h: mal 3,6.",
       "links": []
     },
-    "correctAnswerText": "21,6"
+    "correctAnswerText": "21,6",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q315",
@@ -9851,7 +13004,18 @@
       "merksatz": "NM→km: mal 2, dann 10% weg.",
       "links": []
     },
-    "correctAnswerText": "45 km"
+    "correctAnswerText": "45 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q316",
@@ -9878,7 +13042,17 @@
       "merksatz": "1 kt ≈ 1,85 km/h.",
       "links": []
     },
-    "correctAnswerText": "1,85 km/h"
+    "correctAnswerText": "1,85 km/h",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q317",
@@ -9905,7 +13079,17 @@
       "merksatz": "km/h→m/s: durch 4, dann +10%.",
       "links": []
     },
-    "correctAnswerText": "km/h : 4 + 10%"
+    "correctAnswerText": "km/h : 4 + 10%",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q318",
@@ -9932,7 +13116,17 @@
       "merksatz": "NM→km: mal 2, dann 10% weg.",
       "links": []
     },
-    "correctAnswerText": "NM x 2 - 10%"
+    "correctAnswerText": "NM x 2 - 10%",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q319",
@@ -9959,7 +13153,18 @@
       "merksatz": "150 m ≈ 495 ft.",
       "links": []
     },
-    "correctAnswerText": "495 ft"
+    "correctAnswerText": "495 ft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q320",
@@ -9986,7 +13191,18 @@
       "merksatz": "16 m/s = 57,6 km/h.",
       "links": []
     },
-    "correctAnswerText": "57,6 km/h"
+    "correctAnswerText": "57,6 km/h",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q321",
@@ -10013,7 +13229,18 @@
       "merksatz": "ft→m: grob ×0,3.",
       "links": []
     },
-    "correctAnswerText": "720 m"
+    "correctAnswerText": "720 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q322",
@@ -10040,7 +13267,17 @@
       "merksatz": "m/s→km/h: vierfach, dann 10% weg.",
       "links": []
     },
-    "correctAnswerText": "m/s x 4 - 10%"
+    "correctAnswerText": "m/s x 4 - 10%",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q323",
@@ -10067,7 +13304,17 @@
       "merksatz": "WNW liegt zwischen 270° und 315°.",
       "links": []
     },
-    "correctAnswerText": "292,5°"
+    "correctAnswerText": "292,5°",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q324",
@@ -10094,7 +13341,17 @@
       "merksatz": "kt = Knoten = Seemeilen pro Stunde.",
       "links": []
     },
-    "correctAnswerText": "NM/h"
+    "correctAnswerText": "NM/h",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q325",
@@ -10121,7 +13378,17 @@
       "merksatz": "Richtung = Winkel in Grad.",
       "links": []
     },
-    "correctAnswerText": "im Winkelmaß aus"
+    "correctAnswerText": "im Winkelmaß aus",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q326",
@@ -10148,7 +13415,17 @@
       "merksatz": "MEZ = UTC + 1 Stunde.",
       "links": []
     },
-    "correctAnswerText": "1200 UTC"
+    "correctAnswerText": "1200 UTC",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q327",
@@ -10175,7 +13452,17 @@
       "merksatz": "1′ (Bogenminute) = 1 NM.",
       "links": []
     },
-    "correctAnswerText": "einer Bogenminute am Äquator"
+    "correctAnswerText": "einer Bogenminute am Äquator",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q328",
@@ -10202,7 +13489,17 @@
       "merksatz": "Erst Breite, dann Länge.",
       "links": []
     },
-    "correctAnswerText": "zuerst die Breite und dann die Länge genannt"
+    "correctAnswerText": "zuerst die Breite und dann die Länge genannt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 1,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q329",
@@ -10234,7 +13531,18 @@
       "merksatz": "ICAO-Landmarks: zwei Schloss-Symbole am Punkt.",
       "links": []
     },
-    "correctAnswerText": "befinden sich zwei Schlösser"
+    "correctAnswerText": "befinden sich zwei Schlösser",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q330",
@@ -10266,7 +13574,18 @@
       "merksatz": "Koordinate trifft die „Zugspitze“-Beschriftung.",
       "links": []
     },
-    "correctAnswerText": "über dem höchste Berg Deutschlands"
+    "correctAnswerText": "über dem höchste Berg Deutschlands",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q331",
@@ -10298,7 +13617,18 @@
       "merksatz": "Koordinate prüfen + Flächensignatur lesen.",
       "links": []
     },
-    "correctAnswerText": "über einem Gletscher"
+    "correctAnswerText": "über einem Gletscher",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q332",
@@ -10330,7 +13660,18 @@
       "merksatz": "Gitter → Punkt → Ortsbeschriftung am Punkt.",
       "links": []
     },
-    "correctAnswerText": "Oberammergau"
+    "correctAnswerText": "Oberammergau",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q333",
@@ -10362,7 +13703,18 @@
       "merksatz": "Erst Breite, dann Länge – und Namen ablesen.",
       "links": []
     },
-    "correctAnswerText": "Immenstadt"
+    "correctAnswerText": "Immenstadt",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q334",
@@ -10394,7 +13746,18 @@
       "merksatz": "Ort finden, dann Breite/Länge am Gitter ablesen.",
       "links": []
     },
-    "correctAnswerText": "47°34\\' N  10°42\\' E"
+    "correctAnswerText": "47°34\\' N  10°42\\' E",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q335",
@@ -10426,7 +13789,18 @@
       "merksatz": "Kurs: Nord als 0°, dann im Uhrzeigersinn messen.",
       "links": []
     },
-    "correctAnswerText": "83 Grad"
+    "correctAnswerText": "83 Grad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q336",
@@ -10458,7 +13832,18 @@
       "merksatz": "180° = geradeaus nach Süden.",
       "links": []
     },
-    "correctAnswerText": "den Plansee"
+    "correctAnswerText": "den Plansee",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q337",
@@ -10490,7 +13875,18 @@
       "merksatz": "Kreis + H = Helikopter-Landestelle.",
       "links": []
     },
-    "correctAnswerText": "einen Hubschrauberlandeplatz"
+    "correctAnswerText": "einen Hubschrauberlandeplatz",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q338",
@@ -10517,7 +13913,18 @@
       "merksatz": "Punktzahl in der Karte = Höhenzahl (Luftfahrt-Standard ft).",
       "links": []
     },
-    "correctAnswerText": "Höhenangabe in ft"
+    "correctAnswerText": "Höhenangabe in ft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q339",
@@ -10549,7 +13956,18 @@
       "merksatz": "Segelflug = Kreis mit Flügel-Piktogramm.",
       "links": []
     },
-    "correctAnswerText": "einem Kreis mit stilisiertem Vogel"
+    "correctAnswerText": "einem Kreis mit stilisiertem Vogel",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q340",
@@ -10576,7 +13994,18 @@
       "merksatz": "Karte zeigt nur ausgewählte Start-/Betriebsgebiete.",
       "links": []
     },
-    "correctAnswerText": "teilweise eingezeichnet"
+    "correctAnswerText": "teilweise eingezeichnet",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q341",
@@ -10608,7 +14037,19 @@
       "merksatz": "Kartensymbol lesen: intakt vs. Restanlage.",
       "links": []
     },
-    "correctAnswerText": "eine Ruine"
+    "correctAnswerText": "eine Ruine",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "hasFigure",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q342",
@@ -10645,7 +14086,19 @@
         }
       ]
     },
-    "correctAnswerText": "dass  bei  Weiterflug  auf  gleicher  Höhe  Einflug  in  kontrollierten  Luftraum  D  unmittelbar bevorsteht. Sofort unter FL 125 sinken."
+    "correctAnswerText": "dass  bei  Weiterflug  auf  gleicher  Höhe  Einflug  in  kontrollierten  Luftraum  D  unmittelbar bevorsteht. Sofort unter FL 125 sinken.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "hasFigure",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q343",
@@ -10677,7 +14130,18 @@
         }
       ]
     },
-    "correctAnswerText": "21 cm"
+    "correctAnswerText": "21 cm",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q344",
@@ -10709,7 +14173,17 @@
         }
       ]
     },
-    "correctAnswerText": "rwK"
+    "correctAnswerText": "rwK",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q345",
@@ -10741,7 +14215,17 @@
         }
       ]
     },
-    "correctAnswerText": "75 NM"
+    "correctAnswerText": "75 NM",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q346",
@@ -10773,7 +14257,18 @@
         }
       ]
     },
-    "correctAnswerText": "in ft"
+    "correctAnswerText": "in ft",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 3,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q347",
@@ -10800,7 +14295,17 @@
       "merksatz": "Kompass folgt dem Magnetfeld, nicht dem Karten‑Nord.",
       "links": []
     },
-    "correctAnswerText": "zum magnetischen Nordpol"
+    "correctAnswerText": "zum magnetischen Nordpol",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q348",
@@ -10827,7 +14332,17 @@
       "merksatz": "Gegenkurs = Kurs ±180°.",
       "links": []
     },
-    "correctAnswerText": "202,5 Grad"
+    "correctAnswerText": "202,5 Grad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q349",
@@ -10854,7 +14369,17 @@
       "merksatz": "Rechtweisend = Winkel zur geografischen Nordrichtung.",
       "links": []
     },
-    "correctAnswerText": "Der Winkel in Grad zwischen dem Meridian und der eingezeichneten Kurslinie"
+    "correctAnswerText": "Der Winkel in Grad zwischen dem Meridian und der eingezeichneten Kurslinie",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q350",
@@ -10881,7 +14406,17 @@
       "merksatz": "Kompass = Vollkreis 360°.",
       "links": []
     },
-    "correctAnswerText": "360 Grad"
+    "correctAnswerText": "360 Grad",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q351",
@@ -10913,7 +14448,17 @@
         }
       ]
     },
-    "correctAnswerText": "Schwankungen, hervorgerufen von Hoch- und Tiefdruckgebieten beeinflussen die Höhenanzeige"
+    "correctAnswerText": "Schwankungen, hervorgerufen von Hoch- und Tiefdruckgebieten beeinflussen die Höhenanzeige",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q352",
@@ -10945,7 +14490,17 @@
         }
       ]
     },
-    "correctAnswerText": "Höhe über MSL"
+    "correctAnswerText": "Höhe über MSL",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q353",
@@ -10977,7 +14532,17 @@
         }
       ]
     },
-    "correctAnswerText": "0 an"
+    "correctAnswerText": "0 an",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q354",
@@ -11004,7 +14569,17 @@
       "merksatz": "Kein QNH? Am Start auf Platzhöhe (Karte) einstellen.",
       "links": []
     },
-    "correctAnswerText": "Höhenmesser auf Platzhöhe lt. Karte einstellen"
+    "correctAnswerText": "Höhenmesser auf Platzhöhe lt. Karte einstellen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q355",
@@ -11031,7 +14606,17 @@
       "merksatz": "Turbulenz + Schräglage = Kompass zeigt „wandernd“.",
       "links": []
     },
-    "correctAnswerText": "Der Kompass hat durch Neigungs- und Fliehkraftfehler keine gleichbleibende Anzeige"
+    "correctAnswerText": "Der Kompass hat durch Neigungs- und Fliehkraftfehler keine gleichbleibende Anzeige",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q356",
@@ -11063,7 +14648,18 @@
         }
       ]
     },
-    "correctAnswerText": "Die Einstellung mit Bezug auf Flight-Level (Standarddruck 1013,25 hPa)"
+    "correctAnswerText": "Die Einstellung mit Bezug auf Flight-Level (Standarddruck 1013,25 hPa)",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q357",
@@ -11095,7 +14691,17 @@
         }
       ]
     },
-    "correctAnswerText": "QNH"
+    "correctAnswerText": "QNH",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q358",
@@ -11122,7 +14728,17 @@
       "merksatz": "Von oben: B‑Straße vs. Landstraße fast gleich.",
       "links": []
     },
-    "correctAnswerText": "eine Bundesstraße von einer Landstraße"
+    "correctAnswerText": "eine Bundesstraße von einer Landstraße",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q359",
@@ -11149,7 +14765,17 @@
       "merksatz": "GPS horizontal: grob „ein paar Meter“.",
       "links": []
     },
-    "correctAnswerText": "5-10 m"
+    "correctAnswerText": "5-10 m",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q360",
@@ -11176,7 +14802,17 @@
       "merksatz": "3D + Zeitfehler ⇒ mindestens 4 Satelliten.",
       "links": []
     },
-    "correctAnswerText": "vier Satelliten"
+    "correctAnswerText": "vier Satelliten",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q361",
@@ -11208,7 +14844,17 @@
         }
       ]
     },
-    "correctAnswerText": "Durch GPS-Messung der sich verändernden Geschwindigkeiten über Grund während eines oder mehrerer Vollkreise."
+    "correctAnswerText": "Durch GPS-Messung der sich verändernden Geschwindigkeiten über Grund während eines oder mehrerer Vollkreise.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q362",
@@ -11235,7 +14881,18 @@
       "merksatz": "Druck ändert sich → Baro-Höhe driftet.",
       "links": []
     },
-    "correctAnswerText": "Der  Messfehler  liegt  am  barometrischen  Höhenmesser,  während  des  Streckenfluges  ist  der Luftdruck gestiegen."
+    "correctAnswerText": "Der  Messfehler  liegt  am  barometrischen  Höhenmesser,  während  des  Streckenfluges  ist  der Luftdruck gestiegen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 5,
+      "difficulty": 5,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q363",
@@ -11262,7 +14919,17 @@
       "merksatz": "GPS richtet sich nach „wahrem“ Nord, nicht nach Kompass.",
       "links": []
     },
-    "correctAnswerText": "nach geografisch Nord"
+    "correctAnswerText": "nach geografisch Nord",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q364",
@@ -11289,7 +14956,17 @@
       "merksatz": "Nordbezug prüfen: wahr oder magnetisch eingestellt?",
       "links": []
     },
-    "correctAnswerText": "rechtweisend (rwK) oder missweisend (mwK), je nach Einstellung des Gerätes"
+    "correctAnswerText": "rechtweisend (rwK) oder missweisend (mwK), je nach Einstellung des Gerätes",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q365",
@@ -11316,7 +14993,18 @@
       "merksatz": "GPS‑Speed = Grundspeed; ungewöhnlich hoch ⇒ Wind von hinten.",
       "links": []
     },
-    "correctAnswerText": "Geschwindigkeit über Grund, Du fliegst mit Rückenwind"
+    "correctAnswerText": "Geschwindigkeit über Grund, Du fliegst mit Rückenwind",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 5,
+      "difficulty": 4,
+      "tags": [
+        "calculation",
+        "interpretation"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q366",
@@ -11348,7 +15036,17 @@
         }
       ]
     },
-    "correctAnswerText": "Tracklog"
+    "correctAnswerText": "Tracklog",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q367",
@@ -11380,7 +15078,17 @@
         }
       ]
     },
-    "correctAnswerText": "Die Live-Übertragung von Positionsdaten via Mobilfunk oder Satellit, z.B.in ein Online-Kartenformat."
+    "correctAnswerText": "Die Live-Übertragung von Positionsdaten via Mobilfunk oder Satellit, z.B.in ein Online-Kartenformat.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q368",
@@ -11412,7 +15120,17 @@
         }
       ]
     },
-    "correctAnswerText": "Ein Kollisions-Vermeidungsgerät für leichte Luftfahrzeuge, zeigt alle Fluggeräte, die sich in der Nähe befinden und ebenfalls FLARM aktiviert haben."
+    "correctAnswerText": "Ein Kollisions-Vermeidungsgerät für leichte Luftfahrzeuge, zeigt alle Fluggeräte, die sich in der Nähe befinden und ebenfalls FLARM aktiviert haben.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q369",
@@ -11444,7 +15162,17 @@
         }
       ]
     },
-    "correctAnswerText": "Dass die Daten der Luftraum-Karten aktuell sind."
+    "correctAnswerText": "Dass die Daten der Luftraum-Karten aktuell sind.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q370",
@@ -11471,7 +15199,17 @@
       "merksatz": "Warnung lieber zu früh als zu spät.",
       "links": []
     },
-    "correctAnswerText": "Alle Antworten sind richtig"
+    "correctAnswerText": "Alle Antworten sind richtig",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q371",
@@ -11498,7 +15236,17 @@
       "merksatz": "GPS‑Vario: rwK (geo) oder mwK (mag).",
       "links": []
     },
-    "correctAnswerText": "können Richtungen in Bezug auf den geographischen (rwK) oder magnetischen (mwK) Nordpol anzeigen"
+    "correctAnswerText": "können Richtungen in Bezug auf den geographischen (rwK) oder magnetischen (mwK) Nordpol anzeigen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q372",
@@ -11525,7 +15273,17 @@
       "merksatz": "Maßstab = Karte : Wirklichkeit.",
       "links": []
     },
-    "correctAnswerText": "das Verhältnis Kartenlänge Naturlänge"
+    "correctAnswerText": "das Verhältnis Kartenlänge Naturlänge",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q373",
@@ -11552,7 +15310,17 @@
       "merksatz": "Geländeplanung → Höhenlinien‑Karte.",
       "links": []
     },
-    "correctAnswerText": "Topographische Karte"
+    "correctAnswerText": "Topographische Karte",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q374",
@@ -11579,7 +15347,18 @@
       "merksatz": "Eng = steil, weit = flach.",
       "links": []
     },
-    "correctAnswerText": "Das Gelände ist steil"
+    "correctAnswerText": "Das Gelände ist steil",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 1,
+      "difficulty": 1,
+      "tags": [
+        "definition",
+        "hasFigure"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q375",
@@ -11606,7 +15385,18 @@
       "merksatz": "1:500.000 → 1 cm = 5 km.",
       "links": []
     },
-    "correctAnswerText": "5 km"
+    "correctAnswerText": "5 km",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "hasFigure",
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q376",
@@ -11633,7 +15423,17 @@
       "merksatz": "Planung = ICAO (Luftraum) + Geländeprofil.",
       "links": []
     },
-    "correctAnswerText": "ICAO-Luftfahrerkarte und topographische Karte"
+    "correctAnswerText": "ICAO-Luftfahrerkarte und topographische Karte",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q377",
@@ -11660,7 +15460,17 @@
       "merksatz": "Fixpunkt: eindeutig und „punktig“.",
       "links": []
     },
-    "correctAnswerText": "Hügelkette"
+    "correctAnswerText": "Hügelkette",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q378",
@@ -11687,7 +15497,17 @@
       "merksatz": "Regelmäßige Punktreihe = meist Masten.",
       "links": []
     },
-    "correctAnswerText": "Um Masten einer Oberleitung"
+    "correctAnswerText": "Um Masten einer Oberleitung",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q379",
@@ -11714,7 +15534,17 @@
       "merksatz": "Hoch oben: Drift ≠ Bodenwind.",
       "links": []
     },
-    "correctAnswerText": "Durch den Versatz beim Kreisen"
+    "correctAnswerText": "Durch den Versatz beim Kreisen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 4,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q380",
@@ -11741,7 +15571,17 @@
       "merksatz": "Hangneigung täuscht aus der Luft.",
       "links": []
     },
-    "correctAnswerText": "Die Neigung einer Außenlande-Wiese"
+    "correctAnswerText": "Die Neigung einer Außenlande-Wiese",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q381",
@@ -11773,7 +15613,17 @@
         }
       ]
     },
-    "correctAnswerText": "Schlecht erkennbare Strom- oder Telefonleitungen"
+    "correctAnswerText": "Schlecht erkennbare Strom- oder Telefonleitungen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q382",
@@ -11805,7 +15655,17 @@
         }
       ]
     },
-    "correctAnswerText": "Auf eine leere Blase."
+    "correctAnswerText": "Auf eine leere Blase.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q383",
@@ -11837,7 +15697,17 @@
         }
       ]
     },
-    "correctAnswerText": "Regelmäßig, aber in kleinen Schlucken."
+    "correctAnswerText": "Regelmäßig, aber in kleinen Schlucken.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q384",
@@ -11864,7 +15734,17 @@
       "merksatz": "Voller Fokus braucht „freien Kopf“ – auch körperlich.",
       "links": []
     },
-    "correctAnswerText": "ist gefährlich, weil die Konzentration stark darunter leidet."
+    "correctAnswerText": "ist gefährlich, weil die Konzentration stark darunter leidet.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q385",
@@ -11891,7 +15771,17 @@
       "merksatz": "XC‑Start: einfache Route + viele Ausstiege, keine Lee‑Fallen.",
       "links": []
     },
-    "correctAnswerText": "Strecken  mit  einfacher  Topografie,  ohne  Lee-Fallen  und  mit  guten  Außenlandemöglichkeiten wählen."
+    "correctAnswerText": "Strecken  mit  einfacher  Topografie,  ohne  Lee-Fallen  und  mit  guten  Außenlandemöglichkeiten wählen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q386",
@@ -11918,7 +15808,17 @@
       "merksatz": "UV auf Strecke: Haut + Augen schützen.",
       "links": []
     },
-    "correctAnswerText": "Darauf,  das  Gesicht  mit  einer  guten  Sonnencreme  und  die  Augen  mit  einer  hochwertigen Sonnenbrille zu schützen."
+    "correctAnswerText": "Darauf,  das  Gesicht  mit  einer  guten  Sonnencreme  und  die  Augen  mit  einer  hochwertigen Sonnenbrille zu schützen.",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 2,
+      "difficulty": 2,
+      "tags": [
+        "singleRule"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q387",
@@ -11950,7 +15850,17 @@
         }
       ]
     },
-    "correctAnswerText": "alle 3 Optionen prüfen"
+    "correctAnswerText": "alle 3 Optionen prüfen",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 3,
+      "difficulty": 3,
+      "tags": [
+        "scenario"
+      ],
+      "notes": ""
+    }
   },
   {
     "id": "Q388",
@@ -11982,6 +15892,17 @@
         }
       ]
     },
-    "correctAnswerText": "ein geladenes Smartphone mit Notruf-App"
+    "correctAnswerText": "ein geladenes Smartphone mit Notruf-App",
+    "learn": {
+      "pathVersion": "teacherPath_v2",
+      "block": 2,
+      "stage": 4,
+      "difficulty": 5,
+      "tags": [
+        "exception",
+        "multiCondition"
+      ],
+      "notes": ""
+    }
   }
 ]

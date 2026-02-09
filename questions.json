@@ -20,11 +20,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "Thermikschlauch bedeutet aufsteigende Warmluft, in der Piloten kreisen, um Höhe zu gewinnen. Wenn schon jemand in deiner Höhe kreist, muss der Verkehr im selben Kreis vorhersehbar bleiben, sonst entsteht gefährlicher Gegenverkehr. Deshalb richtest du dein Einkreisen so aus, dass du dich sauber in das bestehende Kreisbild einfügst und niemanden schneidest.",
+      "merksatz": "Thermik: Erstkreis gibt Richtung – immer sauber einfädeln.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -52,11 +52,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Kreuzender Kurs heißt: zwei Flugwege schneiden sich. Damit klar ist, wer aktiv ausweicht, gibt es eine feste Seitenregel.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "Kreuzender Kurs heißt: Eure Flugwege schneiden sich, ihr könnt euch also frontal nicht einfach „vorbeischieben“. Damit beide nicht gleichzeitig ausweichen (oder keiner), gilt eine feste Seitenregel: Wer den anderen auf seiner rechten Seite hat, darf seinen Kurs beibehalten; der andere muss frühzeitig klar ausweichen. „Ausweichen“ heißt: Kurs/Flugweg so ändern, dass eine deutliche Trennung entsteht.",
+      "merksatz": "Kreuzt es sich: Wer dich rechts hat, bleibt – du weichst.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -84,11 +84,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Im Landeanflug ist ein Fluggerät nahe am Boden und nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang gegenüber durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "Hier ist die Situation ebenfalls „kreuzender Kurs“: Ihr seid auf ähnlicher Höhe, die Flugwege schneiden sich. Entscheidend ist, auf welcher Seite du den anderen siehst: Siehst du ihn rechts, bist du der Ausweichpflichtige; siehst du ihn links, muss der andere aktiv Platz schaffen. Ausweichen bedeutet dabei nicht „minimal zupfen“, sondern früh und eindeutig so drehen, dass keine Kollisionslinie bleibt.",
+      "merksatz": "Siehst du ihn rechts: raus aus der Linie – früh und deutlich.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -116,11 +116,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Es gilt die allgemeine Ausweichregel: Manöver müssen früh, klar und mit Abstand erfolgen, damit der andere Pilot sie eindeutig erkennt.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "„Direkt von vorne“ ist ein Gegenkurs: Beide sind gleichberechtigt und niemand kann sicher davon ausgehen, dass nur der andere reagiert. Darum weichen beide in dieselbe Richtung aus, damit sich die Flugwege sauber trennen und ihr euch nicht gegenseitig in die gleiche Lücke dreht. Frühzeitiges, klares Manöver verhindert, dass es im letzten Moment hektisch wird.",
+      "merksatz": "Gegenkurs = beide gleich: gemeinsam nach rechts trennen.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -148,11 +148,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Im Landeanflug ist ein Fluggerät nahe am Boden und nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang gegenüber durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "Endanflug bedeutet: Du bist im letzten, bodennahen Teil vor der Landung und hast nur wenig Platz und Zeit für große Ausweichmanöver. Wenn dich in dieser Phase jemand überholt oder unterfliegt, kann er dich leicht in Turbulenz/Leewirbel bringen oder dir den letzten Sicherheitsraum nehmen. Deshalb müssen andere den Endanflug frei halten und dürfen dich dabei nicht „unterqueren“ oder vorbeiziehen.",
+      "merksatz": "Endanflug ist geschützt: keiner drunter, keiner vorbei.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -180,11 +180,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "„In der Thermik kreisen“ heißt: Ein Pilot nutzt einen Aufwind und fliegt dazu in einem Kreis; seine Aufmerksamkeit ist stark auf Variometer, Kreisradius und Luftraumbeobachtung im Kreis gebunden. Wer von außen heranfliegt, kann leichter Abstand halten und die Situation von außen beurteilen. Deshalb muss der Anfliegende so ausweichen, dass der kreisende Pilot seinen Kreis nicht abrupt ändern muss.",
+      "merksatz": "Thermikverkehr hat Vorrang: Außenflieger halten Abstand.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -217,11 +217,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Kreuzender Kurs heißt: zwei Flugwege schneiden sich. Damit klar ist, wer aktiv ausweicht, gibt es eine feste Seitenregel.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "Bei kreuzenden Flugbahnen entsteht die Gefahr, dass beide im gleichen Punkt zur gleichen Zeit ankommen. Die Regel legt fest, wer aktiv ausweichen muss, damit es eindeutig ist; die konkrete Ausweichrichtung ist hier nicht fest vorgeschrieben, wichtig ist die sichere Trennung. „Ausweichen“ heißt: so ändern, dass der Schnittpunkt gar nicht mehr erreicht wird, nicht nur „knapp vorbei“.",
+      "merksatz": "Kreuzung: Pflichtiger bricht die Schnittstelle – Richtung egal, Abstand zählt.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -254,11 +254,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "Der Gleitschirm kreist im Aufwind (Thermik), der Drachenflieger kommt von außen dazu. Der Kreisel in der Thermik ist der „schwerer planbare“ Teilverkehr, weil Kreisradius und Steigen stabil gehalten werden müssen. Der Anfliegende kann Tempo, Anflugseite und Abstand frei wählen und muss so handeln, dass er den Kreis nicht stört oder schneidet; die konkrete Seite ist dabei nicht festgelegt.",
+      "merksatz": "Thermik: Kreisende bleiben im Kreis – Anflieger weichen aus.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -286,11 +286,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
+      "explanation": "„Soaren“ heißt: dicht am Hang im dynamischen Aufwind entlangfliegen; dort ist der Manövrierraum durch Gelände sehr begrenzt. Wenn du nahe am Hang in Thermik einkreisst, kreuzt du schnell die Hanglinie und zwingst Soarer zu riskanten Ausweichmanövern. Deshalb haben Hangflugregeln dort Vorrang: Thermikkreisen darf den Hangverkehr nicht gefährden oder behindern.",
+      "merksatz": "Hang ist eng: Soarer zuerst – Thermik nur ohne Störung.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
+          "title": "DHV – Ausweichregeln (Poster, PDF)",
           "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
@@ -318,14 +318,9 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Thermik = aufsteigende Warmluft. In ihr wird im Kreis geflogen, um Höhe zu gewinnen. Kreist bereits ein Fluggerät, darfst du nicht gegenläufig eindrehen, sonst entsteht Gegenverkehr im selben Kreis. Du passt deine Drehrichtung an den ersten Kreisenden an.",
-      "merksatz": "Ausweichregel: eindeutig + früh + mit Abstand.",
-      "links": [
-        {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
-        }
-      ]
+      "explanation": "Die Frage zielt auf nationale Unterschiede: Regeln für Thermik und Hang können je nach Land anders gewichtet sein. In Österreich wird dem Thermikverkehr (kreisend im Aufwind) grundsätzlich Vorrang eingeräumt, auch wenn das Kreisen hangnah stattfindet. Für die Praxis heißt das: Bei Auslandsflügen immer die lokalen Verbands-/Gebietsregeln kennen, bevor du das „deutsche“ Schema übernimmst.",
+      "merksatz": "Im Ausland gilt’s lokal: In AT hat Thermikverkehr Vorrang.",
+      "links": []
     },
     "correctAnswerText": "Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist."
   },

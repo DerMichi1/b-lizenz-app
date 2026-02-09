@@ -5564,15 +5564,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Zeichenkette ist eine kompakte Stations-/Modell-Ausgabe: Datum und Uhrzeit sind in UTC (UTC = Weltzeit; in Mitteleuropa im Winter +1h, im Sommer +2h). Danach kommt die Windrichtung in Grad (0/360 = Nord, 90 = Ost, 180 = Süd, 270 = West) und die Windgeschwindigkeit in KT (KT = Knoten; 1 kt ≈ 1,85 km/h). Ein Zusatz „in Böen“ beschreibt kurzzeitige Spitzen über dem Mittelwind. So liest du aus einem Textblock: wann gilt die Angabe, woher kommt der Wind, wie stark ist er und wie hoch können Böen sein.",
+      "merksatz": "UTC + Grad + KT → Wind kurz lesen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alptherm-Info – Windangaben (DEG/KT) erklärt",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wettervorhersage/21_alptherminfo.pdf#page=5"
         }
       ]
-    }
+    },
+    "correctAnswerText": "21.des  Monats,  12:50  UTC,  Wind  aus  300°  mit  12  KT,  in  Böen  bis  20  KT,  Temperatur  -7°C, Taupunkt, -9°C, Luftdruck 1004 hPa"
   },
   {
     "id": "Q172",
@@ -5600,15 +5601,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf der Bodenwindkarte sind Messpunkte mit Ortsnamen und Zahlen eingetragen. „V=KT“ heißt: die Windwerte sind in Knoten, „Gusts“ sind Böen (Böe = kurze Windspitze über dem Mittelwind). Du liest pro Ort zuerst den Mittelwind und zusätzlich – getrennt ausgewiesen – die Böen. Wichtig ist die Richtung: sie wird mit Himmelsrichtung oder als Pfeil angegeben und entscheidet, ob ein Startplatz im Luv/Lee liegt (Luv = dem Wind zugewandt; Lee = windabgewandt, mit Turbulenzrisiko). Für die Flugentscheidung zählt nicht nur ein einzelner Ort, sondern das Muster: wo ist es insgesamt stärker, wo gibt es Böenfelder und wo dreht die Richtung.",
+      "merksatz": "Mittelwind + Böen getrennt lesen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alptherm-Info – WIND [DEG/KT] & Kartenwerte",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wettervorhersage/21_alptherminfo.pdf#page=5"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Kössen: 5 KT SO, Böen 7 KT , Achenkirch: 15 KT NNW, Böen 26 KT, Landeck: 5 KT S, Böen 12 KT, Tannheim: 10 KT W, Böen 28 KT"
   },
   {
     "id": "Q173",
@@ -5636,15 +5638,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Grafik stellt eine Druckdifferenz zwischen Nord- und Südseite der Alpen dar. Druckdifferenz bedeutet: zwei Messorte werden verglichen; das Vorzeichen zeigt, auf welcher Seite der Druck höher ist, und daraus folgt die bevorzugte Strömungsrichtung über die Alpen (Wind „will“ vom höheren zum niedrigeren Druck). Je größer der Betrag der Differenz, desto stärker ist der großräumige Antrieb – das erhöht die Wahrscheinlichkeit für kräftige Querströmung und damit Föhn-/Stau-Effekte. Für Gleitschirm/Drachen ist das entscheidend, weil schon moderate Druckdifferenzen in Engstellen/Tälern zu sehr starkem, böigem Wind und gefährlicher Lee-Turbulenz führen können.",
+      "merksatz": "Vorzeichen sagt: welche Seite drückt.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Wetter-Links – Föhn/ Druckdifferenz als Planungsbaustein",
+          "url": "https://www.dhv.de/wetter/wetter-links/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Negative  Druckdifferenz  mit  geringerem  Luftdruck  im  Süden.  Da  der  Wind  vom  höheren  zum tieferen Druck weht, ist eine Nordströmung mit Nordföhn zu erwarten."
   },
   {
     "id": "Q174",
@@ -5667,15 +5670,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein „spezieller Wetterbericht“ für Gleitschirm/Drachen ist kein allgemeiner Stadtbericht, sondern ein fliegerisch interpretierter Text: Er bewertet Thermik, Wind in verschiedenen Höhen, Föhn/Stau, Gewitterneigung und flugtaktische Zeitfenster. Sinnvoll ist daher eine Quelle, die genau diese Luftsport-Punkte zusammenfasst (statt nur „Temperatur/Regen“).",
+      "merksatz": "Nicht Stadtwetter – Luftsporttext lesen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Wetter: Luftsport-Wettertexte für Flugregionen",
+          "url": "https://www.dhv.de/wetter/dhv-wetter/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "www.dhv.de"
   },
   {
     "id": "Q175",
@@ -5698,15 +5702,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Vor jedem Strecken-/Überlandvorhaben: Planung (Route, Lufträume, Wetter, NOTAM).\n- Flugplan ist nur in bestimmten Fällen erforderlich; nicht pauschal bei jedem Überlandflug.",
-      "merksatz": "Planung ist Pflicht.\nFlugplan nur wenn gefordert.",
+      "explanation": "Fronten sind Grenzflächen zwischen Luftmassen; sie bringen oft starke Änderungen bei Wind, Bewölkung, Niederschlag und Turbulenz. Um eine Front nicht zu übersehen, brauchst du einen expliziten Flugwetterbericht bzw. eine synoptische Einschätzung (synoptisch = großräumige Wetterlage). Reine „Thermik-Apps“ können lokal gut aussehen lassen, obwohl großräumig eine Front anrückt. Deshalb gehört ein offizieller Luftfahrt-/Segelflugbericht als Pflichtbaustein in die Planung – dort wird die Großwetterlage und die Frontenlage beschrieben.",
+      "merksatz": "Fronten siehst du nur im Flugwetterbericht.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DWD: Gebietsvorhersagen für Segelflug (GAFOR) – Großwetter/Fronten",
+          "url": "https://www.dwd.de/DE/fachnutzer/luftfahrt/teaser/gebietsvorhersagen_segelflug/node_81.html"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Bei  den  Online-Segelflugwetterberichten  von  DWD  (Deutscher  Wetterdienst)  bzw.  Austro Control (Österreich)."
   },
   {
     "id": "Q176",
@@ -5729,15 +5734,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Spezielle“ Wetterinfos für Gleitschirm/Drachen sind Tools, die direkt flugrelevante Größen darstellen: Thermikpotenzial, Basishöhe, Überentwicklung/Gewitterrisiko, Wind in verschiedenen Höhen und Föhnindikatoren. Diese Portale bündeln Karten/Modelle so, dass du sie flugtaktisch interpretieren kannst. Wichtig: Sie ersetzen nicht die offizielle Großwetter-/Frontenanalyse, sondern ergänzen sie für Details im Gelände.",
+      "merksatz": "Spezial-Tools ergänzen, ersetzen nicht.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Wetter-Links – Thermik-/Wind-/Föhn-Tools für die Flugplanung",
+          "url": "https://www.dhv.de/wetter/wetter-links/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Meteo-Parapente.com, XC-Therm.com, windy.com"
   },
   {
     "id": "Q177",
@@ -5765,15 +5771,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Im Foto sind Quellwolken (Quellwolken = durch aufsteigende Warmluft entstehende Haufenwolken) deutlich versetzt zur Bergkante zu sehen, und die Wolken wirken in Richtung des überregionalen Winds „abgezogen“. Das passt zu einer Lage, in der die Thermik zwar durch Sonneneinstrahlung entsteht, aber auf der windabgewandten Seite des Gebirges organisiert wird. Diese Seite ist meteorologisch heikel: Im Lee (Lee = windabgewandt) kann es trotz scheinbar schöner Wolken zu starker Turbulenz und rotierenden Abwinden kommen, weil die Höhenströmung über den Kamm hinübergreift.",
+      "merksatz": "Schöne Wolken im Lee können böse sein.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Wetterwissen – Alpenwetter/Lee & Föhn (Grundlagen)",
+          "url": "https://www.dhv.de/wetter/wetterwissen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Leethermik"
   },
   {
     "id": "Q178",
@@ -5801,15 +5808,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die Wolken haben eine klare Drift und wirken an den Rändern „zerfasert“ – ein typisches Zeichen für Wind in der Höhe (Höhenwind = Wind oberhalb der bodennahen Thermikschicht). Thermikblasen entstehen an sonnenbeschienenen Hängen; wenn diese Hänge gleichzeitig im windabgewandten Bereich liegen, kann die Thermik zwar ansetzen, aber die aufsteigenden Wolkentürme werden oberhalb der Kammhöhe in stärkeren Wind hineingeschoben und dadurch schräg gezogen bzw. teilweise zerrissen. Das Bild spricht daher nicht für „windstill oben“, sondern für deutliche Windscherung zwischen Tal und Höhe (Windscherung = Wind ändert sich mit der Höhe).",
+      "merksatz": "Wolke schräg/zerfasert = Wind oben.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Wetterwissen – Höhenwind/Windscherung & Flugpraxis",
+          "url": "https://www.dhv.de/wetter/wetterwissen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Wolkenthermik entsteht in der sonnenbeschienenen windabgewandten Seite der Berge und wird über Kammhöhe vom starken Höhenwind verblasen und zerrissen."
   },
   {
     "id": "Q179",
@@ -5837,15 +5845,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Aus einem Lee-Wolkenbild folgt kein einzelner Effekt, sondern ein Paket: (1) Im Kammbereich kann die Strömung über den Grat greifen und Rotor/Turbulenz erzeugen (Rotor = rollende Lee-Strömung mit starken Auf-/Abwinden). (2) Gleichzeitig kann auf der sonnenbeschienenen Flanke kräftige Thermik entstehen, weil die Einstrahlung den Hang stark erwärmt. (3) In Tälern kann der thermische Talwind zeitweise relativ unabhängig von der Höhe laufen (Talwind = tageszeitlich bedingter Wind entlang des Tals). Genau diese Mischung macht solche Lagen fliegerisch anspruchsvoll: lokal gutes Steigen, aber daneben gefährliche Bereiche mit starkem Sinken und Turbulenz.",
+      "merksatz": "Lee-Lage = Steigen + Turbulenz + Talwind-Mix.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Wetterwissen – Talwind/Lee-Turbulenz als Risikokombi",
+          "url": "https://www.dhv.de/wetter/wetterwissen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q180",
@@ -5873,15 +5882,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Thermik an sonnenbeschienenen Hängen wird besonders kräftig, wenn die Aufheizung ungestört zu einer sauberen, bodennahen Durchmischung führen kann. Starker Höhenwind kann Thermik „abscheren“ (abscheren = der Aufwind kippt/reißt ab, weil oben starke Strömung zieht) und damit die Entwicklung stören. In einer windabgewandten Lage kann der Hang bodennah aber relativ geschützt sein: Die Luft kann sich dort gut aufheizen und sammeln, bevor sie als Aufwindpaket auslöst. Das erklärt, warum man auf der Leeseite gleichzeitig kräftige Steigwerte und in Gratnähe trotzdem gefährliche Turbulenz haben kann.",
+      "merksatz": "Lee schützt unten – oben kann’s reißen.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Wetterwissen – Lee-Effekte, Abscheren und Turbulenz",
+          "url": "https://www.dhv.de/wetter/wetterwissen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die  an  den  sonnenbeschienenen  Bergflanken  entstehende  Thermik  kann  besonders  kräftig werden, weil sie in ihrer Entstehung nicht von der Höhenströmung gestört wird."
   },
   {
     "id": "Q181",
@@ -5909,15 +5919,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine kleine Cumuluswolke (Cumulus = Haufenwolke aus Thermik) verrät die Windrichtung durch ihre Form: Die „kompakte“ Seite sitzt eher über dem Aufwindkern, die ausfransende „Fahne“ wird mit dem Wind verweht. Du schaust also: Wo ist die Wolke scharf/kompakt, und in welche Richtung zieht der ausgefranste Teil weg? Genau daraus liest du ab, aus welcher Seite der Wind an der Wolke anströmt.",
+      "merksatz": "Fahne zeigt nach Lee.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Wolken zeigen Strömung (Wolkenbilder Teil 3)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/4_2010_165_wolkenbilder_teil_3.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ist die Windrichtung zu erkennen. Der Wind kommt von links"
   },
   {
     "id": "Q182",
@@ -5945,15 +5956,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Unter einer Thermikwolke ist das Steigen nicht symmetrisch: Der Aufwindkern steigt auf, aber die Wolke wird mit dem Wind versetzt. Deshalb liegt der beste „Anflugpunkt“ typischerweise leicht auf der Anströmseite (Luv = dem Wind zugewandt), weil dort der Aufwind zuerst in die Wolke hineinreicht; auf der Abströmseite (Lee = windabgewandt) ist eher Absinken/Turbulenz durch das Auslaufen und Abscheren des Aufwinds zu erwarten. Aus dem Wolkenbild liest du zuerst die Windrichtung ab und wählst dann die Luvseite als Einstieg.",
+      "merksatz": "Unter Cumulus: leicht luvseitig einsteigen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik – Wolkenversatz/Wind und Aufwindkern",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Thermik/07_2013_183_thermik_teil_2.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "links von ihrer Mitte, also luvseitig anfliegen"
   },
   {
     "id": "Q183",
@@ -5981,15 +5993,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Das Foto zeigt keine „runde, saubere“ Thermikoptik, sondern zerrissene Wolkenfetzen und schräg abgezogene Strukturen. Das ist typisch, wenn der Höhenwind den Aufwind oben abschert (abscheren = der Aufwind kippt/reißt durch stärkeren Wind in der Höhe) und dadurch Turbulenz und unregelmäßiges Steigen entsteht. In so einer Lage sind Thermikschläuche oft unruhig und schwer zu zentrieren – die Wolkenform wirkt „verblasen“ statt stabil aufgebaut.",
+      "merksatz": "Zerrissen = oben Wind, unten Turbulenz.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Thermik – Einfluss von Wind/Höhenwind auf die Thermik",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Thermik/07_2013_183_thermik_teil_2.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "zeigt windzerrissene, turbulente Thermik"
   },
   {
     "id": "Q184",
@@ -6017,15 +6030,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die Wolken haben mehrere „Türmchen“ und wachsen in einzelnen Spitzen nach oben, ohne schon den typischen Gewitter-Amboss zu zeigen. Diese Form ist ein Warnsignal für labile Schichtung (labil = Luft steigt leicht weiter, weil sie beim Steigen relativ warm bleibt): Es kann im Tagesverlauf zu stärkerer Überentwicklung bis hin zu Gewittern kommen. Normale Schönwetter-Cumuli hätten eher eine flache Basis und begrenztes Wachstum; ein Cumulonimbus wäre deutlich massiger mit starkem Niederschlag/Glaciationsanzeichen.",
+      "merksatz": "Türmchen am Cumulus = Labilität.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Gewitter – castellatus/floccus als Gewittervorzeichen",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo146.pdf#page=48"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Cumuluswolken (Cumulus Castelanus), labile Schichtung, im Tagesverlauf Gewittergefahr"
   },
   {
     "id": "Q185",
@@ -6053,15 +6067,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Im Tal liegt eine geschlossene Nebel-/Dunstdecke: Das spricht für einen Kaltluftsee mit Bodeninversion (Bodeninversion = unten kälter als oben, sehr stabile Schichtung). Oberhalb ist die Sicht klar und es stehen einzelne Quellwolken: Das passt dazu, dass oberhalb der Inversion eine wärmere, gut durchmischte und damit thermikfähige Luftschicht liegt (labil = Aufwind kann weiter steigen). Die Bildlogik ist also: unten stabil „abgedeckelt“, darüber kann Thermik laufen und Wolken bilden.",
+      "merksatz": "Unten Deckel, oben Thermik.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik – Bodeninversion/Kaltluftsee und Nebel",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Thermik/07_2013_183_thermik_teil_2.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Im  Tal  Kaltluft  mit  stabiler  Schichtung  und  Inversion,  darüber  wärmere  Luft  mit  labiler Schichtung und Bildung von Thermikwolken"
   },
   {
     "id": "Q186",
@@ -6089,15 +6104,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Bodeninversion trennt zwei Luftpakete: unterhalb stabile Kaltluft, oberhalb oft eine andere Luftmasse. Ob Thermik möglich ist, hängt oberhalb des „Deckels“ von der Schichtung ab: ist sie labil, kann ein aufsteigendes Luftpaket weiter beschleunigen und Thermik entwickeln; ist sie stabil, wird Aufsteigen gedämpft. Das Foto zeigt oberhalb der Nebeldecke Quellwolken – das ist ein Hinweis, dass dort zumindest lokal Aufwinde und Kondensation stattfinden können.",
+      "merksatz": "Thermik entscheidet sich oberhalb vom Deckel.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik – Inversion als Deckel, darüber eigene Schichtung",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Thermik/07_2013_183_thermik_teil_2.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Oberhalb der Bodeninversion ist wegen der labilen Schichtung Thermikentwicklung möglich."
   },
   {
     "id": "Q187",
@@ -6125,15 +6141,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Nebelkappen im Tal können sehr zäh sein, weil die Inversion wie ein Deckel wirkt: Die feuchte Kaltluft im Tal wird kaum durchmischt, solange keine starke Erwärmung oder mechanische Durchmischung den Deckel aufreißt. Dass oberhalb der Inversion Thermik läuft, heißt nicht automatisch, dass der Talnebel schnell verschwindet – die Energie kann „oben“ umgesetzt werden, während der Kaltluftsee unten weiter bestehen bleibt. Erst wenn die Sonne den Talboden/den Nebelrand genug erwärmt (oder Wind den Kaltluftsee ausräumt), löst sich der Nebel zuverlässig.",
+      "merksatz": "Thermik oben heißt nicht: Nebel unten weg.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik – Nebel/Bodeninversion kann lange bestehen",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Thermik/07_2013_183_thermik_teil_2.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Thermikentwicklung oberhalb der Bodeninversion muss keinen Einfluss auf den Nebel im Tal haben, dieser kann ganztägig beständig bleiben."
   },
   {
     "id": "Q188",
@@ -6161,15 +6178,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Zu sehen ist eine mächtige Gewitterzelle mit deutlichem Niederschlagsvorhang (virga/rain shaft = sichtbarer Fallstreifen). Unter so einer Zelle fließt durch Verdunstungs- und Niederschlagskühlung kalte Luft am Boden aus (Böenfront/Gust Front = vorrückende Kaltluftkante). An dieser Ausflusskante treten starke Winddrehungen, Böen und extreme Turbulenzen auf – ein klassisches Starkgefahrenbild, ganz anders als ein harmloser Dustdevil oder Nebelfetzen.",
+      "merksatz": "Niederschlagsvorhang + Ausfluss = Böenfront.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Cumulonimbus, Starkniederschlag und Gefahren",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "eine  Gebiet  starken  Niederschlags,  wegen  der  ausfließenden  Kaltluft  können  extreme Turbulenzen auftreten"
   },
   {
     "id": "Q189",
@@ -6197,15 +6215,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die einzelne, „abgeflachte“ Quellwolke wirkt oben wie abgeschnitten – das ist typisch für eine Sperrschicht/Absinkinversion (Absinkinversion = stabiler Deckel durch großräumiges Absinken, der die Thermik begrenzt). Thermik kann bis an diesen Deckel reichen; starke Aufwinde können ihn punktuell ankratzen oder kurz durchstoßen, aber das vertikale Wolkenwachstum bleibt meist insgesamt klein, weil darüber trockene, durch Absinken erwärmte Luft liegt. Daher sind große, hochreichende Türme in so einer Lage eher unwahrscheinlich.",
+      "merksatz": "Abgeschnittener Cumulus = Inversionsdeckel.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 84: Grenze der thermikwirksamen Absinkinversion",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1996/dhvinfo84.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Sichtbar  ist  die  Grenze  der  Absinkinversion.  Stärkere  thermische  Aufwinde  können  die Sperrschicht durchdringen und oberhalb zur Wolkenbildung führen. Wegen der abtrocknenden Absinkvorgänge bleibt das vertikale Wachstum der Cumuli gering."
   },
   {
     "id": "Q190",
@@ -6233,15 +6252,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Oben ist eine glatte, linsenförmige Wolke zu sehen (Altocumulus lenticularis = stationäre „Wellenwolke“ in Gebirgsströmung). Darunter hängt eine zerfaserte, unruhige Wolke in tieferer Höhe: Das passt zu einer Rotorwolke (Rotorwolke = Wolke in stark turbulenter, rotierender Leeströmung unter der Welle). Eine normale Thermikwolke wäre eher „blumenkohlartig“ und würde nicht so klar unter einer Wellenlinse liegen. Die Kombination „Wellenlinse + darunter turbulenter Wolkenfetzen“ ist ein klassisches Warnbild für Lee-Rotoren.",
+      "merksatz": "Linse oben – Rotor unten: Lee meiden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Stau & Föhn – Lenticularis und Rotorwolke (Gefahr)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/6_2011_172_stau_und_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "eine Föhnwolke (Altocumulus lenticularis) mit darunterliegender Rotorwolke."
   },
   {
     "id": "Q191",
@@ -6269,15 +6289,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf dem Bild ist eine glatte, linsenförmige Wellenwolke zu sehen (Lenticularis = fast ortsfeste Wolke in einer Gebirgswelle). Direkt darunter hängt eine zerrissene Wolke: Das passt zum Rotorbereich (Rotor = rollende, stark turbulente Leeströmung unter der Welle). In diesem Rotor wechseln Auf- und Abwärtsbewegungen kleinräumig: In Aufwärtsanteilen kondensiert Feuchte zu Wolkenfetzen, in Abwärtsanteilen lösen sie sich wieder auf. Genau deshalb gelten diese Wolken als Warnsignal für sehr kräftige Turbulenz.",
+      "merksatz": "Linse + zerrissen drunter = Rotor-Gefahr.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Stau und Föhn – Lenticularis & Rotor/Turbulenz",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/6_2011_172_stau_und_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q192",
@@ -6305,15 +6326,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der „Dom“ unter der Wolkenbasis ist eine nach unten durchhängende Ausbuchtung genau über dem Aufwindkern (Dom = stark nach unten gezogene Basis über kräftigem Aufwind). Das ist ein Hinweis auf sehr starkes Steigen und darauf, dass ein Schirm in Basisnähe schnell in die Wolke gezogen werden kann. Praktisch heißt das: Abstand zur Basis deutlich vergrößern, rechtzeitig aus dem Kern rausfliegen und nie „unter die Basis drücken lassen“. Das hat nichts mit Dust Devil am Boden zu tun, sondern mit dem Aufwind direkt unter der Wolke.",
+      "merksatz": "Dom an der Basis = kräftiger Kern, Abstand!",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Wolken saugen nicht – Dom, „Sog“ und Abstand zur Basis",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/1_2019_217_Wolken_saugen_nicht.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der sog. Dom in der Mitte der Basis zeigt, dass die Wolke stark saugt, ausreichend Abstand zur Basis halten und rechtzeitig Richtung Wolkenrand fliegen."
   },
   {
     "id": "Q193",
@@ -6341,15 +6363,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "In der Wolke bricht sofort die visuelle Orientierung weg (Sicht wird milchig/weiß, Horizonte verschwinden) – dadurch entsteht sehr schnell Orientierungsverlust. Gleichzeitig ändert sich die Physik im Aufwind: In gesättigter Luft läuft die Abkühlung feuchtadiabatisch (feuchtadiabatisch = durch Kondensation wird Wärme frei, die Abkühlung pro Höhenmeter ist geringer), wodurch der Aufwind in der Wolke oft „thermisch unterstützt“ wird und weiter kräftig bleiben oder sogar zunehmen kann. Dazu kommen starke Turbulenzen und die Gefahr, unkontrolliert höher getragen zu werden.",
+      "merksatz": "In Wolke: Sicht weg – Steigen kann weiter tragen.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Wolken saugen nicht – feuchtadiabatisch & Risiko in der Wolke",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/1_2019_217_Wolken_saugen_nicht.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Sehr  raschen  Orientierungsverlust  und  wegen  der  nun  feuchtadiabatischen  Abkühlung  der Aufwinde, zunehmendes Steigen."
   },
   {
     "id": "Q194",
@@ -6372,15 +6395,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Linsenförmige Wolken entstehen bei Gebirgswellen (Gebirgswelle = stehende Welle in der Strömung hinter einem Gebirge). In den Wellenbergen wird Luft angehoben, kühlt ab und kann kondensieren; im nächsten Wellental sinkt sie wieder ab und die Wolke löst sich auf. Darum liegen diese Wolken typischerweise im Wellenfeld über dem Kamm und auf der Leeseite, nicht „im Rotor“ selbst und nicht in großer, fixer Vielfacher‑Entfernung hinter dem Gebirge.",
+      "merksatz": "Linsenwolke = Welle im Lee.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 121: Altocumulus lenticularis – Entstehung in Gebirgswellen",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2003/dhvinfo121.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "oberhalb des Gebirgskammes und auf der Leeseite"
   },
   {
     "id": "Q195",
@@ -6403,15 +6427,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Südföhn bedeutet: Strömung kommt von Süden über den Alpenhauptkamm. Auf der Alpennordseite ist dann Leeseite (Lee = windabgewandt), die Luft sinkt ab, erwärmt sich trockenadiabatisch (trockenadiabatisch = ohne Kondensation, ca. 1°C pro 100 m) und trocknet aus. Deshalb sind dort oft bessere Sicht und weniger Bewölkung möglich, aber gleichzeitig treten böige, turbulente Winde auf und die Luftfeuchte ist eher niedrig. „Starke Bewölkung mit Niederschlag“ wäre das typische Bild auf der Luvseite (Südalpen).",
+      "merksatz": "Südföhn Nordseite: warm + trocken + böig.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Stau und Föhn – Lee (Nordseite) warm/trocken/böig",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/6_2011_172_stau_und_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Geringe Bewölkung, Temperaturanstieg, geringe Luftfeuchte, oftmals böige Winde"
   },
   {
     "id": "Q196",
@@ -6434,15 +6459,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein kräftiges Tief westlich/südwestlich (Biskaya) und ein Hoch über Südosteuropa erzeugen oft ein starkes Druckgefälle mit südlicher Strömung über die Alpen. Diese großräumige Südströmung ist ein typischer „Motor“ für Südföhn: Luft wird über den Kamm gedrückt, im Lee beschleunigt sie und wird turbulent. Das passt eher zu einer Föhnwetterlage mit hohem Wind als zu Nebellage oder Kaltlufteinbruch mit Nordstau.",
+      "merksatz": "Biskaya-Tief + SE-Hoch = Südströmung/Föhn.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Föhn – Druckdifferenz über dem Hauptkamm als Föhnauslöser",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/8_2013_180_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Südföhnwetterlage mit hoher Windgeschwindigkeit"
   },
   {
     "id": "Q197",
@@ -6465,15 +6491,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Lenticularis-Wolken wirken „ortsfest“, obwohl der Wind in der Höhe stark sein kann. Der Grund ist die stehende Welle: An der gleichen Stelle wird Luft in den Wellenberg gehoben (kühlt ab → Kondensation), und kurz dahinter sinkt sie wieder (erwärmt sich → Wolkenauflösung). Die Wolke bleibt deshalb scheinbar am gleichen Ort, obwohl ständig neue Luft durch sie hindurchströmt.",
+      "merksatz": "Welle steht – Luft strömt durch.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 121: Lenticularis bleibt ortsfest durch Kondensation/Auflösung in der Welle",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2003/dhvinfo121.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "nahezu  ortsfest,  weil  sich  die  Wolke  durch  Kondensation  und  Auflösung  am  Scheitelpunkt  der Föhnwelle stets neu bildet und  wieder auflöst."
   },
   {
     "id": "Q198",
@@ -6496,15 +6523,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ob in der Welle eine Lenticularis entsteht, hängt davon ab, ob die angehobene Luft im Wellenberg den Taupunkt erreicht (Taupunkt = Temperatur, bei der Kondensation beginnt). Wenn sie ihn nicht erreicht, kondensiert kein Wasser – dann bleibt die Welle „wolkenlos“, obwohl die Strömung föhnig sein kann. Das ist wichtig, weil fehlende Linsenwolken nicht automatisch „Entwarnung“ bedeuten: die Dynamik (Wind/Turbulenz) kann trotzdem vorhanden sein.",
+      "merksatz": "Keine Sättigung → keine Linse, Föhn möglich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Stau und Föhn – Welle/Lenticularis nur bei Erreichen des Taupunkts",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/6_2011_172_stau_und_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "herrscht Föhn ohne Ausbildung von Lenticulariswolken"
   },
   {
     "id": "Q199",
@@ -6527,15 +6555,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Seichter“ (flacher) Föhn beschreibt eine föhnige Strömung, die nur in einem begrenzten Höhenbereich bzw. bodennah greift, ohne dass sich eine stark durchgreifende Höhenströmung mit ausgeprägter Welle aufbaut. Praktisch: Am Boden kann es föhnige Effekte geben (trocken/warm/böig), aber die klassische „hochreichende“ Föhnströmung mit starkem Höhenwind ist nicht voll ausgeprägt. Das ist kein Synonym für „harmlos“ – Turbulenz kann trotzdem lokal kritisch sein, nur das Profil der Strömung ist „flacher“.",
+      "merksatz": "Seicht = flach begrenzt, nicht hochreichend.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 204: Seichter/flacher vs. hochreichender Föhn (Prinzip)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/4_2017_204_foehn_ist_nicht_gleich_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Föhn, der auf die unteren Luftschichten begrenzt ist und keine starke Höhenströmung bildet."
   },
   {
     "id": "Q200",
@@ -6563,360 +6592,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Das Diagramm zeigt die prognostizierte Druckdifferenz zwischen Nord- und Südalpen an einem Referenzpaar. Das Vorzeichen entscheidet, welche Seite „drückt“ und damit welche Föhnrichtung bevorzugt ist (Südföhn = föhnige Südströmung über den Kamm zur Nordseite; Nordföhn = umgekehrt zur Südseite). Die gestrichelten Linien markieren typische Schwellen, ab denen föhnige Bedingungen wahrscheinlicher werden. In der Kurve ist zunächst eine deutlich negative Phase erkennbar (Hinweis auf Nordföhnwirkung auf der Südseite), später kippt sie deutlich ins Positive (Hinweis auf Südföhnwirkung auf der Nordseite).",
+      "merksatz": "Minus = Nordföhn, Plus = Südföhn.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Föhn – Druckdifferenz (Bozen–Innsbruck) als Föhnindikator",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/8_2013_180_foehn.pdf#page=1"
         }
       ]
-    }
-  },
-  {
-    "id": "Q201",
-    "category": "Meteorologie",
-    "subchapter": "Föhn",
-    "local_number": 8,
-    "question": "Abbildung 54: Interpretiere das Bild",
-    "options": [
-      "Der Kaltluftsee in tieferer Lage ist ein sicheres Zeichenn dafür, dass der Südföhn schwach und für das Fliegen unkritisch ist.",
-      "Südföhn, der bereits bis ins Tal durchgebrochen ist, weil ein Kaltluft-See nicht mehr erkennbar ist.",
-      "Südföhn,  in  tieferer  Lage  besteht  noch  ein  Kaltluft-See,  in  den  die  darüber  befindliche Föhnströmung jederzeit durchbrechen kann.",
-      "Südföhn,  in  tieferer  Lage  besteht  noch  ein  Kaltluft-See,  der  vor  der  darüber  befindlichen Föhnströmung durch die starke Inversion sicher abgeschirmt ist."
-    ],
-    "correctIndex": 2,
-    "figures": [
-      {
-        "figure": 54,
-        "bilder_page": 16
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
     },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q202",
-    "category": "Meteorologie",
-    "subchapter": "Föhn",
-    "local_number": 9,
-    "question": "Wie stellt sich eine Nordföhn-Situation an der Alpensüdseite meist optisch dar?",
-    "options": [
-      "Blauer Himmel, klare Luft, einzelne hohe Thermikwolken (Cumuli), evtl einzelne Ac Lenticularis.",
-      "Der Himmel übersät mit typischen Föhnwolken (Ac Lenticularis).",
-      "Geschlossene mittelhohe Schichtbewölkung, einzelne Regenschauer.",
-      "Rasch aufbauende, hochreichende Cu-Bewölkung mit eingelagerten Gewittern."
-    ],
-    "correctIndex": 0,
-    "figures": [],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q203",
-    "category": "Meteorologie",
-    "subchapter": "Föhn",
-    "local_number": 10,
-    "question": "Gefahren des Nordföhns an der Alpensüdseite. Welche Aussagen sind korrekt?",
-    "options": [
-      "Ein Nordföhn-Durchbruch ist aus der Höhe (Startplatz, im Flug) oft nicht zu erkennen, weil er zunächst in tieferen Bereichen stattfindet.",
-      "Anhand der Windwerte von den Messstationen auf den Bergen kann ein Nordföhn-Durchbruch oft nicht erkannt werden.",
-      "Alle Antworten sind richtig.",
-      "Die  kalte  Luft  aus  dem  Norden  fällt  in  die  Täler  ein  und  verursacht  bodennah  sehr  starke, extrem turbulente Windbedingungen."
-    ],
-    "correctIndex": 2,
-    "figures": [],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q204",
-    "category": "Meteorologie",
-    "subchapter": "Föhn",
-    "local_number": 11,
-    "question": "Womit muss ein Pilot rechnen, wenn er bei einer Nordlage in Fluggebieten der Alpensüdseite fliegt?",
-    "options": [
-      "Mit  ausgeprägten  Leegebieten  an  den  Nordflanken  und  dichter,  thermik-abschwächender Bewölkung.",
-      "Mit hoher Labilität wegen der einströmenden feuchten Luft aus Nord und mit raschem Aufbau von Gewittern.",
-      "Mit  starker,  turbulenter  Thermik  wegen  des  starken  Temperaturgradienten  und  mit ausgeprägten Leegebieten an den Südflanken.",
-      "Mit  eher  schwach  thermischen  Bedingungen  wegen  des  geringen  Temperaturgradienten  und eher ruhigen Flugbedingungen."
-    ],
-    "correctIndex": 2,
-    "figures": [],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q205",
-    "category": "Meteorologie",
-    "subchapter": "Thermik/Adiabatik (Block 1)",
-    "local_number": 1,
-    "question": "Abbildung 48: Vereinfacht dargestelltes Schichtungsdiagramm auf der Abbildung: Welche Aussagen sind richtig?",
-    "options": [
-      "Die Temperaturschichtung der Umgebungsluft zeigt bis 500 m GND eine Isothermie.",
-      "Der  trocken-adiabatische  Temperaturgradient  ist  labil,  weil  die  aufsteigende  Luft  weniger abkühlt als die Umgebungsluft.",
-      "In diesem Schichtungsdiagramm erreicht die aufsteigende Luft das Kondensationsniveau nicht.",
-      "Die  Schichtung  der  Atmosphäre  ist  für  Luft,  welche  ohne  Kondensation  aufsteigt,  stabil,  weil diese aufsteigende Luft stärker abkühlt als die Umgebungsluft."
-    ],
-    "correctIndex": 3,
-    "figures": [
-      {
-        "figure": 48,
-        "bilder_page": 14
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q206",
-    "category": "Meteorologie",
-    "subchapter": "Thermik/Adiabatik (Block 1)",
-    "local_number": 2,
-    "question": "Abbildung 48: Vereinfacht dargestelltes Schichtungsdiagramm auf der Abbildung: Welche Aussagen sind richtig?",
-    "options": [
-      "Kondensationsniveau  bei  ca.  1.800  m  GND,  mäßiges  vertikal  Wolkenwachstum,  bis  ca.  2.600 GND.",
-      "In diesem Schichtungsdiagramm erreicht die aufsteigende Luft das Kondensationsniveau nicht, Blauthermik",
-      "Kondensationsniveau bei ca. 1.800 m GND, starkes vertikal Wolkenwachstum, Gewittergefahr.",
-      "Wegen der Stabilität des trocken-adiabatischen Temperaturgradienten ist keine Thermikentwicklung zu erwarten."
-    ],
-    "correctIndex": 0,
-    "figures": [
-      {
-        "figure": 48,
-        "bilder_page": 14
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q207",
-    "category": "Meteorologie",
-    "subchapter": "Thermik/Adiabatik (Block 1)",
-    "local_number": 3,
-    "question": "Abbildung 48: Vereinfacht dargestelltes Schichtungsdiagramm auf der Abbildung: Welche Aussagen sind richtig?",
-    "options": [
-      "Eine Inversion von GND bis 500 m GND verhindert ein starkes vertikales Wachstum der Wolken.",
-      "Eine Inversion ab 2.500 GND verhindert ein starkes vertikales Wachstum der Wolken.",
-      "Die Stabilität des trocken-adiabatischen Temperaturgradienten verhindert ein starkes vertikales Wachstum der Wolken.",
-      "Die  Labilität  des  feucht-adiabatischen  Temperaturgradienten  begünstigt  ein  starkes  vertikales Wachstum der Wolken"
-    ],
-    "correctIndex": 1,
-    "figures": [
-      {
-        "figure": 48,
-        "bilder_page": 14
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q208",
-    "category": "Meteorologie",
-    "subchapter": "Thermik/Adiabatik (Block 1)",
-    "local_number": 4,
-    "question": "Abbildung 48: Vereinfacht dargestelltes Schichtungsdiagramm auf der Abbildung: Welche Aussagen sind richtig? Auf ca. 1.900 m GND befindet sich",
-    "options": [
-      "die Wolkenbasis",
-      "das Kondensationsniveau der aufsteigenden Luft",
-      "Alle Antworten sind richtig",
-      "der Bereich, in welchem die aufsteigende Luft 100% Luftfeuchtigkeit erreicht hat"
-    ],
-    "correctIndex": 2,
-    "figures": [
-      {
-        "figure": 48,
-        "bilder_page": 14
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q209",
-    "category": "Meteorologie",
-    "subchapter": "Thermik/Adiabatik (Block 1)",
-    "local_number": 5,
-    "question": "Abbildung 52: Vereinfacht dargestelltes Schichtungsdiagramm auf der Abbildung: Welches Wolkenbild entspricht dem abgebildeten Temp?",
-    "options": [
-      "4",
-      "3",
-      "1",
-      "2"
-    ],
-    "correctIndex": 0,
-    "figures": [
-      {
-        "figure": 52,
-        "bilder_page": 15
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
-      "links": [
-        {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q210",
-    "category": "Meteorologie",
-    "subchapter": "Thermik/Adiabatik (Block 1)",
-    "local_number": 6,
-    "question": "Abbildung 49: Vereinfacht dargestelltes Schichtungsdiagramm auf der Abbildung: Welche Aussagen sind richtig?",
-    "options": [
-      "In diesem Schichtungsdiagramm erreicht die aufsteigende Luft das Kondensationsniveau nicht, Blauthermik",
-      "Wegen der Stabilität des trocken-adiabatischen Temperaturgradienten ist keine Thermikentwicklung zu erwarten.",
-      "Kondensationsniveau bei ca. 2500 m GND, schwaches vertikal Wolkenwachstum.",
-      "Wolkenbasis bei ca. 2500 m GND, starkes vertikal Wolkenwachstum, Gewittergefahr."
-    ],
-    "correctIndex": 3,
-    "figures": [
-      {
-        "figure": 49,
-        "bilder_page": 15
-      }
-    ],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+    "correctAnswerText": "ausgeprägten  Nordföhn  an  der  Alpensüdseite  ab  zweiten  Vorhersagetag  und  eine  Umstellung auf eine Südföhnlage an der Alpennordseite für den vierten und fünften Vorhersagetag an"
   },
   {
     "id": "Q211",
@@ -6944,15 +6629,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Im Diagramm kühlt eine Ablösung zunächst trockenadiabatisch ab (trockenadiabatisch = Abkühlung beim Aufsteigen ohne Kondensation) und ab Erreichen der Sättigung feuchtadiabatisch (feuchtadiabatisch = geringere Abkühlung, weil bei Kondensation Wärme frei wird). Entscheidend ist: Nach dem Kondensationsniveau bleibt die Ablösung gegenüber der Umgebung weiter begünstigt, also kann sie vertikal stark weiterwachsen. Das passt zu einem Wolkenbild mit sehr großer Mächtigkeit und deutlicher „Turm“-Entwicklung statt nur flacher Schönwetterbewölkung oder wolkenlosem Himmel.",
+      "merksatz": "Feucht-labil nach LCL → Wolke wächst hoch.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV-info 150: trocken/feuchtadiabatisch & Überentwicklung",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo150.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "1"
   },
   {
     "id": "Q212",
@@ -6980,15 +6666,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Das Diagramm zeigt nur den trockenadiabatischen Aufstiegspfad (blau gestrichelt): Die Ablösung kühlt beim Steigen ab, bis sie die Umgebungstemperatur erreicht. Ab diesem Punkt fehlt der Temperaturvorsprung, der Auftrieb erzeugt (Auftrieb = leichter/warmer als Umgebung). Gleichzeitig wird kein Übergang in einen feuchtadiabatischen Verlauf angezeigt; das spricht dafür, dass die Ablösung bis dahin nicht gesättigt wird und keine Wolkenbasis entsteht. „GND“ bedeutet Höhe über Grund.",
+      "merksatz": "Schnittpunkt mit Rot = Auftrieb weg, ohne Wolke.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 150: LCL/Adiabatik & warum Thermik endet",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo150.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "In diesem Schichtungsdiagramm erreicht die aufsteigende Luft das Kondensationsniveau nicht, Blauthermik bis ca. 3000 m GND"
   },
   {
     "id": "Q213",
@@ -7016,15 +6703,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Aus dem Diagramm lassen sich drei Dinge zusammenführen: (1) Ohne Erreichen des Kondensationsniveaus entsteht keine sichtbare Kondensation, also sind Haufenwolken nicht zu erwarten. (2) Der Temperaturweg der Ablösung ist hier trockenadiabatisch (keine Kondensation, daher folgt sie der Trockenadiabate). (3) Dort, wo der Ablösungsweg die Umgebungstemperatur schneidet, ist der Temperaturvorsprung aufgebraucht; ab da ist das Luftpaket nicht mehr leichter als die Umgebung und der weitere Aufstieg wird gebremst.",
+      "merksatz": "Trocken bis Schnittpunkt – dann Schluss.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – Stabil/Labil, Adiabaten & Auftrieb",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q214",
@@ -7047,15 +6735,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wie stark und wie weit ein Luftpaket aufsteigen kann, hängt von seinem Auftriebsüberschuss ab (Auftrieb = wärmer/leichter als Umgebung). Den liefert der Temperaturvorsprung am Boden, er wird aber unterwegs von der Schichtung der Umgebung bestimmt (Schichtungsgradient = wie schnell die Umgebungstemperatur mit der Höhe abnimmt). Zusätzlich spielt die Feuchte eine Rolle: Sobald Sättigung erreicht ist, ändert sich die Abkühlung des Pakets und damit sein Auftriebsvorteil, was Steiggeschwindigkeit und Endhöhe beeinflusst.",
+      "merksatz": "Startwärme + Schichtung + Feuchte.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – Faktoren für Thermikstärke",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q215",
@@ -7078,15 +6767,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Luftpaket steigt so lange, wie es gegenüber der Umgebung einen Auftriebsvorteil hat. Sobald es im Vergleich zur Umgebung nicht mehr wärmer/leichter ist, verschwindet der Auftrieb – dann flacht der Aufstieg ab und endet. Eine Inversion kann das häufig begünstigen (Inversion = Temperatur nimmt mit der Höhe zu), ist aber nicht zwingend immer der Endpunkt; entscheidend bleibt der Temperaturvergleich Paket vs. Umgebung.",
+      "merksatz": "Aufstieg endet, wenn der Auftrieb weg ist.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – Auftrieb, Neutralniveau und Deckel",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Wenn das aufsteigende Luftpaket auf die Temperatur der Umgebungsluft abgekühlt ist"
   },
   {
     "id": "Q216",
@@ -7109,15 +6799,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Beim Aufsteigen ohne Kondensation dehnt sich die Luft aus und kühlt ab, weil sie Arbeit gegen den Umgebungsdruck leistet. Dieser „trockene“ Temperaturgradient ist als Faustwert deutlich steiler als der Standard‑Gradient der Atmosphäre (der ist flacher) und auch steiler als der feuchte Gradient (der ist wegen frei werdender Kondensationswärme flacher). Daher passt hier die Option, die den steilsten realistischen Abkühlungswert beschreibt.",
+      "merksatz": "Trocken kühlt am steilsten.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 150: Trockenadiabatik vs. Standard/Feuchtadiabatik",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo150.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "1,0° C / 100m"
   },
   {
     "id": "Q217",
@@ -7140,15 +6831,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Trockenadiabatisch heißt: Ein Luftpaket ändert seine Temperatur durch Auf‑/Abstieg, ohne dass Kondensation oder Verdunstung im Paket abläuft. „Adiabat“ bedeutet dabei: kein Wärmeaustausch mit der Umgebung; die Temperaturänderung entsteht nur durch Ausdehnung (beim Steigen) bzw. Kompression (beim Sinken). Sobald Wolkenbildung einsetzt, ist der Vorgang nicht mehr trockenadiabatisch, weil Kondensationswärme die Abkühlung mit beeinflusst.",
+      "merksatz": "Keine Wolke → trockenadiabatisch.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 150: Definition trockenadiabatisch (ohne Kondensation)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo150.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "die  Luft  beim  Aufsteigen  sich  um  1°C/100m  abkühlt  oder  beim  Absinken  sich  um  1°C/100m erwärmt und keine Wolkenbildung (Kondensation) zeigt"
   },
   {
     "id": "Q218",
@@ -7171,15 +6863,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Feuchtadiabatisch beschreibt den Aufstieg gesättigter Luft: Sobald die Luft 100% relative Feuchte hat, kondensiert Wasserdampf zu Tröpfchen. Dabei wird latente Wärme frei (latente Wärme = bei Phasenwechsel frei werdende Wärme), die die Abkühlung beim weiteren Steigen bremst. Deshalb nimmt die Temperatur mit der Höhe in diesem Fall langsamer ab als beim trockenen Aufstieg.",
+      "merksatz": "Gesättigt steigt → Abkühlung gebremst.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 150: Feuchtadiabatik durch Kondensationswärme",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo150.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Gesättigte Luft steigt auf und kühlt sich mit weniger als 1°C/100m ab"
   },
   {
     "id": "Q219",
@@ -7202,15 +6895,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Isothermie bedeutet: Über einen Höhenbereich bleibt die Temperatur praktisch gleich, obwohl man Höhe gewinnt. Das ist eine stabile Schichtung, weil ein aufsteigendes Luftpaket beim Steigen abkühlt und damit relativ kälter als die Umgebung werden kann – es verliert Auftrieb. Isothermie ist die „Null-Variante“ zwischen normaler Abnahme und Inversion.",
+      "merksatz": "Isothermie = gleiche Temperatur mit Höhe.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 136: Inversion/Isothermie als stabile Schichtung",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2005/dhvinfo136.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die über eine bestimmte Höhendifferenz gleichbleibende Temperatur"
   },
   {
     "id": "Q220",
@@ -7233,15 +6927,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Inversion ist das Gegenteil der normalen Troposphäre: Mit zunehmender Höhe wird es wärmer statt kälter. Das wirkt wie ein Deckel, weil ein aufsteigendes Luftpaket beim Steigen abkühlt und damit sofort deutlich kälter als die Umgebung wird; dadurch wird der Aufstieg stark gedämpft oder beendet. Inversionen entstehen häufig nachts bodennah oder großräumig in Hochdrucklagen durch Absinken (Absinkinversion).",
+      "merksatz": "Inversion = nach oben wärmer = Deckel.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 136: Inversion als Thermikbremse",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2005/dhvinfo136.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "nimmt zu"
   },
   {
     "id": "Q221",
@@ -7264,15 +6959,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Inversion bedeutet: Mit zunehmender Höhe wird es wärmer statt kälter. Für ein aufsteigendes Luftpaket ist das ungünstig, weil es beim Steigen abkühlt und dadurch relativ kälter/ schwerer als die Umgebung wird – der Auftrieb nimmt ab. Das ist genau das Kennzeichen stabiler Schichtung: Auf- und Abwärtsbewegungen werden gedämpft, Thermik wird „abgedeckelt“.",
+      "merksatz": "Inversion = Deckel = stabil.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 136: Inversion als stabile Schichtung",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2005/dhvinfo136.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "stabil"
   },
   {
     "id": "Q222",
@@ -7295,15 +6991,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Bodeninversion entsteht typischerweise nachts bei klarem Himmel: Der Boden strahlt Wärme ab und kühlt stark aus; die direkt darüber liegende Luftschicht kühlt mit ab. Einige Meter bis wenige hundert Meter darüber bleibt die Luft dagegen wärmer. Dadurch ist es unten kälter als oben – das ist die Inversion und erklärt auch, warum Nebel/Dunst im Tal „liegen bleibt“ und Thermik am Morgen erst spät anspringt.",
+      "merksatz": "Nachts Boden kalt → Inversion.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik Teil 2 – Bodeninversion/Kaltluftsee",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Thermik/07_2013_183_thermik_teil_2.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "der Erdboden - und damit auch die aufliegende Luftschicht - sich durch Ausstrahlung abkühlen"
   },
   {
     "id": "Q223",
@@ -7326,15 +7023,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Blauthermik“ heißt: Es gibt Thermik (aufsteigende Warmluft), aber keine sichtbaren Cumuluswolken. Ursache ist meist, dass die Luft zu trocken ist oder die Wolkenbasis sehr hoch liegt: Die Luftpakete steigen zwar, erreichen aber den Taupunkt nicht (Taupunkt = Temperatur, bei der Kondensation beginnt). Dadurch bleibt der Himmel „blau“, obwohl Steigen vorhanden ist.",
+      "merksatz": "Blauthermik: Steigen ohne Wolke.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – Blauthermik/Wolkenbasis (Taupunkt)",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Thermik ohne Cumulus-Bildung"
   },
   {
     "id": "Q224",
@@ -7357,15 +7055,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Auslösetemperatur ist die Bodentemperatur, bei der Thermikblasen so warm werden, dass sie beim Aufsteigen das Kondensationsniveau erreichen und Cumulus entstehen. Kondensationsniveau/LCL (LCL = Level of Condensation by Lifting) ist die Höhe, ab der ein aufsteigendes Luftpaket gesättigt ist und Kondensation beginnt. Liegt die Bodentemperatur darunter, entsteht zwar eventuell etwas Durchmischung, aber die Pakete reichen nicht bis zur Wolkenbildung; darüber werden Cumulus wahrscheinlicher.",
+      "merksatz": "Auslösetemp erreicht → Cumulus möglich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 150: LCL/Kondensation & Thermik (Grundprinzip)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo150.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "in Bodennähe, bei der es zur Bildung von Thermik in Verbindung mit Quellwolken kommt"
   },
   {
     "id": "Q225",
@@ -7388,15 +7087,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Europa liegt zwischen Atlantik und Kontinent und wird häufig von zwei „Grundtypen“ geprägt: feuchte, kühle Luft aus polaren Breiten über dem Meer (maritim) und deutlich wärmere Luft aus subtropischen Breiten. Diese beiden Luftmassen liefern den starken Temperatur- und Feuchtegegensatz, der Fronten und wechselhaftes Wetter antreibt (Front = Grenzfläche zwischen Luftmassen).",
+      "merksatz": "Europa-Wetter = Polar (maritim) trifft Tropik.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Luftmassen & Frontenprinzip",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Maritime Polarluft, Tropikluft"
   },
   {
     "id": "Q226",
@@ -7419,15 +7119,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Kontinental“ heißt: Luft ist über Landmassen geprägt worden. Über Land gibt es weniger Feuchtenachschub als über dem Meer, und bei polaren Ursprüngen ist die absolute Wasserdampfmenge ohnehin klein. Dadurch ist kontinentale Polarluft typischerweise die trockenste der genannten Luftmassen. Maritime Luftmassen sind meist feuchter, weil sie über dem Meer Wasser aufnehmen.",
+      "merksatz": "Kontinental + polar = trocken.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alpine Meteorologie – maritim vs. kontinental (Feuchte)",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=53"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Kontinentale Polarluft"
   },
   {
     "id": "Q227",
@@ -7450,15 +7151,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Labilität nimmt zu, wenn die Umgebungsschichtung „steiler“ wird: unten warm, oben kalt. Erwärmst du die Luftschicht am Boden, steigt die Temperaturdifferenz zur Höhe; kühlst du die Luft oben ab, passiert das Gleiche. Beides zusammen macht es einem Luftpaket leichter, beim Aufsteigen wärmer als die Umgebung zu bleiben – dann setzt Konvektion/Thermik leichter ein (Konvektion = vertikale Luftbewegung durch Auftrieb).",
+      "merksatz": "Labil: unten wärmer, oben kälter.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – stabil/labil und Temperaturprofil",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Abkühlung oben und Erwärmung unten"
   },
   {
     "id": "Q228",
@@ -7481,15 +7183,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Stabil wird eine Luftmasse, wenn sich das Profil „umdreht“: oben wärmer, unten kälter. Das kann durch Absinken und Erwärmung in der Höhe passieren (Absinkinversion = Deckel durch großräumiges Absinken) und gleichzeitig durch Auskühlung am Boden. Dann wird ein aufsteigendes Luftpaket schnell kälter als die Umgebung und verliert Auftrieb – vertikale Bewegung wird gebremst.",
+      "merksatz": "Stabil: oben wärmer, unten kälter.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 136: Stabilisierung durch Inversion/Absinken",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2005/dhvinfo136.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Erwärmung oben und Abkühlung unten"
   },
   {
     "id": "Q229",
@@ -7512,15 +7215,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wenn die Luftmasse labil und zugleich feucht ist, setzt Konvektion schnell ein: Es bilden sich viele Quellwolken, und einzelne Zellen können zu Gewitterwolken anwachsen (Cb = Cumulonimbus, Gewitterwolke). Typisch ist dann eine fast geschlossene Cumulusdecke mit eingelagerten kräftigeren Türmen, häufige Schauer und Gewitterneigung. Das Gegenbild wäre stabile, trockene Luft mit wenig Quellwolken und guter Sicht.",
+      "merksatz": "Labil + feucht = viele Cumuli, Cb möglich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alpine Meteorologie – labile Luft & Gewitterneigung",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=55"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Fast geschlossene Cumulusbewölkung mit eingelagerten Cb, häufige Schauer, einzelne Gewitter"
   },
   {
     "id": "Q230",
@@ -7543,15 +7247,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Labile Schichtung zeigt sich sichtbar und fühlbar: Quellbewölkung (Cumulus) wächst vertikal, weil Aufwinde stark sind, und es gibt kräftige vertikale Luftbewegungen (starkes Steigen und starkes Sinken). Wenn zusätzlich viel Feuchte vorhanden ist, werden Niederschlagstropfen größer („großtropfig“), Schauer treten häufiger auf und die Wolken entwickeln mehr Mächtigkeit. Eine gleichmäßige Schichtbewölkung ohne Vertikalstruktur wäre eher ein Zeichen stabiler Luft.",
+      "merksatz": "Labil: Quellwolken + ruppig + Schauer.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alpine Meteorologie – Merkmale labiler Luft (Quellbewölkung/Vertikalbewegung)",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=55"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Quellbewölkung, starke vertikale Luftbewegung, großtropfigem Schauerniederschlag"
   },
   {
     "id": "Q231",

@@ -2259,19 +2259,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- DFS ist Flugsicherungsorganisation und kontrolliert den Flugverkehr im deutschen Luftraum.\n- In Österreich ist Austro Control der ANSP; offizielle Zuständigkeiten/Services sind im AIP beschrieben.\n- FIS/ATC/ATS-Dienste und deren Nutzung ergeben sich aus SERA und nationaler Veröffentlichung (AIP).",
-      "merksatz": "DE: DFS; AT: Austro Control.\nDetails stehen im AIP.",
+      "explanation": "Eine CTR (Kontrollzone) ist ein kontrollierter Luftraum rund um einen Flugplatz, in dem der Verkehr über eine Flugverkehrskontrollstelle (Tower) koordiniert wird. Der Kernpunkt ist: Bewegungen im CTR‑Bereich werden so gesteuert, dass An‑/Abflüge sicher bleiben – dafür braucht die Stelle vorher, wer wo entlangfliegt. Darum ist „ich fliege einfach rein, wenn ich Funk/Kennzeichen habe oder wenn ich glaube, sie sei gerade nicht aktiv“ kein verlässlicher Maßstab; maßgeblich ist die kontrollierte Abwicklung über Freigaben/Anweisungen.",
+      "merksatz": "CTR: erst klären, dann rein.",
       "links": [
         {
-          "title": "DFS Deutsche Flugsicherung – Unternehmensseite (dfs.de)",
-          "url": "https://www.dfs.de/homepage/de/"
-        },
-        {
-          "title": "Austro Control – eAIP Portal (Austro Control)",
-          "url": "https://eaip.austrocontrol.at/"
+          "title": "DHV: Flugfunk – CTR nur mit Freigabe",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugfunk/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Nein"
   },
   {
     "id": "Q072",
@@ -2294,15 +2291,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Kontrollzone ist als „Schutzluftraum“ um einen kontrollierten Flugplatz gedacht: Sie beginnt an der Erdoberfläche und geht nach oben bis zu einer festgelegten Obergrenze (die je nach Platz unterschiedlich ist). „MSL“ heißt Höhe über Meeresspiegel, „AGL“ Höhe über Grund – bei CTR wird die Obergrenze häufig in MSL angegeben, aber der Beginn ist nicht „irgendwo in der Luft“, sondern am Boden, weil Start/Landung genau dort stattfinden.",
+      "merksatz": "CTR startet am Boden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "BMV: Luftraumplanung – Kontrollzone vertikal von GND",
+          "url": "https://www.bmv.de/SharedDocs/DE/Anlage/LF/kriterienkatalog-zur-einrichtung-von-luftraeumen.pdf?__blob=publicationFile#page=13"
         }
       ]
-    }
+    },
+    "correctAnswerText": "reicht immer bis zum Boden"
   },
   {
     "id": "Q073",
@@ -2325,15 +2323,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Das militärische Tiefflugsystem in Deutschland ist kein einzelnes kleines Gebiet, das du wie eine ED‑R auf der ICAO‑Karte als abgegrenzte Fläche siehst. Der entscheidende Punkt ist die Größe: Tiefflugtraining findet in einem sehr großflächig definierten Rahmen statt (mit Ausnahmen), weshalb „steht als einzelnes Gebiet in Karte/Verordnung“ in die Irre führt. Für dich als Pilot heißt das praktisch: Tiefflug ist grundsätzlich überall möglich, wenn keine Ausnahmen greifen, und du musst im niedrigen Höhenband immer damit rechnen.",
+      "merksatz": "Tiefflug: fast überall möglich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Militärischer Tiefflug in Deutschland (LFA Germany, 500 ft AGL)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/militaerischer-tiefflug/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "erstreckt sich nahezu über ganz Deutschland."
   },
   {
     "id": "Q074",
@@ -2356,15 +2355,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei militärischem Tiefflug ist wichtig, welche Höhen und Betriebsarten typisch sind: „AGL“ bedeutet Höhe über Grund, also das, was für Tiefflug relevant ist (nicht die Höhe über Meeresspiegel). In Deutschland wird Tiefflugtraining überwiegend in sehr niedrigen Höhen durchgeführt, bei Jets auch kurzzeitig noch niedriger in speziellen Bereichen; zudem wird ein großer Teil dieser Einsätze tagsüber nach Sichtflugbedingungen geflogen. Die Antwortoptionen beschreiben drei typische Aspekte (Höhenband, Möglichkeit sehr niedriger Abschnitte, Tages-/VFR‑Charakter) – fachlich gehören die zusammen.",
+      "merksatz": "Tiefflug = niedrig, schnell, oft tagsüber.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Militärischer Tiefflug in Deutschland (LFA Germany, 500 ft AGL)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/militaerischer-tiefflug/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q075",
@@ -2387,15 +2387,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Das „kritische“ Höhenband für Hängegleiter/Gleitschirme in Bezug auf militärischen Tiefflug liegt dort, wo du beim Streckenflug häufig unterwegs bist: einige hundert bis wenige tausend Fuß über Grund. „GND“ bedeutet dabei praktisch dasselbe wie „über Grund“ (AGL). An Werktagen ist mit mehr militärischer Nutzung zu rechnen; deshalb wird für VFR‑Luftsportler empfohlen, dieses Band im Umfeld von Start-/Landegebieten möglichst zügig zu passieren bzw. zu meiden, weil dort das Risiko für Begegnungen am höchsten ist.",
+      "merksatz": "Werktags: im unteren Band extra wachsam.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – Tiefflug-Höhenband 500–2000 ft GND",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=4"
         }
       ]
-    }
+    },
+    "correctAnswerText": "im Höhenband zwischen 1.000 - 2.000 ft GND"
   },
   {
     "id": "Q076",
@@ -2418,15 +2419,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Militärischer Tiefflug ist organisatorisch nicht wie eine feste „Schiene“, auf der du immer dieselben Strecken und Höhen erwarten kannst: Die konkrete Route/Höhe kann je nach Auftrag, Wetter, Verkehrslage und Übung variieren. Typisch ist aber, dass diese Flüge überwiegend an Werktagen stattfinden und sich im unteren Luftraum abspielen; genau deshalb ist das Risiko für Konflikte im „unter 2000 ft über Grund“-Bereich real, auch wenn du keine spezielle Tiefflugroute auf deiner Karte siehst.",
+      "merksatz": "Tiefflug: nicht planbar – unten immer rechnen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Militärischer Tiefflug in Deutschland (LFA Germany, 500 ft AGL)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/militaerischer-tiefflug/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q077",
@@ -2449,15 +2451,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In Österreich ist Tiefflugtraining militärisch organisiert und wird nicht „einfach überall“ erwartet, sondern innerhalb eines definierten Tiefflugsystems. Dieses System umfasst benannte Tiefflugstrecken und – je nach Übung – weitere Übungsräume; bei hoher Dichte wird das zusätzlich über AIP SUP oder NOTAM bekannt gemacht. „Tiefflugstrecken“ sind dabei fest benannte Routen, die in der ICAO‑Karte dargestellt sind – das ist der entscheidende Unterschied zu „im ganzen Land frei verteilt“.",
+      "merksatz": "AT: Tiefflug hat definierte Strecken.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria ENR 5.2: Tiefflugsystem (Tiefflugstrecken/-gebiete)",
+          "url": "https://eaip.austrocontrol.at/lo/251226/PART_2/LO_ENR_5_2_en.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Nur in Tiefflugstrecken und Tieffluggebieten"
   },
   {
     "id": "Q078",
@@ -2480,15 +2483,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Tiefflug“ wird in der Praxis über Mindesthöhen aus den Sichtflugregeln greifbar gemacht: Außerhalb dicht besiedelter Bereiche soll ein VFR‑Flug nicht unter eine bestimmte Höhe über Grund/Wasser bzw. über dem höchsten Hindernis in der Nähe gehen. „AGL“ heißt Höhe über Grund – das ist hier relevant, weil es um Abstand zu Boden/Hindernissen geht, nicht um die Höhe über Meeresspiegel (MSL). Die Zahl in Metern in den Antwortmöglichkeiten entspricht genau dieser Mindesthöhe außerhalb von Städten/Ansammlungen.",
+      "merksatz": "Tiefflug = Höhe über Grund (AGL).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria ENR 1.2: Mindesthöhe 150 m (500 ft) über Grund",
+          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "150m AGL"
   },
   {
     "id": "Q079",
@@ -2511,15 +2515,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„HX“ kennzeichnet Lufträume, die nicht ständig wirksam sind: Die Aktivierung richtet sich nach veröffentlichten Zeiten/Verfahren und kann sich ändern. Entscheidend für dich ist das Verhalten ohne aktuelle Statusabfrage: Wenn du den Status nicht bei FIS/Tower/ATIS abklärst, musst du so planen, als wäre der Luftraum wirksam – denn du kannst nicht darauf bauen, dass er „meist aus“ ist oder nur unter bestimmten Wetterbedingungen gilt.",
+      "merksatz": "HX: wenn unklar → wie aktiv behandeln.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – Kennzeichnung „HX“ (nicht ständig aktiv)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=9"
         }
       ]
-    }
+    },
+    "correctAnswerText": "jederzeit aktivierbar."
   },
   {
     "id": "Q080",
@@ -2547,16 +2552,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
+      "explanation": "Auf ICAO‑Karten werden Luftraumbeschränkungen mit standardisierten Kennungen beschriftet. „ED“ ist der Länderpräfix für Deutschland; der Teil nach dem Bindestrich ist ein festes Kürzel, das den Typ der Beschränkung beschreibt (nicht die Luftraumklasse wie „D‑CTR“). In der Abbildung siehst du außerdem die typische Darstellung: rot markierte/umrandete Fläche und eine Kennung im Format ED‑…; genau dieses Format gehört zu „Beschränkungs-/Gefahrengebieten“ und nicht zu Kontrollzone oder Luftraumklasse‑Bezeichnungen.",
+      "merksatz": "ED-… = deutsches Beschränkungsgebiet-Kürzel.",
+      "links": []
+    },
+    "correctAnswerText": "Europa-Deutschland-Danger Area"
+  }.
   {
     "id": "Q081",
     "category": "Luftrecht",

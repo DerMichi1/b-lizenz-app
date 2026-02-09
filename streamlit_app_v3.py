@@ -1146,6 +1146,31 @@ def overall_correct_wrong(progress: Dict[str, Dict[str, Any]]) -> Tuple[int, int
     return c, w
 
 
+
+def build_subchapter_stats(progress: Dict[str, Dict[str, Any]], questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Dict[str, int]]]:
+    """Aggregate correct/wrong counters per (category, subchapter) from progress rows.
+
+    Expected progress row shape (best-effort):
+      {"seen": int, "correct": int, "wrong": int, ...}
+    Returns:
+      {category: {subchapter: {"correct_total": int, "wrong_total": int}}}
+    """
+    stats: Dict[str, Dict[str, Dict[str, int]]] = {}
+    for q in (questions or []):
+        cat = str(q.get("category") or "Unbekannt")
+        sub = str(q.get("subchapter") or "Unbekannt")
+        qid = str(q.get("id"))
+        row = (progress or {}).get(qid) or {}
+
+        c = int(row.get("correct", 0) or 0) if isinstance(row, dict) else 0
+        w = int(row.get("wrong", 0) or 0) if isinstance(row, dict) else 0
+
+        stats.setdefault(cat, {}).setdefault(sub, {"correct_total": 0, "wrong_total": 0})
+        stats[cat][sub]["correct_total"] += c
+        stats[cat][sub]["wrong_total"] += w
+
+    return stats
+
 def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: int = 6, topn: int = 8) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     for cat, subs in stats.items():

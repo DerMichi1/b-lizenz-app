@@ -1865,11 +1865,15 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     labels = ["A", "B", "C", "D"]
 
-    # Answer buttons
+    # Answer buttons (2x2 Grid, weniger Scrollen)
     if not st.session_state.get("answered", False):
+        r1 = st.columns(2)
+        r2 = st.columns(2)
+        btn_cols = [r1[0], r1[1], r2[0], r2[1]]
+
         for i_opt in range(4):
             opt = options[i_opt]
-            if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}", use_container_width=True):
+            if btn_cols[i_opt].button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}", use_container_width=True):
                 ok = (i_opt == correct_index)
 
                 counters = db_upsert_progress(uid, qid, ok)
@@ -1891,6 +1895,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     db_upsert_teacher_state(uid, ts)
 
                 st.rerun()
+
 
     else:
         is_ok = bool(st.session_state.get("last_ok") or False)
@@ -2091,7 +2096,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
         return
 
     if total:
-        st.progress(min(1.0, i / total))
+        st.progress(min(1.0, (i + 1) / max(1, total)))
 
     q = qlist[i]
     qid = str(q.get("id"))
@@ -2146,6 +2151,18 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     st.write("")
     answered_cnt = sum(1 for v in (st.session_state.exam_answers or {}).values() if v is not None)
     st.caption(f"Beantwortet: {answered_cnt}/{total}")
+
+    with st.expander("Fragenübersicht (springen)", expanded=False):
+        cols = st.columns(8)
+        for n in range(1, total + 1):
+            qn = qlist[n - 1]
+            qnid = str(qn.get("id"))
+            is_done = (st.session_state.exam_answers or {}).get(qnid) is not None
+            label = f"{'✅' if is_done else '⬜'} {n}"
+            col = cols[(n - 1) % 8]
+            if col.button(label, key=f"exam_jump_{qnid}", use_container_width=True):
+                st.session_state.exam_idx = n - 1
+                st.rerun()
 
     if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
         _exam_submit(uid, reason="manual")

@@ -3234,15 +3234,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Du fliegst hier in großer Höhe im Luftraum E nahe an einer Luftraumgrenze, die auf der ICAO‑Karte als Flugfläche (FL) angegeben ist: FL bedeutet „Flight Level“ (Höhenangabe bezogen auf die Standarddruckfläche 1013,2 hPa). Oberhalb einer gewissen Höhe gelten für VFR im Luftraum E strengere Wolkenabstände: du brauchst dann 1000 ft vertikal und 1500 m horizontal Abstand zu Wolken (statt „frei von Wolken“ in Bodennähe). Wenn die Wolkenbasis sehr hoch ist, darfst du also bis 1000 ft unter die Basis aufdrehen – aber nur solange du dabei nicht in den darüber beginnenden kontrollierten Luftraum hineinsteigst, dessen Untergrenze in der Karte als FL ausgewiesen ist.",
+      "merksatz": "Wolkenabstand ja – aber Luftraumgrenze zuerst.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS „Sicherer Sichtflug“: VMC‑Minima in Luftraum E (Wolkenabstand/3000 AMSL)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "darf bis 1.000 ft unter die Basis aufgedreht werden, jedoch nicht höher als (13.000 ft) ca. 3.950 m über Druckfläche 1013,2 hPa.."
   },
   {
     "id": "Q102",
@@ -3270,15 +3271,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf der ICAO‑Karte sind die Lufträume um die Grenze herum als „Layer“ mit Unter‑/Obergrenzen dargestellt. MSL bedeutet „Mean Sea Level“ (Höhe über Meeresspiegel). Wenn für den Bereich über dir eine Obergrenze in Fuß MSL angegeben ist, dann ist das die maximale Höhe, bis zu der der darunterliegende Luftraum gilt; darüber beginnt der nächste Luftraum (z.B. eine kontrollierte Klasse). Für deinen Weiterflug ist deshalb entscheidend, welche Obergrenze in diesem Abschnitt der Karte angegeben ist – diese begrenzt deine nutzbare Höhe ohne Freigabe.",
+      "merksatz": "Obergrenze lesen: MSL‑Deckel entscheidet.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria LOWI Map 14: Luftraum-/Höhenstaffelung im Bereich Innsbruck/Rofan",
+          "url": "https://eaip.austrocontrol.at/lo/260122/Charts/LOWI/LO_AD_2_LOWI_14-1_en.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "darf die Flughöhe maximal 9.500 ft MSL betragen"
   },
   {
     "id": "Q103",
@@ -3306,15 +3308,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der Flugplatzverkehr von/nach Innsbruck wird in Tälern nicht nur über die CTR (Kontrollzone um den Flugplatz) abgesichert, sondern auch über darüberliegende kontrollierte Lufträume. Luftraum D ist kontrollierter Luftraum: VFR darf dort nur mit Freigabe hinein, damit An‑/Abflugverfahren geschützt bleiben. Wenn in der Karte im Talbereich eine niedrige Untergrenze für diesen kontrollierten Luftraum ausgewiesen ist, bedeutet das praktisch: schon relativ tief im Tal kann kontrollierter Verkehr stattfinden, weil An‑/Abflüge durch das Tal geführt werden und dafür „nach unten“ geschützt werden müssen.",
+      "merksatz": "In Talachsen gilt: kontrollierter Luftraum kann tief runterreichen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria LOWI Map 14: kontrollierte Lufträume/Untergrenzen im Inntal/Zillertal",
+          "url": "https://eaip.austrocontrol.at/lo/260122/Charts/LOWI/LO_AD_2_LOWI_14-1_en.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "durch die Absenkung des Luftraums D auf 8.500 ft MSL geschützt"
   },
   {
     "id": "Q104",
@@ -3342,15 +3345,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Markierung beschreibt eine TMZ: TMZ heißt „Transponder Mandatory Zone“, also ein Gebiet, in dem ein betriebsfähiger Transponder vorgeschrieben ist (auch für VFR). Auf der Karte steht dazu ein Höhenband: „oberhalb … MSL“ heißt, die Pflicht beginnt erst ab dieser Höhe über Meeresspiegel; „mindestens … AGL“ ergänzt, dass die Pflicht auch dann greift, wenn du zwar niedriger über MSL bist, aber wegen hoher Geländehöhe schon entsprechend hoch über Grund fliegst. AGL bedeutet „Above Ground Level“ (Höhe über Grund). Das ist typisch in Gebirgsregionen, damit die Regel trotz unterschiedlicher Gelände‑Höhen sinnvoll bleibt.",
+      "merksatz": "TMZ: Transponder ab Höhe – MSL + AGL‑Mindestwert beachten.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria LOWI Map 14: TMZ‑Angabe (MSL + „at least … AGL“)",
+          "url": "https://eaip.austrocontrol.at/lo/260122/Charts/LOWI/LO_AD_2_LOWI_14-1_en.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ein Gebiet mit Transponderpflicht (TMZ) oberhalb 11.000 ft MSL, ausgenommen der Bereiche unterhalb 1500 ft AGL"
   },
   {
     "id": "Q105",
@@ -3378,15 +3382,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die blaue Linie mit blauem Band ist eine Kartensignatur für eine Luftraumgrenze, an der sich die vertikale Staffelung des Luftraums ändert. Entscheidend ist, dass rechts/links bzw. nördlich/südlich unterschiedliche „Deckel“ (Obergrenzen) für den gleichen Luftraumtyp angegeben sind – das liest du an den blauen Kästchen mit „E“ und den dazugehörigen Höhenangaben (z.B. FL100/FL130). FL ist eine Flugfläche bezogen auf 1013,2 hPa; damit kann die Grenze unabhängig von lokalem QNH eindeutig angegeben werden. Die Linie trennt also zwei Bereiche, in denen die Obergrenze von Luftraum E unterschiedlich hoch liegt.",
+      "merksatz": "Blaue Bandlinie: hier ändert sich die Obergrenze von E.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS „Sicherer Sichtflug“: Luftraumstruktur & Höhenangaben (FL/AGL/MSL)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "nördlich der Linie, Luftraum E bis FL 100, südlich der Linie Luftraum E bis FL 130"
   },
   {
     "id": "Q106",
@@ -3414,15 +3419,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Rot umrandet mit roter Schraffur kennzeichnet auf ICAO‑VFR‑Karten ein Gefahrengebiet („Danger area“). In Österreich erkennt man zusätzlich am Länderpräfix „LO“, dass es sich nicht um ein deutsches ED‑Gebiet handelt. Ein Gefahrengebiet ist keine Luftraumklasse, sondern ein Gebiet, in dem zeitweise Tätigkeiten stattfinden können, die für Luftfahrzeuge gefährlich sind; du solltest Aktivität/Status vorab klären und es nach Möglichkeit meiden.",
+      "merksatz": "Rot schraffiert = Danger area; LO‑… = Österreich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "AIP Austria LOWI Map 14: Beispiele LO‑D/LO‑R/Markierungen",
+          "url": "https://eaip.austrocontrol.at/lo/260122/Charts/LOWI/LO_AD_2_LOWI_14-1_en.pdf"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ein Gefahrengebiet in Österreich."
   },
   {
     "id": "Q107",
@@ -3450,15 +3456,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die blaue Umrandung markiert einen Bereich, in dem die Untergrenze von Luftraum E abgesenkt ist. „Untergrenze“ heißt: ab dieser Höhe beginnt der kontrollierte Luftraum E; darunter ist unkontrollierter Luftraum G. Die in der Karte angegebenen Werte „1000 ft“ bzw. „1700 ft“ sind hier AGL‑Angaben (Höhe über Grund), damit die Regel auch in hügeligem Gelände sinnvoll bleibt. Innerhalb der Markierung beginnt E also früher (tiefer) als außerhalb – das ist der Hinweis für dich, dass du in diesem Gebiet schneller in kontrollierten Luftraum hineinsteigen kannst, auch wenn du dich „nur“ über Grund hochschraubst.",
+      "merksatz": "In der Markierung beginnt E tiefer (AGL‑Untergrenze lesen).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS „Sicherer Sichtflug“: Luftraum E – Untergrenze (AGL) und VMC‑Minima",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Absenkung des Luftraums E innerhalb des markierten Bereichs. Je nach Höhenangabe liegt die Untergrenze von Luftraum E bei 1.000 ft oder 1.700 ft AGL"
   },
   {
     "id": "Q108",
@@ -3486,15 +3493,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die grüne Umrandung mit grüner Punktierung kennzeichnet ein ABA: ABA heißt „Aircraft relevant Bird Area“, also ein luftfahrtrelevantes Vogelgebiet. Die Zahl „57“ ist die Gebietsnummer; die Monatsangabe „12‑07“ beschreibt den Zeitraum, in dem das Gebiet besonders relevant ist (Dezember bis Juli). Der Sinn ist kein rechtliches Einflugverbot wie bei ED‑R, sondern eine flugbetriebliche Empfehlung: Überflüge in niedriger Höhe und Außenlandungen sollen in dieser Zeit vermieden werden, um Vogelschlagrisiko und Störung zu reduzieren. GND bedeutet „Ground“ (bezogen auf Grund), also eine Höhenangabe über dem Gelände.",
+      "merksatz": "ABA 12–07: im Winter/Frühjahr tief & Landungen vermeiden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DAeC: ABA‑Darstellung in der Sichtflugkarte (Monatszahlen/Aktivierung)",
+          "url": "https://www.daec.de/media/files/Dateien/Fachbereiche/Luftraum_und_Flugsicherheit/Vortrag_Alles_Flusi_Mike_Morr_Aircraft_Relevant_Bird_Areas_ABA.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Gebiet  mit  luftfahrtrelevanten  Vogelvorkommen  (ABA),  Überflüge  unter  2000  ft  GND  und Außenlandungen sind von Dezember bis Juli zu vermeiden."
   },
   {
     "id": "Q109",
@@ -3522,15 +3530,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der blau eingefärbte Bereich ist eine RMZ: RMZ heißt „Radio Mandatory Zone“, also ein Gebiet, in dem Funkkommunikation vorgeschrieben ist. Auf der Karte steht dazu die vertikale Ausdehnung: von GND (Boden) bis 1000 ft AGL (Höhe über Grund). Wichtig: Diese Pflicht gilt nur innerhalb dieses Höhenbandes. Wenn du sicher oberhalb der oberen Grenze bleibst, überfliegst du das RMZ‑Volumen nicht; dann ist keine Funkpflicht aus der RMZ heraus gegeben. Für Gleitschirm bedeutet das in der Praxis: Wenn du nicht sicher über der Obergrenze bleiben kannst (z.B. wegen Sinken/Absaufen), ist der Überflug riskant, weil eine Not‑Außenlandung dich in die RMZ zwingen würde.",
+      "merksatz": "RMZ gilt nur bis Obergrenze – sicher drüber oder meiden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Flugfunk: RMZ‑Hinweise (Überflug vs. Aufenthalt/Notlandung)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugfunk/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Überflug im Luftraum E erlaubt, wenn eine ständige Höhe von mehr als 1000 ft AGL eingehalten werden kann"
   },
   {
     "id": "Q110",
@@ -3558,15 +3567,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Karte zeigt zwei Dinge gleichzeitig: (1) den blau umrandeten Bereich mit einer Angabe zur Luftraumstruktur (ab welcher Höhe Luftraum E beginnt) und (2) den blau eingefärbten Kern als RMZ von GND bis 1000 ft AGL. Ohne Funkgerät kannst du die RMZ‑Funkpflicht nicht erfüllen – deshalb darfst du dieses eingefärbte RMZ‑Volumen nicht nutzen und solltest auch keine Situation riskieren, die dich dort zur Außenlandung zwingt. Außerhalb des eingefärbten RMZ‑Kerns, aber noch innerhalb des umrandeten Bereichs, gilt weiterhin: unterhalb der E‑Untergrenze bist du im unkontrollierten Luftraum (G) und kannst dort – sofern keine anderen Verbote greifen – auch tiefer fliegen bzw. außen landen. AGL heißt Höhe über Grund, damit die 1000‑ft‑Grenze sich auf das Gelände bezieht.",
+      "merksatz": "Ohne Funk: RMZ‑Kern meiden – unter 1000 AGL nur außerhalb.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Flugfunk: RMZ‑Regeln und Konsequenzen ohne Funkgerät",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugfunk/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle sind richtig"
   },
   {
     "id": "Q111",

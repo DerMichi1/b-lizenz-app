@@ -1939,15 +1939,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Unterhalb der Schwelle „3.000 ft MSL oder 1.000 ft AGL – es gilt jeweils der höhere Wert“ greifen die vereinfachten Sichtflug‑Minima: Du musst den Boden (Erdsicht) jederzeit sehen können und darfst keine Wolken berühren; die geforderte Mindestflugsicht ist dabei deutlich niedriger als in größerer Höhe. MSL bedeutet „über Meeresspiegel“, AGL „über Grund“ – diese beiden Bezugshöhen entscheiden, ob du noch im unteren Bereich oder schon in den strengeren Minima bist.",
+      "merksatz": "Unter der Schwelle: Erdsicht + wolkenfrei.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Luftraum Basic (Online-Seminar, Sichtflugminima)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/luftraum_basic_online_seminar_21.11.2023.pdf#page=9"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugsicht 1,5 km, ständige Erdsicht, frei von Wolken"
   },
   {
     "id": "Q062",
@@ -1970,15 +1971,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Du bist nur wenige hundert Meter über dem Startplatz, also klar unter 1.000 ft AGL (AGL = Höhe über Grund). Solange du zugleich nicht über 3.000 ft MSL kommst (MSL = Höhe über Meeresspiegel), gelten die „unteren“ Sichtflug‑Minima: Erdsicht und Wolken dürfen nicht berührt werden; höhere Wolkenabstände und große Flugsichten sind erst oberhalb der Schwelle gefordert. Die falschen Optionen setzen bereits die strengeren Minima voraus, die erst in größerer Höhe greifen.",
+      "merksatz": "Unter 1.000 ft AGL = „untere“ Minima.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Luftraum Basic (Online-Seminar, Sichtflugminima)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/luftraum_basic_online_seminar_21.11.2023.pdf#page=9"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugsicht 1,5 km, frei von Wolken, Erdsicht"
   },
   {
     "id": "Q063",
@@ -2001,15 +2003,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Start am Gipfel heißt: Deine MSL‑Höhe (über Meeresspiegel) ist bereits hoch, und mit weiteren 500 m kommst du sicher über 3.000 ft MSL. Zusätzlich liegst du auch deutlich über 1.000 ft AGL (Höhe über Grund) – damit bist du oberhalb der Schwelle, ab der die strengeren VFR‑Minima gelten. In diesem Bereich sind definierte Mindestabstände zu Wolken nötig und die Mindestflugsicht ist höher als im „bodennahen“ Bereich.",
+      "merksatz": "Über der Schwelle: Wolkenabstand + mehr Sicht.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Luftraum Basic (Online-Seminar, Sichtflugminima)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/luftraum_basic_online_seminar_21.11.2023.pdf#page=9"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Flugsicht 5 km, Wolkenabstand 1.500 m horizontal, 300 m vertikal"
   },
   {
     "id": "Q064",
@@ -2032,15 +2035,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Diese Kombination aus höherer Mindestflugsicht und festen Wolkenabständen ist genau das „Standard‑Set“ oberhalb der Schwelle, die mit MSL und AGL beschrieben wird: Sobald du über 3.000 ft MSL bist und gleichzeitig mehr als 1.000 ft über Grund fliegst, reicht „wolkenfrei mit Erdsicht“ nicht mehr aus. Die anderen Antwortmöglichkeiten sind zu pauschal (nur Land/gesamter Luftraum) oder beziehen sich auf andere Lufträume/Höhenbänder.",
+      "merksatz": "Schwelle überschritten = feste Wolkenabstände.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Luftraum Basic (Online-Seminar, Sichtflugminima)",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/luftraum_basic_online_seminar_21.11.2023.pdf#page=9"
         }
       ]
-    }
+    },
+    "correctAnswerText": "für den Luftraum G oberhalb 3000 ft MSL (900 m), wenn gleichzeitig in einer Höhe von mehr als 1000 ft (300 m) über Grund (AGL) geflogen wird und für den Luftraum E bis FL 100"
   },
   {
     "id": "Q065",
@@ -2063,15 +2067,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Bei sehr hohen Flughöhen wird die geforderte Mindestflugsicht nochmals erhöht, weil die Geschwindigkeiten und Annäherungsraten deutlich größer sind. Welche Schwelle dafür gilt, ist je nach Land und Höhenreferenz (z.B. Flugfläche/ft) definiert; deshalb ist die korrekte Aussage die, die genau dieses „höher = mehr Sicht“ für die jeweiligen Lufträume und Höhenbänder abbildet. Optionen, die „gesamter Luftraum G“ behaupten, ignorieren diese Staffelung nach Höhe.",
+      "merksatz": "Je höher, desto mehr Sicht.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS: Sicherer Sichtflug – Luftraumstruktur & VFR-Minima",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "für die Lufträume G und E oberhalb von 10.000 ft in Österreich und für den Luftraum E oberhalb von FL 100 in Deutschland"
   },
   {
     "id": "Q066",
@@ -2094,15 +2099,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "In Luftraum E gelten für VFR (Sichtflugregeln) feste Mindestabstände zu Wolken und eine Mindestflugsicht; „am Rand der Basis“ ist nur dann zulässig, wenn diese Abstände tatsächlich eingehalten werden. IFR bedeutet Instrumentenflugregeln: Verkehrsflugzeuge dürfen im Anflug typischerweise in Wolken fliegen, wenn sie IFR geführt werden – das ändert aber nichts daran, dass du als VFR‑Pilot die Wolkenabstände einhalten musst. Entscheidend ist hier also dein Abstand zur Wolke (horizontal/vertikal), nicht ob der Jet in Wolken war.",
+      "merksatz": "Wolke ist tabu, wenn der Mindestabstand fehlt.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Abstand Wolken (Luftraum E) – Mindestabstände",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/abstaende-sicherheitsmindesthoehe/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Du hast Dich falsch verhalten, weil Du im Luftraum E mindestens 300 m vertikalen und 1500 m horizontalen Abstand zur Wolke halten musst."
   },
   {
     "id": "Q067",
@@ -2125,15 +2131,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Luftraumklassen sehen zwar international ähnlich aus, aber die konkrete Luftraumstruktur (Höhen, Ausdehnungen, Sonderregeln) und vor allem, ob und wie nicht‑motorisierte Luftsportgeräte bestimmte Lufträume nutzen dürfen, ist national geregelt. Dazu kommen lokale Regeln (z.B. Einweisung, Funk‑/Transponderpflicht, Sperrungen). Deshalb ist jede pauschale Aussage „einheitlich“ riskant – du musst landesspezifisch prüfen.",
+      "merksatz": "Im Ausland: Luftraumregeln sind landesspezifisch.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Fliegen im Ausland – Regeln/Anforderungen",
+          "url": "https://www.dhv.de/fliegen/gaesteflug-ausland/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Luftraum-Struktur und die Berechtigung zur Nutzung von Lufträumen für Gleitschirme und Hängegleiter ist von Land zu Land unterschiedlich."
   },
   {
     "id": "Q068",
@@ -2156,15 +2163,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Kontrollzone (CTR) ist der kontrollierte Bereich direkt um einen Flugplatz, der Start‑ und Landeverkehr schützt. Damit die Flugverkehrskontrolle auch die Phase „vom Rollen/Abheben bis in die Platzrunde“ abdecken kann, beginnt die CTR an der Oberfläche und reicht bis zu einer festgelegten Obergrenze (meist in MSL angegeben). MSL/AGL sind hier nicht die Untergrenze, sondern Bezugsgrößen für Höhenangaben in Karten/Veröffentlichungen.",
+      "merksatz": "CTR fängt am Boden an.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "BMDV: Kriterienkatalog Lufträume (Kontrollzone von GND)",
+          "url": "https://www.bmv.de/SharedDocs/DE/Anlage/LF/kriterienkatalog-zur-einrichtung-von-luftraeumen.pdf?__blob=publicationFile#page=5"
         }
       ]
-    }
+    },
+    "correctAnswerText": "GND"
   },
   {
     "id": "Q069",
@@ -2187,15 +2195,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Kontrollzonen werden eingerichtet, um den Verkehr in der kritischen Nähe eines Flugplatzes geordnet und sicher zu halten: Dort treffen startende, landende und durchfliegende Luftfahrzeuge in wenig Raum zusammen, oft mit hohen Geschwindigkeitsunterschieden. „Flugberatungsdienst“ oder „Dokumentenkontrolle“ sind keine Zwecke der Luftraumklassifizierung; es geht um Schutz und Steuerung des Start‑/Landeverkehrs.",
+      "merksatz": "CTR = Schutz für Start & Landung.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "BMDV: Kriterienkatalog Lufträume (Kontrollzone von GND)",
+          "url": "https://www.bmv.de/SharedDocs/DE/Anlage/LF/kriterienkatalog-zur-einrichtung-von-luftraeumen.pdf?__blob=publicationFile#page=5"
         }
       ]
-    }
+    },
+    "correctAnswerText": "zum Schutz des Start- und Landeverkehrs"
   },
   {
     "id": "Q070",
@@ -2218,15 +2227,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Abkürzungen unterscheiden verschiedene kontrollierte Lufträume: TMA ist die An-/Abflugkontrollzone über/um Verkehrsflughäfen, CTA ist ein kontrolliertes Gebiet (Control Area), TRA ist ein temporär reservierter Bereich. Die Kontrollzone um den Flugplatz selbst wird international als „CTR“ bezeichnet.",
+      "merksatz": "CTR = die Zone um den Platz.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "BMDV: Kriterienkatalog Lufträume (Kontrollzone von GND)",
+          "url": "https://www.bmv.de/SharedDocs/DE/Anlage/LF/kriterienkatalog-zur-einrichtung-von-luftraeumen.pdf?__blob=publicationFile#page=5"
         }
       ]
-    }
+    },
+    "correctAnswerText": "CTR"
   },
   {
     "id": "Q071",

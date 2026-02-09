@@ -1404,17 +1404,17 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.last_correct_index = correct_index
                 st.rerun()
     else:
-        ok = bool(st.session_state.get("last_ok"))
+        is_ok = bool(st.session_state.get("last_ok") or False)
         corr_i = st.session_state.get("last_correct_index")
         sel_i = st.session_state.get("last_selected_index")
 
-    if ok:
-        if sel_i is not None and 0 <= int(sel_i) < len(options):
-            st.success(f"Richtig: {labels[int(sel_i)]}) {options[int(sel_i)]}")
+        if is_ok:
+            if sel_i is not None and 0 <= int(sel_i) < len(options):
+                st.success(f"Richtig: {labels[int(sel_i)]}) {options[int(sel_i)]}")
+            else:
+                st.success("Richtig")
         else:
-            st.success("Richtig")
-    else:
-        st.error("Falsch")
+            st.error("Falsch")
         if corr_i is not None and 0 <= int(corr_i) < len(options):
             st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 

@@ -1,13 +1,12 @@
 # Streamlit UI Theme
 # Docs:
 # - https://docs.streamlit.io/develop/concepts/configuration/theming
-# - https://docs.streamlit.io/develop/concepts/configuration/theming-customize-fonts
 
 [theme]
 base = "dark"
-primaryColor = "#4F8BF9"
+primaryColor = "#FF4B4B"
 backgroundColor = "#0E1117"
-secondaryBackgroundColor = "#161B22"
+secondaryBackgroundColor = "#1B2230"
 textColor = "#FAFAFA"
 font = "sans serif"
 baseFontSize = 16

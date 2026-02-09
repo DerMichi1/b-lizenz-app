@@ -13,11 +13,11 @@ import uuid
 import time
 import math
 import pandas as pd
-import altair as alt
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
 import streamlit as st
+import streamlit.components.v1 as components
 from supabase import Client, create_client
 
 # =============================================================================
@@ -833,81 +833,30 @@ def inject_css() -> None:
     st.markdown(
         """
 <style>
-/* --- Paragliding Dark Theme (CSS add-on) --- */
 :root{
   --pp-border: rgba(255,255,255,0.14);
-  --pp-border-strong: rgba(255,255,255,0.22);
   --pp-bg: rgba(255,255,255,0.055);
   --pp-bg2: rgba(255,255,255,0.075);
-  --pp-bg3: rgba(255,255,255,0.10);
   --pp-text-muted: rgba(255,255,255,0.78);
 }
-
-/* App background: subtle sky gradient */
-.stApp {
-  background: radial-gradient(1200px 700px at 20% -10%, rgba(255,128,80,0.10), rgba(0,0,0,0) 55%),
-              radial-gradient(900px 600px at 90% 0%, rgba(120,180,255,0.10), rgba(0,0,0,0) 55%),
-              linear-gradient(180deg, rgba(10,14,20,1) 0%, rgba(7,10,15,1) 45%, rgba(5,7,10,1) 100%);
-}
-
-.block-container { padding-top: 1.2rem; max-width: 1200px; }
-
-/* Buttons */
-div.stButton > button {
-  width:100%;
-  padding:0.80rem 1rem;
-  border-radius:14px;
-  font-size:1rem;
-  border: 1px solid var(--pp-border-strong);
-}
-div.stButton > button:hover { border-color: rgba(255,255,255,0.35); transform: translateY(-1px); }
+.block-container { padding-top: 1.2rem; max-width: 1180px; }
+div.stButton > button { width:100%; padding:0.85rem 1rem; border-radius:14px; font-size:1rem; }
+div.stButton > button:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
 div.stButton > button:active { transform: translateY(0px); }
 
-/* Cards / Surfaces */
-.pp-card, .pp-card2, .pp-kpi, .pp-hero {
-  border:1px solid var(--pp-border);
-  border-radius:16px;
-  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-  backdrop-filter: blur(10px);
-}
-
-.pp-card { padding:1rem 1.1rem; background: var(--pp-bg); }
-.pp-card2 { padding:1rem 1.1rem; background: var(--pp-bg2); }
-
-.pp-kpi { padding:0.9rem 1rem; background: var(--pp-bg); }
+.pp-card { box-shadow: 0 10px 30px rgba(0,0,0,0.28); border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg); }
+.pp-card2 { box-shadow: 0 10px 30px rgba(0,0,0,0.22); border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg2); }
 .pp-muted { color: var(--pp-text-muted); font-size:0.95rem; }
-
-.pp-hero { padding: 1.1rem 1.2rem; background: linear-gradient(90deg, rgba(255,90,60,0.10), rgba(120,180,255,0.08)); }
-.pp-hero-title { font-size: 2.0rem; font-weight: 800; letter-spacing: 0.2px; }
-.pp-hero-sub { margin-top: 0.15rem; }
-
+.pp-kpi { box-shadow: 0 10px 30px rgba(0,0,0,0.22); border:1px solid var(--pp-border); border-radius:16px; padding:0.9rem 1rem; background: var(--pp-bg); }
 .pp-grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:0.8rem; }
 @media (max-width: 1100px){ .pp-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px){ .pp-grid{ grid-template-columns: 1fr; } }
-
 hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
-
-.pp-pill {
-  display:inline-flex;
-  align-items:center;
-  gap: 0.35rem;
-  padding: 0.28rem 0.60rem;
-  border:1px solid var(--pp-border);
-  border-radius:999px;
-  background: rgba(255,255,255,0.04);
-  font-size:0.86rem;
-}
-
-/* Expander polish */
-div[data-testid="stExpander"] details {
-  border-radius: 14px;
-  border: 1px solid var(--pp-border);
-  background: rgba(255,255,255,0.03);
-}
-
-/* Radio spacing */
-div[role="radiogroup"] > label { padding: 0.25rem 0.25rem; }
-
+.small { font-size: 0.9rem; opacity: 0.85; }
+.pp-pill { display:inline-block; padding: 0.25rem 0.55rem; border:1px solid var(--pp-border); border-radius:999px; background: rgba(255,255,255,0.03); font-size:0.85rem; margin-right:0.4rem;}
+h1{margin-bottom:0.6rem !important;}
+h2{margin-top:1.2rem !important;}
+.stMarkdown{margin-top:0.25rem;}
 </style>
 """,
         unsafe_allow_html=True,
@@ -1015,6 +964,44 @@ def _fmt_hhmmss(seconds: int) -> str:
     m = (s % 3600) // 60
     sec = s % 60
     return f"{h:02d}:{m:02d}:{sec:02d}"
+
+
+def _render_exam_countdown(deadline_ts: float, *, label: str = "Restzeit") -> None:
+    """Client-side countdown (no rerun needed)."""
+    try:
+        dl = float(deadline_ts)
+    except Exception:
+        dl = time.time()
+
+    components.html(
+        f"""
+<div id="pp-timer" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.35);backdrop-filter: blur(8px);font-weight:800;">
+  <span style="opacity:.95">⏱️ {label}</span>
+  <span id="pp-timer-val" style="font-variant-numeric:tabular-nums;min-width:72px;text-align:right;">--:--:--</span>
+</div>
+
+<script>
+(function () {{
+  const deadline = {dl} * 1000;
+  const el = document.getElementById("pp-timer-val");
+  function pad(n) {{ return String(n).padStart(2, "0"); }}
+  function tick() {{
+    const now = Date.now();
+    let s = Math.floor((deadline - now) / 1000);
+    if (s < 0) s = 0;
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    if (el) el.textContent = `${{pad(h)}}:${{pad(m)}}:${{pad(sec)}}`;
+  }}
+  tick();
+  setInterval(tick, 1000);
+}})();
+</script>
+""",
+        height=46,
+    )
+
 
 # =============================================================================
 # PROGRESS / STATS
@@ -1406,134 +1393,57 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         avg7 = 0
         trend7 = 0
 
-    
-    k1, k2, k3, k4 = st.columns(4)
+    st.markdown(
+        f"""
+<div class="pp-grid">
+  <div class="pp-kpi"><b>Abdeckung</b><br>{overall}%<div class="pp-muted">Fragen mindestens 1× gesehen</div></div>
+  <div class="pp-kpi"><b>Trefferquote</b><br>{accuracy_total}%<div class="pp-muted">{c_total} richtig · {w_total} falsch</div></div>
+  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}% · Ø7 {avg7}% · Trend {('+' if trend7>0 else '')}{trend7}</div></div>
+  <div class="pp-kpi"><b>Beste Prüfung</b><br>{best}%<div class="pp-muted">Letzte: {('-' if last_pct is None else str(last_pct)+'%')}</div></div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-    with k1:
-        st.metric(
-            "Abdeckung",
-            f"{overall}%",
-            help="Anteil aller Fragen, die du mindestens 1× gesehen hast.",
-            border=True,
-        )
-
-    with k2:
-        st.metric(
-            "Trefferquote",
-            f"{accuracy_total}%",
-            delta=f"{c_total} richtig · {w_total} falsch",
-            help="Trefferquote über alle beantworteten Fragen (Training).",
-            border=True,
-        )
-
-    with k3:
-        st.metric(
-            "Prüfungen",
-            f"{exam_attempts}",
-            delta=f"Passrate {pass_rate}% · Ø7 {avg7}% · Trend {trend7:+d}",
-            help="Deine Prüfungsversuche inkl. Passrate und Trend (letzte 7).",
-            border=True,
-        )
-
-    with k4:
-        st.metric(
-            "Beste Prüfung",
-            f"{best}%",
-            delta=f"Letzte {('-' if last_pct is None else str(last_pct) + '%')}",
-            help="Bester Score über alle gespeicherten Prüfungen.",
-            border=True,
-        )
-    
     # ----------------------------
-    # Visualisierung (Dashboard)
+    # Visualisierung: Fortschritt / Trefferquote pro Kategorie
     # ----------------------------
     try:
         rows = []
         for cat, subs in stats.items():
-            total_q = learned_q = corr = wrong = 0
+            total_q = 0
+            learned_q = 0
+            corr = 0
+            wrong = 0
             for sub, s in subs.items():
                 total_q += int(s.get("total") or 0)
                 learned_q += int(s.get("learned") or 0)
                 corr += int(s.get("correct_total") or 0)
                 wrong += int(s.get("wrong_total") or 0)
-
             attempts = corr + wrong
             coverage = (learned_q / total_q) if total_q else 0.0
             acc = (corr / attempts) if attempts else 0.0
-
             rows.append(
                 {
                     "Kategorie": cat,
-                    "Abdeckung": round(coverage * 100, 1),
-                    "Trefferquote": round(acc * 100, 1),
-                    "Gesehen": learned_q,
-                    "Gesamt": total_q,
-                    "Antworten": attempts,
+                    "Abdeckung_%": int(round(coverage * 100)),
+                    "Trefferquote_%": int(round(acc * 100)),
                 }
             )
-
-        df = pd.DataFrame(rows)
-        if not df.empty:
-            df = df.sort_values("Kategorie")
-
-            left, right = st.columns(2)
-
-            with left:
-                st.markdown("### Abdeckung nach Kategorie")
-                ch_cov = (
-                    alt.Chart(df)
-                    .mark_bar(cornerRadiusTopLeft=6, cornerRadiusTopRight=6)
-                    .encode(
-                        x=alt.X("Kategorie:N", sort=None, axis=alt.Axis(labelAngle=-90)),
-                        y=alt.Y("Abdeckung:Q", scale=alt.Scale(domain=[0, 100])),
-                        tooltip=["Kategorie", "Abdeckung", "Gesehen", "Gesamt"],
-                    )
-                    .properties(height=240)
-                )
-                st.altair_chart(ch_cov, use_container_width=True)
-
-            with right:
-                st.markdown("### Trefferquote nach Kategorie")
-                ch_acc = (
-                    alt.Chart(df)
-                    .mark_bar(cornerRadiusTopLeft=6, cornerRadiusTopRight=6)
-                    .encode(
-                        x=alt.X("Kategorie:N", sort=None, axis=alt.Axis(labelAngle=-90)),
-                        y=alt.Y("Trefferquote:Q", scale=alt.Scale(domain=[0, 100])),
-                        tooltip=["Kategorie", "Trefferquote", "Antworten"],
-                    )
-                    .properties(height=240)
-                )
-                st.altair_chart(ch_acc, use_container_width=True)
-
-        # Prüfungs-Performance (letzte 10)
-        if runs:
-            pts = []
-            for idx, r in enumerate(list(reversed(runs[:10]))):
-                t = int(r.get("total") or 0)
-                c = int(r.get("correct") or 0)
-                pct_i = int(round((c / t) * 100)) if t else 0
-                pts.append({"Run": idx + 1, "Score": pct_i})
-
-            df_runs = pd.DataFrame(pts)
-            st.markdown("### Prüfungs-Performance (letzte 10)")
-            ch_line = (
-                alt.Chart(df_runs)
-                .mark_line(point=True)
-                .encode(
-                    x=alt.X("Run:O", title="Versuch"),
-                    y=alt.Y("Score:Q", title="%", scale=alt.Scale(domain=[0, 100])),
-                    tooltip=["Run", "Score"],
-                )
-                .properties(height=180)
-            )
-            st.altair_chart(ch_line, use_container_width=True)
-
+        df = pd.DataFrame(rows).sort_values("Kategorie")
+        left, right = st.columns(2)
+        with left:
+            st.markdown("### Abdeckung nach Kategorie")
+            st.bar_chart(df.set_index("Kategorie")[["Abdeckung_%"]], height=240)
+        with right:
+            st.markdown("### Trefferquote nach Kategorie")
+            st.bar_chart(df.set_index("Kategorie")[["Trefferquote_%"]], height=240)
     except Exception:
         # Charts sind nice-to-have; UI darf nicht crashen, falls Daten fehlen.
         pass
+
     st.write("")
-    cA, cB, cC = st.columns([1, 1, 1])
+    cA, cB = st.columns([1, 1])
     if cA.button("Weiterlernen", type="primary"):
         _reset_learning_state()
         st.session_state.page = "learn"
@@ -1939,6 +1849,16 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         st.stop()
 
     q = queue[idx]
+    # persist teacher checkpoint (handles refresh without losing position)
+    if plan.get('mode') == 'Lehrerpfad':
+        ts = st.session_state.teacher_state
+        b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+        cur = ts.get('checkpoints', {}).get(str(b))
+        if cur != int(idx):
+            ts.setdefault('checkpoints', {})[str(b)] = int(idx)
+            ts['lastBlock'] = b
+            st.session_state.teacher_state = ts
+            db_upsert_teacher_state(uid, ts)
     qid = str(q.get("id"))
     options = q.get("options") or []
     while len(options) < 4:
@@ -1969,6 +1889,15 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     with nav1:
         if st.button("← Zurück", disabled=(idx <= 0), use_container_width=True, key=f"nav_back_{qid}"):
             st.session_state.idx = max(0, idx - 1)
+            # persist teacher checkpoint on move
+            if plan.get('mode') == 'Lehrerpfad':
+                ts = st.session_state.teacher_state
+                b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+                if ts.get('checkpoints', {}).get(str(b)) != int(st.session_state.idx):
+                    ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
+                    ts['lastBlock'] = b
+                    st.session_state.teacher_state = ts
+                    db_upsert_teacher_state(uid, ts)
             prev_q = queue[st.session_state.idx]
             prev_id = str(prev_q.get("id"))
             prev = st.session_state.learn_answers.get(prev_id)
@@ -2007,6 +1936,14 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         jump = st.number_input("Springe zu Frage", min_value=1, max_value=total, value=idx + 1, step=1, key=f"jump_{qid}")
         if int(jump) != (idx + 1) and st.button("Springen", use_container_width=True, key=f"jump_btn_{qid}"):
             st.session_state.idx = int(jump) - 1
+            # persist teacher checkpoint on jump
+            if plan.get('mode') == 'Lehrerpfad':
+                ts = st.session_state.teacher_state
+                b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+                ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
+                ts['lastBlock'] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
             j_q = queue[st.session_state.idx]
             j_id = str(j_q.get("id"))
             prev = st.session_state.learn_answers.get(j_id)
@@ -2131,11 +2068,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
-    st.markdown(
-        f"""<div class='pp-hero'><div class='pp-hero-title'>Prüfungssimulation</div>"
-        f"<div class='pp-muted'>40 Fragen · {int(EXAM_DURATION_SEC/60)} Minuten · Gleitschirm B-Lizenz</div></div>""",
-        unsafe_allow_html=True,
-    )
+    st.title("Prüfungssimulation (40)")
 
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
@@ -2162,11 +2095,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
             _reset_exam_state()
             st.rerun()
         st.stop()
-
-    if not st.session_state.get("exam_done", False):
-        if hasattr(st, "autorefresh"):
-            st.autorefresh(interval=1000, limit=None, key="exam_timer_refresh")
-
     deadline = float(st.session_state.get("exam_deadline_ts") or (time.time() + EXAM_DURATION_SEC))
     remaining = int(round(deadline - time.time()))
 
@@ -2174,9 +2102,9 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
         _exam_submit(uid, reason="time")
         st.rerun()
 
-    top1, top2, top3, top4 = st.columns([2, 1, 1, 1])
+    top1, top2, top3, top4 = st.columns([1, 1, 1, 1])
     with top1:
-        st.markdown(f"<div class='pp-pill'>⏱️ Restzeit {_fmt_hhmmss(remaining)}</div>", unsafe_allow_html=True)
+        _render_exam_countdown(deadline, label='Restzeit')
     if top2.button("Prüfung abbrechen", key="exam_abort"):
         st.session_state.exam_started = False
         _reset_exam_state()
@@ -2320,28 +2248,21 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
 
     st.session_state.exam_answers[qid] = (None if int(sel_val) == -1 else int(sel_val))
 
-    cA, cB, cC = st.columns([1, 1, 1])
+    cA, cB = st.columns([1, 1])
     if cA.button("◀ Zurück", use_container_width=True, disabled=(i == 0)):
         st.session_state.exam_idx = max(0, i - 1)
         st.rerun()
     if cB.button("Weiter ▶", use_container_width=True, disabled=(i >= total - 1)):
         st.session_state.exam_idx = min(total - 1, i + 1)
         st.rerun()
-    if cC.button("Antwort löschen", use_container_width=True):
-        st.session_state.exam_answers[qid] = None
-        st.session_state[f"exam_radio_{qid}"] = -1
-        st.rerun()
 
     st.write("")
     answered_cnt = sum(1 for v in (st.session_state.exam_answers or {}).values() if v is not None)
+    st.caption(f"Beantwortet: {answered_cnt}/{total}")
 
-    f1, f2 = st.columns([3, 1])
-    with f1:
-        st.caption(f"Beantwortet: {answered_cnt}/{total}")
-    with f2:
-        if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
-            _exam_submit(uid, reason="manual")
-            st.rerun()
+    if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
+        _exam_submit(uid, reason="manual")
+        st.rerun()
 
 
 # =============================================================================

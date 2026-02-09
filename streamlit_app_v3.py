@@ -948,6 +948,18 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
 
     render_debug_panel()
 
+def _fmt_hhmmss(seconds: int) -> str:
+    """Format seconds as HH:MM:SS (never negative)."""
+    try:
+        s = int(seconds)
+    except Exception:
+        s = 0
+    if s < 0:
+        s = 0
+    h = s // 3600
+    m = (s % 3600) // 60
+    sec = s % 60
+    return f"{h:02d}:{m:02d}:{sec:02d}"
 
 # =============================================================================
 # PROGRESS / STATS

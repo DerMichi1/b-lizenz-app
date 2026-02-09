@@ -1415,8 +1415,8 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.success("Richtig")
         else:
             st.error("Falsch")
-        if corr_i is not None and 0 <= int(corr_i) < len(options):
-            st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
+            if corr_i is not None and 0 <= int(corr_i) < len(options):
+                st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
         w = get_wiki(q)
         with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):

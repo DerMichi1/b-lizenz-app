@@ -3934,6 +3934,33 @@
     "correctAnswerText": "Atmosphäre"
   },
   {
+    "id": "Q121",
+    "category": "Meteorologie",
+    "subchapter": "Atmosphäre/Druck",
+    "local_number": 2,
+    "question": "Welcher Bestandteil ist in dem Gasgemisch ”Luft” für das Wettergeschehen verantwortlich?",
+    "options": [
+      "Wasserdampf",
+      "Helium",
+      "Sauerstoff",
+      "Stickstoff"
+    ],
+    "correctIndex": 0,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "Wetter entsteht durch Prozesse, die sich schnell ändern können: Verdunstung, Kondensation (Wolkenbildung) und dabei frei werdende/aufgenommene Wärme. Dafür braucht es einen Luftbestandteil, der in Menge stark schwankt und den Phasenwechsel „gasförmig ↔ flüssig/vereist“ mitmacht; die Hauptgase der Luft (die den Großteil ausmachen) ändern sich dagegen kaum und treiben das Wettergeschehen nicht direkt.",
+      "merksatz": "Wetter = Verdunstung/Kondensation.",
+      "links": []
+    },
+    "correctAnswerText": "Wasserdampf"
+  },
+  {
     "id": "Q122",
     "category": "Meteorologie",
     "subchapter": "Atmosphäre/Druck",
@@ -3954,15 +3981,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Das Wetter spielt sich in der untersten Atmosphärenschicht direkt über dem Boden ab, weil dort die Erdoberfläche die Luft erwärmt, Turbulenz mischt und Wasserdampf/Wolken entstehen. Oberhalb dieser Schicht wird die Luft deutlich stabiler geschichtet; dort findet kaum noch die typische Durchmischung statt, die Wolken- und Wetterentwicklung am Boden antreibt.",
+      "merksatz": "Wetter lebt unten – wo der Boden heizt.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Troposphäre als Wetter-Schicht (Höhenwetterkarten-Artikel)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wettervorhersage/17_2015_191_hoehenwetterkarten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Troposphäre"
   },
   {
     "id": "Q123",
@@ -3985,15 +4013,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Normalerweise nimmt die Temperatur in der Wetterschicht mit der Höhe ab. Es gibt aber eine Grenze nach oben, an der dieser Trend endet: Dort geht die Temperaturabnahme in einen konstanten Verlauf oder sogar in Temperaturzunahme über. Genau das ist eine Inversion/Isothermie. Diese Grenzschicht ist „immer vorhanden“, weil sie die Trennung zwischen der turbulenten Wetterschicht und der darüber liegenden, stabileren Schicht markiert; an Wolkenuntergrenzen oder am Boden ist das nicht grundsätzlich immer so.",
+      "merksatz": "Oben am „Deckel“ der Wetterschicht sitzt die Inversion.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Tropopause als ständig vorhandene freie Inversion",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/6_2010_167_wolkenbilder_teil__5.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "An der Tropopause"
   },
   {
     "id": "Q124",
@@ -4016,15 +4045,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Gesucht ist die Bezeichnung der Obergrenze der Wetterschicht und ihre typische Höhe in unseren Breiten. Diese Grenze liegt in mittleren Breiten grob im Bereich „untere zweistellige Kilometerhöhe“ (typisch etwa 8–12 km über Meeresspiegel) und ist die Trennschicht zur darüber liegenden stabilen Schicht. Optionen, die diese Grenze mit deutlich höheren Werten koppeln, sind eher tropisch/äquatornah oder verwechseln andere Atmosphärengrenzen.",
+      "merksatz": "Wetterschicht endet grob bei 8–12 km.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Tropopause-Höhe ca. 8–12 km (Wolkenbilder Teil 5)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/6_2010_167_wolkenbilder_teil__5.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Tropopause, 11 km MSL"
   },
   {
     "id": "Q125",
@@ -4047,15 +4077,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Anteil dieses Gases ist in der unteren Atmosphäre praktisch konstant, weil die Luft dort gut durchmischt ist. Die große Verwechslung entsteht oft mit dem größten Luftanteil (Hauptgas) und mit „Restgasen“; für Atmung/Leistung ist aber der konstante Anteil dieses zweitgrößten Bestandteils relevant. Darum ist eine Zahl im Bereich „etwa ein Fünftel“ plausibel, während Werte wie „fast alles“ oder „nur ein kleiner Rest“ nicht zur bekannten Zusammensetzung der bodennahen Luft passen.",
+      "merksatz": "Atmung = grob ein Fünftel.",
+      "links": []
+    },
+    "correctAnswerText": "21 %"
   },
   {
     "id": "Q126",
@@ -4078,15 +4104,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Mit zunehmender Höhe liegt weniger Luft über dir, daher nimmt der Druck nicht linear, sondern ungefähr exponentiell ab: Je höher du kommst, desto weniger absolute Druckänderung brauchst du für die gleiche Höhenänderung. Eine brauchbare Faustregel ist deshalb die „Halbierung in einer bestimmten Höhenstufe“; lineare Regeln wie „immer 1 hPa pro 8 m über alle Höhen“ sind nur nahe Meereshöhe grob nutzbar, werden aber mit der Höhe immer falscher.",
+      "merksatz": "Druck fällt exponentiell – Halbierung ist die Faustregel.",
+      "links": []
+    },
+    "correctAnswerText": "nimmt näherungsweise alle 5.500 m um die Hälfte ab"
   },
   {
     "id": "Q127",
@@ -4109,15 +4131,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In der Luftfahrt wird Druck für QNH/QFE und Wetterkarten praktisch in einer metrischen, direkt rechenbaren Einheit angegeben, die auch in der Standardatmosphäre (1013,25) verwendet wird. Andere Einheiten wie psi (technisch/US‑Industrie), at oder mWS (Wassersäule) passen nicht zu den üblichen Flugwetter‑ und Höhenmesserangaben im europäischen Luftsport.",
+      "merksatz": "Fliegerei rechnet in hPa (1013,25).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 228: Standarddruck 1013,25 hPa / Druckeinheit",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2021/dhvinfo228.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "hPa"
   },
   {
     "id": "Q128",
@@ -4140,15 +4163,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Druck und Dichte nehmen mit der Höhe ähnlich ab. Eine sehr gebräuchliche Faustregel ist: In einer bestimmten Höhenstufe ist nur noch ungefähr die Hälfte des Drucks (und damit auch der Dichte) vorhanden. Werte deutlich darunter wären zu „steil“ (würde bedeuten, dass schon in wenigen Kilometern extrem wenig Luft übrig wäre); deutlich darüber wäre zu „flach“. Darum liegt die Halbierung im mittleren Kilometerbereich und passt als Standard‑Faustwert in der Meteorologie/Flugpraxis.",
+      "merksatz": "Bei ca. 5–6 km ist nur noch „halbe Luft“.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: 500 hPa liegt etwa bei 5.500 m (Höhenwetterkarten)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wettervorhersage/17_2015_191_hoehenwetterkarten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "5.500 m"
   },
   {
     "id": "Q129",
@@ -4171,15 +4195,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Höhenmesser ist im Kern ein Druckmesser: Er rechnet den gemessenen statischen Luftdruck in eine Höhe um. Wenn du das Gerät nicht verstellst, bedeutet eine Anzeigeänderung meist: Der Umgebungsdruck hat sich geändert. Sinkt der Luftdruck, interpretiert der Höhenmesser das als „du bist höher“ und zeigt mehr Höhe an; steigt der Druck, zeigt er weniger. Darum kann die Anzeige über Nacht abweichen, obwohl das Gerät am selben Ort liegt.",
+      "merksatz": "Ohne Verstellen gilt: Druck runter → Anzeige hoch.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 64: Barometrische Höhenstufe (Druck↔Höhe) – Grundprinzip",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1992/dhvinfo64.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der Luftdruck ist über Nacht gefallen"
   },
   {
     "id": "Q130",
@@ -4202,15 +4227,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die „barometrische Höhenstufe“ ist die Faustregel, wie viel Höhenänderung einer Druckänderung von 1 hPa entspricht. Nahe Meereshöhe kann man grob mit rund 8 m pro 1 hPa rechnen. Von 1000 hPa auf 900 hPa sind 100 hPa Unterschied; multipliziert mit der Faust‑Höhenstufe ergibt das eine Höhe im Bereich von einigen hundert Metern. Optionen im Kilometerbereich sind dafür zu groß, und sehr kleine Werte passen nicht zur Größenordnung der Faustregel.",
+      "merksatz": "1 hPa ≈ 8 m (nahe NN).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 64: Barometrische Höhenstufe ~8 m pro 1 hPa (Meereshöhe)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1992/dhvinfo64.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "800 m"
   },
   {
     "id": "Q131",
@@ -4233,15 +4259,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Bodeninversion ist eine sehr stabile Schichtung direkt über dem Boden: Die Luft direkt am Boden wird (meist nachts) stark abgekühlt, während es wenige hundert Meter darüber wärmer bleibt. Dadurch steigt die Temperatur in der untersten Schicht nach oben hin an statt ab, und Aufwinde/Thermik werden „abgedeckelt“.",
+      "merksatz": "Nachts Boden kalt, oben wärmer.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 167: Bodeninversion (Entstehung durch nächtliche Abkühlung)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/6_2010_167_wolkenbilder_teil__5.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Starke Abkühlung der bodennahen Luftschicht, verursacht durch Abstrahlung in der Nacht."
   },
   {
     "id": "Q132",
@@ -4264,15 +4291,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In der Troposphäre ist der Normalfall: je höher, desto kälter. Grund: Die Erdoberfläche erwärmt die Luft von unten; mit der Höhe nimmt der Druck ab und aufsteigende Luft kühlt sich dabei ab. Umkehrungen (Temperatur nimmt zu) sind Ausnahmen und heißen Inversion.",
+      "merksatz": "Troposphäre: nach oben kälter.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Troposphäre – mittlere Temperaturabnahme (Standardatmosphäre)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wolken/4_2010_165_wolkenbilder_teil_3.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "nimmt mit steigender Höhe ab"
   },
   {
     "id": "Q133",
@@ -4295,15 +4323,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Relative Luftfeuchte ist ein Prozentwert: Sie vergleicht, wie viel Wasserdampf gerade in der Luft ist, mit dem Maximum, das die Luft bei derselben Temperatur überhaupt aufnehmen kann. 100% bedeutet „gesättigt“ – dann reicht weitere Abkühlung oder zusätzlicher Wasserdampf schnell für Nebel/Wolke.",
+      "merksatz": "Relativ = Ist / Max bei gleicher Temperatur.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Grundlagen Luftfeuchte – Definition relative Feuchte",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/05_2011_169_grundlagen_luftfeuchte.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "das  Verhältnis  des  tatsächlich  vorhandenen  Wasserdampfgehaltes  zum  maximal  möglichen, ausgedrückt in Prozent"
   },
   {
     "id": "Q134",
@@ -4326,15 +4355,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der Taupunkt ist die Temperatur, bei der die vorhandene Feuchte gerade zur Sättigung reicht. Wird bis dahin abgekühlt und liegt der Taupunkt über 0°C, geht Wasserdampf in flüssige Tröpfchen über – es bilden sich z.B. Nebel, Wolken oder Tau. Unter 0°C wäre es stattdessen direkt Eis (Reif/Eiskristalle).",
+      "merksatz": "Taupunkt erreicht → Tröpfchen (über 0°C).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 169: Taupunkt und Kondensation",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2011/dhvinfo169.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Kondensation"
   },
   {
     "id": "Q135",
@@ -4357,15 +4387,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Damit Kondensation startet, braucht es zwei Dinge: erstens Sättigung (die Luft ist so weit abgekühlt/angefeuchtet, dass sie nicht mehr alles als Wasserdampf halten kann) und zweitens winzige „Anlagerungsstellen“ in der Luft. Diese Kondensationskerne sind z.B. Staub/Salz/Aerosole; ohne sie würde die Bildung von Tröpfchen viel schwerer anlaufen.",
+      "merksatz": "Sättigung + Kerne = Tröpfchen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 169: Kondensation – Sättigung und Kondensationskerne",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2011/dhvinfo169.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Sättigung und Kondensationskerne"
   },
   {
     "id": "Q136",
@@ -4388,15 +4419,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Warme Luft kann deutlich mehr Wasserdampf „halten“ als kalte Luft. Wird Luft wärmer, steigt die Sättigungsmenge stark an; wird sie kälter, sinkt sie – dann wird bei gleicher absoluter Feuchte die relative Feuchte größer und es kommt schneller zu Wolke/Nebel.",
+      "merksatz": "Warm = mehr Wasserdampf möglich.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 151: Luft kann bei höherer Temperatur mehr Wasserdampf aufnehmen",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2008/dhvinfo151.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "nimmt mit zunehmender Temperatur zu"
   },
   {
     "id": "Q137",
@@ -4419,15 +4451,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Steigt Luft auf, kühlt sie ab. Der Taupunkt sinkt dabei ebenfalls, aber langsamer als die Temperatur – deshalb werden Temperatur und Taupunkt „näher zusammen“. Die Taupunktdifferenz wird kleiner; sobald sie gegen null geht, ist Sättigung erreicht und Wolkenbildung wird möglich.",
+      "merksatz": "Aufstieg: Temperatur fällt schneller als Taupunkt.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Basishöhe – Temperatur vs. Taupunkt (trocken/feucht)",
+          "url": "https://www.dhv.de/media/jahre/2025/07_wetter/Wetterwissen/DHVmagazin_Artikel/525_Basish%C3%B6he_auf_die_Schnelle.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Taupunktdifferenz verringert sich"
   },
   {
     "id": "Q138",
@@ -4450,15 +4483,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Sinkt Luft ab, wird sie durch höheren Druck wärmer. Der Taupunkt steigt dabei zwar auch, aber deutlich langsamer als die Temperatur – deshalb entfernen sich Temperatur und Taupunkt voneinander. Die Luft wird „trockener“ im relativen Sinn, Wolken lösen sich leichter auf.",
+      "merksatz": "Absinken: Temperatur steigt schneller als Taupunkt.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Basishöhe – Verhalten von Temperatur und Taupunkt",
+          "url": "https://www.dhv.de/media/jahre/2025/07_wetter/Wetterwissen/DHVmagazin_Artikel/525_Basish%C3%B6he_auf_die_Schnelle.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Differenz zwischen Temperatur und Taupunkt wird größer"
   },
   {
     "id": "Q139",
@@ -4481,15 +4515,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die ICAO‑Standardatmosphäre ist ein festgelegtes Referenzmodell: Es definiert Standard‑Werte am Meeresspiegel (MSL = Mean Sea Level) und einen konstanten Temperaturabfall in der Troposphäre. Wichtig ist hier: Es geht um einen Vergleichs‑„Nullpunkt“ für Rechnung/Kalibrierung (Höhenmesser, Flugflächen), nicht um das reale Wetter; deshalb wird auch eine trockene Atmosphäre angenommen.",
+      "merksatz": "Standardatmosphäre = Referenz, nicht Echtwetter.",
+      "links": []
+    },
+    "correctAnswerText": "Luftdruck in MSL 1013,2 hPa, Temperatur 15°C in MSL, relative Feuchte 0%, Temperaturgradient -0,65° C/100 m"
   },
   {
     "id": "Q140",
@@ -4512,15 +4542,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Standardatmosphäre nimmt in der Troposphäre einen gleichmäßigen Temperaturabfall pro 100 m an. Diese Zahl ist die bekannte Faustgröße für den „Standard‑Temperaturgradienten“; deutlich größere Werte würden eine viel zu schnelle Abkühlung bedeuten, deutlich kleinere wären in der Standarddefinition untypisch.",
+      "merksatz": "Standard: 0,65°C pro 100 m.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Standard-Temperaturabnahme 0,65°C/100 m",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2010/dhvinfo167.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "0,65° C / 100m"
   },
   {
     "id": "Q141",
@@ -4543,15 +4574,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Verdunstung bedeutet: Wasser geht ohne zu kochen von flüssig in Wasserdampf über. Das passiert z.B. bei nasser Wiese oder Pfützen, wenn Wärme zugeführt wird und einzelne Moleküle die Flüssigkeit verlassen. Die anderen Übergänge beschreiben Schmelzen (Eis→Wasser), Kondensation (Dampf→Wasser) oder Resublimation (Dampf→Eis).",
+      "merksatz": "Verdunstung = Wasser wird Dampf.",
+      "links": []
+    },
+    "correctAnswerText": "flüssig - gasförmig"
   },
   {
     "id": "Q142",
@@ -4574,15 +4601,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Kondensation ist der umgekehrte Weg zur Verdunstung: Wasserdampf wird zu flüssigen Tröpfchen. Das passiert, wenn feuchte Luft abkühlt und den Taupunkt erreicht; dann kann die Luft den Wasserdampf nicht mehr vollständig als Gas halten und es entstehen Wolken- oder Nebeltröpfchen. Die anderen Optionen sind Resublimation (Dampf→Eis), Schmelzen (Eis→Wasser) oder Verdunstung (Wasser→Dampf).",
+      "merksatz": "Kondensation = Dampf wird Tröpfchen.",
+      "links": []
+    },
+    "correctAnswerText": "gasförmig - flüssig"
   },
   {
     "id": "Q143",
@@ -4605,15 +4628,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Relative Luftfeuchte ist ein Verhältnis in Prozent: „wie viel ist drin“ geteilt durch „wie viel wäre maximal möglich“ bei gleicher Temperatur. Hier ist die Luft nur halb so „voll“ wie möglich (3,9 von 7,8), also liegt die relative Feuchte bei der Hälfte des Maximums. Werte nahe 100% würden bedeuten, dass die Luft gesättigt ist; deutlich kleinere Werte würden bedeuten, dass nur ein kleiner Bruchteil des möglichen Wasserdampfs vorhanden ist.",
+      "merksatz": "Relativ = Ist / Max × 100.",
+      "links": []
+    },
+    "correctAnswerText": "50 %"
   },
   {
     "id": "Q144",
@@ -4636,15 +4655,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
-      "links": [
-        {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
-        }
-      ]
-    }
+      "explanation": "Wolken oder Nebel entstehen, wenn feuchte Luft so abgekühlt wird, dass Temperatur und Taupunkt zusammenkommen (Sättigung). Abkühlung passiert typisch durch Hebung (Luft steigt, dehnt sich aus und kühlt) oder durch Ausstrahlung am Boden (Nächte: Boden kühlt Luftschicht ab). Erwärmung oder „Spread vergrößern“ entfernt Temperatur und Taupunkt voneinander und wirkt eher wolkenauflösend; turbulente Durchmischung kann zwar Feuchte/Temperatur mischen, ist aber nicht das grundlegende Auslösekriterium.",
+      "merksatz": "Wolke = Abkühlen bis Taupunkt.",
+      "links": []
+    },
+    "correctAnswerText": "Abkühlung der Luft durch Hebung oder durch Ausstrahlung"
   },
   {
     "id": "Q145",
@@ -4667,15 +4682,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Wärme wird frei, wenn Wasserdampf wieder „geordnet“ wird und zu Tröpfchen wird: Beim Übergang vom gasförmigen Zustand in den flüssigen Zustand wird sogenannte latente Wärme abgegeben. Umgekehrt kostet Verdunstung Wärme (sie entzieht der Umgebung Energie). Schmelzen benötigt ebenfalls Wärme, und Sublimation (fest→gasförmig) benötigt sehr viel Energie.",
+      "merksatz": "Dampf → Wasser gibt Wärme ab.",
+      "links": []
+    },
+    "correctAnswerText": "gasförmig - flüssig"
   },
   {
     "id": "Q146",
@@ -4698,15 +4709,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Aufgleitbewölkung entsteht, wenn warme Luft großflächig und relativ sanft über kältere Luft aufgleitet (typisch Warmfront). Diese Hebung ist gleichmäßig und verteilt über eine große Fläche; dadurch entsteht ein ausgedehntes Schichtwolkensystem, das eher kontinuierlichen Niederschlag produziert statt kurze, kräftige Schauer. Hagel ist typisch für starke Konvektion in Gewitterwolken, nicht für gleichmäßiges Aufgleiten.",
+      "merksatz": "Aufgleiten = großflächig + lang anhaltend.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-info 170: Warmfront/ Aufgleiten und typischer Wetterablauf",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Dauerniederschlag"
   },
   {
     "id": "Q147",
@@ -4729,15 +4741,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Thermikwolken entstehen durch Konvektion: Sonne erwärmt den Boden, warme Luftpakete steigen auf und kühlen dabei ab, bis die Sättigung erreicht ist; ab dort wird die Feuchte als Wolke sichtbar. Diese Wolken haben typisch eine flache Basis (Kondensationsniveau) und eine „blumenkohlartige“ Struktur nach oben. Eiswolken sind hohe, faserige Wolken, Schichtwolken sind eher flächig und entstehen aus anderer Dynamik (z.B. Aufgleiten oder Inversion).",
+      "merksatz": "Thermik macht Quellwolken.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – Cumulus (Konvektion/Thermik) beschrieben",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=54"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Cumuluswolken"
   },
   {
     "id": "Q148",
@@ -4760,15 +4773,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Bei kräftiger Sonneneinstrahlung und zunächst wolkenlosem Himmel baut sich tagsüber Thermik auf: Warme Luft steigt, kühlt, kondensiert – es bilden sich Quellwolken. Diese entstehen typischerweise erst im Tagesgang und wachsen mit der Thermikleistung. Schichtwolken (Stratus/Nimbostratus/Altostratus) sind eher großflächige Systeme aus Aufgleiten oder stabiler Schichtung; hohe Schleierwolken (Cirrostratus) kommen oft im Vorfeld von Fronten.",
+      "merksatz": "Sonne + Thermik = Quellwolken.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – Cumulus als typische „Schönwetterwolke“",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=54"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Cumulus"
   },
   {
     "id": "Q149",
@@ -4791,15 +4805,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Gewitter brauchen starke vertikale Entwicklung: Ein Wolkenturm wächst durch kräftige Aufwinde so weit nach oben, dass im oberen Teil Vereisung einsetzt und die Wolke eine sehr große Mächtigkeit bekommt. Dabei entstehen typische Gewittergefahren wie Starkregen, Hagel, Blitz und schwere Turbulenz. Mittelhohe Haufenwolken (Altocumulus) oder Schichtregenwolken (Nimbostratus) liefern zwar Niederschlag, aber nicht das typische Gewitterpaket aus Blitz/Hagel/Extremturbulenz.",
+      "merksatz": "Gewitter = Wolkenturm mit Gewalt.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – Cumulonimbus (Gewitterwolke) und Gefahren",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=55"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Cumulonimbuswolken"
   },
   {
     "id": "Q150",
@@ -4822,15 +4837,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Schichtwolken sind flächige Wolkenformen, die oft den Himmel großräumig bedecken. Typisch sind Stratus (tiefe, strukturlose Schicht), Altostratus (mittlere Schicht) und Nimbostratus (dicke Schicht mit anhaltendem Niederschlag). Quellwolken (Cumulus/Cumulonimbus) sind dagegen vertikal aufgebaut und „haufenförmig“. Mischformen wie Stratocumulus sind Haufenschichtwolken und werden nicht mit reinen Quellwolken zusammengefasst.",
+      "merksatz": "Schicht = As/Ns/St (flächig).",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Alpine Meteorologie – tiefe/mittlere Schichtwolken (St, As, Ns)",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=53"
         }
       ]
-    }
+    },
+    "correctAnswerText": "As, Ns, St"
   },
   {
     "id": "Q151",

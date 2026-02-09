@@ -3604,15 +3604,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In der Karte sind Lufträume als „Schichten“ mit Unter‑/Obergrenzen eingetragen. „MSL“ bedeutet Höhe über Meeresspiegel, „AGL“ Höhe über Grund. Der Zusatz „MNM 1000 AGL“ heißt: Der unkontrollierte Luftraum G reicht in diesem Bereich mindestens bis 1000 ft über Grund; erst darüber beginnt der darüberliegende Luftraum (z.B. E). Die Obergrenze des nutzbaren Bereichs wird als feste Höhe/Flightlevel angegeben – darüber beginnt ein anderer, für dich relevanter Luftraum (hier in der Karte als nächste Schicht dargestellt).",
+      "merksatz": "MNM 1000 AGL = G mindestens 1000 über Grund.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – Höhenangaben (AGL/MSL/FL)",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "In diesem Bereich reicht Luftraum G immer mindestens (MNM) bis 1000 ft AGL, größte erlaubte Flughöhe in Luftraum E ist 9500 ft MSL, darüber verbotener Luftraum D"
   },
   {
     "id": "Q112",
@@ -3640,15 +3641,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Du bist bereits in der Nähe einer kartierten Luftraumgrenze: Auf der ICAO‑Karte ist die Obergrenze des nutzbaren Luftraums als feste Höhe in ft MSL angegeben. Es gibt keine „Toleranz“, auf die man sich verlassen darf – dein Höhenmesser, Thermikdrift und Messfehler können dich schnell in den darüberliegenden, für dich unzulässigen Luftraum bringen. Daher ist korrektes Verhalten: Thermik verlassen, Steigen beenden und mit klarer Reserve unter der Grenze bleiben, statt „bis exakt zur Linie“ aufzudrehen.",
+      "merksatz": "An der Luftraumgrenze: Reserve halten, nicht ausreizen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – Höhenangaben & Luftraumgrenzen",
+          "url": "https://dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ich verlasse die Thermik und achte darauf, nicht weiter zu steigen, weil knapp 100 m höher, bei 9500 ft (2895 m) MSL, der verbotene Luftraum D beginnt"
   },
   {
     "id": "Q113",
@@ -3676,15 +3678,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die blaue Linie mit blauem Band markiert eine Grenze, an der sich die Luftraum‑Deckel ändern. In der Abbildung siehst du auf beiden Seiten Kästchen mit „E“ und unterschiedlichen Flightlevels: Das sind die Obergrenzen von Luftraum E (FL = Flight Level, bezogen auf Standarddruck 1013,2 hPa). Nördlich der Linie ist die Obergrenze niedriger, südlich höher; daraus folgt, wie hoch du als Gleitschirm/Hängegleiter in Luftraum E maximal steigen darfst, ohne in den darüberliegenden kontrollierten Luftraum zu geraten.",
+      "merksatz": "Blaue Bandlinie = anderer E‑Deckel.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung/Luftraum – FL, Obergrenzen und Nutzung",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Nördlich  der  blauen  Linie  mit  blauem  Band  dürfen  Gleitschirme  und  Hängegleiter  bis  FL  100 (ca. 3050 m MSL), südlich davon bis FL 130 (ca. 3950 m MSL) fliegen"
   },
   {
     "id": "Q114",
@@ -3712,15 +3715,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In der Karte erkennst du zwei Dinge: (1) Die Obergrenze von Luftraum E ist in diesem Bereich als Flight Level angegeben und kann entlang einer Grenze (blaues Band) wechseln – das kann eine Absenkung sein, wodurch du früher „am Deckel“ bist. (2) Zusätzlich ist ein ED‑R‑Gebiet eingezeichnet: Das ist ein Flugbeschränkungsgebiet, dessen Aktivität zeitabhängig ist; in Flugrichtung musst du also sowohl den niedrigeren E‑Deckel als auch die ED‑R‑Lage/Wirksamkeit in deine Linienführung einplanen.",
+      "merksatz": "Deckel runter + ED‑R voraus: Kurs anpassen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung – Luftraum E/G und Beschränkungsgebiete",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ist die Obergrenze von Luftraum E von FL 130 auf FL 100 abgesenkt und es befindet sich ein Flugbeschränkungsgebiet in Flugrichtung"
   },
   {
     "id": "Q115",
@@ -3748,15 +3752,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei ED‑R‑Gebieten steht in der Karte die vertikale Ausdehnung direkt in der Beschriftung: „GND“ bedeutet ab Boden, die obere Begrenzung ist als Zahl mit Einheit angegeben. „ft MSL“ heißt: Obergrenze in Fuß über Meeresspiegel (nicht über Grund). Du liest also immer: von Boden bis zu einer fixen MSL‑Höhe; für deinen Durchflug ist entscheidend, ob du darunter bleibst oder das Gebiet umfliegst, und ob es aktiv ist.",
+      "merksatz": "ED‑R: GND bis Obergrenze (ft MSL) lesen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "BAF: Flugbeschränkungsgebiete (ED‑R) – rechtliche Einordnung",
+          "url": "https://www.baf.bund.de/DE/Themen/Luftraum_Flugverfahren_Recht/Flugbeschraenkungsgebiete_UAS/Flugbeschraenkungsgebiete_UAS_node.html"
         }
       ]
-    }
+    },
+    "correctAnswerText": "GND bis 5000 ft MSL"
   },
   {
     "id": "Q116",
@@ -3779,15 +3784,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Zeitangaben beschreiben, wann das ED‑R‑Gebiet planmäßig wirksam ist. „SS“ bedeutet Sonnenuntergang; „SS+2 HR“ heißt zwei Stunden nach Sonnenuntergang. Die Uhrzeiten in Klammern sind die jeweilige Alternative (typisch: UTC vs. Lokalzeit je nach Publikation); entscheidend ist, welche Zeitskala für deine Flugvorbereitung gilt. Für die Planung heißt das: Außerhalb der veröffentlichten Zeiten ist das Gebiet normalerweise nicht aktiv und kann passiert werden – aber die tatsächliche Aktivierung kann zusätzlich per NOTAM bekanntgemacht werden, daher immer Status prüfen.",
+      "merksatz": "ED‑R: Zeiten + NOTAM‑Status prüfen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung – Aktivierung per AIP/NOTAM beachten",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Freitag  bis  Sonntag  ist  die  ED-R  145  nicht  in  Betrieb  und  darf  durchflogen  werden.  Mögliche Aktivierung per NOTAM beachten."
   },
   {
     "id": "Q117",
@@ -3815,15 +3821,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die blaue Linie in diesem Bereich ist keine CTR‑Grenze, sondern markiert den Nahverkehrsbereich (TMA) eines großen Flughafens. Eine TMA ist kontrollierter Luftraum, der An‑/Abflugverfahren schützt; die Karte nennt dafür eine Untergrenze, ab der dieser kontrollierte Luftraum beginnt. Das ist für dich die relevante Information: Unterhalb dieser Untergrenze ist der darunterliegende Luftraum nutzbar, oberhalb würdest du in kontrollierten Verkehr hineinragen und bräuchtest Freigaben/Verfahren, die du als Gleitschirm nicht einfach „mitfliegst“.",
+      "merksatz": "TMA‑Linie: ab Untergrenze wird’s kontrolliert.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung – kontrollierte Lufträume/TMA und Untergrenzen",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "markiert die blaue Linie den Nahverkehrsbereich (TMA Sektor A) des Flughafen München, das bedeutet, der kontrollierte Luftraum beginnt bei 1000 ft AGL"
   },
   {
     "id": "Q118",
@@ -3851,15 +3858,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Entlang deiner Route ändert sich die Obergrenze von Luftraum E – das siehst du an den E‑Kästchen mit unterschiedlichen Flightlevels. Wenn der E‑Deckel abgesenkt wird (z.B. von einem höheren FL auf ein niedrigeres), bist du bei gleicher Arbeitshöhe schneller an der Grenze zum darüberliegenden kontrollierten Luftraum. Für die Entscheidung bedeutet das: rechtzeitig vor der Zone die neue Obergrenze erkennen, Höhe anpassen (oder Kurs so wählen, dass du nicht in die abgesenkte Staffelung gerätst), statt erst „am See“ überrascht zu werden.",
+      "merksatz": "Vor dem See: E‑Deckel checken – ggf. tiefer.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Flugplanung – Luftraumstaffelung/Obergrenzen lesen",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "wird die Obergrenze von Luftraum E von FL 100 auf FL 85 (ca. 2590 m MSL) abgesenkt"
   },
   {
     "id": "Q119",
@@ -3887,15 +3895,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Landung außerhalb genehmigter Flugplätze heißt rechtlich Außenlandung. Grundsätzlich ist dafür eine Erlaubnis nötig, aber es gibt Ausnahmen, wenn die Landestelle vorher nicht absehbar ist oder wenn du aus Sicherheitsgründen landen musst (z.B. weil der Weiterflug über riskantes Gelände/Wasser nicht verantwortbar ist). Entscheidend ist die Motivation: „Bequemlichkeit“ zählt nicht; eine real begründete Sicherheitsentscheidung kann die Ausnahme tragen. In deinem Beispiel ist die Abwägung „Risiko Seequerung“ ein typischer Sicherheitsgrund, der das Landen auf geeigneter Fläche plausibel macht.",
+      "merksatz": "Sicherheit schlägt Ziel: im Zweifel rauslanden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "LuftVO §18: Außenstarts/Außenlandungen – Ausnahmen (Sicherheit/Unvorhersehbarkeit)",
+          "url": "https://www.gesetze-im-internet.de/luftvo_2015/__18.html"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Gute  Entscheidung,  statt  der  hochriskanten  See-Querung,  eine  nach  §  18  LuftVO  erlaubte Außenlandung bei einem Streckenflug durchzuführen"
   },
   {
     "id": "Q120",
@@ -3918,46 +3927,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
-  },
-  {
-    "id": "Q121",
-    "category": "Meteorologie",
-    "subchapter": "Atmosphäre/Druck",
-    "local_number": 2,
-    "question": "Welcher Bestandteil ist in dem Gasgemisch ”Luft” für das Wettergeschehen verantwortlich?",
-    "options": [
-      "Wasserdampf",
-      "Helium",
-      "Sauerstoff",
-      "Stickstoff"
-    ],
-    "correctIndex": 0,
-    "figures": [],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
+      "explanation": "Die Lufthülle der Erde ist der Sammelbegriff für alle Luftschichten um den Planeten. „Troposphäre“ und „Stratosphäre“ sind einzelne Schichten innerhalb dieser Hülle; „Homosphäre“ beschreibt einen Bereich, in dem die Luftzusammensetzung relativ gleich bleibt. Gesucht ist der Oberbegriff für die gesamte Lufthülle – nicht eine Teilschicht.",
+      "merksatz": "Erde hat eine Lufthülle mit Schichten.",
+      "links": []
     },
-    "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+    "correctAnswerText": "Atmosphäre"
   },
   {
     "id": "Q122",

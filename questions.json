@@ -1,34 +1,39 @@
 [
-  {
-    "id": "Q001",
-    "category": "Luftrecht",
-    "subchapter": "Kollisionsvermeidung",
-    "local_number": 1,
-    "question": "Du möchtest einen Thermikschlauch nutzen, in dem bereits in Deiner Höhe ein Segelflugzeug kreist.",
-    "options": [
-      "Ein  Thermikschlauch  darf  nicht  von  Segelflugzeugen  und  Gleitschirmen  gleichzeitig  genutzt werden, da unterschiedliche Kreisradien",
-      "Da  der  Gleitschirm  schneller  steigt,  hat  das  Segelflugzeug  seine  Drehrichtung  nach  der  des Gleitschirmfliegers zu richten",
-      "Um sich immer gegenseitig in Sicht zu haben, muss der Gleitschirmflieger in entgegen gesetzter Drehrichtung einkreisen",
-      "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden"
-    ],
-    "correctIndex": 3,
-    "figures": [],
-    "ai": {
-      "allowed": true,
-      "context": "",
-      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-      "followup_examples": []
-    },
-    "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+{
+  "id": "Q001",
+  "category": "Luftrecht",
+  "subchapter": "Kollisionsvermeidung",
+  "local_number": 1,
+  "question": "Du möchtest einen Thermikschlauch nutzen, in dem bereits in Deiner Höhe ein Segelflugzeug kreist.",
+  "options": [
+    "Ein  Thermikschlauch  darf  nicht  von  Segelflugzeugen  und  Gleitschirmen  gleichzeitig  genutzt werden, da unterschiedliche Kreisradien",
+    "Da  der  Gleitschirm  schneller  steigt,  hat  das  Segelflugzeug  seine  Drehrichtung nach der des Gleitschirmfliegers zu richten",
+    "Um sich immer gegenseitig in Sicht zu haben, muss der Gleitschirmflieger in entgegen gesetzter Drehrichtung einkreisen",
+    "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden"
+  ],
+  "correctIndex": 3,
+  "figures": [],
+  "ai": {
+    "allowed": true,
+    "context": "",
+    "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+    "followup_examples": []
+  },
+  "wiki": {
+    "explanation": "- Begriff: „Thermikschlauch“ = Aufwind-Säule/„Bart“, in der man im Kreis steigt.\n- Wenn bereits ein Luftfahrzeug (hier: Segelflugzeug) in deiner Höhe kreist, gilt praktisch: Du passt dich an, damit es keine Gegenkurse im gleichen Kreis gibt.\n- Deshalb: Du übernimmst die Drehrichtung des bereits kreisenden Segelflugzeugs (wie „Kreisverkehr“).\n- So vermeidest du die gefährlichste Situation: zwei Fluggeräte auf gleicher Höhe, die sich im Kreis frontal begegnen.",
+    "merksatz": "Thermik = Kreisverkehr: Drehrichtung vom Ersten übernehmen.",
+    "links": [
+      {
+        "title": "DHV-info 108: „Der erste Pilot in der Thermik bestimmt die Drehrichtung“ (PDF, Seite 62)",
+        "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2000/dhvinfo108.pdf#page=62"
+      },
+      {
+        "title": "FAI Sporting Code (CIVL) 2023: „Entering a thermal – First rule: turn in the same direction“ (PDF, Seite 14)",
+        "url": "https://www.fai.org/sites/default/files/civl/documents/sporting_code_s7_i_-_guidelines_and_templates_2023.pdf#page=14"
+      }
+    ]
+  }
+}
   },
   {
     "id": "Q002",

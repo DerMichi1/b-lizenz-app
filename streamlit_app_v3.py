@@ -1146,31 +1146,6 @@ def overall_correct_wrong(progress: Dict[str, Dict[str, Any]]) -> Tuple[int, int
     return c, w
 
 
-
-def build_subchapter_stats(progress: Dict[str, Dict[str, Any]], questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, Dict[str, int]]]:
-    """Aggregate correct/wrong counters per (category, subchapter) from progress rows.
-
-    Expected progress row shape (best-effort):
-      {"seen": int, "correct": int, "wrong": int, ...}
-    Returns:
-      {category: {subchapter: {"correct_total": int, "wrong_total": int}}}
-    """
-    stats: Dict[str, Dict[str, Dict[str, int]]] = {}
-    for q in (questions or []):
-        cat = str(q.get("category") or "Unbekannt")
-        sub = str(q.get("subchapter") or "Unbekannt")
-        qid = str(q.get("id"))
-        row = (progress or {}).get(qid) or {}
-
-        c = int(row.get("correct", 0) or 0) if isinstance(row, dict) else 0
-        w = int(row.get("wrong", 0) or 0) if isinstance(row, dict) else 0
-
-        stats.setdefault(cat, {}).setdefault(sub, {"correct_total": 0, "wrong_total": 0})
-        stats[cat][sub]["correct_total"] += c
-        stats[cat][sub]["wrong_total"] += w
-
-    return stats
-
 def weakest_subchapters(stats: Dict[str, Dict[str, Dict[str, int]]], min_seen: int = 6, topn: int = 8) -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
     for cat, subs in stats.items():
@@ -1573,17 +1548,12 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
         st.rerun()
-cA, cB, cC = st.columns([1, 1, 1])
-
-with cC:
-    if st.button("Prüfung starten (40)", key="dash_start_exam", use_container_width=True):
+    if cC.button("Prüfung starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
 
-
     st.write("")
-    stats = build_subchapter_stats(progress, questions)
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
     target = weak[0] if weak else None
     st.markdown("## Nächster sinnvoller Schritt")
@@ -1666,22 +1636,6 @@ with cC:
 # =============================================================================
 # LEARN
 # =============================================================================
-
-def _next_unanswered_idx(queue: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]], start_idx: int) -> int:
-    """Return index of the next unanswered question (seen<=0) from start_idx forward."""
-    if not queue:
-        return 0
-    n = len(queue)
-    i = max(0, min(int(start_idx or 0), n - 1))
-    for j in range(i, n):
-        qid = str(queue[j].get("id"))
-        row = (progress or {}).get(qid)
-        seen = int(row.get("seen", 0)) if isinstance(row, dict) else 0
-        if seen <= 0:
-            return j
-    return i
-
-
 def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
     st.title("Lernen")
     _init_learn_runtime_state()
@@ -1748,8 +1702,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     li = int(latest.get("last_question_idx") or 0)
                 except Exception:
                     li = 0
-                li = max(0, min(li, len(q) - 1))
-                st.session_state.idx = _next_unanswered_idx(q, progress, li)
+                st.session_state.idx = max(0, min(li, len(q) - 1))
                 st.session_state.answered = False
                 st.session_state.learn_answers = {}
                 st.session_state.learn_started = True
@@ -1810,9 +1763,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     only_unseen=False,
                     only_wrong=False,
                 )
-                q = st.session_state.queue or []
-                cp = max(0, min(cp, max(0, len(q) - 1)))
-                st.session_state.idx = _next_unanswered_idx(q, progress, cp)
+                st.session_state.idx = max(0, min(cp, max(0, len(st.session_state.queue) - 1)))
                 st.session_state.answered = False
                 st.session_state.learn_answers = {}
                 st.session_state.learn_started = True
@@ -2289,71 +2240,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
 
-
-def _exam_compute_result(
-    qlist: List[Dict[str, Any]],
-    answers: Dict[str, Optional[int]],
-) -> Dict[str, Any]:
-    """Compute exam result deterministically from queue + selected answers."""
-    total = len(qlist or [])
-    correct_cnt = 0
-    details: List[Dict[str, Any]] = []
-
-    for q in (qlist or []):
-        qid = str(q.get("id"))
-        ci = int(q.get("correctIndex") if q.get("correctIndex") is not None else -1)
-        sel = answers.get(qid, None)
-
-        if (sel is not None) and (ci >= 0) and (int(sel) == ci):
-            correct_cnt += 1
-
-        details.append(
-            {
-                "qid": qid,
-                "q": q,
-                "selected": (None if sel is None else int(sel)),
-                "correct": ci,
-            }
-        )
-
-    pct = int(round((correct_cnt / total) * 100)) if total else 0
-    passed = bool(pct >= int(PASS_PCT))
-
-    return {
-        "total": total,
-        "correct": correct_cnt,
-        "pct": pct,
-        "passed": passed,
-        "details": details,
-    }
-
-
-def _exam_submit(uid: str, reason: str = "manual") -> None:
-    # idempotent: nicht doppelt submitten
-    if st.session_state.get("exam_submitted", False):
-        return
-
-    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", []) or []
-    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
-
-    result = _exam_compute_result(qlist, answers)
-    st.session_state.exam_result = result
-    st.session_state.exam_done = True
-    st.session_state.exam_submitted = True
-
-    # Speichern in exam_runs (best-effort)
-    try:
-        ok, err = db_insert_exam_run(
-            uid=uid,
-            total=int(result.get("total", len(qlist))),
-            correct=int(result.get("correct", 0)),
-            passed=bool(result.get("passed", False)),
-        )
-        st.session_state.exam_save_ok = bool(ok)
-        st.session_state.exam_save_err = (err or "").strip()
-    except Exception as e:
-        st.session_state.exam_save_ok = False
-        st.session_state.exam_save_err = str(e)
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     st.title("Prüfungssimulation (40)")

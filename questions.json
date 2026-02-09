@@ -8915,15 +8915,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Nordstau beschreibt eine Lage, bei der feuchte Luft von Norden an die Alpen strömt und an den Hängen zum Aufsteigen gezwungen wird (Stau = orografische Hebung an einem Gebirge). Beim Aufsteigen kühlt die Luft ab, Feuchte kondensiert, und es entstehen tiefe, an den Berghängen „klebenbleibende“ Wolken mit häufig schlechter Sicht und Niederschlag. Das ist keine Hochnebellage im Vorland und auch nicht automatisch ein Fronten-Durchzug oder Gewitterbild, sondern ein typisches Staumuster an der Nordseite.",
+      "merksatz": "Nordwind + Feuchte + Alpen = Nordstau.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alpine Meteorologie – Stau (Nordstau) an den Alpen",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Tiefe,  an  den  Berghängen  meist  aufliegende  Bewölkung  bei  Zustrom  feuchter  Luft  aus nördlichen Richtungen"
   },
   {
     "id": "Q282",
@@ -8946,15 +8947,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei Kaltfronten kann dem eigentlichen Frontdurchgang ein Starkwindfeld vorauslaufen: durch starken Druckgradienten und eine Druckwelle/„Surge“ kann der Wind Stunden vorher auffrischen und böig werden. Das ist tückisch, weil visuelle Frontzeichen mittags noch fehlen können, die Luftmasse sich aber bereits dynamisch umstellt. „Böenwalze hunderte Kilometer davor“ ist als Faustbild zu extrem; realistischer ist ein großräumiges Vorfeld mit zunehmendem Wind. Ein pauschaler „präfrontaler Föhn immer“ stimmt so nicht, vor allem nicht außerhalb typischer Gebirgslagen und Windrichtungen.",
+      "merksatz": "Kaltfront: Starkwind kann Stunden voraus sein.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Grundlagen Höhenwind – Druckgradient/Windfelder vor Fronten",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/08_2011_171_grundlagen_hoehenwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ja,  Kaltfronten  kann  ein  Starkwindgebiet  (Druckwelle)  vorauseilen,  das  Stunden  vor  der Frontpassage kritische Flugbedingungen verursacht."
   },
   {
     "id": "Q283",
@@ -8977,15 +8979,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Erdachse ist eine gedachte Linie, um die sich die Erde dreht. Ihre Endpunkte sind die geographischen Pole (geographisch = durch die Rotationsachse definiert, nicht durch Magnetfelder). Magnetische Pole sind davon getrennt und wandern; sie sind für Kompass und Magnetnavigation relevant, aber nicht die Endpunkte der Rotationsachse.",
+      "merksatz": "Achse endet an den geographischen Polen.",
+      "links": []
+    },
+    "correctAnswerText": "geographischer Nordpol und geographischer Südpol"
   },
   {
     "id": "Q284",
@@ -9008,15 +9006,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Erdumfang am Äquator ist eine Grundgröße der Navigation: Er liegt grob bei vierzigtausend Kilometern. Werte um 21.600 km wären etwa „Erdumfang in Seemeilen“ (360° × 60 NM = 21.600 NM), aber das ist eine andere Einheit. Deshalb muss man sauber trennen: Kilometer vs. Seemeilen.",
+      "merksatz": "21.600 ist NM – km sind ~40.000.",
+      "links": []
+    },
+    "correctAnswerText": "Ungefähr 40.000 km"
   },
   {
     "id": "Q285",
@@ -9039,15 +9033,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Bewegung der Erde hat zwei Hauptteile: Rotation (Rotation = Drehung um die eigene Achse, verursacht Tag/Nacht) und Umlauf (Umlauf = Bewegung um die Sonne). Der Umlauf dauert etwa ein Jahr; „einmal pro Tag um die Sonne“ verwechselt Umlauf mit Rotation. Auch „nur im Winter/Sommer“ ist physikalisch unsinnig – der Umlauf ist kontinuierlich.",
+      "merksatz": "Tag = Drehung, Jahr = Umlauf.",
+      "links": []
+    },
+    "correctAnswerText": "Die Erde bewegt sich einmal im Jahr um die Sonne"
   },
   {
     "id": "Q286",
@@ -9070,15 +9060,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Erde rotiert um ihre eigene Achse in einer Richtung, die man aus der Beobachtung des Himmels ableitet: Die Sonne scheint über den Himmel von Ost nach West zu wandern, weil die Erde sich entgegengesetzt dreht. Deshalb ist die tatsächliche Drehrichtung der Erde von West nach Ost. Aussagen wie „um Sonnenwendepunkte“ betreffen die Umlaufbahn/Neigung, nicht die tägliche Drehung.",
+      "merksatz": "Himmel Ost→West scheinbar, Erde dreht West→Ost.",
+      "links": []
+    },
+    "correctAnswerText": "um die eigene Achse von Westen nach Osten"
   },
   {
     "id": "Q287",
@@ -9101,15 +9087,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Jahreszeiten entstehen nicht, weil die Erde mal schneller oder langsamer läuft, sondern durch die Schrägstellung der Erdachse (Achsneigung = Achse steht nicht senkrecht zur Umlaufbahn). Dadurch ändern sich Sonnenstand und Tageslänge im Jahresverlauf: Eine Halbkugel bekommt im Sommer mehr direkte Einstrahlung und längere Tage, im Winter weniger. Der Umlauf an sich ist zwar nötig, erklärt aber ohne Achsneigung keine Jahreszeiten.",
+      "merksatz": "Jahreszeiten = Achse schief.",
+      "links": []
+    },
+    "correctAnswerText": "die Neigung der Erdachse"
   },
   {
     "id": "Q288",
@@ -9132,15 +9114,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Erde dreht 360° in 24 Stunden. Das sind 15° pro Stunde, also 1° in 4 Minuten. Wenn sich die Sonne bezogen auf einen Beobachter um 5° weiterbewegt, entspricht das einer Zeitdifferenz von 5 × 4 Minuten. Das ist reine Proportionsrechnung aus der Erdrotation.",
+      "merksatz": "1° = 4 min → 5° = 20 min.",
+      "links": []
+    },
+    "correctAnswerText": "20 Minuten"
   },
   {
     "id": "Q289",
@@ -9163,15 +9141,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "„SS“ bedeutet Sonnen-Süd, also der Moment, in dem die Sonne den lokalen Meridian passiert (wahre Mittagszeit). Dieser Zeitpunkt hängt vom Längengrad ab: Weiter östlich tritt Sonnen-Süd früher ein, weil die Erde nach Osten dreht. München liegt östlicher als Stuttgart, deshalb ist dort der Sonnen-Süd-Moment bei gleicher Uhrzeit schon vorbei.",
+      "merksatz": "Weiter ost = Sonnenmittag früher.",
+      "links": []
+    },
+    "correctAnswerText": "bereits nach SS"
   },
   {
     "id": "Q290",
@@ -9194,15 +9168,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Als grobe Navigationswerte nutzt man: Erdumfang etwa 40.000 km und Erddurchmesser grob 12.700 km (je nach Bezug leicht unterschiedlich, weil die Erde abgeplattet ist). Antworten, die deutlich größere oder kleinere Durchmesser angeben, liegen außerhalb dieser Grundordnung. Für Prüfungszwecke reichen die gerundeten Größenordnungen.",
+      "merksatz": "Merke: 40.000 km rum, 12.500–12.700 km durch.",
+      "links": []
+    },
+    "correctAnswerText": "40.000km Umfang - 12.500km Durchmesser"
   },
   {
     "id": "Q291",
@@ -9225,15 +9195,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Mitteleuropäische Sommerzeit ist eine Stunde vor der „Sonnenzeit“. Das heißt: Um 13:00 Uhr MESZ ist es von der Sonne her betrachtet ungefähr „12 Uhr plus etwas“, also nahe der Südrichtung. Südrichtung entspricht auf dem Kompass grob 180° (Azimut = Richtungswinkel, 0° Nord, 90° Ost, 180° Süd). Dadurch liegt die Sonne um 13:00 Uhr MESZ näher bei Süden als bei Südwest.",
+      "merksatz": "13:00 MESZ = Sonne nahe Süden (≈180°).",
+      "links": []
+    },
+    "correctAnswerText": "ca. 180 Grad"
   },
   {
     "id": "Q292",
@@ -9256,15 +9222,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Meridiane sind gedachte Linien vom Nordpol zum Südpol. Der Äquator ist der Breitenkreis in der Mitte der Erde. Meridiane stehen überall senkrecht auf den Breitenkreisen; am Äquator schneiden sie ihn daher im rechten Winkel. „Rechter Winkel“ bedeutet 90°.",
+      "merksatz": "Meridian trifft Äquator im rechten Winkel.",
+      "links": []
+    },
+    "correctAnswerText": "90 Grad"
   },
   {
     "id": "Q293",
@@ -9287,15 +9249,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Großkreis ist ein Kreis, dessen Ebene durch den Erdmittelpunkt geht. Der Äquator erfüllt das und teilt dadurch die Erde in eine Nord- und eine Südhalbkugel. Die Ebene des Äquators ist senkrecht zur Erdachse (Erdachse = gedachte Rotationsachse der Erde). „Parallel zur Erdachse“ wäre geometrisch falsch.",
+      "merksatz": "Äquator: Großkreis, senkrecht zur Erdachse.",
+      "links": []
+    },
+    "correctAnswerText": "teilt die Erde in eine südliche und eine nördliche Halbkugel. Seine Ebene steht genau senkrecht zur Erdachse."
   },
   {
     "id": "Q294",
@@ -9318,15 +9276,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Geographische Breite beschreibt, wie weit ein Ort nach Norden oder Süden vom Äquator entfernt ist. Diese Entfernung wird als Winkel gemessen, nicht als Kilometer (Breitengrad = Winkelangabe Nord/Süd). Deshalb wird die Breite als Gradabstand vom Äquator angegeben.",
+      "merksatz": "Breite = Grad-Abstand zum Äquator (N/S).",
+      "links": []
+    },
+    "correctAnswerText": "Breitengraden vom Äquator"
   },
   {
     "id": "Q295",
@@ -9349,15 +9303,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Nullmeridian ist der Bezugsmeridian für die geographische Länge (Länge = Winkelabstand nach Ost/West). Historisch wurde er durch die Sternwarte in Greenwich festgelegt; deshalb wird er auch Greenwich-Meridian genannt. „0-Breitenkreis“ wäre der Äquator, nicht ein Meridian.",
+      "merksatz": "Nullmeridian = Greenwich.",
+      "links": []
+    },
+    "correctAnswerText": "Greenwichmeridian"
   },
   {
     "id": "Q296",
@@ -9380,15 +9330,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Breitengrad ist ein Winkel von 1°. Auf der Erde entspricht 1° entlang eines Meridians nahezu immer der gleichen Strecke, weil alle Meridiane gleich lang sind. Diese Strecke liegt bei etwa 111 km pro Grad. Deshalb ist der Abstand zwischen zwei Breitengraden (also 1°) überall ungefähr gleich groß.",
+      "merksatz": "1° Breite ≈ 111 km (fast überall gleich).",
+      "links": []
+    },
+    "correctAnswerText": "immer ca. 111 km"
   },
   {
     "id": "Q297",
@@ -9411,15 +9357,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Geographische Länge ist der Winkelabstand eines Ortes nach Osten oder Westen vom Nullmeridian. Gemessen wird der Gradwert des Meridians des Ortes relativ zu Greenwich. Damit beschreibt die Länge die Ost/West-Position.",
+      "merksatz": "Länge = Grad nach Ost/West ab Greenwich.",
+      "links": []
+    },
+    "correctAnswerText": "Den Abstand in Grad des Meridianes eines Ortes vom Nullmeridian"
   },
   {
     "id": "Q298",
@@ -9442,15 +9384,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Breite wird in Bogengraden angegeben, weil sie ein Winkel ist: 0° am Äquator, bis 90° am Pol. „NM“ (Nautische Meilen = Seemeilen) wäre eine Streckeneinheit, nicht die Standardangabe für Koordinaten. Deshalb wird die Breite als Gradabstand zum Äquator angegeben.",
+      "merksatz": "Breite: Grad ab Äquator, nicht km/NM.",
+      "links": []
+    },
+    "correctAnswerText": "Als Abstand des Ortes vom Äquator angegeben in Bogengraden"
   },
   {
     "id": "Q299",
@@ -9473,15 +9411,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Nullmeridian ist international durch die Meridianlinie der Sternwarte in Greenwich definiert. Das ist der feste Referenzpunkt, von dem aus alle Längen nach Ost und West gezählt werden. „Ortsmitte London“ wäre zu ungenau; entscheidend ist die festgelegte Linie am Observatorium.",
+      "merksatz": "Nullmeridian läuft durch Greenwich-Observatorium.",
+      "links": []
+    },
+    "correctAnswerText": "Durch die Sternwarte von Greenwich/England"
   },
   {
     "id": "Q300",
@@ -9504,15 +9438,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "In der Navigation gilt: 1 Bogenminute auf einem Meridian entspricht 1 nautischer Meile (NM). Ein Grad hat 60 Bogenminuten, also sind 1° Breite = 60 NM. Umgerechnet sind das etwa 111,12 km. Deshalb ist der Abstand zwischen zwei Breitengraden (1°) genau diese Größenordnung.",
+      "merksatz": "1° Breite = 60 NM ≈ 111 km.",
+      "links": []
+    },
+    "correctAnswerText": "60 NM - 111,12 km"
   },
   {
     "id": "Q301",
@@ -9535,15 +9465,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Abstand zwischen zwei Längengraden hängt von der geografischen Breite ab: Je näher am Pol, desto stärker laufen die Meridiane zusammen und desto kleiner wird der Abstand. Am Äquator ist er am größten, weil dort die Meridiane am weitesten auseinanderliegen. Für eine Differenz von 2° Länge ergibt sich am Äquator ungefähr die doppelte Strecke eines Breitengrades (Breitengrad = 1° Nord/Süd entspricht etwa 111 km).",
+      "merksatz": "Längengrade: am Äquator weit, am Pol null.",
+      "links": []
+    },
+    "correctAnswerText": "Am Äquator - 111,12 km"
   },
   {
     "id": "Q302",
@@ -9566,15 +9492,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Breitengrade zählen vom Äquator aus nach Norden und Süden: 0° am Äquator, bis 90° an den Polen. Der Nordpol ist der Punkt maximaler nördlicher Breite. Ein negatives Vorzeichen steht in diesem System für „Süd“, nicht für „Nord“.",
+      "merksatz": "Nordpol = 90° Nord.",
+      "links": []
+    },
+    "correctAnswerText": "90 Grad N"
   },
   {
     "id": "Q303",
@@ -9597,15 +9519,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Meridiane sind Längenkreise: gedachte Halbkreise, die vom Nordpol zum Südpol verlaufen. Sie sind die Linien, entlang derer die geografische Länge gemessen wird (Länge = Winkelabstand nach Ost/West vom Nullmeridian). Breitengrade dagegen verlaufen parallel zum Äquator.",
+      "merksatz": "Meridian = Halbkreis von Pol zu Pol.",
+      "links": []
+    },
+    "correctAnswerText": "Halbkreise von Pol zu Pol verlaufend"
   },
   {
     "id": "Q304",
@@ -9628,15 +9546,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Äquator ist der Referenzkreis für die geografische Breite. Er liegt genau zwischen Nord- und Südpol und hat deshalb die Breite 0°. Werte von ±90° gehören zu den Polen; 180° wird für Längengrade benutzt, nicht für Breite.",
+      "merksatz": "Äquator = 0° Breite.",
+      "links": []
+    },
+    "correctAnswerText": "0 Grad"
   },
   {
     "id": "Q305",
@@ -9659,15 +9573,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Breitengrade (Breitenkreise = Linien konstanter Breite) verlaufen parallel zum Äquator. Sie geben an, wie weit ein Ort nach Norden oder Süden vom Äquator entfernt ist. Meridiane laufen dagegen von Pol zu Pol und sind für die Länge zuständig.",
+      "merksatz": "Breite läuft parallel zum Äquator.",
+      "links": []
+    },
+    "correctAnswerText": "Parallel zum Äquator verlaufende Kreise"
   },
   {
     "id": "Q306",
@@ -9690,15 +9600,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Benachbarte Breitenkreise mit 1° Abstand bedeuten einen Winkelunterschied von 1°. In der Navigation gilt: 1° Breite entspricht 60 Bogenminuten, und 1 Bogenminute auf einem Meridian entspricht 1 nautischer Meile (nautische Meile = Seemeile). Daraus folgt: 1° Breite sind sechzig Seemeilen, unabhängig davon ob du bei 50°N oder 51°N bist.",
+      "merksatz": "1° Breite = sechzig Seemeilen.",
+      "links": []
+    },
+    "correctAnswerText": "60 NM"
   },
   {
     "id": "Q307",
@@ -9721,15 +9627,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Koordinaten werden mündlich als Grad, Minuten, Sekunden gesprochen (Grad/Minuten/Sekunden = DMS-Format). „Stunden“ sind Zeiteinheiten und passen hier nicht. Wichtig ist außerdem die Himmelsrichtung: N für Nordbreite und E für Ostlänge. Damit kann eine Leitstelle die Position eindeutig in ein Karten-/GPS-System übertragen.",
+      "merksatz": "GPS immer: Grad–Minuten–Sekunden + N/E.",
+      "links": []
+    },
+    "correctAnswerText": "47 Grad 35 Minuten 05 Sekunden Nord, 10 Grad 28 Minuten 41 Sekunden Ost"
   },
   {
     "id": "Q308",
@@ -9757,15 +9659,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Auf der Abbildung steht unten eine Breite und Länge als Gradwerte mit Nachkommastellen (z.B. 47.46… und 13.29…). Das bedeutet: Minuten und Sekunden werden nicht separat ausgeschrieben, sondern stecken als Nachkommanteil im Gradwert. Bei den anderen Formaten würdest du getrennte Angaben für Minuten (′) und ggf. Sekunden (″) sehen.",
+      "merksatz": "Nachkommastellen im Gradwert = Minuten/Sekunden „eingerechnet“. ",
+      "links": []
+    },
+    "correctAnswerText": "Dezimalgrad"
   },
   {
     "id": "Q309",
@@ -9788,15 +9686,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Knoten ist eine nautische Meile pro Stunde. Für eine schnelle Umrechnung in km/h nutzt man eine Faustformel, weil 1 kt ungefähr 1,852 km/h sind. Eine praktikable Näherung ist: erst verdoppeln und dann etwa zehn Prozent wieder abziehen. Das liegt nahe genug am exakten Faktor und ist im Kopf schnell machbar.",
+      "merksatz": "Knoten → km/h: mal zwei, dann 10% weg.",
+      "links": []
+    },
+    "correctAnswerText": "kt x 2 - 10 %"
   },
   {
     "id": "Q310",
@@ -9819,15 +9713,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Eine nautische Meile ist etwa 1,852 km. Um km in nautische Meilen grob umzuwandeln, kannst du deshalb durch zwei teilen (weil 1,852 nahe bei 2 liegt) und den Fehler korrigieren, indem du rund zehn Prozent wieder dazu gibst. So kommst du nahe an den exakten Wert, ohne Taschenrechner.",
+      "merksatz": "km → NM: halbieren, dann 10% drauf.",
+      "links": []
+    },
+    "correctAnswerText": "(km : 2) + 10%"
   },
   {
     "id": "Q311",
@@ -9850,15 +9740,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Für eine schnelle Kopfrechnung gilt: 1 Meter sind ungefähr 3,28 Fuß (ft = Fuß, englische Längeneinheit). Wenn du Meter mal 3 nimmst, bist du schon nahe dran; die zusätzliche „+10%“-Korrektur bringt dich näher an 3,28 heran. Formeln mit „0,3“ oder „:10“ würden in die falsche Größenordnung führen (100 m wären dann viel zu klein).",
+      "merksatz": "m→ft: mal 3, dann +10%.",
+      "links": []
+    },
+    "correctAnswerText": "(m x 3) + 10%"
   },
   {
     "id": "Q312",
@@ -9881,15 +9767,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "1 Knoten (kt = nautische Meile pro Stunde) entspricht etwa 1,85 km/h. Für 15 kt kannst du 15×2 rechnen und dann etwa zehn Prozent wieder abziehen: 30 km/h minus rund 3 km/h ergibt ungefähr 27 km/h. Damit liegst du im Bereich knapp unter 30 km/h; deutlich niedriger passt nicht.",
+      "merksatz": "kt→km/h: mal 2, dann 10% weg.",
+      "links": []
+    },
+    "correctAnswerText": "ca. 28 km/h"
   },
   {
     "id": "Q313",
@@ -9912,15 +9794,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "100 m in Fuß: 1 m sind ungefähr 3,28 ft. Eine schnelle Näherung ist „m×3 + 10%“. Für 100 m: 100×3 = 300; plus 10% (=30) ergibt rund dreihundertdreißig Fuß. Die anderen Werte wären um den Faktor 10 zu groß oder zu klein.",
+      "merksatz": "100 m ≈ 330 ft.",
+      "links": []
+    },
+    "correctAnswerText": "330 ft"
   },
   {
     "id": "Q314",
@@ -9943,15 +9821,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "m/s in km/h: 1 m/s sind 3,6 km/h. Für 6 m/s: 6×3,6 ergibt ein Ergebnis knapp unter zweiundzwanzig km/h. Werte um 20–21 km/h wären zu niedrig; der Wert nahe 22 km/h passt zur Standardumrechnung.",
+      "merksatz": "m/s→km/h: mal 3,6.",
+      "links": []
+    },
+    "correctAnswerText": "21,6"
   },
   {
     "id": "Q315",
@@ -9974,15 +9848,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "1 nautische Meile (NM = Seemeile) sind etwa 1,852 km. Für 25 NM: 25×1,852 ist ungefähr 46 km. Als Kopfrechnung: 25×2 = 50 km, dann etwa zehn Prozent abziehen ergibt grob fünfundvierzig Kilometer. Die anderen Optionen liegen deutlich daneben.",
+      "merksatz": "NM→km: mal 2, dann 10% weg.",
+      "links": []
+    },
+    "correctAnswerText": "45 km"
   },
   {
     "id": "Q316",
@@ -10005,15 +9875,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Knoten ist eine nautische Meile pro Stunde. Weil 1 NM etwa 1,852 km sind, entspricht 1 kt ungefähr 1.85 km/h. Antworten ohne „pro Stunde“ sind als Geschwindigkeit unvollständig; 1,6 ist zu klein.",
+      "merksatz": "1 kt ≈ 1,85 km/h.",
+      "links": []
+    },
+    "correctAnswerText": "1,85 km/h"
   },
   {
     "id": "Q317",
@@ -10036,15 +9902,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "km/h in m/s: Der exakte Faktor ist 3,6 (m/s = km/h ÷ 3,6). Als Faustformel teilst du durch 4 und korrigierst dann, weil 4 etwas größer als 3,6 ist: Du bekommst sonst zu kleine Werte und musst etwas dazugeben (≈ +10%). Daher „:4 +10%“.",
+      "merksatz": "km/h→m/s: durch 4, dann +10%.",
+      "links": []
+    },
+    "correctAnswerText": "km/h : 4 + 10%"
   },
   {
     "id": "Q318",
@@ -10067,15 +9929,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "NM in km: Exakt wäre km = NM×1,852. Als schnelle Faustformel nimmst du ×2 und ziehst ca. zehn Prozent ab, weil 2 etwas größer ist als 1,852. Darum ist „×2 −10%“ die passende Näherung; „+10%“ wäre zu groß, „:2“ wäre viel zu klein.",
+      "merksatz": "NM→km: mal 2, dann 10% weg.",
+      "links": []
+    },
+    "correctAnswerText": "NM x 2 - 10%"
   },
   {
     "id": "Q319",
@@ -10098,15 +9956,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "150 m in Fuß: 1 m ≈ 3,28 ft. Rechne 150×3 = 450 und gib 10% dazu (≈45) → knapp 500 ft. Werte um 405 ft wären zu klein, 600 ft zu groß.",
+      "merksatz": "150 m ≈ 495 ft.",
+      "links": []
+    },
+    "correctAnswerText": "495 ft"
   },
   {
     "id": "Q320",
@@ -10129,15 +9983,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "m/s in km/h: 1 m/s = 3,6 km/h. Für 16 m/s: 16×3,6 ergibt ein Ergebnis knapp unter sechzig km/h. Die anderen Antworten sind entweder viel zu klein oder deutlich zu groß.",
+      "merksatz": "16 m/s = 57,6 km/h.",
+      "links": []
+    },
+    "correctAnswerText": "57,6 km/h"
   },
   {
     "id": "Q321",
@@ -10160,15 +10010,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Für die Umrechnung gilt: 1 ft ist etwa 0,3 m. Du kannst also „Fuß × 0,3“ oder „Fuß durch 3,3“ rechnen. Bei 2.400 ft landet man bei rund 2.400 × 0,3 ≈ 7,2×10^2 m, also etwas über siebenhundert Meter. Werte um 800–900 m wären zu hoch, weil dafür 2.400 ft deutlich mehr Meter ergeben müssten.",
+      "merksatz": "ft→m: grob ×0,3.",
+      "links": []
+    },
+    "correctAnswerText": "720 m"
   },
   {
     "id": "Q322",
@@ -10191,15 +10037,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Exakt gilt: 1 m/s entspricht 3,6 km/h. Als Faustformel kommst du schnell dahin, wenn du zuerst grob vervierfachst (weil 4 nahe bei 3,6 liegt) und danach etwa zehn Prozent wieder abziehst. So korrigierst du den zu großen Faktor 4 zurück in Richtung 3,6.",
+      "merksatz": "m/s→km/h: vierfach, dann 10% weg.",
+      "links": []
+    },
+    "correctAnswerText": "m/s x 4 - 10%"
   },
   {
     "id": "Q323",
@@ -10222,15 +10064,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "In der 16-teiligen Windrose sind die Hauptpunkte 0° (N), 90° (O), 180° (S), 270° (W). NW liegt genau zwischen W und N, also bei 315°. WNW liegt zwischen W und NW und damit knapp unter 300°. Deshalb passt die Gradzahl, die deutlich näher an 300° als an 270° liegt.",
+      "merksatz": "WNW liegt zwischen 270° und 315°.",
+      "links": []
+    },
+    "correctAnswerText": "292,5°"
   },
   {
     "id": "Q324",
@@ -10253,15 +10091,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "„kt“ steht für „Knoten“. Das ist eine Geschwindigkeit, definiert als nautische Meilen pro Stunde (nautische Meile = Seemeile, bezogen auf 1 Bogenminute am Äquator). Deshalb ist es keine km/h- oder m/h-Angabe, sondern die maritime/aviatische Standard-Einheit.",
+      "merksatz": "kt = Knoten = Seemeilen pro Stunde.",
+      "links": []
+    },
+    "correctAnswerText": "NM/h"
   },
   {
     "id": "Q325",
@@ -10284,15 +10118,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Richtungen werden in der Navigation als Kurs/Peilung angegeben, also als Winkel in Grad bezogen auf Nord. Damit kann man eindeutig sagen, wohin man fliegt oder worauf man peilt. Breite/Länge sind Ortskoordinaten, Abweichung ist ein Korrekturbegriff, Entfernung ist Strecke – alles andere als eine Richtung.",
+      "merksatz": "Richtung = Winkel in Grad.",
+      "links": []
+    },
+    "correctAnswerText": "im Winkelmaß aus"
   },
   {
     "id": "Q326",
@@ -10315,15 +10145,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "MEZ liegt eine Stunde vor UTC. Das heißt: Wenn du in MEZ eine Uhrzeit hast, ist die entsprechende UTC-Zeit genau eine Stunde früher. Bei 13 Uhr MEZ musst du also eine Stunde abziehen.",
+      "merksatz": "MEZ = UTC + 1 Stunde.",
+      "links": []
+    },
+    "correctAnswerText": "1200 UTC"
   },
   {
     "id": "Q327",
@@ -10346,15 +10172,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die nautische Meile ist über die Erdkugel definiert: Eine Bogenminute (1′) entlang eines Meridians entspricht 1 NM. Am Äquator ist das dieselbe Definition in Praxisbezug, weil dort die Breite 0° ist und die Bogenminute direkt auf der Referenzlinie liegt. Aussagen über „360. Teil des Erdumfangs“ oder „Abstand zwischen Längengraden“ passen nicht zur Standarddefinition in der Luftfahrt.",
+      "merksatz": "1′ (Bogenminute) = 1 NM.",
+      "links": []
+    },
+    "correctAnswerText": "einer Bogenminute am Äquator"
   },
   {
     "id": "Q328",
@@ -10377,15 +10199,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Positionsangaben werden standardmäßig so gesprochen/geschrieben, dass zuerst die Nord/Süd-Angabe kommt (Breite) und danach die Ost/West-Angabe (Länge). Das vermeidet Verwechslungen, weil die Breite immer zum Äquator Bezug hat und die Länge zum Nullmeridian. Reihenfolge ist dabei Teil der Standardkonvention.",
+      "merksatz": "Erst Breite, dann Länge.",
+      "links": []
+    },
+    "correctAnswerText": "zuerst die Breite und dann die Länge genannt"
   },
   {
     "id": "Q329",
@@ -10413,10 +10231,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500 bedeutet: 1 cm auf der Karte = 500 cm in der Realität.\n- 500 cm = 5 m = 0.005 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500 → 1 cm = 0.005 km\ncm→m→km umrechnen.",
+      "explanation": "Auf ICAO-Karten sind besondere Bauwerke als Symbole eingetragen. An der angegebenen Position siehst du zwei gleiche Landmarken-Symbole für „Schloss“ (Schloss-Symbol = markantes Bauwerk/Landmarke) nahe beieinander. Eine Brücke wäre als Verkehrsweg-Querung dargestellt und sähe anders aus; hier sind es zwei separate Landmarken-Einträge.",
+      "merksatz": "ICAO-Landmarks: zwei Schloss-Symbole am Punkt.",
       "links": []
-    }
+    },
+    "correctAnswerText": "befinden sich zwei Schlösser"
   },
   {
     "id": "Q330",
@@ -10444,10 +10263,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "Setzt man die Koordinaten in den Kartenausschnitt, liegt der Punkt im Bereich der Beschriftung „Zugspitze“. Auf ICAO-Karten werden markante Gipfel/Orte direkt benannt; ein Stausee hätte eine Wasserfläche mit entsprechender Signatur, ein Kloster/Funkfeuer hätte andere Symbole. Hier passt die Lage eindeutig zum bekannten Gipfelmassiv im Kartenbild.",
+      "merksatz": "Koordinate trifft die „Zugspitze“-Beschriftung.",
       "links": []
-    }
+    },
+    "correctAnswerText": "über dem höchste Berg Deutschlands"
   },
   {
     "id": "Q331",
@@ -10475,10 +10295,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "In der Karte ist die Landschaftsart über Flächensignaturen erkennbar (Signatur = Kartensymbol/Farbfläche). An der angegebenen Position liegt eine hellblau/weiß schraffierte Fläche, die in der Legende als Eis-/Gletscherfläche steht. Kloster/Schloss hätten Punkt- oder Gebäudesymbole, und der höchste Berg Deutschlands wäre als markanter Gipfelname im deutschen Alpenraum erkennbar – hier ist es eindeutig eine Eisfläche.",
+      "merksatz": "Koordinate prüfen + Flächensignatur lesen.",
       "links": []
-    }
+    },
+    "correctAnswerText": "über einem Gletscher"
   },
   {
     "id": "Q332",
@@ -10506,10 +10327,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500 bedeutet: 1 cm auf der Karte = 500 cm in der Realität.\n- 500 cm = 5 m = 0.005 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500 → 1 cm = 0.005 km\ncm→m→km umrechnen.",
+      "explanation": "Du bestimmst zuerst die Breite und Länge über das Grad/Minuten-Gitter (Gitter = Koordinatenlinien am Kartenrand) und suchst dann den Ort, dessen Name genau an dieser Position steht. Bei 47°36′N und 11°04′E liegt der Punkt im Voralpenraum westlich der bekannten Großstadt im Inntal; die Ortsbeschriftung an dieser Stelle gehört zu einem Ort am Rand des Ammergebirges. Damit scheiden die anderen Optionen aus, die deutlich weiter nördlich/östlich bzw. in anderem Kartenbereich liegen.",
+      "merksatz": "Gitter → Punkt → Ortsbeschriftung am Punkt.",
       "links": []
-    }
+    },
+    "correctAnswerText": "Oberammergau"
   },
   {
     "id": "Q333",
@@ -10537,10 +10359,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "Auch hier: Koordinaten ins Kartenraster eintragen und dann die Ortsbeschriftung am Treffpunkt ablesen. 47°34′N liegt auf der Linie knapp südlich der 47°40′-Marke, und 10°13′E liegt deutlich westlich von 10°30′E. Der Punkt fällt in den Allgäu-Bereich nahe einem größeren Ort am Rand der Voralpen; die anderen Optionen liegen entweder viel weiter östlich oder außerhalb des dargestellten Bereichs.",
+      "merksatz": "Erst Breite, dann Länge – und Namen ablesen.",
       "links": []
-    }
+    },
+    "correctAnswerText": "Immenstadt"
   },
   {
     "id": "Q334",
@@ -10568,10 +10391,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500 bedeutet: 1 cm auf der Karte = 500 cm in der Realität.\n- 500 cm = 5 m = 0.005 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500 → 1 cm = 0.005 km\ncm→m→km umrechnen.",
+      "explanation": "Für die Koordinatenbestimmung nimmst du den Ortsnamen „Füssen“ als Fixpunkt und liest die nächstliegenden Breiten- und Längengitterlinien ab. Füssen liegt bei ungefähr 47½° Nord und etwas unter 11° Ost, deutlich westlich von München und nahe der Grenze zu Österreich. Eine Antwort, die Breite und Länge vertauscht, erkennt man daran, dass zuerst „E“ kommt; die Reihenfolge ist standardmäßig erst Nord/Süd dann Ost/West. Optionen mit 48°N liegen zu weit nördlich und passen nicht zum Allgäu.",
+      "merksatz": "Ort finden, dann Breite/Länge am Gitter ablesen.",
       "links": []
-    }
+    },
+    "correctAnswerText": "47°34\\' N  10°42\\' E"
   },
   {
     "id": "Q335",
@@ -10599,10 +10423,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "rwK ist der rechtweisende Kurs (rwK = Kurswinkel bezogen auf geografisch Nord). Du zeichnest die Verbindungslinie von Breitenberg zu Oberammergau und misst den Winkel von Nord im Uhrzeigersinn. Die Linie läuft fast nach Osten mit leichtem Nordanteil, also deutlich unter 90° und weit weg von 15° oder 42°. Damit bleibt der Wert knapp unter 90° als plausibler Kurs.",
+      "merksatz": "Kurs: Nord als 0°, dann im Uhrzeigersinn messen.",
       "links": []
-    }
+    },
+    "correctAnswerText": "83 Grad"
   },
   {
     "id": "Q336",
@@ -10630,10 +10455,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "Ein Kurs von 180° bedeutet exakt nach Süden (180° = Südkurs). Du startest am Tegelberg, legst auf der Karte eine gerade Linie nach Süden und schaust, welche markante Fläche/Bezeichnung du entlang dieser Linie überquerst. Auf dem Südkurs liegt ein langgestreckter See in Österreich; die anderen genannten Orte liegen eher westlich oder nordöstlich der Südrichtung und werden von der Linie nicht getroffen.",
+      "merksatz": "180° = geradeaus nach Süden.",
       "links": []
-    }
+    },
+    "correctAnswerText": "den Plansee"
   },
   {
     "id": "Q337",
@@ -10661,15 +10487,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "In der Symbollegende der ICAO-Karte steht ein Kreis mit innenliegendem „H“ für eine ausgewiesene Landestelle für Helikopter (Helikopter-Landestelle = veröffentlichter Landeplatz speziell für Hubschrauber). Ein Flugplatz wird anders dargestellt (Start-/Landebahn-Symbol), und ein Höhenmesspunkt wäre ein reines Höhen-/Spot-Label. Das Symbol mit H gehört daher eindeutig zur Helikopter-Landeinfrastruktur.",
+      "merksatz": "Kreis + H = Helikopter-Landestelle.",
+      "links": []
+    },
+    "correctAnswerText": "einen Hubschrauberlandeplatz"
   },
   {
     "id": "Q338",
@@ -10692,15 +10514,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "In ICAO-VFR-Karten werden Gelände- oder Hindernishöhen häufig als Zahl in Fuß angegeben (Fuß = ft, Höhenangabe in der Luftfahrt). Ein vorangestellter Punkt ist ein typisches Schreibmerkmal für solche Höhenzahlen im Kartenbild, damit sie sich von Ortsnamen/anderen Beschriftungen abheben. Meterangaben wären so in der ICAO-Karte nicht standardmäßig im reinen Zahlformat markiert, und eine „Flugplatznummer“ oder „Hausnummer“ wäre hier fachlich unlogisch.",
+      "merksatz": "Punktzahl in der Karte = Höhenzahl (Luftfahrt-Standard ft).",
+      "links": []
+    },
+    "correctAnswerText": "Höhenangabe in ft"
   },
   {
     "id": "Q339",
@@ -10728,10 +10546,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "In der Legende zu Abbildung 36 ist der Segelflugbetrieb durch ein Kreis-Symbol mit einem Vogel/Flügel-Piktogramm gekennzeichnet (Piktogramm = vereinfachtes Bildzeichen). Ein Kreis mit „H“ gehört zur Helikopter-Landestelle; ein Kreis mit „S“ ist hier nicht das gezeigte Standardzeichen. Daher ist das Kreiszeichen mit dem Flügel-Piktogramm die passende Darstellung.",
+      "merksatz": "Segelflug = Kreis mit Flügel-Piktogramm.",
       "links": []
-    }
+    },
+    "correctAnswerText": "einem Kreis mit stilisiertem Vogel"
   },
   {
     "id": "Q340",
@@ -10754,10 +10573,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500 bedeutet: 1 cm auf der Karte = 500 cm in der Realität.\n- 500 cm = 5 m = 0.005 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500 → 1 cm = 0.005 km\ncm→m→km umrechnen.",
+      "explanation": "Die ICAO-Karte ist primär für Luftfahrt-/Luftrauminformationen und zeigt nur ausgewählte Sondernutzungen bzw. markierte Plätze. Gleitschirm- und Hängegleiterbetrieb ist daher nicht flächendeckend eingetragen: Manche bekannten Gebiete sind als entsprechende Symbole/Bezeichnungen enthalten, viele Startplätze aber nicht. Für die Praxis heißt das: Karte kann Hinweise geben, ersetzt aber nicht lokale Startplatz-Infos.",
+      "merksatz": "Karte zeigt nur ausgewählte Start-/Betriebsgebiete.",
       "links": []
-    }
+    },
+    "correctAnswerText": "teilweise eingezeichnet"
   },
   {
     "id": "Q341",
@@ -10785,15 +10605,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Auf der ICAO-Karte sind markante Bauwerke als Symbole eingetragen (Symbol = vereinfachtes Zeichen für ein Objekt). An der angegebenen Position ist ein Zeichen für eine alte, nicht mehr intakte Anlage dargestellt – typischerweise als „Restanlage“-Symbol und nicht als voll dargestelltes Schloss/Kloster. Ein Kloster wäre als religiöse Anlage/Ortsname erkennbar, ein Schloss/Burg als „vollständiges“ Bauwerkssymbol. Hier weist die Darstellung auf eine nur noch teilweise erhaltene Anlage hin.",
+      "merksatz": "Kartensymbol lesen: intakt vs. Restanlage.",
+      "links": []
+    },
+    "correctAnswerText": "eine Ruine"
   },
   {
     "id": "Q342",
@@ -10821,10 +10637,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
-      "links": []
-    }
+      "explanation": "Du bist mit 4.200 m MSL deutlich hoch unterwegs (MSL = Höhe über mittlerem Meeresspiegel). In diesem Kartenausschnitt beginnt der kontrollierte Luftraum D oberhalb einer Flugfläche (FL = Flight Level/Flugfläche, bezogen auf Standarddruck 1013,25 hPa). Wenn dein GPS warnt, dass du bei Kurs 360° und gleichbleibender Höhe gleich in diesen Luftraum hineinläufst, ist die logische Maßnahme: Kurs ändern oder unter die untere Grenze dieses D-Luftraums sinken. Eine CTR (Kontrollzone) wäre bodennah und hat andere Ausdehnung; „unter 2100 m MSL“ passt nicht, wenn die Grenze als FL angegeben ist.",
+      "merksatz": "Wenn Untergrenze als FL: darunter bleiben oder ausweichen.",
+      "links": [
+        {
+          "title": "DHV: ICAO-Karte 1:500.000 / Höhenangaben / Lufträume",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo129.pdf#page=51"
+        }
+      ]
+    },
+    "correctAnswerText": "dass  bei  Weiterflug  auf  gleicher  Höhe  Einflug  in  kontrollierten  Luftraum  D  unmittelbar bevorsteht. Sofort unter FL 125 sinken."
   },
   {
     "id": "Q343",
@@ -10847,10 +10669,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
-      "links": []
-    }
+      "explanation": "Bei Maßstab 1:500.000 gilt: 1 cm auf der Karte entspricht 5 km in der Realität. Du teilst die reale Strecke durch 5, um die Zentimeter auf der Karte zu bekommen. Bei 105 km ergibt das etwas über zwanzig Zentimeter; deutlich kleinere oder viel größere Werte passen nicht zur 5‑km‑pro‑cm‑Regel.",
+      "merksatz": "1:500.000 → 1 cm = 5 km.",
+      "links": [
+        {
+          "title": "DHV: ICAO-Karte 1:500.000 / Höhenangaben / Lufträume",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo129.pdf#page=51"
+        }
+      ]
+    },
+    "correctAnswerText": "21 cm"
   },
   {
     "id": "Q344",
@@ -10873,10 +10701,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
-      "links": []
-    }
+      "explanation": "Ein Kurs, den du direkt aus der Karte misst, ist ein Winkel gegen geografisch Nord (geografisch Nord = Richtung zum geographischen Pol entlang des Meridians). Das ist der „rechtweisende“ Bezug. Magnetische Größen (missweisend) entstehen erst, wenn du die Deklination (Deklination = Unterschied zwischen geografischem und magnetischem Nord) berücksichtigst.",
+      "merksatz": "Kartenkurs = gegen geografisch Nord.",
+      "links": [
+        {
+          "title": "DHV: ICAO-Karte 1:500.000 / Höhenangaben / Lufträume",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo129.pdf#page=51"
+        }
+      ]
+    },
+    "correctAnswerText": "rwK"
   },
   {
     "id": "Q345",
@@ -10899,10 +10733,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500 bedeutet: 1 cm auf der Karte = 500 cm in der Realität.\n- 500 cm = 5 m = 0.005 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500. → 1 cm = 0.005 km\ncm→m→km umrechnen.",
-      "links": []
-    }
+      "explanation": "Bei 1:500.000 sind 27 cm auf der Karte 27×5 km, also 135 km. In nautischen Meilen rechnest du grob: 1 NM ≈ 1,852 km, also 135 km ÷ 1,852 ≈ gut siebzig Seemeilen. Damit passt die Option im Bereich „rund fünfundsiebzig“ am besten; Kilometerwerte um 70–75 km wären viel zu klein.",
+      "merksatz": "27 cm → 27×5 km, dann km→NM umrechnen.",
+      "links": [
+        {
+          "title": "DHV: ICAO-Karte 1:500.000 / Höhenangaben / Lufträume",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo129.pdf#page=51"
+        }
+      ]
+    },
+    "correctAnswerText": "75 NM"
   },
   {
     "id": "Q346",
@@ -10925,15 +10765,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf ICAO‑VFR‑Karten werden Höhen typischerweise in Fuß angegeben (Fuß = ft, Standard-Höheneinheit in der Luftfahrt). Darum sind Gipfelhöhen in dieser Karte nicht in Metern oder Kilometern beschriftet. NM ist eine Entfernungseinheit und passt als Höhe ebenfalls nicht.",
+      "merksatz": "ICAO-Höhen: Standard ist Fuß.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: ICAO-Karte 1:500.000 / Höhenangaben / Lufträume",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo129.pdf#page=51"
         }
       ]
-    }
+    },
+    "correctAnswerText": "in ft"
   },
   {
     "id": "Q347",
@@ -10956,15 +10797,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Magnetkompass richtet sich nach dem Magnetfeld der Erde aus. Er zeigt deshalb nicht zum geographischen Pol, sondern in die Richtung, in der die magnetischen Feldlinien „nach Norden“ weisen. Der Unterschied zwischen geografischem und magnetischem Nord heißt Deklination (Deklination = Winkelabweichung zwischen beiden Nordrichtungen).",
+      "merksatz": "Kompass folgt dem Magnetfeld, nicht dem Karten‑Nord.",
+      "links": []
+    },
+    "correctAnswerText": "zum magnetischen Nordpol"
   },
   {
     "id": "Q348",
@@ -10987,15 +10824,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "NNO liegt zwischen Nord (0°) und Nordost (45°), also bei 22,5°. Der Gegenkurs ist immer 180° versetzt: Du addierst 180° und kommst auf einen Kurs etwas über 200°. Optionen um 210° oder 221,5° wären zu weit in Richtung SSW.",
+      "merksatz": "Gegenkurs = Kurs ±180°.",
+      "links": []
+    },
+    "correctAnswerText": "202,5 Grad"
   },
   {
     "id": "Q349",
@@ -11018,15 +10851,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der rechtweisende Kurs ist der Kurswinkel bezogen auf geografisch Nord. Praktisch ist das der Winkel, den deine Kurslinie mit dem Meridian (Meridian = Linie geografischen Nord/Süd durch deinen Standort) bildet, gemessen im Uhrzeigersinn. Wind hat damit nichts zu tun; die Abweichung zwischen rechtweisend und missweisend ist die Deklination, nicht die Kursdefinition.",
+      "merksatz": "Rechtweisend = Winkel zur geografischen Nordrichtung.",
+      "links": []
+    },
+    "correctAnswerText": "Der Winkel in Grad zwischen dem Meridian und der eingezeichneten Kurslinie"
   },
   {
     "id": "Q350",
@@ -11049,15 +10878,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die Kompassrose bildet eine volle Umdrehung ab. Eine volle Drehung hat 360°, damit kannst du jeden Kurswinkel als Zahl zwischen 0° und 360° angeben. 180° wäre nur eine halbe Drehung, die anderen Werte sind keine vollständige Kreiseinteilung.",
+      "merksatz": "Kompass = Vollkreis 360°.",
+      "links": []
+    },
+    "correctAnswerText": "360 Grad"
   },
   {
     "id": "Q351",
@@ -11080,15 +10905,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein barometrischer Höhenmesser arbeitet über Luftdruck (Luftdruck = Gewicht der Luftsäule über dir). Wenn sich das Wetter ändert, verschiebt sich der Druck auch ohne echte Höhenänderung: In Tiefdruck zeigt der Höhenmesser tendenziell „zu hoch“, in Hochdruck „zu niedrig“, wenn die Einstellung nicht nachgeführt wird. Feuchte und Temperatur können Effekte haben, aber die systematische Hauptursache ist der wechselnde Luftdruck durch Wetterlagen.",
+      "merksatz": "Wetterdruck ändert Anzeige, auch ohne Steigen/Sinken.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DWD Wetterlexikon: QNH/QFE/QNE (Q‑Gruppen)",
+          "url": "https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=102126"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Schwankungen, hervorgerufen von Hoch- und Tiefdruckgebieten beeinflussen die Höhenanzeige"
   },
   {
     "id": "Q352",
@@ -11111,15 +10937,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der auf Meereshöhe reduzierte Bezugsdruck (QNH = Druck so umgerechnet, als wäre der Messort auf Meereshöhe) führt dazu, dass die Anzeige sich auf den Meeresspiegel als Referenz bezieht. Dadurch bekommst du eine „Höhe über mittlerem Meeresspiegel“ und kannst Höhenangaben wie auf Karten/Lufträumen sinnvoll vergleichen. QFE wäre dagegen die Nullung am Platz.",
+      "merksatz": "QNH = Anzeige bezogen auf Meeresspiegel.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DWD Wetterlexikon: QNH/QFE/QNE (Q‑Gruppen)",
+          "url": "https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=102126"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Höhe über MSL"
   },
   {
     "id": "Q353",
@@ -11142,15 +10969,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "QFE ist der Druck am Platz (QFE = aktueller Luftdruck bezogen auf Flugplatzhöhe). Wenn du am Start so einstellst, dass der Landeplatz als Bezug „0“ ist, zeigt der Höhenmesser am Boden dieses Landeplatzes wieder den Nullpunkt. Das klappt aber nur am passenden Platz und bei passender Einstellung; mit QNH würdest du die Platzhöhe sehen.",
+      "merksatz": "QFE: am Platz wieder auf Null.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DWD Wetterlexikon: QNH/QFE/QNE (Q‑Gruppen)",
+          "url": "https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=102126"
         }
       ]
-    }
+    },
+    "correctAnswerText": "0 an"
   },
   {
     "id": "Q354",
@@ -11173,15 +11001,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ohne QNH kannst du keine verlässliche „Höhe über Meeresspiegel“ aus dem Baro-Höhenmesser ableiten. Für einen Streckenflug ist aber wichtig, Höhenstaffelung und Luftraum-Untergrenzen sinnvoll einzuhalten. Praktische Notlösung: den Höhenmesser so einstellen, dass er am Start die Platzhöhe aus der Karte zeigt (Platzhöhe = Höhenwert des Startortes über Meeresspiegel). So passt die Referenz zumindest am Startpunkt und ist für den Flug deutlich sinnvoller als „irgendwas auf 0“ oder dauerhaft Standarddruck.",
+      "merksatz": "Kein QNH? Am Start auf Platzhöhe (Karte) einstellen.",
+      "links": []
+    },
+    "correctAnswerText": "Höhenmesser auf Platzhöhe lt. Karte einstellen"
   },
   {
     "id": "Q355",
@@ -11204,15 +11028,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Magnetkompass ist empfindlich gegen Beschleunigungen und Schräglagen: Bei Kurven, Turbulenz und unruhigem Flug treten Neigungsfehler und Fliehkraft-/Beschleunigungsfehler auf (Fliehkraftfehler = Anzeige kippt/„hinkt“ bei Kurven und Beschleunigung). Dadurch „wandert“ die Anzeige und bleibt nicht stabil. Dämpfung macht die Anzeige ruhiger, aber sie entfernt diese physikalischen Fehler nicht vollständig.",
+      "merksatz": "Turbulenz + Schräglage = Kompass zeigt „wandernd“.",
+      "links": []
+    },
+    "correctAnswerText": "Der Kompass hat durch Neigungs- und Fliehkraftfehler keine gleichbleibende Anzeige"
   },
   {
     "id": "Q356",
@@ -11235,15 +11055,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Oberhalb der Übergangshöhe wird in Flugflächen geflogen (Flight Level/Flugfläche = Höhenangabe bei Standarddruck). Dafür stellt man den Höhenmesser auf den Standarddruck 1013,25 hPa und hält dann Flugflächen ein. Das ist genau dafür gedacht, Wetterdruck-Unterschiede zu „neutralisieren“, damit alle Luftfahrzeuge dieselbe Referenz haben.",
+      "merksatz": "Über TA: Standarddruck → Flugflächen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DWD Wetterlexikon: QNH/QFE/QNE (Q‑Gruppen)",
+          "url": "https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=102126"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Einstellung mit Bezug auf Flight-Level (Standarddruck 1013,25 hPa)"
   },
   {
     "id": "Q357",
@@ -11266,15 +11087,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wenn ein Luftraum eine Höhe als „5000“ vorgibt, ist das eine Höhenangabe über Meeresspiegel im lokalen Bezugsdrucksystem (Altitude = Höhe bezogen auf Meeresspiegel‑Bezugsdruck). Dafür muss der Höhenmesser so eingestellt sein, dass er auf Meeresspiegel-Referenz arbeitet; Standarddruck führt zu Flugflächen, und QFE führt zu „über Platz“. GPS‑Höhe ist zudem geometrisch und kann von barometrischen Vorgaben abweichen.",
+      "merksatz": "Altitude einhalten: Baro auf Meeresspiegel-Referenz.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DWD Wetterlexikon: QNH/QFE/QNE (Q‑Gruppen)",
+          "url": "https://www.dwd.de/DE/service/lexikon/Functions/glossar.html?lv3=102126"
         }
       ]
-    }
+    },
+    "correctAnswerText": "QNH"
   },
   {
     "id": "Q358",
@@ -11297,15 +11119,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Aus der Luft erkennst du Autobahnen oft an getrennten Fahrbahnen, breiten Trassen und großen Anschlussstellen; Bundesstraßen wirken häufig breiter/ausgebauter als kleine Landstraßen. Eine „Landstraße“ und eine „Bundesstraße“ können im Luftbild aber sehr ähnlich aussehen, weil beide zweispurig sein können und Markierungen/Schilder aus der Höhe kaum erkennbar sind. Deshalb ist genau diese Unterscheidung typischerweise am schwierigsten.",
+      "merksatz": "Von oben: B‑Straße vs. Landstraße fast gleich.",
+      "links": []
+    },
+    "correctAnswerText": "eine Bundesstraße von einer Landstraße"
   },
   {
     "id": "Q359",
@@ -11328,15 +11146,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Moderne zivile GPS‑Empfänger liegen horizontal typischerweise im Bereich weniger bis etwa zehn Meter (horizontal = Lage in der Karte, nicht die Höhe). Werte von 1–2 m sind ohne Korrekturdienste eher ambitioniert, 100–200 m wären eher alte/gestörte Qualität. Darum ist die Größenordnung „einige Meter bis niedrige zweistellige Meter“ passend.",
+      "merksatz": "GPS horizontal: grob „ein paar Meter“.",
+      "links": []
+    },
+    "correctAnswerText": "5-10 m"
   },
   {
     "id": "Q360",
@@ -11359,15 +11173,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Für eine 3D‑Position (Breite, Länge, Höhe) braucht der Empfänger zusätzlich zur Positionsbestimmung auch eine Korrektur seiner eigenen Uhr. Dazu werden Signale von mindestens 4 Satelliten genutzt: drei bestimmen die Raumposition, der vierte löst den Zeitfehler (Zeitfehler = GPS‑Empfängeruhr ist nicht atomgenau) mit auf.",
+      "merksatz": "3D + Zeitfehler ⇒ mindestens 4 Satelliten.",
+      "links": []
+    },
+    "correctAnswerText": "vier Satelliten"
   },
   {
     "id": "Q361",
@@ -11390,15 +11200,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Funktion nutzt den Effekt, dass sich beim Kurbeln die Bewegungsrichtung über Grund ständig ändert (über Grund = Bewegung relativ zum Boden). Wenn Wind weht, addiert sich zu deiner Fluggeschwindigkeit durch die Luft ein konstanter Versatz; dadurch schwankt die gemessene Grundgeschwindigkeit rund um den Kreis: mit Wind wird sie größer, gegen Wind kleiner. Aus dieser periodischen Schwankung (Min/Max und Richtung im Kreis) kann das Gerät Windrichtung und -stärke berechnen.",
+      "merksatz": "Kurbeln: Min/Max Grundspeed verrät den Wind.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-Info 127: Windinformation wird im Kreisflug ermittelt",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo127.pdf#page=25"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Durch GPS-Messung der sich verändernden Geschwindigkeiten über Grund während eines oder mehrerer Vollkreise."
   },
   {
     "id": "Q362",
@@ -11421,15 +11232,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der barometrische Höhenmesser leitet Höhe aus dem Luftdruck ab (barometrisch = druckbasiert). Wenn sich der großräumige Luftdruck im Laufe der Stunden ändert, driftet die Anzeige, obwohl du am Start „gleich“ eingestellt hast: Steigt der Druck, zeigt das Gerät typischerweise eine niedrigere Höhe an als die reale. Die GPS-Höhe entsteht aus Satelliten-Geometrie und ist von Wetterdruckänderungen nicht direkt betroffen – deshalb laufen beide auseinander.",
+      "merksatz": "Druck ändert sich → Baro-Höhe driftet.",
+      "links": []
+    },
+    "correctAnswerText": "Der  Messfehler  liegt  am  barometrischen  Höhenmesser,  während  des  Streckenfluges  ist  der Luftdruck gestiegen."
   },
   {
     "id": "Q363",
@@ -11452,15 +11259,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein Satellitennavigationsgerät berechnet Richtung aus deiner Bewegung über Grund und bezieht diese auf den mathematischen Nordbezug der Karte (geographisch/wahr = Richtung zum geografischen Nordpol). Magnetische Einflüsse spielen dabei nicht automatisch eine Rolle; „magnetisch Nord“ ist ein Kompassbezug und muss – falls gewünscht – erst über eine Einstellung/Modellkorrektur eingebracht werden.",
+      "merksatz": "GPS richtet sich nach „wahrem“ Nord, nicht nach Kompass.",
+      "links": []
+    },
+    "correctAnswerText": "nach geografisch Nord"
   },
   {
     "id": "Q364",
@@ -11483,15 +11286,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Das Gerät zeigt dir einen Kurs relativ zu dem Nordbezug, den es verwendet (Nordbezug = Referenzrichtung für Winkel). Standard ist die Bezugnahme auf geographisch/wahr, viele Geräte können aber eine magnetische Anzeige simulieren, indem sie die Missweisung (Missweisung = Winkel zwischen geografisch und magnetisch) berücksichtigen. Deshalb hängt die Art des Kurswinkels von der gewählten Einstellung ab – nicht von „Nähe zum Nordpol“.",
+      "merksatz": "Nordbezug prüfen: wahr oder magnetisch eingestellt?",
+      "links": []
+    },
+    "correctAnswerText": "rechtweisend (rwK) oder missweisend (mwK), je nach Einstellung des Gerätes"
   },
   {
     "id": "Q365",
@@ -11514,15 +11313,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Die GPS‑Geschwindigkeit ist immer die Geschwindigkeit über Grund (über Grund = relativ zur Erdoberfläche). Ob du Rücken‑ oder Gegenwind hast, erkennst du nur im Vergleich zu deiner typischen Fluggeschwindigkeit durch die Luft (Airspeed = relativ zur umgebenden Luft), die beim Gleitschirm deutlich niedriger liegt als solche Werte. Wenn die angezeigte Grundgeschwindigkeit deutlich über dem zu erwartenden Bereich liegt, deutet das auf Wind von hinten hin.",
+      "merksatz": "GPS‑Speed = Grundspeed; ungewöhnlich hoch ⇒ Wind von hinten.",
+      "links": []
+    },
+    "correctAnswerText": "Geschwindigkeit über Grund, Du fliegst mit Rückenwind"
   },
   {
     "id": "Q366",
@@ -11545,15 +11340,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Das Gerät speichert während des Fluges fortlaufend Positionspunkte mit Zeitstempel (Positionspunkte = GPS‑Koordinaten in zeitlicher Reihenfolge). Die daraus entstehende aufgezeichnete Spur ist die digitale „Brotkrumenspur“ des Fluges und kann später angezeigt oder exportiert werden. In der Praxis ist das die Grundlage für Auswertung/OLC‑Nachweis und Nachflug‑Analyse.",
+      "merksatz": "Aufgezeichnete Spur = deine Flug‑„Brotkrumen“.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-Info 127: Windinformation wird im Kreisflug ermittelt",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2004/dhvinfo127.pdf#page=25"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Tracklog"
   },
   {
     "id": "Q367",
@@ -11576,15 +11372,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Live‑Tracking bedeutet, dass deine aktuellen Positionsdaten während des Fluges übertragen werden (Übertragung = Senden in Echtzeit), typischerweise per Mobilfunk oder Satellit in eine Online‑Karte. Der Kern ist „währenddessen sichtbar“, nicht erst nach der Landung. Das ist nützlich für Team/Abholung und kann im Notfall die Ortung erleichtern.",
+      "merksatz": "Live‑Tracking = Position „jetzt“ online.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV-Info 134: GPS-Tracking – Position live mitverfolgen",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2005/dhvinfo134.pdf#page=3"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Live-Übertragung von Positionsdaten via Mobilfunk oder Satellit, z.B.in ein Online-Kartenformat."
   },
   {
     "id": "Q368",
@@ -11607,15 +11404,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "FLARM ist ein kooperatives Kollisionswarnsystem für die Allgemeine Luftfahrt (kooperativ = es erkennt nur Geräte, die ebenfalls senden). Es berechnet aus den empfangenen Signalen anderer Teilnehmer mögliche Annäherungen und warnt optisch/akustisch, wenn eine relevante Konfliktsituation entsteht. Ohne Gegengerät oder ohne eingeschaltetes System beim anderen gibt es keine zuverlässige Anzeige.",
+      "merksatz": "FLARM warnt vor FLARM‑Verkehr – wenn beide senden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Lehrmaterial: Streckenfliegen im Flachland – FLARM als Kollisionswarnsystem",
+          "url": "https://www.dhv.de/media/jahre/2024/02_fliegen/Lehrmaterial/Artikel/Flugtechnik/Spezialthemen/5_2014_185_flugtechnik_flachland_teil_3.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ein Kollisions-Vermeidungsgerät für leichte Luftfahrzeuge, zeigt alle Fluggeräte, die sich in der Nähe befinden und ebenfalls FLARM aktiviert haben."
   },
   {
     "id": "Q369",
@@ -11638,15 +11436,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Digitale Luftraumkarten sind nur so gut wie ihr Datenstand (Datenstand = Version/Update‑Datum). Luftraumstrukturen, Aktivierungszeiten und Sonderregelungen können sich ändern; veraltete Daten führen direkt zu falscher Planung und zu späten Warnungen. Deshalb ist der wichtigste Punkt vor dem Flug: sicherstellen, dass die hinterlegten Luftraumdaten aktuell sind.",
+      "merksatz": "Luftraum‑App nur mit frischen Daten.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Lehrmaterial: Streckenfliegen im Flachland – aktuelle Luftraumdaten im Gerät",
+          "url": "https://www.dhv.de/media/jahre/2024/02_fliegen/Lehrmaterial/Artikel/Flugtechnik/Spezialthemen/5_2014_185_flugtechnik_flachland_teil_3.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Dass die Daten der Luftraum-Karten aktuell sind."
   },
   {
     "id": "Q370",
@@ -11669,15 +11468,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
-      "links": [
-        {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
-        }
-      ]
-    }
+      "explanation": "Eine Luftraumwarnung muss früh genug kommen, damit du realistisch reagieren kannst (reagieren = Kurs ändern oder Höhe abbauen, ohne Hektik). Je nach Situation brauchst du Zeit für seitliches Ausweichen, für einen Sinkflug trotz möglicher Steigluft und für saubere vertikale Trennung zu bekannten Höhenstaffelungen. Eine „späte“ Warnung ist wertlos – eine konservativ frühe Warnung schafft Handlungsspielraum.",
+      "merksatz": "Warnung lieber zu früh als zu spät.",
+      "links": []
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q371",
@@ -11700,15 +11495,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein GPS‑Vario ist ein Flugcomputer mit GPS (GPS = Satellitenpositionssystem) und oft Kompass/Software‑Referenz. „rwK“ bedeutet rechtweisender Kurs, also bezogen auf geografisch Nord; „mwK“ bedeutet missweisender Kurs, also bezogen auf magnetisch Nord. Moderne Geräte können je nach Einstellung/Quelle beide Bezugsarten ausgeben, weil Kartenkurs (geografisch) und Kompasskurs (magnetisch) unterschiedliche Referenzen haben.",
+      "merksatz": "GPS‑Vario: rwK (geo) oder mwK (mag).",
+      "links": []
+    },
+    "correctAnswerText": "können Richtungen in Bezug auf den geographischen (rwK) oder magnetischen (mwK) Nordpol anzeigen"
   },
   {
     "id": "Q372",
@@ -11731,15 +11522,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Der Kartenmaßstab beschreibt, wie stark die Wirklichkeit verkleinert dargestellt ist. Er ist ein Verhältnis zwischen einer Strecke auf der Karte und der entsprechenden Strecke in der Natur (z.B. 1:500.000). Rand‑Skalen oder spezielle Lineale können beim Messen helfen, sind aber nicht die Definition des Maßstabs.",
+      "merksatz": "Maßstab = Karte : Wirklichkeit.",
+      "links": []
+    },
+    "correctAnswerText": "das Verhältnis Kartenlänge Naturlänge"
   },
   {
     "id": "Q373",
@@ -11762,15 +11549,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Vor jedem Strecken-/Überlandvorhaben: Planung (Route, Lufträume, Wetter, NOTAM).\n- Flugplan ist nur in bestimmten Fällen erforderlich; nicht pauschal bei jedem Überlandflug.",
-      "merksatz": "Planung ist Pflicht.\nFlugplan nur wenn gefordert.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Für die Streckenflugplanung brauchst du verlässliche Geländehöhen (Geländehöhe = Höhe des Bodens über Meeresspiegel). Am besten sind dafür Karten geeignet, die Höhenlinien, Gipfelhöhen und Relief detailliert darstellen. Luftfahrtkarten sind primär für Lufträume/Funk/Hindernisse gedacht und geben Geländeinfos grober; Wanderkarten sind oft vereinfacht, Straßenatlanten taugen dafür kaum.",
+      "merksatz": "Geländeplanung → Höhenlinien‑Karte.",
+      "links": []
+    },
+    "correctAnswerText": "Topographische Karte"
   },
   {
     "id": "Q374",
@@ -11793,15 +11576,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Höhenlinien verbinden Punkte gleicher Höhe (Höhenlinie = Linie gleicher Meter über Meeresspiegel). Wenn diese Linien eng beieinander liegen, steigt die Höhe auf kurzer horizontaler Strecke stark an: Das bedeutet steiles Gelände. Weit auseinander bedeutet flach. Ein Flussbett erkennt man eher an blauen Linien und Talformen, nicht primär an engem Höhenlinienabstand.",
+      "merksatz": "Eng = steil, weit = flach.",
+      "links": []
+    },
+    "correctAnswerText": "Das Gelände ist steil"
   },
   {
     "id": "Q375",
@@ -11824,10 +11603,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Maßstab 1:500.000 bedeutet: 1 cm auf der Karte = 500.000 cm in der Realität.\n- 500.000 cm = 5000 m = 5 km.\n- Reine Maßstabsrechnung; keine Rechtsquelle nötig.",
-      "merksatz": "1:500.000 → 1 cm = 5 km\ncm→m→km umrechnen.",
+      "explanation": "Bei einem Maßstab von 1:500.000 entspricht 1 cm auf der Karte 500.000 cm in der Natur. 500.000 cm sind 5.000 m, also fünf Kilometer. Deshalb liegt die passende Option in der Größenordnung „einige Kilometer“ und nicht bei Metern oder Dutzenden Kilometern.",
+      "merksatz": "1:500.000 → 1 cm = 5 km.",
       "links": []
-    }
+    },
+    "correctAnswerText": "5 km"
   },
   {
     "id": "Q376",
@@ -11850,15 +11630,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Für Streckenplanung brauchst du zwei Blickwinkel: Luftraum/aviatische Infos und Gelände/Relief. Die ICAO‑Luftfahrtkarte liefert Lufträume, Funk, Flugplätze und wichtige Hindernisse; eine detaillierte Geländekarte liefert präzise Höhen, Täler, Pässe und Geländeformen. Nur eine von beiden lässt jeweils einen sicherheitsrelevanten Teil weg.",
+      "merksatz": "Planung = ICAO (Luftraum) + Geländeprofil.",
+      "links": []
+    },
+    "correctAnswerText": "ICAO-Luftfahrerkarte und topographische Karte"
   },
   {
     "id": "Q377",
@@ -11881,15 +11657,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Ein guter Navigationspunkt ist eindeutig und punktförmig oder klar abgrenzbar (markanter Punkt = objektiv leicht identifizierbares Ziel). Sendeturm, See oder eine klare Kreuzung sind meist eindeutig. Eine langgezogene Erhebungskette hat dagegen keinen klaren „Treffpunkt“ und sieht aus verschiedenen Blickwinkeln leicht anders aus – das macht sie als exakten Fixpunkt ungeeignet.",
+      "merksatz": "Fixpunkt: eindeutig und „punktig“.",
+      "links": []
+    },
+    "correctAnswerText": "Hügelkette"
   },
   {
     "id": "Q378",
@@ -11912,23 +11684,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Start/Landung außerhalb genehmigter Flugplätze ist grundsätzlich erlaubnispflichtig.\n- Für nicht motorgetriebene Luftsportgeräte gelten besondere Zuständigkeiten (Beauftragter nach § 31c LuftVG).\n- Not-/Sicherheitslandungen sind separat geregelt; trotzdem: Eigentümerrechte und Behördenauflagen beachten.",
-      "merksatz": "Außenstart/-landung: grundsätzlich nur mit Erlaubnis.\nZuständigkeit prüfen.",
-      "links": [
-        {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 25 Start und Landung außerhalb genehmigter Flugplätze (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__25.html"
-        },
-        {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 31c Beauftragter für Luftsportgeräte (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__31c.html"
-        },
-        {
-          "title": "Luftfahrtgesetz (Österreich) – § 10 (RIS)",
-          "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
-        }
-      ]
-    }
+      "explanation": "Regelmäßig wiederkehrende dunkle Punkte in einer Linie/gleichmäßigem Abstand sind typisch für Masten einer Oberleitung (Oberleitung = Stromleitung mit Masten über der Erde). Weidetiere sind unregelmäßig verteilt und bewegen sich, Zaunpfosten sind zwar regelmäßig, aber aus größerer Höhe meist zu klein und eher als dünne Linie erkennbar. Unterirdische Leitungen sieht man normalerweise nicht als punktförmige, regelmäßige Schattenpunkte.",
+      "merksatz": "Regelmäßige Punktreihe = meist Masten.",
+      "links": []
+    },
+    "correctAnswerText": "Um Masten einer Oberleitung"
   },
   {
     "id": "Q379",
@@ -11951,15 +11711,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Bodenwind schätzt du am besten an klaren, stationären Windanzeigen: Fahnen/Flaggen oder Rauchfahnen zeigen Richtung/ungefähre Stärke, Windräder zeigen oft die Hauptwindrichtung. Der Drift beim Kreisen entsteht dagegen aus Wind in deiner aktuellen Höhe, variabler Thermik und Schräglage; das kann stark vom Bodenwind abweichen, besonders wenn du noch hoch bist.",
+      "merksatz": "Hoch oben: Drift ≠ Bodenwind.",
+      "links": []
+    },
+    "correctAnswerText": "Durch den Versatz beim Kreisen"
   },
   {
     "id": "Q380",
@@ -11982,15 +11738,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Aus der Luft sind Größen und Formen (Waldfläche, Bergform) relativ gut einschätzbar, ebenso Wolkenhöhe in Blickrichtung über Vergleich/Untergrenze. Die Neigung einer Wiese ist hingegen schwer zu beurteilen, weil Perspektive, Schatten und fehlende Referenzen täuschen (Hangneigung = Steilheit der Fläche). Eine scheinbar „flache“ Wiese kann deutlich geneigt sein – das ist ein klassischer Außenlande‑Fehlerpunkt.",
+      "merksatz": "Hangneigung täuscht aus der Luft.",
+      "links": []
+    },
+    "correctAnswerText": "Die Neigung einer Außenlande-Wiese"
   },
   {
     "id": "Q381",
@@ -12013,23 +11765,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Start/Landung außerhalb genehmigter Flugplätze ist grundsätzlich erlaubnispflichtig.\n- Für nicht motorgetriebene Luftsportgeräte gelten besondere Zuständigkeiten (Beauftragter nach § 31c LuftVG).\n- Not-/Sicherheitslandungen sind separat geregelt; trotzdem: Eigentümerrechte und Behördenauflagen beachten.",
-      "merksatz": "Außenstart/-landung: grundsätzlich nur mit Erlaubnis.\nZuständigkeit prüfen.",
+      "explanation": "Bei Außenlandungen ist das größte Risiko oft ein Hindernis, das man sehr spät sieht: dünne Drähte/Kabel sind aus der Luft schlecht erkennbar, besonders bei Gegenlicht und vor unruhigem Hintergrund. Gefährlich ist nicht nur der Draht selbst, sondern auch die dazugehörigen Masten, weil sie den Verlauf der Leitung verraten. Ärger oder Rechtsfragen sind unangenehm, aber die akute Lebensgefahr entsteht durch die Kollision mit solchen Hindernissen im Endanflug.",
+      "merksatz": "Außenlandung: erst Masten suchen – Kabel „siehst“ du kaum.",
       "links": [
         {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 25 Start und Landung außerhalb genehmigter Flugplätze (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__25.html"
-        },
-        {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 31c Beauftragter für Luftsportgeräte (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__31c.html"
-        },
-        {
-          "title": "Luftfahrtgesetz (Österreich) – § 10 (RIS)",
-          "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
+          "title": "DHV Unfallstatistik Gleitschirm 2022: Kollisionen mit Leitungen (Außenlandung)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/Sicherheit/Unfaelle/Dateien/Unfallstatistik/Gleitschirm/244_Unfallstatistik_GS_2022.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Schlecht erkennbare Strom- oder Telefonleitungen"
   },
   {
     "id": "Q382",
@@ -12052,15 +11797,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei längeren Flügen ist Konzentration und Komfort sicherheitsrelevant. Wenn du schon am Start körperlich „unter Druck“ bist, leidet deine Aufmerksamkeit und du triffst schlechtere Entscheidungen (Stress = kognitive Belastung). Deshalb gehört zur Vorbereitung auch, vor dem Start die Basics zu erledigen, damit du nicht schon in der ersten Stunde durch körperliche Ablenkung eingeschränkt wirst.",
+      "merksatz": "Vor XC: erst „Toilette“, dann Start.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV info 116: Essen/Trinken & „kleine Schlucke“ bei langen Flügen",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2002/dhvinfo116.pdf#page=25"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Auf eine leere Blase."
   },
   {
     "id": "Q383",
@@ -12083,15 +11829,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei langen Flügen ist gleichmäßige Flüssigkeitszufuhr wichtig: Dehydrierung senkt Leistungsfähigkeit und Aufmerksamkeit, zu viel auf einmal belastet Magen und Blase (Dehydrierung = Flüssigkeitsmangel). Praktisch funktioniert es am besten, immer wieder kleine Mengen zu nehmen, statt lange nichts zu trinken und dann „nachzukippen“. So bleibt der Kopf klar und der Körper stabil.",
+      "merksatz": "Trinken wie Thermik: konstant, nicht in Schüben.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV info 116: Essen/Trinken & „kleine Schlucke“ bei langen Flügen",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2002/dhvinfo116.pdf#page=25"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Regelmäßig, aber in kleinen Schlucken."
   },
   {
     "id": "Q384",
@@ -12114,15 +11861,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Starker Harndrang bindet Aufmerksamkeit: Du bist gedanklich beim „Aushalten“, wirst unruhig, und dein Blick-/Entscheidungsfokus leidet (Aufmerksamkeit = begrenzte mentale Ressource). Das ist im Gleitschirmflug kritisch, weil du permanent Luftraum, Verkehr, Wetter und Gelände bewerten musst. Das Risiko ist daher weniger „medizinisch akut“, sondern fliegerisch: schlechtere Entscheidungen und spätere Reaktionen.",
+      "merksatz": "Voller Fokus braucht „freien Kopf“ – auch körperlich.",
+      "links": []
+    },
+    "correctAnswerText": "ist gefährlich, weil die Konzentration stark darunter leidet."
   },
   {
     "id": "Q385",
@@ -12145,15 +11888,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Für Einsteiger zählt Fehlerverzeihung: Du willst eine Route, bei der du nicht in Leebereiche „eingesperrt“ wirst (Lee = windabgewandte Seite mit Turbulenz/Sinken) und bei der du viele, gut erkennbare Landeoptionen hast. Ein „stärkeres“ Gerät kompensiert fehlende Taktik nicht, und pauschale Regeln wie „immer Südflanke“ sind zu grob, weil Wind und Tagesgang wechseln. Sinnvoll ist eine einfache Strecke mit klaren Ausweichmöglichkeiten.",
+      "merksatz": "XC‑Start: einfache Route + viele Ausstiege, keine Lee‑Fallen.",
+      "links": []
+    },
+    "correctAnswerText": "Strecken  mit  einfacher  Topografie,  ohne  Lee-Fallen  und  mit  guten  Außenlandemöglichkeiten wählen."
   },
   {
     "id": "Q386",
@@ -12176,15 +11915,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Auf Strecke bist du lange in Höhe und in der Sonne. UV‑Strahlung nimmt mit Höhe zu (UV = ultraviolette Strahlung, verursacht Sonnenbrand/Schäden), Wind kühlt und täuscht, und Reflexion über Wolken/Schnee verstärkt zusätzlich. Deshalb sind Haut- und Augenschutz Teil der Sicherheitsausrüstung – nicht „Kosmetik“. Wer hier spart, zahlt mit verbrannter Haut, gereizten Augen und schlechterer Sicht/Konzentration.",
+      "merksatz": "UV auf Strecke: Haut + Augen schützen.",
+      "links": []
+    },
+    "correctAnswerText": "Darauf,  das  Gesicht  mit  einer  guten  Sonnencreme  und  die  Augen  mit  einer  hochwertigen Sonnenbrille zu schützen."
   },
   {
     "id": "Q387",
@@ -12207,23 +11942,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Start/Landung außerhalb genehmigter Flugplätze ist grundsätzlich erlaubnispflichtig.\n- Für nicht motorgetriebene Luftsportgeräte gelten besondere Zuständigkeiten (Beauftragter nach § 31c LuftVG).\n- Not-/Sicherheitslandungen sind separat geregelt; trotzdem: Eigentümerrechte und Behördenauflagen beachten.",
-      "merksatz": "Außenstart/-landung: grundsätzlich nur mit Erlaubnis.\nZuständigkeit prüfen.",
+      "explanation": "Nach einer Notlage ist das Urteilsvermögen oft schlechter als man denkt (Stressreaktion = Adrenalin, Tunnelblick). Deshalb sollte man systematisch entscheiden: Bin ich verletzt? Bin ich in Gefahr (Hang, Wasser, Gewitter, Leitungen)? Brauche ich Rettung? Wenn Hilfe nötig ist: Notruf. Wenn keine Hilfe nötig ist, aber Rettungskräfte/Tracker/Umfeld von einem Unfall ausgehen könnten, ist eine Entwarnung sinnvoll, um unnötige Aktionen zu vermeiden. „Im Zweifel“ ist ein strukturierter Check besser als Bauchgefühl.",
+      "merksatz": "Nach Notlage: erst Check – dann Notruf oder Entwarnung.",
       "links": [
         {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 25 Start und Landung außerhalb genehmigter Flugplätze (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__25.html"
-        },
-        {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 31c Beauftragter für Luftsportgeräte (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__31c.html"
-        },
-        {
-          "title": "Luftfahrtgesetz (Österreich) – § 10 (RIS)",
-          "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
+          "title": "DHV info 188: Baumlandung – 112 informieren / Rettung vermeiden",
+          "url": "https://www.dhv.de/media/jahre/2024/02_fliegen/Lehrmaterial/Artikel/Flugtechnik/Spezialthemen/2_2014_188_baumrettung.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "alle 3 Optionen prüfen"
   },
   {
     "id": "Q388",
@@ -12246,14 +11974,15 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Live‑Tracker ist hilfreich, aber Minimum ist eine zuverlässige Möglichkeit, selbst einen Notruf abzusetzen und deinen Standort durchzugeben (Standort = Koordinaten/Ort, damit Hilfe dich findet). Pfeife hilft nur, wenn Retter in Hörweite sind; Satellitentelefon ist selten verfügbar. Ein Mobiltelefon allein nützt wenig, wenn der Akku leer ist oder du keine Standortübermittlung/Notfallfunktion vorbereitet hast.",
+      "merksatz": "Notfall‑Minimum: Notruf + Standort + Akku.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "Notruf 112: Rettungsleitstelle erreichen (DRK)",
+          "url": "https://www.drk.de/hilfe-in-deutschland/erste-hilfe/notruf-112/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ein geladenes Smartphone mit Notruf-App"
   }
 ]

@@ -1454,7 +1454,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
         st.rerun()
-    if cC.button("Prüfung starten (40)"):
+    if c3.button("Prüfung starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()

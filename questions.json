@@ -20,12 +20,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Thermikschlauch = aufsteigende Warmluftsäule, in der Fluggeräte im Kreis steigen.\n- Kreist dort schon ein Segelflugzeug, darfst du nicht gegenläufig einkreisen → Kollisionsgefahr.\n- Du übernimmst die gleiche Drehrichtung wie das bereits kreisende Fluggerät.\n🟩 Richtige Antwort: Es muss die Drehrichtung des Segelflugzeuges eingenommen werden",
-      "merksatz": "Thermik = Kreisverkehr → gleiche Drehrichtung.",
+      "explanation": "- „Thermikschlauch“ = aufsteigende Warmluftsäule; zum Steigen kreist man darin.\n- Wenn schon ein Segelflugzeug in deiner Höhe kreist, vermeidest du Gegenverkehr im selben Kreis.\n- Du übernimmst die Drehrichtung des bereits kreisenden Fluggeräts (du passt dich an, nicht umgekehrt).\n🟩 Richtige Antwort: Es muss die Drehrichtung des Segelflugzeuges eingenommen werden",
+      "merksatz": "Thermik-Kreisel: Der Erste bestimmt die Richtung.",
       "links": [
         {
-          "title": "DHV – Thermik fliegen (Sicherheit & Regeln)",
-          "url": "https://www.dhv.de/web/piloteninfos/sicherheit/thermikfliegen/"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -51,16 +51,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Kreuzen sich zwei Fluggeräte auf gleicher Höhe, gilt die Rechts‑vor‑Links‑Regel der Luftfahrt.\n- Das Luftfahrzeug, das den anderen rechts sieht, hat Vorrang.\n- Das von links kommende Fluggerät muss ausweichen.\n🟩 Richtige Antwort: Das von links kommende Luftfahrzeug muss ausweichen",
-      "merksatz": "Kreuzung: von links weicht aus.",
+      "explanation": "- „Kreuzender Kurs“ heißt: eure Flugwege schneiden sich.\n- Sicherheitsregel: Das von links kommende Fluggerät muss ausweichen, damit kein Zusammenstoß entsteht.\n- Praktisch: frühzeitig Kurs ändern, nicht erst im letzten Moment „zucken“.\n🟩 Richtige Antwort: Das von links kommende Luftfahrzeug ist ausweichpflichtig",
+      "merksatz": "Kreuzt es: Links weicht aus.",
       "links": [
         {
-          "title": "EASA SERA-Regeln (deutsche Fassung, PDF) – Ausweichregeln",
-          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32012R0923"
-        },
-        {
-          "title": "DHV – Ausweichregeln Poster (deutsch, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -86,12 +82,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Du fliegst geradeaus, ein anderes Fluggerät kommt von links auf kreuzendem Kurs.\n- Nach Ausweichregeln ist der Von‑links‑Kommende ausweichpflichtig.\n🟩 Richtige Antwort: Das von links kommende Luftfahrzeug muss ausweichen",
-      "merksatz": "Links kommt → weicht aus.",
+      "explanation": "- Situation ist wieder ein kreuzender Kurs (kein Gegenkurs, kein Überholen).\n- Entscheidend ist, wer von links kommt: Dieses Fluggerät ist ausweichpflichtig.\n- Du hältst deinen Kurs nur dann, wenn du nicht ausweichpflichtig bist und es sicher bleibt.\n🟩 Richtige Antwort: muss dem Gleitschirmflieger ausweichen",
+      "merksatz": "Von links kommend = ausweichen.",
       "links": [
         {
-          "title": "EASA SERA-Regeln (deutsche Fassung, PDF) – Ausweichregeln",
-          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32012R0923"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -117,16 +113,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei Gegenkurs (frontal aufeinander zu) müssen beide nach rechts ausweichen.\n- So entsteht seitlicher Abstand statt Annäherung.\n🟩 Richtige Antwort: Beide weichen nach rechts aus",
-      "merksatz": "Gegenkurs → beide rechts.",
+      "explanation": "- „Gegenkurs“ = ihr fliegt frontal aufeinander zu.\n- Damit beide die gleiche, vorhersehbare Lösung wählen, weichen beide nach rechts aus.\n- Das verhindert, dass einer nach links und der andere nach rechts ausweicht (Chaos).\n🟩 Richtige Antwort: Beide Luftfahrzeuge müssen nach rechts ausweichen",
+      "merksatz": "Frontal: beide nach rechts.",
       "links": [
         {
-          "title": "EASA SERA-Regeln (deutsche Fassung, PDF) – Ausweichregeln",
-          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32012R0923"
-        },
-        {
-          "title": "DHV – Ausweichregeln Poster (deutsch, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -152,12 +144,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Endanflug = letzte gerade Phase direkt vor der Landung.\n- Fluggeräte im Endanflug haben Vorrang.\n- Sie dürfen nicht überholt oder unterflogen werden.\n🟩 Richtige Antwort: Im Endanflug befindliche Luftfahrzeuge haben Vorrang",
-      "merksatz": "Endanflug zuerst.",
+      "explanation": "- „Landeeinteilung/Endanflug“: im Landeprozess ist man oft weniger flexibel und sehr nah am Boden.\n- Daher gilt: Tiefer fliegenden (und landenden) Fluggeräten muss ausgewichen werden.\n- Du planst deine Bahn so, dass du niemanden im Landeanflug schneidest oder überholst.\n🟩 Richtige Antwort: darf nicht unterflogen oder überholt werden",
+      "merksatz": "Bei Landung: Tiefer fliegt = hat Vorrang.",
       "links": [
         {
-          "title": "EASA SERA-Regeln (deutsche Fassung, PDF) – Ausweichregeln",
-          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32012R0923"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -183,12 +175,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Kreist ein Fluggerät in der Thermik, gilt es als „im Aufwind gebunden“.\n- Neu Einfliegende dürfen den Kreis nicht schneiden.\n- Deshalb muss dem Kreisenden ausgewichen werden.\n🟩 Richtige Antwort: Dem im Aufwind kreisenden Fluggerät ist auszuweichen",
-      "merksatz": "Thermik: Kreisender hat Vorrang.",
+      "explanation": "- „Im Aufwind kreisend“ bedeutet: ein Fluggerät ist bereits in der Thermik im Kreis.\n- Wer neu dazu kommt, darf den Kreis nicht schneiden → sonst kreuzt man direkt die Flugbahn.\n- Deshalb muss dem kreisenden Fluggerät ausgewichen werden.\n🟩 Richtige Antwort: Der Hängegleiter, weil im Aufwind kreisenden Fluggeräte auszuweichen ist",
+      "merksatz": "Thermik: Kreisende schützen – nicht schneiden.",
       "links": [
         {
-          "title": "DHV – Thermik fliegen (Sicherheit & Regeln)",
-          "url": "https://www.dhv.de/web/piloteninfos/sicherheit/thermikfliegen/"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -219,12 +211,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei kreuzenden Flugwegen entscheidet die Seitenregel.\n- Wer den anderen links sieht, ist ausweichpflichtig.\n🟩 Richtige Antwort: Das von links kommende Luftfahrzeug weicht aus",
-      "merksatz": "Kreuzung → links weicht.",
+      "explanation": "- Hier geht’s um die Standard-Regel bei kreuzenden Flugwegen.\n- Das von links kommende Fluggerät muss ausweichen; dadurch ist klar, wer aktiv handeln muss.\n- Wichtig: Ausweichen heißt Abstand schaffen, nicht knapp vor dem anderen vorbeiziehen.\n🟩 Richtige Antwort: Das  von  links  kommende  Luftfahrzeug  muss  ausweichen,  die  Ausweichrichtung  ist  nicht vorgeschrieben",
+      "merksatz": "Kreuzung: links ausweichen, Abstand groß.",
       "links": [
         {
-          "title": "EASA SERA-Regeln (deutsche Fassung, PDF) – Ausweichregeln",
-          "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32012R0923"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -255,12 +247,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Thermik ist ein gemeinsamer Aufwindbereich.\n- Wer schon darin kreist, bestimmt Drehrichtung und Kreis.\n- Einfliegende müssen außen bleiben und anpassen.\n🟩 Richtige Antwort: Dem kreisenden Fluggerät ist auszuweichen",
-      "merksatz": "Erst drin → hat Vorrang.",
+      "explanation": "- Thermik ist ein gemeinsamer „Arbeitsbereich“; mehrere können dort steigen.\n- Wer schon kreist, hat eine feste Bahn. Neuankommende passen sich an und weichen aus.\n- Zusätzlich gilt: Der Erste in der Thermik gibt die Drehrichtung vor.\n🟩 Richtige Antwort: Der  Drachenflieger,  denn  den  im  Aufwind  kreisenden  Fluggeräten  muss  ausgewichen  werden. Die Ausweichrichtung ist nicht vorgeschrieben.",
+      "merksatz": "Thermik: erst drin → Richtung + Vorrang.",
       "links": [
         {
-          "title": "DHV – Thermik fliegen (Sicherheit & Regeln)",
-          "url": "https://www.dhv.de/web/piloteninfos/sicherheit/thermikfliegen/"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -286,12 +278,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Soaren = Hangaufwind entlang eines Hanges nutzen.\n- Hangflug hat Vorrang, weil wenig Ausweichraum besteht.\n- Thermikeinsteiger müssen Hangfliegern ausweichen.\n🟩 Richtige Antwort: Hangflieger haben Vorrang",
-      "merksatz": "Am Hang zuerst Hangflieger.",
+      "explanation": "- „Soaren/Hangsoaring“ = entlang eines Hangs im Aufwind fliegen, oft mit wenig Platz zum Ausweichen.\n- Regel: Das Fluggerät mit dem Hang auf der linken Seite muss nach rechts ausweichen.\n- Dadurch bleibt das Ausweichen einheitlich und vorhersehbar, obwohl der Raum eng ist.\n🟩 Richtige Antwort: Dass  den  Piloten,  die  am  Hang  soaren,  ausgewichen  werden  muss,  denn  die  Hangflugregeln haben hier Vorrang.",
+      "merksatz": "Hang links = nach rechts ausweichen.",
       "links": [
         {
-          "title": "DHV – Ausweichregeln Poster (deutsch, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -317,16 +309,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- In deutschsprachigen Ausbildungsunterlagen ist festgelegt:\n- Wer in Thermik einfliegt, übernimmt Drehrichtung.\n- Kreisenden ist auszuweichen.\n🟩 Richtige Antwort: Einfliegende übernehmen Drehrichtung und weichen Kreisenden aus",
-      "merksatz": "Thermik rein → Richtung übernehmen.",
+      "explanation": "- Wenn du in eine Thermik „einfliegst“, gibt es schon eine Drehrichtung im Kreis.\n- Damit ihr euch nicht im Kreis begegnet, gilt: Das erste kreisende Fluggerät bestimmt die Drehrichtung.\n- Du übernimmst diese Richtung und hältst Abstand beim Einfädeln.\n🟩 Richtige Antwort: Dem in der Thermik kreisenden Fluggerät ist in Österreich auszuweichen, unabhängig davon, ob es im freien Luftraum oder am Hang kreist.",
+      "merksatz": "In Thermik rein: Richtung vom Ersten übernehmen.",
       "links": [
         {
-          "title": "DHV – Thermik fliegen (Sicherheit & Regeln)",
-          "url": "https://www.dhv.de/web/piloteninfos/sicherheit/thermikfliegen/"
+          "title": "DHV – Europäische Ausweichregeln (Poster, PDF) – Freier Luftraum/Hangsoaring/Thermik/Start/Landung",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
-  },
+  }
   {
     "id": "Q011",
     "category": "Luftrecht",

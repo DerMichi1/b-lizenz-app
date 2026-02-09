@@ -12,6 +12,7 @@ import re
 import uuid
 import time
 import math
+import pandas as pd
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -832,17 +833,20 @@ def inject_css() -> None:
         """
 <style>
 :root{
-  --pp-border: rgba(255,255,255,0.12);
-  --pp-bg: rgba(255,255,255,0.04);
-  --pp-bg2: rgba(255,255,255,0.06);
+  --pp-border: rgba(255,255,255,0.14);
+  --pp-bg: rgba(255,255,255,0.055);
+  --pp-bg2: rgba(255,255,255,0.075);
   --pp-text-muted: rgba(255,255,255,0.78);
 }
 .block-container { padding-top: 1.2rem; max-width: 1180px; }
 div.stButton > button { width:100%; padding:0.85rem 1rem; border-radius:14px; font-size:1rem; }
-.pp-card { border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg); }
-.pp-card2 { border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg2); }
+div.stButton > button:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
+div.stButton > button:active { transform: translateY(0px); }
+
+.pp-card { box-shadow: 0 10px 30px rgba(0,0,0,0.28); border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg); }
+.pp-card2 { box-shadow: 0 10px 30px rgba(0,0,0,0.22); border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg2); }
 .pp-muted { color: var(--pp-text-muted); font-size:0.95rem; }
-.pp-kpi { border:1px solid var(--pp-border); border-radius:16px; padding:0.9rem 1rem; background: var(--pp-bg); }
+.pp-kpi { box-shadow: 0 10px 30px rgba(0,0,0,0.22); border:1px solid var(--pp-border); border-radius:16px; padding:0.9rem 1rem; background: var(--pp-bg); }
 .pp-grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:0.8rem; }
 @media (max-width: 1100px){ .pp-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px){ .pp-grid{ grid-template-columns: 1fr; } }
@@ -1346,6 +1350,43 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
 """,
         unsafe_allow_html=True,
     )
+
+    # ----------------------------
+    # Visualisierung: Fortschritt / Trefferquote pro Kategorie
+    # ----------------------------
+    try:
+        rows = []
+        for cat, subs in stats.items():
+            total_q = 0
+            learned_q = 0
+            corr = 0
+            wrong = 0
+            for sub, s in subs.items():
+                total_q += int(s.get("total") or 0)
+                learned_q += int(s.get("learned") or 0)
+                corr += int(s.get("correct_total") or 0)
+                wrong += int(s.get("wrong_total") or 0)
+            attempts = corr + wrong
+            coverage = (learned_q / total_q) if total_q else 0.0
+            acc = (corr / attempts) if attempts else 0.0
+            rows.append(
+                {
+                    "Kategorie": cat,
+                    "Abdeckung_%": int(round(coverage * 100)),
+                    "Trefferquote_%": int(round(acc * 100)),
+                }
+            )
+        df = pd.DataFrame(rows).sort_values("Kategorie")
+        left, right = st.columns(2)
+        with left:
+            st.markdown("### Abdeckung nach Kategorie")
+            st.bar_chart(df.set_index("Kategorie")[["Abdeckung_%"]], height=240)
+        with right:
+            st.markdown("### Trefferquote nach Kategorie")
+            st.bar_chart(df.set_index("Kategorie")[["Trefferquote_%"]], height=240)
+    except Exception:
+        # Charts sind nice-to-have; UI darf nicht crashen, falls Daten fehlen.
+        pass
 
     st.write("")
     cA, cB, cC = st.columns([1, 1, 1])
@@ -1865,15 +1906,11 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     labels = ["A", "B", "C", "D"]
 
-    # Answer buttons (2x2 Grid, weniger Scrollen)
+    # Answer buttons
     if not st.session_state.get("answered", False):
-        r1 = st.columns(2)
-        r2 = st.columns(2)
-        btn_cols = [r1[0], r1[1], r2[0], r2[1]]
-
         for i_opt in range(4):
             opt = options[i_opt]
-            if btn_cols[i_opt].button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}", use_container_width=True):
+            if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}", use_container_width=True):
                 ok = (i_opt == correct_index)
 
                 counters = db_upsert_progress(uid, qid, ok)
@@ -1896,7 +1933,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
                 st.rerun()
 
-
     else:
         is_ok = bool(st.session_state.get("last_ok") or False)
         corr_i = st.session_state.get("last_correct_index")
@@ -1910,7 +1946,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
         w = get_wiki(q)
-        with st.expander("Wiki (kurz + Merksatz + Links)", expanded=False):
+        with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):
             if w["explanation"]:
                 st.markdown(w["explanation"])
             else:
@@ -2064,7 +2100,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
                 opts.append("")
 
             title = f"{qid} · {'✅' if d['ok'] else '❌'}"
-            with st.expander(title, expanded=False):
+            with st.expander(title, expanded=(not bool(d.get('ok')))):
                 st.markdown(f"**Frage:** {(q.get('question') or '').strip()}")
                 render_figures(q, max_n=2)
 
@@ -2096,7 +2132,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
         return
 
     if total:
-        st.progress(min(1.0, (i + 1) / max(1, total)))
+        st.progress(min(1.0, i / total))
 
     q = qlist[i]
     qid = str(q.get("id"))
@@ -2151,18 +2187,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     st.write("")
     answered_cnt = sum(1 for v in (st.session_state.exam_answers or {}).values() if v is not None)
     st.caption(f"Beantwortet: {answered_cnt}/{total}")
-
-    with st.expander("Fragenübersicht (springen)", expanded=False):
-        cols = st.columns(8)
-        for n in range(1, total + 1):
-            qn = qlist[n - 1]
-            qnid = str(qn.get("id"))
-            is_done = (st.session_state.exam_answers or {}).get(qnid) is not None
-            label = f"{'✅' if is_done else '⬜'} {n}"
-            col = cols[(n - 1) % 8]
-            if col.button(label, key=f"exam_jump_{qnid}", use_container_width=True):
-                st.session_state.exam_idx = n - 1
-                st.rerun()
 
     if st.button("Abschicken & auswerten", type="primary", use_container_width=True):
         _exam_submit(uid, reason="manual")

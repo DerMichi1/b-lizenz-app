@@ -999,15 +999,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Auslandsflüge: Anerkennung von Berechtigungen ist nicht automatisch; hängt vom Zielland ab.\n- Vorher prüfen: nationale Regeln/Lufträume, lokale Start-/Lande-Regeln und ggf. zusätzliche Nachweise.",
-      "merksatz": "Im Ausland gilt: erst Landesregeln prüfen.\nNichts als „automatisch anerkannt“ annehmen.",
+      "explanation": "Bei Versicherungen ist nicht automatisch garantiert, dass der Schutz in jedem Land gleich gilt. Entscheidend ist der räumliche Geltungsbereich (also: in welchen Ländern/Regionen gilt der Vertrag) und ob vor Ort zusätzliche nationale Pflichten oder Nachweise verlangt werden. Darum prüfst du vor der Reise, ob dein Vertrag weltweit gilt und ob das Zielland spezielle Anforderungen hat.",
+      "merksatz": "Vor dem Abflug: Geltungsbereich + lokale Pflichtnachweise checken.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Halter-Haftpflichtversicherung – Ausland/Geltungsbereich (FAQ)",
+          "url": "https://www.dhv.de/mitgliedschaft/versicherung/einsitzige-gleitschirme-drachen/"
         }
       ]
-    }
+    },
+    "correctAnswerText": "sollte, insbesondere für Flüge im außereuropäischen Ausland, überprüft werden."
   },
   {
     "id": "Q032",
@@ -1030,15 +1031,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Auslandsflüge: Anerkennung von Berechtigungen ist nicht automatisch; hängt vom Zielland ab.\n- Vorher prüfen: nationale Regeln/Lufträume, lokale Start-/Lande-Regeln und ggf. zusätzliche Nachweise.",
-      "merksatz": "Im Ausland gilt: erst Landesregeln prüfen.\nNichts als „automatisch anerkannt“ annehmen.",
+      "explanation": "Die gesetzliche Krankenversicherung zahlt im Ausland oft nur eingeschränkt oder gar nicht – und ein medizinischer Rücktransport nach Deutschland kann sehr teuer sein. Darum wird für Auslandsreisen eine zusätzliche Absicherung empfohlen, die Behandlungskosten im Ausland übernimmt und im Ernstfall auch den notwendigen Rücktransport abdeckt.",
+      "merksatz": "Ausland: Behandlung ok – aber Rücktransport kostet richtig.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHVinfo 144: Versicherung/ Rücktransport (PDF)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2007/dhvinfo144.pdf#page=99"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Auslands-Krankenversicherung mit Rücktransport"
   },
   {
     "id": "Q033",
@@ -1061,15 +1063,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "VFR bezeichnet Flüge, bei denen du dich primär an dem orientierst, was du draußen siehst, und bei denen bestimmte Mindest-Sichtweiten und Wolkenabstände eingehalten werden müssen. Weil du andere Luftfahrzeuge nicht „weggestaffelt“ bekommst, liegt die Hauptverantwortung für Navigation und Kollisionsvermeidung beim Piloten.",
+      "merksatz": "VFR = sehen, bleiben frei von Wolken, selbst ausweichen.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS: Sicherer Sichtflug (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Visual Flight Rules (Sichtflugregeln)"
   },
   {
     "id": "Q034",
@@ -1092,15 +1095,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Flugfläche (FL) ist keine feste Höhe über dem Meeresspiegel, sondern eine Druckhöhe: Der Höhenmesser wird auf Standarddruck 1013,25 hPa eingestellt und die Anzeige wird in „Hunderten Fuß“ als FL angegeben. So können Luftfahrzeuge in größeren Höhen einheitlich gestaffelt werden, auch wenn der tatsächliche Wetterdruck am Boden variiert.",
+      "merksatz": "FL = Druckhöhe mit 1013,25 – nicht „echte“ Meter über MSL.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – Luftraumklassen/FL (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "bedeutet 10.000 ft über der Druckfläche des ICAO-Standarddrucks von 1013,25 hPa"
   },
   {
     "id": "Q035",
@@ -1123,15 +1127,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "IFR beschreibt Flüge, bei denen die Flugführung primär mit Instrumenten und nach veröffentlichten Verfahren erfolgt – nicht nach Sicht nach draußen. Dazu gehören z.B. definierte Abflug-/Anflugverfahren und die Einhaltung von Freigaben der Flugsicherung.",
+      "merksatz": "IFR: Instrumente + Verfahren + Freigaben.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – kontrolliert/unkontrolliert & Regeln (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=2"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Verkehr nach Instrumentenflugregeln (Instrumental Flight Rules)"
   },
   {
     "id": "Q036",
@@ -1154,15 +1159,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "IFR setzt voraus, dass Luftfahrzeug, Ausrüstung und Zulassung für Instrumentenflug geeignet sind und dass der Pilot entsprechend berechtigt ist. Luftsportgeräte wie Gleitschirme erfüllen diese technischen/zulassungsrechtlichen Voraussetzungen typischerweise nicht, weil sie nicht für Instrumentenflugverfahren und die erforderliche Navigation/Kommunikation ausgelegt sind.",
+      "merksatz": "Gleitschirm ist Sichtfluggerät – keine IFR-Ausrüstung/Verfahren.",
+      "links": []
+    },
+    "correctAnswerText": "Nein"
   },
   {
     "id": "Q037",
@@ -1185,15 +1186,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "In kontrollierten Lufträumen gelten festgelegte Mindestabstände zu Wolken, damit du nicht unbeabsichtigt in Wolken gerätst und andere Verkehrsteilnehmer genug Sicherheitsraum haben. Der relevante Wert ist ein vertikaler Abstand im Bereich einiger hundert Meter (zusätzlich gibt es horizontale Mindestabstände), und er hängt von Luftraum/Flughöhe ab.",
+      "merksatz": "Wolken sind tabu: vertikal „einige 100 m“ Abstand halten.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DFS: Sicherer Sichtflug – VMC-Minima/Wolkenabstände (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Bis 300 m Abstand"
   },
   {
     "id": "Q038",
@@ -1216,15 +1218,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auch beim Streckenflug im kontrollierten Luftraum musst du die vorgeschriebenen Mindestabstände zu Wolken einhalten, sonst kann aus einem Sichtflug schnell ein unbeabsichtigter „Blindflug“ werden. Die Regel zielt darauf, dass du jederzeit Boden/Horizont und Verkehr sehen kannst und nicht in eine Wolkenschicht hineingerätst.",
+      "merksatz": "Strecke im Luftraum: Wolkenabstand bleibt Pflicht.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – VMC-Minima/Wolkenabstände (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=8"
         }
       ]
-    }
+    },
+    "correctAnswerText": "bis 300 m an die Wolkenbasis heran fliegen"
   },
   {
     "id": "Q039",
@@ -1247,19 +1250,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- DFS ist Flugsicherungsorganisation und kontrolliert den Flugverkehr im deutschen Luftraum.\n- In Österreich ist Austro Control der ANSP; offizielle Zuständigkeiten/Services sind im AIP beschrieben.\n- FIS/ATC/ATS-Dienste und deren Nutzung ergeben sich aus SERA und nationaler Veröffentlichung (AIP).",
-      "merksatz": "DE: DFS; AT: Austro Control.\nDetails stehen im AIP.",
+      "explanation": "In Luftraum C ist für VFR-Verkehr eine Freigabe der Flugverkehrskontrolle erforderlich; ohne Freigabe einzufliegen bedeutet eine Luftraumverletzung. Das wird als Verstoß gegen Luftverkehrsregeln behandelt und kann als Ordnungswidrigkeit geahndet werden, weil dadurch die Sicherheitsstaffelung des kontrollierten Verkehrs unterlaufen wird.",
+      "merksatz": "Kein Clearance – kein Einflug (sonst Luftraumverletzung).",
       "links": [
         {
-          "title": "DFS Deutsche Flugsicherung – Unternehmensseite (dfs.de)",
-          "url": "https://www.dfs.de/homepage/de/"
-        },
-        {
-          "title": "Austro Control – eAIP Portal (Austro Control)",
-          "url": "https://eaip.austrocontrol.at/"
+          "title": "LuftVG § 58 Ordnungswidrigkeiten",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__58.html"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ist eine Ordnungswidrigkeit"
   },
   {
     "id": "Q040",
@@ -1282,15 +1282,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Kontrollierter Luftraum“ bedeutet, dass dort Flugverkehrskontrolle durch die Flugsicherung erbracht wird und je nach Klasse zusätzliche Pflichten wie Freigaben oder Hörbereitschaft gelten. Im deutschen System zählen mehrere Klassen dazu; entscheidend ist, dass du die jeweilige Klasse aus der Karte erkennst und die dazugehörigen Pflichten (z.B. Freigabe ja/nein) einhältst.",
+      "merksatz": "Kontrollierter Luftraum: Regeln + ggf. Freigabe – Karte lesen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DFS: Sicherer Sichtflug – Luftraumklassen (PDF)",
+          "url": "https://www.dfs.de/homepage/de/medien/publikationen/sicherer-sichtflug.pdf#page=7"
         }
       ]
-    }
+    },
+    "correctAnswerText": "kontrollierter Luftraum"
   },
   {
     "id": "Q041",

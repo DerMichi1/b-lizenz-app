@@ -345,12 +345,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Hier gilt die allgemeine Ausweichregel: früh reagieren, klar ausweichen und genügend Abstand halten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "SERA (Standardised European Rules of the Air) enthält die Grundregel, dass du Abstand so wählst, dass aus deiner Flugführung keine Kollisionsgefahr entstehen kann. Das ist bewusst ohne feste Meter-/Meilenwerte formuliert, weil Abstand von Geschwindigkeit, Sicht, Verkehrsdichte und Ausweichmöglichkeiten abhängt. Praktisch heißt das: frühzeitig beobachten, rechtzeitig Kurs/Flughöhe anpassen und nicht „auf knapp“ fliegen, selbst wenn du glaubst, den anderen im Griff zu haben.",
+      "merksatz": "Nie so nah ran, dass Kollision möglich wird.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "VO (EU) 923/2012 (SERA) – DHV PDF",
+          "url": "https://www.dhv.de/media/seiten/04_flugbetrieb/LuftraumLuftrecht/Flugplanung/vo923_2012_SERA.pdf"
         }
       ]
     },
@@ -382,12 +382,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Hangflug findet nah am Gelände statt, mit wenig Platz zum Ausweichen. Darum gelten feste Hang‑Ausweichregeln, damit Entscheidungen eindeutig sind.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "Talwind-Prallhang heißt: Der Talwind drückt gegen den Hang und erzeugt dynamischen Aufwind, dort wird meist hangparallel geflogen. Der Leebereich ist die windabgewandte, turbulente Seite hinter der Kante; beim Ausweichen willst du vermeiden, dass jemand in Lee oder in den Hang gedrückt wird. Bei Gegenkurs am Hang gilt die Sonderlogik: so ausweichen, dass beide weiter mit sicherem Abstand hangparallel bleiben können, ohne Höhenversatz nach oben/unten zu erzwingen.",
+      "merksatz": "Am Hang: gleiche Seite halten, der „Hang-links“-Pilot weicht talwärts.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "Ausweichregeln am Hang (DHV-Info 04)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1980/dhvinfo04.pdf#page=4"
         }
       ]
     },
@@ -419,12 +419,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Hangflug findet nah am Gelände statt, mit wenig Platz zum Ausweichen. Darum gelten feste Hang‑Ausweichregeln, damit Entscheidungen eindeutig sind.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "Bei Hangflugtechnik fliegst du nahe am Gelände und hast wenig Platz für große Ausweichmanöver. Die Sonderregel sorgt dafür, dass nicht beide gleichzeitig zum Hang drehen: Ein Pilot behält seinen Kurs, der andere dreht talwärts weg, sodass beide weiter hangparallel bleiben. Wichtig: nicht nach oben/unten „ausweichen“ (das schneidet den Flugweg des anderen), sondern seitlich mit klarer Trennung.",
+      "merksatz": "Hang immer auf derselben Seite behalten.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "Ausweichregeln am Hang (DHV-Info 04)",
+          "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/1980/dhvinfo04.pdf#page=4"
         }
       ]
     },
@@ -456,14 +456,9 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Überholen bedeutet: ein schnelleres Fluggerät kommt von hinten und fliegt vorbei. Der Überholende trägt die volle Verantwortung für Abstand und Sicherheit. Er darf die Flugbahn des Vorausfliegenden nicht schneiden.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
-      "links": [
-        {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
-        }
-      ]
+      "explanation": "Überholen heißt: Du kommst von hinten schneller auf ein anderes Fluggerät auf und musst so manövrieren, dass du dessen Flugweg nicht einengst. Der Überholende bleibt klar ausweichpflichtig, hält großen seitlichen Abstand und zieht erst wieder ein, wenn der Abstand sicher groß ist. In der Praxis entscheidet die sichere, konfliktfreie Seite (Verkehr, Gelände, Thermik-/Hanglinie) – niemals knapp vorbeiziehen oder „zwischen“ mehreren Piloten durchdrücken.",
+      "merksatz": "Überholer trägt die ganze Verantwortung.",
+      "links": []
     },
     "correctAnswerText": "rechts oder links"
   },
@@ -488,12 +483,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "Eine Außenlandung ist die Landung außerhalb eines zugelassenen Landeplatzes; beim Gleitschirm ist der genaue Ort im Überlandflug oft nicht sicher vorausbestimmbar. Deshalb ist der Kernpunkt: Es geht um Flüge, bei denen ein geplanter Landeplatz realistisch nicht mehr erreichbar ist (z.B. Thermik bricht weg, Gegenwind), nicht um Bequemlichkeit. Genau diese Abgrenzung trennt „zulässige Außenlandung“ von „unerlaubtem Landen neben dem Auto“.",
+      "merksatz": "Außenlanden nur, wenn’s planbar nicht mehr geht.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "B-Lizenz & Außenlandungen (DHV Flugplanung)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
     },
@@ -520,14 +515,9 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
-      "links": [
-        {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
-        }
-      ]
+      "explanation": "„Überlandflug“ ist im österreichischen Kontext nicht „über die Grenze“, sondern über die Umgebung des Startplatzes hinaus. Die Regel arbeitet mit einer Distanzschwelle: Ab einer gewissen Entfernung gilt der Flug rechtlich als Überlandflug, mit den dazugehörigen Anforderungen und Konsequenzen. Für die Prüfung ist entscheidend, dass es sich um eine klar messbare Entfernung vom Start handelt – nicht um Geländeart (Flachland) oder eine spezielle Pilotberechtigung als Definition.",
+      "merksatz": "Österreich: Überland = weiter als 10 km weg vom Start.",
+      "links": []
     },
     "correctAnswerText": "die weiter als 10 km vom Startplatz wegführen"
   },
@@ -552,12 +542,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "Vor einem Überlandflug musst du aktiv planen: Route/Optionen, Lufträume und Wetterlage prüfen, damit du nicht in gesperrte Bereiche gerätst oder in Wetter fliegst, das du nicht beherrschst. AIS (Aeronautical Information Service) ist der Informationsdienst für Luftfahrtinfos (z.B. NOTAMs), aber eine „Beratung einholen“ ist nicht die Pflichtform für jeden Flug. Entscheidend ist die eigene Vorbereitung und das Einholen der relevanten Informationen, nicht zwingend Funkgerät oder Flugplan.",
+      "merksatz": "Planen, prüfen, informieren – vor jedem Überlandflug.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "Flugvorbereitung & Flugplanung (DHV)",
+          "url": "https://www.dhv.de/flugbetrieb/luftraum-luftrecht/flugplanung/"
         }
       ]
     },
@@ -584,14 +574,9 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
-      "links": [
-        {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
-        }
-      ]
+      "explanation": "Nach einer Außenlandung geht es rechtlich um zwei Dinge: Schadens-/Kontaktklärung und die Rückführung des Fluggeräts. Wenn du Name/Anschrift sowie Angaben zum Halter und zur Haftpflichtversicherung nennst, ist die wesentliche Sicherung für den Grundstückseigentümer gegeben. Ein „Festhalten“ des Geräts wäre dann kein zulässiges Druckmittel, weil die Ansprüche über die angegebenen Daten und Versicherung geklärt werden können.",
+      "merksatz": "Daten geben – dann darfst du dein Gerät holen.",
+      "links": []
     },
     "correctAnswerText": "Nein"
   },
@@ -616,12 +601,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "Die Prüfung trennt sauber zwischen „Notlandung“ (sicherheitsbedingt sofort erforderlich) und „Außenlandung“ im Überlandflug, wenn der geplante Landeplatz nicht mehr erreichbar ist. Eine generelle Erlaubnis „immer mit Einverständnis des Bauern“ gibt es so nicht, weil zusätzlich Luftrecht gilt. „B-Lizenz = überall landen“ ist genau der typische Denkfehler, den die Vorschrift verhindern will.",
+      "merksatz": "Außenlandung nur bei Unvermeidbarkeit oder Notfall.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "LuftVO § 18 – Außenstarts/Außenlandungen",
+          "url": "https://www.gesetze-im-internet.de/luftvo_2015/__18.html"
         }
       ]
     },
@@ -648,12 +633,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "Bei Start und Landung ist ein Fluggerät nur eingeschränkt manövrierfähig. Deshalb bekommt es Vorrang vor durchfliegenden Geräten.",
-      "merksatz": "Ausweichregel: klar + früh + Abstand.",
+      "explanation": "LuftVG ist das Luftverkehrsgesetz; § 25 regelt den Grundsatz, dass Starts/Landungen grundsätzlich an genehmigten Plätzen stattfinden. Für Gleitschirm/Drachen gibt es daneben die Möglichkeit einer Außenstart-/Außenlandeerlaubnis, die in Deutschland über den beauftragten Verband abgewickelt wird. Entscheidend ist: Nicht die persönliche Lizenz oder eine „Eignung“ des Hangs reicht, sondern die formale Erlaubnis für das Fluggelände.",
+      "merksatz": "§25: DHV-Erlaubnis statt „einfach irgendwo“.",
       "links": [
         {
-          "title": "DHV – Europäische Ausweichregeln (Poster, PDF)",
-          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+          "title": "LuftVG § 25 – Starten/Landen außerhalb genehmigter Plätze",
+          "url": "https://www.gesetze-im-internet.de/luftvg/__25.html"
         }
       ]
     },

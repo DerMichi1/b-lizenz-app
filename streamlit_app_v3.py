@@ -1548,14 +1548,10 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
         st.rerun()
-cA, cB, cC = st.columns([1, 1, 1])
-
-with cC:
-    if st.button("Prüfung starten (40)", key="dash_start_exam", use_container_width=True):
+    if cC.button("Prüfung starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
-
 
     st.write("")
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
@@ -2244,32 +2240,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
 
-def _exam_submit(uid: str, reason: str = "manual") -> None:
-    # idempotent: nicht doppelt submitten
-    if st.session_state.get("exam_submitted", False):
-        return
-
-    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", []) or []
-    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
-
-    result = _exam_compute_result(qlist, answers)
-    st.session_state.exam_result = result
-    st.session_state.exam_done = True
-    st.session_state.exam_submitted = True
-
-    # Speichern in exam_runs (best-effort)
-    try:
-        ok, err = db_insert_exam_run(
-            uid=uid,
-            total=int(result.get("total", len(qlist))),
-            correct=int(result.get("correct", 0)),
-            passed=bool(result.get("passed", False)),
-        )
-        st.session_state.exam_save_ok = bool(ok)
-        st.session_state.exam_save_err = (err or "").strip()
-    except Exception as e:
-        st.session_state.exam_save_ok = False
-        st.session_state.exam_save_err = str(e)
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     st.title("Prüfungssimulation (40)")

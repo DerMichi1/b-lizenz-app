@@ -1558,6 +1558,7 @@ with cC:
 
 
     st.write("")
+    stats = build_subchapter_stats(progress, questions)
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
     target = weak[0] if weak else None
     st.markdown("## Nächster sinnvoller Schritt")

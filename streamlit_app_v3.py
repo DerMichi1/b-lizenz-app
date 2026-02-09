@@ -624,6 +624,100 @@ def apply_progress_delta_local(uid: str, qid: str, counters: Dict[str, int]) -> 
     st.session_state.progress = p
 
 
+
+# =============================================================================
+# NEW: Teacher-path persistence (Supabase) - cursor + per-question correctness
+# Tables expected (per user):
+# - public.user_question_progress (PK: user_id, question_id)
+# - public.user_teacherpath_cursor (PK: user_id, chapter)
+# =============================================================================
+
+def db_upsert_user_question_progress(uid: str, q: Dict[str, Any], ok: bool) -> None:
+    """Persist per-question progress (seen/correct/wrong + is_correct_once). Best-effort."""
+    qid = str(q.get("id"))
+    chapter = str(_learn_meta(q)[0]) if q else None
+    subchapter = str(q.get("subchapter") or "") if q else None
+
+    try:
+        # load existing counters (to increment reliably without RPC)
+        resp = supa().table("user_question_progress").select(
+            "seen_count,correct_count,wrong_count,is_correct_once"
+        ).eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+        rows = getattr(resp, "data", None) or []
+        if rows:
+            row = rows[0]
+            seen = int(row.get("seen_count") or 0) + 1
+            correct = int(row.get("correct_count") or 0) + (1 if ok else 0)
+            wrong = int(row.get("wrong_count") or 0) + (0 if ok else 1)
+            once = bool(row.get("is_correct_once") or False) or bool(ok)
+        else:
+            seen = 1
+            correct = 1 if ok else 0
+            wrong = 0 if ok else 1
+            once = bool(ok)
+
+        supa().table("user_question_progress").upsert(
+            {
+                "user_id": uid,
+                "question_id": qid,
+                "chapter": chapter,
+                "subchapter": subchapter,
+                "seen_count": seen,
+                "correct_count": correct,
+                "wrong_count": wrong,
+                "is_correct_once": once,
+                "last_answer_at": datetime.utcnow().isoformat(),
+            },
+            on_conflict="user_id,question_id",
+        ).execute()
+    except Exception:
+        return
+
+
+def db_get_not_correct_once_question_ids(uid: str, question_ids: List[str]) -> List[str]:
+    """Return question_ids where user has not yet answered correctly at least once."""
+    if not question_ids:
+        return []
+    try:
+        resp = supa().table("user_question_progress").select("question_id,is_correct_once") \
+            .eq("user_id", uid).in_("question_id", list(map(str, question_ids))).execute()
+        rows = getattr(resp, "data", None) or []
+        correct_once = {str(r.get("question_id")) for r in rows if bool(r.get("is_correct_once"))}
+        return [str(qid) for qid in question_ids if str(qid) not in correct_once]
+    except Exception:
+        # if query fails, be conservative: do not block unlock
+        return []
+
+
+def db_upsert_teacher_cursor(uid: str, chapter: str, last_qid: str, last_idx: int) -> None:
+    """Persist the last position in a teacher-path chapter (refresh-safe). Best-effort."""
+    try:
+        supa().table("user_teacherpath_cursor").upsert(
+            {
+                "user_id": uid,
+                "chapter": str(chapter),
+                "last_question_id": str(last_qid),
+                "last_question_idx": int(last_idx),
+                "updated_at": datetime.utcnow().isoformat(),
+            },
+            on_conflict="user_id,chapter",
+        ).execute()
+    except Exception:
+        return
+
+
+def db_get_latest_teacher_cursor(uid: str) -> Optional[Dict[str, Any]]:
+    """Return the most recently updated teacher-path cursor row for a user."""
+    try:
+        resp = supa().table("user_teacherpath_cursor").select(
+            "chapter,last_question_id,last_question_idx,updated_at"
+        ).eq("user_id", uid).order("updated_at", desc=True).limit(1).execute()
+        rows = getattr(resp, "data", None) or []
+        return rows[0] if rows else None
+    except Exception:
+        return None
+
+
 def db_get_note(uid: str, qid: str) -> str:
     try:
         dlog("db_get_note", uid=uid, qid=qid)
@@ -975,9 +1069,9 @@ def _render_exam_countdown(deadline_ts: float, *, label: str = "Restzeit") -> No
 
     components.html(
         f"""
-<div id="pp-timer" style="display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.35);backdrop-filter: blur(8px);font-weight:800;">
-  <span style="opacity:.95">⏱️ {label}</span>
-  <span id="pp-timer-val" style="font-variant-numeric:tabular-nums;min-width:72px;text-align:right;">--:--:--</span>
+<div id="pp-timer" style="display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(16,18,22,.78);backdrop-filter: blur(10px);font-weight:900;color:#ffffff;box-shadow:0 10px 30px rgba(0,0,0,.35);">
+  <span style="opacity:1;color:#ffffff;">⏱️ {label}</span>
+  <span id="pp-timer-val" style="font-variant-numeric:tabular-nums;min-width:86px;text-align:right;color:#ffffff;letter-spacing:.5px;">--:--:--</span>
 </div>
 
 <script>
@@ -1454,11 +1548,10 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.page = "learn"
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
         st.rerun()
-    if st.button("Prüfung starten (40)"):
+    if cC.button("Prüfung starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
-
 
     st.write("")
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
@@ -1578,6 +1671,41 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         return ts
 
     st.session_state.teacher_state = _teacher_defaults()
+
+    # Auto-resume teacher path after refresh (if a cursor exists)
+    # This avoids losing progress mid-chapter when Streamlit session is restarted.
+    if (not st.session_state.get("learn_started", False)) and (not st.session_state.get("queue")):
+        latest = db_get_latest_teacher_cursor(uid)
+        if latest:
+            try:
+                b = int(latest.get("chapter") or int(st.session_state.teacher_state.get("lastBlock", 1)))
+            except Exception:
+                b = int(st.session_state.teacher_state.get("lastBlock", 1))
+            q = build_teacher_block_queue(
+                questions=questions,
+                progress=progress,
+                block=b,
+                only_unseen=False,
+                only_wrong=False,
+            )
+            if q:
+                st.session_state.learn_plan = {
+                    "mode": "Lehrerpfad",
+                    "teacher_block": b,
+                    "only_unseen": False,
+                    "only_wrong": False,
+                    "category": "Alle",
+                    "subchapter": "Alle",
+                }
+                st.session_state.queue = q
+                try:
+                    li = int(latest.get("last_question_idx") or 0)
+                except Exception:
+                    li = 0
+                st.session_state.idx = max(0, min(li, len(q) - 1))
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
 
     if "learn_plan" not in st.session_state:
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
@@ -1807,20 +1935,56 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     st.rerun()
 
         else:
-            # teacher mode: unlock next block on completion
+            # teacher mode: unlock next block ONLY if all questions in this block were answered correctly at least once
             ts = st.session_state.teacher_state
             b = int(plan.get("teacher_block", int(ts.get("lastBlock", 1))))
-            ts["checkpoints"][str(b)] = len(queue)  # mark completed
-            ts["lastBlock"] = b
 
-            # unlock next block
-            if int(ts.get("unlockedBlock", 1)) <= b and b < max(LEARN_BLOCK_LABELS.keys()):
-                ts["unlockedBlock"] = b + 1
-                ts["checkpoints"].setdefault(str(b + 1), 0)
+            # Enforce: every question in the block must be correct at least once
+            block_qs = [str(qq.get("id")) for qq in questions if _learn_meta(qq)[0] == int(b)]
+            not_ok = db_get_not_correct_once_question_ids(uid, block_qs)
 
-            st.session_state.teacher_state = ts
-            db_upsert_teacher_state(uid, ts)
+            if not_ok:
+                st.warning("Kapitel noch nicht freigeschaltet: Du musst jede Frage dieses Kapitels mindestens einmal korrekt beantworten. Starte jetzt automatisch mit den offenen/falschen Fragen.")
+                # Restart this block with only the not-yet-correct-once questions
+                st.session_state.learn_plan = {
+                    "mode": "Lehrerpfad",
+                    "teacher_block": b,
+                    "only_unseen": False,
+                    "only_wrong": False,
+                    "category": "Alle",
+                    "subchapter": "Alle",
+                }
+                block_queue = build_teacher_block_queue(
+                    questions=[qq for qq in questions if str(qq.get("id")) in set(not_ok)],
+                    progress=progress,
+                    block=b,
+                    only_unseen=False,
+                    only_wrong=False,
+                )
+                st.session_state.queue = block_queue
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
 
+                # update checkpoint + cursor
+                ts["checkpoints"][str(b)] = 0
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+                db_upsert_teacher_cursor(uid, str(b), str(block_queue[0].get("id")) if block_queue else "", 0)
+
+                st.rerun()
+            else:
+                # All correct once -> mark completed and unlock next
+                ts["checkpoints"][str(b)] = len(queue)  # mark completed
+                ts["lastBlock"] = b
+                if int(ts.get("unlockedBlock", 1)) <= b and b < max(LEARN_BLOCK_LABELS.keys()):
+                    ts["unlockedBlock"] = b + 1
+                    ts["checkpoints"].setdefault(str(b + 1), 0)
+
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
             nxt_b = b + 1 if b < max(LEARN_BLOCK_LABELS.keys()) else None
             if nxt_b and nxt_b <= int(ts.get("unlockedBlock", 1)):
                 st.write(f"Nächstes Kapitel: **{LEARN_BLOCK_LABELS.get(nxt_b, nxt_b)}**")
@@ -1997,6 +2161,15 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
                 counters = db_upsert_progress(uid, qid, ok)
                 apply_progress_delta_local(uid, qid, counters)
+
+                # NEW: persist per-question correctness for gating + teacher cursor (refresh-safe)
+                try:
+                    db_upsert_user_question_progress(uid, q, ok)
+                    if plan.get('mode') == 'Lehrerpfad':
+                        b_cur = int(plan.get('teacher_block', _learn_meta(q)[0]))
+                        db_upsert_teacher_cursor(uid, str(b_cur), qid, int(st.session_state.idx))
+                except Exception:
+                    pass
 
                 st.session_state.answered = True
                 st.session_state.last_ok = ok

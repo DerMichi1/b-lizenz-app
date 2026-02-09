@@ -1404,16 +1404,20 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.last_selected_index = i_opt
                 st.session_state.last_correct_index = correct_index
                 st.rerun()
-    else:
-        ok = bool(st.session_state.get("last_ok"))
-        corr_i = st.session_state.get("last_correct_index")
+else:
+    ok = bool(st.session_state.get("last_ok"))
+    corr_i = st.session_state.get("last_correct_index")
+    sel_i = st.session_state.get("last_selected_index")
 
-        if ok:
-            st.success("Richtig")
+    if ok:
+        if sel_i is not None and 0 <= int(sel_i) < len(options):
+            st.success(f"Richtig: {labels[int(sel_i)]}) {options[int(sel_i)]}")
         else:
-            st.error("Falsch")
-            if corr_i is not None and 0 <= int(corr_i) < len(options):
-                st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
+            st.success("Richtig")
+    else:
+        st.error("Falsch")
+        if corr_i is not None and 0 <= int(corr_i) < len(options):
+            st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
 
         w = get_wiki(q)
         with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):

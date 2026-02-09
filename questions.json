@@ -7258,6 +7258,7 @@
     },
     "correctAnswerText": "Quellbewölkung, starke vertikale Luftbewegung, großtropfigem Schauerniederschlag"
   },
+[
   {
     "id": "Q231",
     "category": "Meteorologie",
@@ -7284,15 +7285,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Warmfront ist der Übergangsbereich, in dem warme Luft großräumig über kältere Luft aufgleitet. Weil die Hebung flach und großflächig ist, entstehen zuerst hohe Wolken, später dichte Schichtbewölkung, und der Niederschlag ist eher länger anhaltend als schauerartig. Der Kern ist also nicht „Gewitter“ oder „kurz heftig“, sondern ein gradueller Wetterwechsel mit zunehmender Bewölkung und verschlechterter Sicht.",
+      "merksatz": "Warmfront: erst Schleier, dann Schicht & Regen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Warmfrontprinzip und typischer Ablauf",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "mit einer Windzunahme wegen des kanalisierenden Düseneffekts zu rechnen"
   },
   {
     "id": "Q232",
@@ -7315,15 +7317,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Kaltfront schiebt sich unter Warmluft und zwingt sie schnell zum Aufsteigen. Dadurch ist die Frontzone oft schmal, aber dynamisch: Böen, Turbulenz, Schauer und Gewitter sind wahrscheinlicher als bei einer Warmfront. Hinter der Front folgt die Rückseitenluft: meist kühler, oft bessere Sicht, aber noch ruppig durch Turbulenz und Schauerstaffeln.",
+      "merksatz": "Kaltfront: kurz heftig, Rückseite ruppig.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Kaltfrontprinzip und Rückseitenwetter",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Westwind"
   },
   {
     "id": "Q233",
@@ -7346,15 +7349,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Okklusion entsteht, wenn die schnellere Kaltfront die Warmfront einholt. Die Warmluft wird dabei vom Boden abgehoben; am Boden bleibt eine Mischzone, in der Hebung und Niederschlag großflächig sein können. Praktisch ist das Wetter oft „frontartig“, aber nicht so klar getrennt wie bei einer reinen Warm- oder Kaltfront, weil mehrere Luftmassen und Hebungsarten zusammenwirken.",
+      "merksatz": "Okklusion: Kalt holt Warm ein.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Okklusion (Prinzip und Wetterwirkung)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "im Luv Staubewölkung und im Lee gute Sicht herrschen"
   },
   {
     "id": "Q234",
@@ -7377,15 +7381,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Gewitter brauchen drei Zutaten: Feuchte (damit Kondensation/latente Wärme möglich ist), Labilität (damit Luftpakete von selbst weiter steigen) und einen Auslöser (z.B. Konvergenz, Front, Berghebung), der das erste Aufsteigen startet. Fehlt eine der Zutaten, bleibt es meist bei harmlosen Quellwolken oder sogar blauem Himmel. Das ist für Flugplanung entscheidend: nicht ein Einzelwert, sondern das „Paket“ entscheidet.",
+      "merksatz": "Gewitter = feucht + labil + Auslöser.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Bedingungen/Entstehung und Warnzeichen",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Am Nachmittag"
   },
   {
     "id": "Q235",
@@ -7408,15 +7413,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die größte unmittelbare Gefahr am Boden ist oft nicht der Regenkern, sondern die Böenfront: Kalte Luft strömt aus der Zelle heraus und breitet sich als starke, drehende Böenwalze aus. Diese Zone erzeugt extreme Turbulenz und plötzliche Windwechsel und kann weit vor dem Niederschlag auftreten. Deshalb ist „noch trocken am Startplatz“ kein Sicherheitsargument.",
+      "merksatz": "Böenfront kommt vor dem Regen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Böenfront/Gust Front und Risiken",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Vor Sonnenaufgang"
   },
   {
     "id": "Q236",
@@ -7439,15 +7445,11 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
-      "links": [
-        {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
-        }
-      ]
-    }
+      "explanation": "Radar zeigt Niederschlagsteilchen; es ist sehr gut, um zu sehen, wo Regen/Schauer gerade sind und wie intensiv. Für Gewittergefahr sind aber zusätzlich Entwicklung/Bewegung wichtig: Eine Zelle kann in kurzer Zeit stark wachsen, und Wind in verschiedenen Höhen kann sie schnell verlagern. Das bedeutet: Radar ist ein Baustein, aber ohne Entwicklungstendenz, Blitzaktivität und Wind kann man die Lage leicht unterschätzen.",
+      "merksatz": "Radar zeigt Regen – nicht die ganze Dynamik.",
+      "links": []
+    },
+    "correctAnswerText": "Eine Änderung der Windrichtung oder Windgeschwindigkeit innerhalb eines Höhenintervalls"
   },
   {
     "id": "Q237",
@@ -7470,15 +7472,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Thermik entsteht, wenn die Sonne den Boden ungleichmäßig erwärmt: dunkle Flächen, Südhänge, Fels oder trockenes Gelände heizen stärker. Dadurch lösen sich Warmluftpakete ab und steigen. Wind kann das Ablösen stören oder organisieren, aber ohne Bodenerwärmung gibt es meist keine typische Tages-Thermik. Genau deshalb sind Tageszeit, Bewölkung und Untergrund so wichtig.",
+      "merksatz": "Thermik startet am Boden – durch Sonne.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – Entstehung durch Bodenerwärmung",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "durch  Windimpuls  in  Rotation  versetzte,  kleinräumig  aufwirbelnde  Luftmassen,  entstanden  im Lee, kann Drachen, Schirme mit Piloten, etc. unkontrolliert in die Luft reißen, saugefährlich"
   },
   {
     "id": "Q238",
@@ -7501,15 +7504,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Thermikschlauch ist ein zusammenhängender Aufwindbereich, in dem mehrere Aufwinde „hintereinander“ stehen oder verbunden sind. Er entsteht, wenn Auslösebereiche und Wind so zusammenspielen, dass die Steigzonen entlang einer Linie organisiert werden (z.B. an Hangkanten, Konvergenzen oder Übergängen im Gelände). Für die Taktik heißt das: nicht nur einen Punkt kreisen, sondern entlang der Linie arbeiten.",
+      "merksatz": "Schlauch = Steigen in einer Linie.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Alpine Meteorologie – organisierte Konvektion/Schauerlinien",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/420566_Alpine_Meteorologie-1.pdf#page=55"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q239",
@@ -7532,15 +7536,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wenn Wind in der Höhe deutlich stärker ist als bodennah, wird Thermik oben abgeschert: Der Aufwind kippt und wird in Windrichtung auseinandergezogen. Das macht das Steigen ruppiger und die Wolken „fahnen“ stärker aus. Gleichzeitig liegt der beste Einstieg in den Aufwind eher auf der Anströmseite, weil der Kern mit dem Wind versetzt ist. Das ist kein Detail, sondern ein typischer Grund, warum Thermik bei starkem Höhenwind schwer zu zentrieren ist.",
+      "merksatz": "Starker Höhenwind = Abscheren/Versatz.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Thermik von A bis Z – Einfluss von Wind/Höhenwind",
+          "url": "https://www.dhv.de/media/seiten/07_wetter/Wetterwissen/Artikel/Thermik_von_A_bis_Z.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Es  besteht  die  Gefahr,  dass  der  starke  Höhenwind  durch  die  thermische  Aktivität  auch  in deutlich tieferen Höhen vordringt und kritische Flugbedingungen schafft."
   },
   {
     "id": "Q240",
@@ -7563,15 +7568,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wenn eine Cumuluswolke sehr schnell vertikal wächst, dunkler wird und die Basis stark strukturiert wirkt, ist das ein Zeichen für starke Aufwinde und zunehmende Gewittergefahr. In so einer Phase kann sich das Wetter in Minuten drehen: Wind nimmt zu, Turbulenz steigt, und Niederschlag/Blitz können folgen. Für Gleitschirm ist die sichere Konsequenz: frühzeitig aus dem Bereich raus, nicht „noch schnell Höhe machen“.",
+      "merksatz": "Schnelles Wachsen = raus aus der Zone.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Überentwicklung/Warnzeichen und Zeitverlauf",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "An seiner Luvseite"
   },
   {
     "id": "Q241",
@@ -7594,15 +7600,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Mit Gegenwind am Berg ist das Hauptproblem das Lee hinter dem Kamm: Lee (Lee = windabgewandt) erzeugt Turbulenz, Rotoren und starkes Sinken. Wenn du den Kamm zu niedrig anfliegst, wirst du in diese Leezone gedrückt, bevor du sicher ausweichen kannst. Darum muss die Anflughöhe so gewählt sein, dass du bei Windversatz und Absinken den Kamm sicher überhöhen kannst und nicht in den Rotor gerätst. „Knapp drüberfliegen“ ist riskant, weil kleine Fehler sofort ins Lee führen; „voll beschleunigt“ löst das Problem nicht – Geschwindigkeit ersetzt keine sichere Überhöhung.",
+      "merksatz": "Gegenwind am Berg: Kamm deutlich überhöhen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Stau & Föhn – Lee/Rotor als Hauptgefahr",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/F%C3%B6hn/6_2011_172_stau_und_foehn.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Er muss deutlich über dem Kamm-Niveau des Berges ankommen, um nicht ins Lee zu geraten."
   },
   {
     "id": "Q242",
@@ -7625,15 +7632,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "700 hPa ist die Druckfläche um ca. 3000 m MSL (MSL = Höhe über Meeresspiegel). 20 kt sind in den Bergen oft schon ein Bereich, in dem Leeturbulenzen und Rotoren streckenrelevant werden, besonders wenn die Strömung quer über Kämme/Täler muss. Für Streckenflüge ist das unabhängig von der geplanten Flugrichtung kritisch: Selbst wenn der Wind „passt“, bleibt das Risiko von Turbulenz, Abscheren der Thermik und unplanbaren Tal-/Kamm-Effekten hoch. Deshalb ist die sichere Einschätzung: insgesamt zu viel für sichere Streckenflüge.",
+      "merksatz": "20 kt auf 3000 m: im Gebirge meist zu viel.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Grundlagen Höhenwind – Bedeutung für Turbulenz/Flugpraxis",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/08_2011_171_grundlagen_hoehenwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "zuviel"
   },
   {
     "id": "Q243",
@@ -7656,15 +7664,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Wärmegewitter sind konvektiv: Sie entstehen, wenn starke Sonnenerwärmung die Luftmasse labil macht (labil = Aufwinde können weiter steigen), genügend Feuchte vorhanden ist und der Wind nicht alles „zerreißt“. Zu viel Wind würde die Zellen organisieren oder verschieben, aber typische Wärmegewitter brauchen keine Front als Hauptmotor, sondern Energie durch Erwärmung + Feuchte + Labilität. „Stabilität“ passt nicht, weil stabile Schichtung Aufwinde abwürgt.",
+      "merksatz": "Wärmegewitter: warm + feucht + labil, wenig Wind.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Entstehung konvektiver Gewitter",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Hohe Temperatur, hohe Luftfeuchte, geringer Wind, hohe Labilität"
   },
   {
     "id": "Q244",
@@ -7687,15 +7696,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Im Sommer sind Gewitter oft an sehr warme, feuchte Luft gekoppelt, die zusätzliche Energie liefert und schnell Sättigung erreicht. Luftmassen, die über warmen Meeren Feuchte aufnehmen und dann nach Mitteleuropa geführt werden, bringen daher häufig Gewitterneigung mit. Dagegen ist trockene Kontinentalluft zwar warm, aber oft feuchtearm; kühle Nordseeluft ist häufig stabiler und energieärmer.",
+      "merksatz": "Warm + feucht aus Süden = Gewitterfutter.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten/Luftmassen – warme, feuchte Luft und Gewitterneigung",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Mittelmeer-Biskayaluft"
   },
   {
     "id": "Q245",
@@ -7718,15 +7728,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Sehr warme und feuchte Luft gelangt bei uns im Sommer typischerweise mit Strömungen aus dem südlichen bis südwestlichen Quadranten an: aus dem Mittelmeerraum und teils weiter westlich über die Biskaya. Diese Richtung bringt Wärme (lange über warmen Regionen) und Feuchte (über dem Meer aufgenommen). Aus Ost/Nordost kommt häufiger trockenere Kontinentalluft; aus Südost kann es warm sein, aber die typische Kombination „sehr warm + sehr feucht“ ist eher an den südlichen bis südwestlichen Zustrom gekoppelt.",
+      "merksatz": "Sommer-„Sauna“ kommt meist aus S–SW.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten/Luftmassen – Zufuhr warmer, feuchter Luft",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Süd bis Südwest"
   },
   {
     "id": "Q246",
@@ -7749,15 +7760,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Überentwicklung“ bedeutet im Flugwetter: Quellwolken wachsen nicht nur bis zu harmlosen Cumulus, sondern entwickeln stark vertikal weiter – bis zu Schauer- oder Gewitterwolken. Das erkennt man an schnell zunehmender Mächtigkeit, dunkler werdender Basis und zunehmend „turmiger“ Struktur. Es beschreibt also den Übergang von thermischer Quellbewölkung zu wetterwirksamer Konvektion mit Schauern/Gewittern, nicht das Aufgleiten an einer Inversion oder die Bildung eines Sturmtiefs.",
+      "merksatz": "Überentwicklung = Cumulus wird Schauer/Gewitter.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Überentwicklung und Warnzeichen",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Starke Vertikalentwicklung der Cumuluswolken zu Schauerwolken"
   },
   {
     "id": "Q247",
@@ -7780,15 +7792,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Hagel entsteht in kräftigen Gewitteraufwinden: In der Vereisungszone werden unterkühlte Tröpfchen (unterkühlt = flüssig trotz <0°C) an Eiskristallen angefroren. Durch starke Aufwinde werden die Partikel mehrfach nach oben getragen, wachsen Schicht um Schicht und fallen erst, wenn sie zu schwer für den Aufwind werden. „Beim Aufschlag am Boden“ bildet sich kein Hagel; Cirruswolken haben keine starken Aufwinde, die große Körner aufbauen.",
+      "merksatz": "Hagel wächst im Gewitteraufwind, Schicht für Schicht.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Hagelbildung im Cumulonimbus",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "durch  Zusammenwachsen  von  unterkühlten  Wassertropfen  mit  Eiskristallen  im  Aufwind  von Cumulonimbuswolken"
   },
   {
     "id": "Q248",
@@ -7811,15 +7824,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ohne feuchtlabile Schichtung gibt es keine echte Gewitterentwicklung: Feuchtlabil heißt, dass gesättigte Luftpakete beim Weiteraufstieg gegenüber der Umgebung begünstigt bleiben (sie steigen weiter). Nur dann kann eine Wolke hochreichend werden und in die Vereisungszone wachsen. Starke vertikale Strömung kann Folge sein, aber als Voraussetzung brauchst du die thermodynamische Möglichkeit, dass Aufwinde bis sehr weit nach oben tragen; stabile oder nur trockenlabile Profile reichen für Gewitter meist nicht aus.",
+      "merksatz": "Gewitter braucht hochreichend feuchtlabile Luft.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – feuchtlabil als Grundvoraussetzung",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "hoch reichende, feuchtlabile Schichtung"
   },
   {
     "id": "Q249",
@@ -7842,15 +7856,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Für Gewitter ist entscheidend, dass ein aufsteigendes Luftpaket nicht sofort „ausgebremst“ wird. Das klappt am besten, wenn die Umgebungstemperatur mit der Höhe stark abnimmt: Dann bleibt ein aufsteigendes, erwärmtes Paket länger wärmer/leichter als die Umgebung und der Aufwind kann kräftig werden. Isothermie oder Inversion wirken dagegen stabilisierend (stabil = Aufwinde werden gedämpft), und eine geringe Temperaturabnahme liefert zu wenig Auftriebspotenzial.",
+      "merksatz": "Je steiler die Abkühlung, desto eher Gewitter.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Labilität durch starke Temperaturabnahme",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Starke Temperaturabnahme mit der Höhe"
   },
   {
     "id": "Q250",
@@ -7873,15 +7888,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Böenwalze ist der bodennahe Ausfluss kalter Luft aus dem Gewitter (Kaltluftausfluss = kalte, dichte Luft breitet sich wie eine „Walze“ aus). Dadurch entstehen sehr starke, abrupt drehende und extrem turbulente Winde, die auch weit entfernt vom Niederschlagskern wirksam sein können. In Tälern kann sich dieser Starkwind zusätzlich kanalisieren (Kanalisierung = Wind wird im Tal beschleunigt/gebündelt). Gleichzeitig kann die Ausflusskante Luft am Boden anheben und neue Wolken/Schauerlinien auslösen, sodass das Gefahrenfeld größer wird als nur der Regenkern.",
+      "merksatz": "Böenwalze: weitreichend, drehend, brutal turbulent.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Böenfront/Kaltluftausfluss und Gefahren",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q251",
@@ -7904,15 +7920,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Extremes Steigen und extremes Sinken treten vor allem dann gemeinsam auf, wenn ein Gewitter bereits Niederschlag produziert: Der Aufwind schiebt feuchte Luft schnell nach oben, während gleichzeitig abgekühlte Luft durch Regen/Hagel nach unten rauscht (Fallwind = absinkende, kalte Luft). Genau diese Kombination aus starkem Aufwindkern und starkem Abwind-/Ausflussbereich macht die Luftbewegungen maximal und für Gleitsegel unbeherrschbar.",
+      "merksatz": "Regen im Gewitter = Aufwind + Fallwind extrem.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Aufwind, Fallwind und Böenfront",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Reifestadium"
   },
   {
     "id": "Q252",
@@ -7940,15 +7957,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf dem Bild siehst du eine einzelne, kräftig nach oben wachsende Quellwolke mit klarer „Blumenkohl“-Struktur, aber ohne Amboss und ohne sichtbare Niederschlagsfahnen. Das ist typisch für die frühe Entwicklungsphase: Der Aufwind dominiert noch, es gibt noch keinen ausgeprägten Niederschlagskern und damit auch noch keinen großflächigen Kaltluftausfluss am Boden.",
+      "merksatz": "Nur Turm, kein Amboss/kein Regen = frühe Phase.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Entwicklungsphasen und sichtbare Merkmale",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Aufbaustadium"
   },
   {
     "id": "Q253",
@@ -7976,15 +7994,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Die Wolke wirkt deutlich mächtiger und breiter, der obere Bereich beginnt seitlich auszuscheren und die Basis wirkt dichter/geschlossener. Das passt zu einer Phase, in der die Wolke bereits hochreichend ist und in der Vereisungszone arbeitet (Vereisungszone = Bereich mit Temperaturen unter 0 °C, wichtig für Niederschlag/Hagel). In dieser Phase sind starke Auf- und Abwinde gleichzeitig möglich und die Umgebung wird durch Böenfront/Kaltluftausfluss schnell gefährlich.",
+      "merksatz": "Wenn’s breit und mächtig wird: volle Gewitterdynamik.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Cumulonimbus, Ambossansatz und Reife",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Reifestadium"
   },
   {
     "id": "Q254",
@@ -8012,15 +8031,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Im Foto strömt der Talwind im Haupttal von links nach rechts. Bereiche A und B liegen so, dass der Wind hinter Geländeformen „abreißt“: Hinter Kanten/Vorsprüngen entsteht Leeturbulenz (Lee = windabgewandt; Rotor = rollende, turbulente Luftwalze). In solchen Zonen sind plötzliches Sinken, Klapper und unberechenbare Versätze typisch – das ist kein „Aufwind-Spielplatz“, sondern ein Meidebereich.",
+      "merksatz": "Talwind + Kante = Lee/Rotor meiden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Talwind – Strömung im Tal und lokale Effekte",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/07_2011_170_talwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "sollten  von  den  Fliegern  unbedingt  gemieden  werden,  weil  hier  der  Talwind  ausgeprägte Leegebiete schafft."
   },
   {
     "id": "Q255",
@@ -8048,15 +8068,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Am Waldrücken C wechselst du von einer Seite der Strömung auf die andere. Dabei gibt es zwei gleichzeitige Risiken: Auf der Anströmseite kann dynamischer Aufwind entstehen (dynamisch = Wind wird am Hang nach oben abgelenkt), direkt hinter der Kante kann aber sofort Leeturbulenz mit Sinken auftreten. Weil du beim Einfliegen ins Tal zusätzlich Versatz durch den Talwind bekommst, brauchst du vorab einen Plan B (Ausweichen/Umkehr), und du darfst nicht so tief geraten, dass dich ein möglicher Abwindbereich an den Hang oder in den Wald drückt.",
+      "merksatz": "Über Kanten: Lift vorn, Lee hinten – Plan B!",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Talwind – Prallhang, Versatz und Leeeffekte",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/07_2011_170_talwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Alle Antworten sind richtig"
   },
   {
     "id": "Q256",
@@ -8084,23 +8105,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Start/Landung außerhalb genehmigter Flugplätze ist grundsätzlich erlaubnispflichtig.\n- Für nicht motorgetriebene Luftsportgeräte gelten besondere Zuständigkeiten (Beauftragter nach § 31c LuftVG).\n- Not-/Sicherheitslandungen sind separat geregelt; trotzdem: Eigentümerrechte und Behördenauflagen beachten.",
-      "merksatz": "Außenstart/-landung: grundsätzlich nur mit Erlaubnis.\nZuständigkeit prüfen.",
+      "explanation": "Im Tal ist der Wind nicht überall gleich: Er wird in Engstellen und entlang von Hängen oft schneller und böiger (Kanalisierung = Strömung wird im Tal gebündelt und beschleunigt). Der Bereich E liegt im breiteren Talboden fern von den markanten Kanten/Einengungen und ist dadurch typischerweise weniger von beschleunigten Talwindbändern betroffen. Für eine Außenlandung zählt vor allem: möglichst gleichmäßiger Wind, viel Platz, wenig Turbulenzquellen.",
+      "merksatz": "Landung: breit + ruhig = Talboden statt Engstelle.",
       "links": [
         {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 25 Start und Landung außerhalb genehmigter Flugplätze (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__25.html"
-        },
-        {
-          "title": "Luftverkehrsgesetz (Deutschland) – § 31c Beauftragter für Luftsportgeräte (Gesetze-im-Internet)",
-          "url": "https://www.gesetze-im-internet.de/luftvg/__31c.html"
-        },
-        {
-          "title": "Luftfahrtgesetz (Österreich) – § 10 (RIS)",
-          "url": "https://www.ris.bka.gv.at/NormDokument.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10011306&Paragraf=10"
+          "title": "DHV: Talwind – Kanalisierung/Speed in Engstellen",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/07_2011_170_talwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Den mit E gekennzeichneten Bereich wählen, weil hier nicht mit erhöhten Talwindgeschwindigkeiten zu rechnen ist."
   },
   {
     "id": "Q257",
@@ -8123,15 +8137,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Gebirge erwärmen sich bei Sonne schneller als das umliegende Flachland. Dadurch steigt über den Alpen die Luft stärker auf, der Luftdruck am Boden sinkt und es entsteht ein thermisch bedingtes Tief über dem Gebirge (thermisch = durch Erwärmung verursacht). Dieses Druckgefälle ist ein Hauptmotor für den tagesperiodischen Zustrom von Luft in die Täler.",
+      "merksatz": "Gebirge heizt schneller → Druck fällt → Sog ins Gebirge.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Talwind – thermischer Druckunterschied als Antrieb",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/07_2011_170_talwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "ein Hitzetief bildet"
   },
   {
     "id": "Q258",
@@ -8154,15 +8169,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Talwinde sind nicht nur „Nebenprodukt“ einzelner Thermikblasen. Der Hauptantrieb ist der großräumige thermische Druckunterschied zwischen Flachland und Gebirge: Über dem Gebirge sinkt tagsüber der Druck stärker, dadurch strömt Luft aus dem Vorland in Richtung des niedrigeren Drucks in die Täler. Auch wenn die Thermik schwach ist (z.B. durch hohe Bewölkung), kann dieser Druckantrieb trotzdem einen spürbaren Talwind liefern.",
+      "merksatz": "Talwind kommt vom Druckgefälle – nicht nur von Bärten.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Talwind – Druckgefälle Flachland↔Gebirge",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/07_2011_170_talwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ja,  Talwinde  entstehen,  weil  Luftmassen  aus  dem  Flachland  in  Richtung  des  tieferen  Drucks (Hitzetief) in die Alpentäler strömen."
   },
   {
     "id": "Q259",
@@ -8185,15 +8201,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Talwind ist nicht komplett von der Höhenströmung getrennt. Wenn die Höhenströmung in ähnlicher Richtung wie die Talachse wirkt oder durch Überlagerung in die Talströmung „durchgreift“ (Durchgriff = Höhenwind beeinflusst bodennahen Wind), kann das den Talwind deutlich verstärken. In einem NO–SW-Tal kann eine kräftige nordöstliche Strömung deshalb zusätzliche Geschwindigkeit und Böigkeit in die Talströmung bringen – oft mit Turbulenzzunahme an Kanten und Seitentälern.",
+      "merksatz": "Höhenwind auf Talachse = Talwind-Boost.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Höhenwind – Bodenwirkung und Durchgriff",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/08_2011_171_grundlagen_hoehenwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die Höhenströmung kann zu einer deutlichen Verstärkung des Talwindes führen."
   },
   {
     "id": "Q260",
@@ -8216,15 +8233,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ostlagen bringen oft trockene, relativ kühle Festlandsluft. Diese Luft kann gleichzeitig starke Temperaturunterschiede zwischen Boden und Höhe erzeugen (Temperaturgradient = wie schnell es mit der Höhe kälter wird), was Thermik begünstigt, und dazu oft eine spürbare Strömung in der Höhe. Das Ergebnis: Viele Aufwinde sind zwar vorhanden, werden aber durch den Wind abgeschert (Abscheren = Aufwind kippt/zerfetzt), dadurch entstehen harte Turbulenz, unruhige Bärte und ruppige Bedingungen – besonders an Mittelgebirgen und in den Alpen an Geländekanten.",
+      "merksatz": "Ostlage: Thermik + Scherung = ruppig.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Wind in den Ostalpen – Turbulenz durch Wind und Gelände",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Wind/6_2010_167_windeinfluss_schluesselstellen_ostalpen.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Trockene,  kühle  Festlandsluft,  die  einen  großen  Temperaturgradienten  aufweist,  bewirkt markante  Thermikausbildung,  die  durch  relativ  hohe  Windgeschwindigkeit  zerrissen  und turbulent wird."
   },
   {
     "id": "Q261",
@@ -8252,15 +8270,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Der Talwind kommt aus 360° und strömt damit von Norden in die Täler hinein. Südexponierte Hänge (Südflanken = sonnenbeschienene, südseitige Hänge) liegen bei Nordwind oft im Lee (Lee = windabgewandt), weil der Wind über Grate und Rippen abreißt. In solchen Leeabschnitten entstehen Rotoren (Rotor = rollende Turbulenzwalze) und stark wechselndes Sinken/Steigen, besonders tiefer im Tal, wo Geländeformen den Wind zusätzlich verwirbeln. Deshalb ist die Kombination „Nord-Talwind + Südflanke“ fliegerisch heikel und kann sehr turbulent sein.",
+      "merksatz": "Nord-Talwind macht Südflanke schnell zum Lee.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Talwind – Strömung, Lee und lokale Turbulenz",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/07_2011_170_talwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Der  Talwind  kann  an  den  tiefer  gelegenen  sonnenbeschienenen  Südflanken  ausgeprägte  und sehr turbulente Leegebiete schaffen."
   },
   {
     "id": "Q262",
@@ -8288,15 +8307,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Hier treffen zwei unterschiedliche Windregime zusammen: Talwind aus Norden und gleichzeitig Höhenwind aus Süden. Das bedeutet Windscherung (Windscherung = Windrichtung oder -stärke ändert sich stark mit der Höhe). Genau im Kammbereich kann sich dadurch starke Turbulenz bilden, weil sich Strömungen überlagern und hinter Graten abreißen. Praktische Konsequenz: Kämme nicht „blind“ anfliegen, sondern vor dem Einfliegen Windzeichen in mehreren Höhen prüfen und mit Versatz rechnen.",
+      "merksatz": "Talwind gegen Höhenwind = Scherung am Kamm.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Grundlagen Höhenwind – Durchgriff/Scherung und Turbulenz",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/08_2011_171_grundlagen_hoehenwind.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Höhenwind  aus  südlicher  Richtung,  Talwind  aus  Nord.  Vorsicht,  Windscherung  mit  starken Turbulenzen im Kammbereich möglich, beim Anflug sorgfältiger Windcheck nötig."
   },
   {
     "id": "Q263",
@@ -8319,15 +8339,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Großräumiges Aufsteigen entsteht dort, wo Luft am Boden zusammenströmt und nach oben ausweichen muss. Das ist typisch für Tiefdruckgebiete: Am Boden wird Luft in das Zentrum geführt, steigt auf, kühlt ab und kann Wolken/Niederschlag bilden. Ein Hoch ist das Gegenbild: dort sinkt Luft großräumig ab (Absinken = Luft bewegt sich nach unten), was Wolkenbildung eher unterdrückt.",
+      "merksatz": "Tief = Konvergenz am Boden → Aufsteigen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten/Idealzyklone – Aufsteigen im Tief, Absinken im Hoch",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "In Tiefdruckgebieten"
   },
   {
     "id": "Q264",
@@ -8350,15 +8371,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Auf der Nordhalbkugel lenkt die Corioliskraft (Coriolis = Ablenkung bewegter Luft durch Erdrotation) die Strömung so ab, dass sich um Druckzentren eine typische Drehrichtung ergibt. Beim Tief strömt Luft spiralförmig zum Zentrum und wird dabei in die charakteristische Drehrichtung abgelenkt; beim Hoch strömt Luft vom Zentrum weg und dreht entgegengesetzt. Diese Regel gilt bodennah als Standardbild der Wetterkarte.",
+      "merksatz": "Nordhalbkugel: Tief linksrum, Hoch rechtsrum.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten/Idealzyklone – Strömung um Hoch und Tief",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Tief gegen den Uhrzeigersinn, Hoch im Uhrzeigersinn"
   },
   {
     "id": "Q265",
@@ -8381,15 +8403,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Ein Zwischenhoch ist kein dauerhaftes Hoch, sondern ein vorübergehender Bereich relativ höheren Drucks zwischen zwei Tiefs. In der Praxis bringt es oft ein kurzes „Wetterfenster“ mit etwas Beruhigung, bevor das nächste Tief wieder Einfluss nimmt. Es ist also eine Lagebeschreibung auf der Wetterkarte: zwischen Tiefdruckgebieten liegt kurzzeitig ein Druckrücken mit höherem Druck.",
+      "merksatz": "Zwischen zwei Tiefs kann kurz ein Hochkeil liegen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten/Idealzyklone – Zwischenhoch/Druckrücken im Verlauf",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Relativ hoher Druck zwischen Tiefdruckgebieten"
   },
   {
     "id": "Q266",
@@ -8412,15 +8435,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Cirrus sind hohe Eiswolken (Cirrus = sehr hohe, faserige Wolken aus Eiskristallen). Wenn sie allmählich dichter werden, ist das typisch für einen Wolkenaufzug durch flaches, großräumiges Aufgleiten. Genau dieses Aufgleiten passiert, wenn warme Luft über kältere Luft hinweg aufsteigt; dadurch entstehen zuerst hohe Wolken, später mittelhohe und schließlich tiefere Schichtwolken mit Niederschlag. Eine Kaltfront zeigt sich eher mit markanter, schnellerer Wolkenkante und schauerartigem Charakter.",
+      "merksatz": "Cirrus-Verdichtung = Aufzug durch Aufgleiten.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Fronten – Wolkenaufzug und Warmfrontzeichen",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Warmfront an"
   },
   {
     "id": "Q267",
@@ -8443,15 +8467,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Bei einer Warmfront ist die warme Luft leichter und kann die dichtere Kaltluft am Boden nicht einfach verdrängen. Stattdessen gleitet sie auf der Kaltluft auf (Aufgleiten = warme Luft steigt flach über kalte Luft). Diese flache Hebung erzeugt den typischen, weit vorauslaufenden Wolkenaufzug und häufig länger anhaltenden Niederschlag, weil eine große Fläche langsam gehoben wird.",
+      "merksatz": "Warmfront = Warmluft gleitet auf Kaltluft.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Warmfrontprinzip (Aufgleiten)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Warmluft gleitet auf kältere Luft auf"
   },
   {
     "id": "Q268",
@@ -8474,15 +8499,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Die ersten Wolken eines Warmfrontaufzuges sind meist hohe Wolken wie Cirrostratus und danach Altostratus. Diese Wolken erscheinen sehr weit vor der eigentlichen Frontlinie, weil das Aufgleiten großräumig und flach ist. Typische Entfernungen liegen im Bereich einiger hundert Kilometer bis weit über 500 km. Darum gilt: Wenn du erst Cs/As siehst, ist die Front noch nicht „gleich da“, aber sie ist bereits auf dem Weg und der Wettertrend ist klar.",
+      "merksatz": "Hohe Vorboten kommen hunderte km vor der Front.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Fronten – Ausdehnung des Warmfront-Wolkenaufzugs",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "400 - 800 km"
   },
   {
     "id": "Q269",
@@ -8505,15 +8531,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- VFR nur bei Einhaltung der Mindest-Sichtwetterbedingungen (Flugsicht/Wolkenabstand).\n- In kontrollierten Zonen gelten zusätzliche Mindestwerte (z. B. Wolkenuntergrenze/Bodensicht), sofern keine Freigabe erteilt ist.\n- Bei Nacht-VFR gelten zusätzliche Bedingungen (u. a. Flugplanpflicht außerhalb Platzumgebung).",
-      "merksatz": "VFR: Sicht + Wolkenabstand einhalten.\nCTR nur mit passenden Minima/Freigabe.",
+      "explanation": "Warmfrontbewölkung entsteht aus dem flachen Aufgleiten: zuerst sehr hohe Wolken (Eiswolken), dann zunehmend dickere Schichtbewölkung in mittleren Höhen, und näher an der Front dichte Niederschlagswolken. Typisch ist daher die Abfolge von hohen Schleierwolken über ausgedehnte Schichtwolken bis zu Nimbostratus (Nimbostratus = dunkle, flächige Regenwolke mit Dauerniederschlag). Haufenwolken und Gewitterwolken gehören eher zu labilen Lagen oder Kaltfronten.",
+      "merksatz": "Warmfront: Schleier → Schicht → Dauerregenwolke.",
       "links": [
         {
-          "title": "AIP Austria – ENR 1.2 Visual Flight Rules (PDF)",
-          "url": "https://eaip.austrocontrol.at/lo/251127/PART_2/LO_ENR_1_2_en.pdf"
+          "title": "DHV: Fronten – typische Warmfront-Wolkenarten",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Ci, Cs, As, Ns"
   },
   {
     "id": "Q270",
@@ -8536,15 +8563,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Vor einer Warmfront nimmt die Bewölkung schrittweise zu und die Wolkenuntergrenze sinkt. Der Niederschlag setzt meist als flächiger Dauerniederschlag ein und hält länger an. Der Wind frischt oft auf und dreht in der Frontnähe, weil das Druckfeld der Zyklone übergreift. Schauerartige Niederschläge und böiger Nordwest auf der Rückseite passen eher zur Kaltfront; ein Szenario mit eingebetteten Gewitterzellen ist kein „Idealbild“ der Warmfront.",
+      "merksatz": "Warmfront: dichter, tiefer, länger nass.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Warmfront-Wetter im Idealmodell",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Wolkenaufzug und Wolkenverdichtung, absinkende Wolkenuntergrenze, einsetzender Dauerniederschlag, auffrischender Wind um Südwest"
   },
   {
     "id": "Q271",
@@ -8567,15 +8595,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Dicht werdende Cirren (Cirren = sehr hohe, faserige Eiswolken) sind oft der erste sichtbare Teil eines großräumigen Wolkenaufzugs: Warme Luft gleitet flach über kältere Luft auf (Aufgleiten = langsame Hebung über großer Fläche). Dadurch nimmt die Bewölkung schrittweise zu und die direkte Sonneneinstrahlung wird gedämpft; damit wird die Bodenerwärmung schwächer und die Thermik lässt typischerweise nach. Das ist kein „in einer Stunde muss es regnen“, sondern ein Trendhinweis: Wetter wird stabiler/schichtiger und es nähert sich eine Frontlage.",
+      "merksatz": "Cirren ziehen zu → Frontaufzug, Thermik schwächer.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Warmfront-Wolkenaufzug (Cirren→Schicht)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Die  Thermik  verschlechtert  sich,  da  die  Cirren  die  Einstrahlung  unterbinden.  Es  nähert  sich wahrscheinlich eine Warmfront."
   },
   {
     "id": "Q272",
@@ -8598,15 +8627,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Zyklone ist ein Tiefdrucksystem mit Fronten (Zyklone = wanderndes Tief mit Warm- und Kaltfront). Zwischen Warmfront und Kaltfront liegt der Bereich, in dem am Boden noch die warme Luftmasse „eingeschlossen“ ist. Dort ist die Luft milder als in der Kaltluft, aber der Bereich steht bereits unter dem Einfluss des Tiefs (Druckgradient/Wind), und die nächste Front folgt typischerweise nach.",
+      "merksatz": "Zwischen den Fronten liegt der warme Luftkeil.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Idealzyklone und Bereich zwischen Warm/Kaltfront",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Warmsektor"
   },
   {
     "id": "Q273",
@@ -8629,15 +8659,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Okklusion bedeutet, dass die schnellere Kaltfront die Warmfront einholt. Dabei wird die warme Luft vom Boden abgehoben und liegt „oben“ zwischen den kälteren Luftmassen. Für das Wetter heißt das: Frontcharakter bleibt, aber es ist nicht mehr eine reine Warm- oder Kaltfront, weil die Warmluft am Boden nicht mehr direkt vorhanden ist. Das erklärt auch, warum Okklusionen oft großflächige Bewölkung und Niederschlag bringen können.",
+      "merksatz": "Okklusion: Kaltfront holt Warmfront ein.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Okklusion (Einhaulen der Warmfront)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Eine  Kaltfront  holt  die  voraus  laufende  Warmfront  ein,  wobei  die  Warmluft  vom  Boden abgehoben wird."
   },
   {
     "id": "Q274",
@@ -8660,15 +8691,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Länger anhaltender Niederschlag ist typisch, wenn die Hebung großräumig und flach ist. Genau das passiert, wenn warme Luft langsam über kältere Luft aufgleitet: Die Aufwärtsbewegung ist gleichmäßig über eine große Strecke, dadurch entstehen ausgedehnte Schichtwolken und flächiger Regen/Schnee. Bei Kaltfronten ist die Hebung meist steiler und schmaler, daher sind die Niederschläge häufiger schauerartig und kürzer, auch wenn sie intensiv sein können.",
+      "merksatz": "Flaches Aufgleiten macht Dauerregen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Warmfront: flache Hebung, Landregen",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "einer Warmfront"
   },
   {
     "id": "Q275",
@@ -8691,15 +8723,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Nach dem Durchzug einer Kaltfront strömt kältere Luft nach (Rückseitenluft = Luft nach der Frontpassage). Diese Luft ist oft noch labil (labil = Aufwinde können weiter steigen), deshalb bilden sich eher Quellwolken (Cu = Cumulus, Haufenwolken) mit einzelnen Schauern. Gleichzeitig lockert es zwischen den Schauern häufig auf und die Sicht wird in der Kaltluft meist besser. Flächige Schichtbewölkung mit dauerhaftem Regen gehört eher zur Warmfront bzw. zum Vorfeld, nicht zur typischen Kaltfront-Rückseite.",
+      "merksatz": "Kaltfront-Rückseite: Auflockerung + Cumuli + Schauer.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Kaltfront und typisches Rückseitenwetter",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Auflockernde Bewölkung und Übergang zu Cu-Bewölkung mit noch einzelnen Schauern"
   },
   {
     "id": "Q276",
@@ -8722,15 +8755,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Eine Luftmasse wird so bezeichnet, dass man sofort zwei Dinge erkennt: Wo sie entstanden ist und welche Eigenschaften sie unterwegs „mitgenommen“ hat. Der Ursprungsort prägt Temperatur (z.B. polar vs. tropisch), der zurückgelegte Weg prägt die Feuchte (z.B. über Meer feuchter, über Land trockener) und oft auch Stabilität. Deshalb reicht „nur Ursprung“ oder „nur Weg“ nicht – beides zusammen erklärt, warum die Luftmasse heute so ist.",
+      "merksatz": "Name der Luftmasse = Herkunft + Wegprägung.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Luftmassen, Ursprung und Prägung auf dem Weg",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Vom Ursprungsort und dem Weg, den sie zurückgelegt hat"
   },
   {
     "id": "Q277",
@@ -8753,15 +8787,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "In einem sommerlichen Hoch sinkt Luft großräumig ab (Absinken = Luft bewegt sich nach unten). Beim Absinken wird die Luft komprimiert und dadurch wärmer (adiabatische Erwärmung = Erwärmung durch Druckzunahme ohne Wärmeaustausch). Das führt häufig zu einer Inversion (Inversion = oben wärmer als unten), die wie ein Deckel wirkt: Wolken werden „ausgetrocknet“ und lösen sich eher auf, und Thermik wird oft begrenzt. Das ist der typische Mechanismus für die oft stabile, ruhige Hochdruckphase.",
+      "merksatz": "Absinken wärmt → Inversion → Wolken weg.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Hochdruck: Absinken, Inversion, Wolkenauflösung",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Erwärmung, Inversionsbildung, Wolkenauflösung"
   },
   {
     "id": "Q278",
@@ -8784,15 +8819,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Stationäre Hochdrucklagen haben häufig großräumiges Absinken. Dieses Absinken trocknet die Luft und löst vorhandene Wolken eher auf, weil sinkende Luft sich erwärmt und die relative Feuchte fällt (relative Feuchte = Verhältnis von aktuellem Wasserdampf zur maximal möglichen Menge bei dieser Temperatur). Deshalb ist es oft heiter. Das ist kein „hoher Druck verhindert Wolken physikalisch“, sondern ein Effekt der vertikalen Bewegung im Hoch.",
+      "merksatz": "Im Hoch sinkt Luft → trockener → klarer.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Hochdruck: Absinken führt zu Wolkenauflösung",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "im Hoch ein Absinken mit Wolkenauflösung vorherrscht"
   },
   {
     "id": "Q279",
@@ -8815,15 +8851,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "„Rückseitenwetter“ beschreibt die Wetterphase auf der Rückseite einer Kaltfront, also in der nachströmenden Kaltluft. Diese Luft ist häufig instabil, daher treten Quellwolken und Schauer leichter auf; gleichzeitig kann die Sicht zwischen Schauern gut sein, aber Wind, Böigkeit und Turbulenz nehmen oft zu. Das ist etwas anderes als „Lee“ am Gebirge (windabgewandt) oder die Zone nach einer Warmfront, die häufiger schichtige Bewölkung und gleichmäßigen Niederschlag bringt.",
+      "merksatz": "Rückseite = Kaltluft nach der Kaltfront.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Fronten – Rückseitenwetter (Kaltluft, Schauer, Böigkeit)",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Grundlagen/06_2011_170_fronten.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "hinter einer Kaltfront"
   },
   {
     "id": "Q280",
@@ -8846,15 +8883,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Prüfungsrelevant: Aussage aus Frage/Optionen auf Regel- bzw. Gesetzeslogik zurückführen.\n- Wenn es um Lufträume/Verfahren geht: AIP/NOTAM ist maßgeblich.",
-      "merksatz": "AIP/NOTAM sind maßgeblich.\nRegeltext vor Anwendung prüfen.",
+      "explanation": "Im Sommer ist der Temperatur- und Feuchtegegensatz an Kaltfronten oft stark. Die Warmluft wird steil angehoben, dadurch entstehen kräftige Quellwolken bis hin zu Gewitterzellen (Cb = Cumulonimbus, Gewitterwolke). Das zeigt sich häufig als schauerartiger Niederschlag mit kurzen, intensiven Schauern und Gewittertendenz, nicht als feiner Dauerregen oder Nebel. Für die Flugpraxis heißt das: Sommer-Kaltfronten können sehr schnell unfliegbar werden (Böen/Turbulenz).",
+      "merksatz": "Sommer-Kaltfront: Schauer + Gewittertendenz.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV: Gewitter – Gewitter/Schauer an sommerlichen Kaltfronten",
+          "url": "https://www.dhv.de/media/jahre/2024/07_wetter/Wetterwissen/DHVmagazin_Artikel/Gewitter/1_2007_146_gewitter.pdf#page=1"
         }
       ]
-    }
+    },
+    "correctAnswerText": "Gewitterschauer"
   },
   {
     "id": "Q281",

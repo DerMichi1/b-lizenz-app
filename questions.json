@@ -1,39 +1,38 @@
 [
-{
-  "id": "Q001",
-  "category": "Luftrecht",
-  "subchapter": "Kollisionsvermeidung",
-  "local_number": 1,
-  "question": "Du möchtest einen Thermikschlauch nutzen, in dem bereits in Deiner Höhe ein Segelflugzeug kreist.",
-  "options": [
-    "Ein  Thermikschlauch  darf  nicht  von  Segelflugzeugen  und  Gleitschirmen  gleichzeitig  genutzt werden, da unterschiedliche Kreisradien",
-    "Da  der  Gleitschirm  schneller  steigt,  hat  das  Segelflugzeug  seine  Drehrichtung nach der des Gleitschirmfliegers zu richten",
-    "Um sich immer gegenseitig in Sicht zu haben, muss der Gleitschirmflieger in entgegen gesetzter Drehrichtung einkreisen",
-    "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden"
-  ],
-  "correctIndex": 3,
-  "figures": [],
-  "ai": {
-    "allowed": true,
-    "context": "",
-    "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
-    "followup_examples": []
-  },
-  "wiki": {
-    "explanation": "- Begriff: „Thermikschlauch“ = Aufwind-Säule/„Bart“, in der man im Kreis steigt.\n- Wenn bereits ein Luftfahrzeug (hier: Segelflugzeug) in deiner Höhe kreist, gilt praktisch: Du passt dich an, damit es keine Gegenkurse im gleichen Kreis gibt.\n- Deshalb: Du übernimmst die Drehrichtung des bereits kreisenden Segelflugzeugs (wie „Kreisverkehr“).\n- So vermeidest du die gefährlichste Situation: zwei Fluggeräte auf gleicher Höhe, die sich im Kreis frontal begegnen.",
-    "merksatz": "Thermik = Kreisverkehr: Drehrichtung vom Ersten übernehmen.",
-    "links": [
-      {
-        "title": "DHV-info 108: „Der erste Pilot in der Thermik bestimmt die Drehrichtung“ (PDF, Seite 62)",
-        "url": "https://www.dhv.de/media/jahre/2024/01_mitgliedschaft/DHVmagazin/Archiv/2000/dhvinfo108.pdf#page=62"
-      },
-      {
-        "title": "FAI Sporting Code (CIVL) 2023: „Entering a thermal – First rule: turn in the same direction“ (PDF, Seite 14)",
-        "url": "https://www.fai.org/sites/default/files/civl/documents/sporting_code_s7_i_-_guidelines_and_templates_2023.pdf#page=14"
-      }
-    ]
-  }
-}
+  {
+    "id": "Q001",
+    "category": "Luftrecht",
+    "subchapter": "Kollisionsvermeidung",
+    "local_number": 1,
+    "question": "Du möchtest einen Thermikschlauch nutzen, in dem bereits in Deiner Höhe ein Segelflugzeug kreist.",
+    "options": [
+      "Ein  Thermikschlauch  darf  nicht  von  Segelflugzeugen  und  Gleitschirmen  gleichzeitig  genutzt werden, da unterschiedliche Kreisradien",
+      "Da  der  Gleitschirm  schneller  steigt,  hat  das  Segelflugzeug  seine  Drehrichtung  nach  der  des Gleitschirmfliegers zu richten",
+      "Um sich immer gegenseitig in Sicht zu haben, muss der Gleitschirmflieger in entgegen gesetzter Drehrichtung einkreisen",
+      "Es muss die Drehrichtung des Segelflugzeuges eingenommen werden"
+    ],
+    "correctIndex": 3,
+    "figures": [],
+    "ai": {
+      "allowed": true,
+      "context": "",
+      "system_hint": "Tutor für B-Lizenz Gleitschirm/Hängegleiter. Erkläre sehr verständlich (für Dummies), fachlich korrekt und immer direkt zur Frage + richtigen Antwort. Keine Quellen nennen, außer du bist 100% sicher, dass sie genau passt.",
+      "followup_examples": []
+    },
+    "wiki": {
+      "explanation": "- Begriff: Thermikschlauch = Aufwind-Säule („Bart“), in der man im Kreis steigt.\n- Wenn schon jemand in der Thermik kreist, vermeidest du Gegenverkehr im selben „Kreis“.\n- Deshalb: Du nimmst die gleiche Drehrichtung wie der, der schon kreist (du „fädelst ein“).\n- Ergebnis: weniger Konflikte, beide behalten den anderen besser im Blick.",
+      "merksatz": "Thermik = Kreisverkehr: Drehrichtung vom Ersten übernehmen.",
+      "links": [
+        {
+          "title": "DHV Poster „Ausweichregeln“ (PDF, Seite 1)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
+        },
+        {
+          "title": "Österreich BGBl. II Nr. 68/2017 – §14a Ausweichregeln (PDF, Seite 4)",
+          "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2017_II_68/BGBLA_2017_II_68.pdfsig#page=4"
+        }
+      ]
+    }
   },
   {
     "id": "Q002",
@@ -56,12 +55,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei kreuzenden Kursen auf gleicher Höhe: wer das andere Luftfahrzeug rechts hat, weicht aus.\n- Der Ausweichpflichtige soll Kurs/Flughöhe so ändern, dass die Passage eindeutig wird.\n- Nicht auf ‚Vorfahrt‘ bestehen: Kollisionsvermeidung hat Vorrang.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichen.\nEindeutig vorbeilassen.",
+      "explanation": "- Situation: Zwei Luftfahrzeuge kreuzen sich auf gleicher Höhe.\n- Grundregel (SERA = europäische Luftverkehrsregeln): Wer den anderen rechts hat, hat Vorrang.\n- Umgedreht heißt das: Wer den anderen links hat (also „von links kommt“), muss ausweichen.\n- Praktisch: frühzeitig ausweichen und nicht knapp vor dem Vorrangberechtigten kreuzen.",
+      "merksatz": "Kreuzt es: Der von links kommt, weicht aus.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "EASA Easy Access Rules (SERA) – SERA.3210 Right-of-way (PDF, Seite 51)",
+          "url": "https://www.bazl.admin.ch/dam/fr/sd-web/cWFdE55VmA7b/easy_access_rules_for_standardised_european_rules_of_the_air_sera_regulation_eu_no_923-012.pdf#page=51"
         }
       ]
     }
@@ -87,12 +86,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei kreuzenden Kursen auf gleicher Höhe: wer das andere Luftfahrzeug rechts hat, weicht aus.\n- Der Ausweichpflichtige soll Kurs/Flughöhe so ändern, dass die Passage eindeutig wird.\n- Nicht auf ‚Vorfahrt‘ bestehen: Kollisionsvermeidung hat Vorrang.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichen.\nEindeutig vorbeilassen.",
+      "explanation": "- Du fliegst geradeaus, ein Segelflieger kommt auf kreuzendem Kurs von links.\n- Regel: Das von links kommende Luftfahrzeug ist ausweichpflichtig.\n- Also muss der Segelflieger ausweichen (und dabei so manövrieren, dass es nicht vor dir „reinschneidet“).",
+      "merksatz": "Kommt er von links: Er weicht aus.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "EASA Easy Access Rules (SERA) – SERA.3210 Right-of-way (PDF, Seite 51)",
+          "url": "https://www.bazl.admin.ch/dam/fr/sd-web/cWFdE55VmA7b/easy_access_rules_for_standardised_european_rules_of_the_air_sera_regulation_eu_no_923-012.pdf#page=51"
         }
       ]
     }
@@ -118,12 +117,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei Kollisionsgefahr im Gegenkurs: beide ändern Kurs nach rechts.\n- Frühzeitig und deutlich ausweichen; nicht knapp.\n- Grundsatz: Zusammenstoß vermeiden (‚see and avoid‘).",
-      "merksatz": "Gegenkurs: beide nach rechts ausweichen.\nFrüh und deutlich.",
+      "explanation": "- Situation: Gegenkurs / frontal aufeinander zu.\n- Regel (SERA): Beide ändern ihren Kurs nach rechts, um Abstand herzustellen.\n- Wichtig: früh und deutlich ausweichen, nicht erst im letzten Moment „zucken“.",
+      "merksatz": "Gegenkurs: Beide nach rechts.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "EASA Easy Access Rules (SERA) – SERA.3210 Right-of-way (PDF, Seite 51)",
+          "url": "https://www.bazl.admin.ch/dam/fr/sd-web/cWFdE55VmA7b/easy_access_rules_for_standardised_european_rules_of_the_air_sera_regulation_eu_no_923-012.pdf#page=51"
+        },
+        {
+          "title": "DHV Poster „Ausweichregeln“ (PDF, Seite 1)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -149,12 +152,16 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "- Begriff: Endanflug = letzte, gerade Anflugphase direkt vor der Landung.\n- Regel (SERA): Ein Luftfahrzeug im Endanflug / in der Endphase zur Landung hat Vorrang.\n- Daraus folgt: Es darf nicht unterflogen oder überholt werden (sonst extrem hohes Kollisionsrisiko).",
+      "merksatz": "Endanflug = tabu: nicht überholen, nicht unterfliegen.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "EASA Easy Access Rules (SERA) – SERA.3210 Right-of-way (PDF, Seite 51)",
+          "url": "https://www.bazl.admin.ch/dam/fr/sd-web/cWFdE55VmA7b/easy_access_rules_for_standardised_european_rules_of_the_air_sera_regulation_eu_no_923-012.pdf#page=51"
+        },
+        {
+          "title": "DHV Poster „Ausweichregeln“ (PDF, Seite 1)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -180,12 +187,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei kreuzenden Kursen auf gleicher Höhe: wer das andere Luftfahrzeug rechts hat, weicht aus.\n- Der Ausweichpflichtige soll Kurs/Flughöhe so ändern, dass die Passage eindeutig wird.\n- Nicht auf ‚Vorfahrt‘ bestehen: Kollisionsvermeidung hat Vorrang.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichen.\nEindeutig vorbeilassen.",
+      "explanation": "- Situation: Ein Gleitschirm kreist in der Thermik (links herum), ein Hängegleiter kommt dazu.\n- Regel nach DHV/EHPU-Empfehlung: Dem im Aufwind kreisenden Fluggerät muss ausgewichen werden.\n- Das gilt unabhängig davon, ob der andere „von rechts“ kommt – der Kreisende wird nicht „geschnitten“.\n- Zusätzlich: Beim Einflug in die Thermik wird die Drehrichtung übernommen (nicht gegenläufig einkreisen).",
+      "merksatz": "Thermik: Kreisende haben Vorrang – nicht schneiden.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Poster „Ausweichregeln“ (PDF, Seite 1)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -216,12 +223,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Bei kreuzenden Kursen auf gleicher Höhe: wer das andere Luftfahrzeug rechts hat, weicht aus.\n- Der Ausweichpflichtige soll Kurs/Flughöhe so ändern, dass die Passage eindeutig wird.\n- Nicht auf ‚Vorfahrt‘ bestehen: Kollisionsvermeidung hat Vorrang.",
-      "merksatz": "Kreuzen: rechts gesehen = ausweichen.\nEindeutig vorbeilassen.",
+      "explanation": "- Abbildung-Fall: kreuzende Flugbahnen.\n- Regel (SERA): Das von links kommende Luftfahrzeug weicht aus.\n- Die Ausweichrichtung ist nicht als „immer rechts“ festgelegt – entscheidend ist: frühzeitig so ausweichen, dass du nicht vor/unter/über dem anderen knapp vorbeigehst.\n- Praxistipp: wenn möglich hinter dem Vorrangberechtigten kreuzen.",
+      "merksatz": "Kreuzt es: von links weicht aus (Richtung nicht vorgeschrieben).",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "EASA Easy Access Rules (SERA) – SERA.3210 Right-of-way (PDF, Seite 51)",
+          "url": "https://www.bazl.admin.ch/dam/fr/sd-web/cWFdE55VmA7b/easy_access_rules_for_standardised_european_rules_of_the_air_sera_regulation_eu_no_923-012.pdf#page=51"
         }
       ]
     }
@@ -252,12 +259,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "- Ein Gleitschirm kreist in der Thermik; ein Drachen (Hängegleiter) kommt an.\n- Regel nach DHV/EHPU-Empfehlung: Dem im Aufwind kreisenden Fluggerät muss ausgewichen werden.\n- Der Anfliegende bleibt außen, beobachtet die Drehrichtung und „fädelt“ erst dann sicher ein.\n- Ziel: Kein Schneiden des Kreises und keine Gegenkurse im selben Aufwind.",
+      "merksatz": "Thermik: Der Kreisende bleibt drin – der Neue weicht aus.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Poster „Ausweichregeln“ (PDF, Seite 1)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -283,12 +290,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "- Begriffe: Soaren = Hangaufwind entlang des Hangs „mitfliegen“.\n- Wenn du nahe am Hang in Thermik einkreisen willst, darfst du den Hangverkehr nicht gefährden.\n- Regel nach DHV: Am Hang haben die Hangflugregeln Vorrang – du musst den Soarern ausweichen.\n- Praktisch: erst Abstand zum Hang herstellen, dann einkreisen.",
+      "merksatz": "Am Hang gilt: Soarer zuerst, Thermik zweitrangig.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "DHV Poster „Ausweichregeln“ (PDF, Seite 1)",
+          "url": "https://www.dhv.de/media/seiten/02_fliegen/RechtsgrundlagenAusbildung/Ausweichregeln/PosterAusweichregeln.pdf#page=1"
         }
       ]
     }
@@ -314,12 +321,12 @@
       "followup_examples": []
     },
     "wiki": {
-      "explanation": "- Grundregel: nicht so nahe an andere Luftfahrzeuge heranfliegen, dass Kollisionsgefahr entsteht.\n- Wenn Kollisionsgefahr erkennbar: frühzeitig und eindeutig ausweichen.\n- Vorfahrt-Regeln entbinden nicht von der Pflicht zur Kollisionsvermeidung.",
-      "merksatz": "Kollisionsgefahr: frühzeitig ausweichen.\nAbstand halten.",
+      "explanation": "- Österreich hat dafür eine eigene, explizite Regel (§14a):\n- (1) Wer in ein thermisches Aufwindgebiet einfliegt, kreist in derselben Richtung wie die bereits Kreisenden.\n- (2) Einem im thermischen Aufwindgebiet kreisenden Segelflugzeug/Hänge- oder Paragleiter ist auszuweichen.\n- Daher: In Österreich gilt hier ausdrücklich die Ausweichpflicht gegenüber dem Kreisenden.",
+      "merksatz": "Österreich (§14a): Kreisenden ausweichen + gleiche Drehrichtung.",
       "links": [
         {
-          "title": "Commission Implementing Regulation (EU) No 923/2012 (SERA) – consolidated text (EUR-Lex)",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX%3A02012R0923-20220127"
+          "title": "Österreich BGBl. II Nr. 68/2017 – §14a Ausweichregeln (PDF, Seite 4)",
+          "url": "https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2017_II_68/BGBLA_2017_II_68.pdfsig#page=4"
         }
       ]
     }

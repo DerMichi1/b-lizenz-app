@@ -1008,6 +1008,7 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     if c2.button("Lernen", use_container_width=True):
         st.session_state.page = "learn"
         _reset_exam_state()
+        _reset_learning_state()
         st.rerun()
     if c3.button("Prüfung", use_container_width=True):
         st.session_state.page = "exam"
@@ -1448,30 +1449,40 @@ def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed
 # DASHBOARD
 # =============================================================================
 def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optional[int]]) -> Dict[str, Any]:
-    """Compute exam result from the queued questions and the recorded answers."""
+    """Compute exam result from the queued questions and the recorded answers.
+
+    IMPORTANT: The UI expects result['details'] to exist and to contain items shaped like:
+      {"qid": str, "q": question_dict, "selected": Optional[int], "correct": int, "ok": bool}
+    """
     total = int(len(qlist) or 0)
     correct = 0
+    details: List[Dict[str, Any]] = []
+
     for q in qlist:
         qid = str(q.get("id") or "")
         if not qid:
             continue
+
         sel = answers.get(qid, None)
         try:
             sel_i = int(sel) if sel is not None else None
         except Exception:
             sel_i = None
+
         try:
             ci = int(q.get("correctIndex"))
         except Exception:
-            ci = None
-        if sel_i is not None and ci is not None and sel_i == ci:
+            ci = -1
+
+        ok = bool(sel_i is not None and ci >= 0 and sel_i == ci)
+        if ok:
             correct += 1
+
+        details.append({"qid": qid, "q": q, "selected": sel_i, "correct": ci, "ok": ok})
 
     pct = int(round((correct / total) * 100)) if total > 0 else 0
     passed = bool(pct >= int(PASS_PCT))
-    return {"total": total, "correct": int(correct), "pct": int(pct), "passed": passed}
-
-
+    return {"total": total, "correct": int(correct), "pct": int(pct), "passed": passed, "details": details}
 def _exam_submit(uid: str, reason: str = "manual") -> None:
     """Finalize an exam attempt, compute result and (best-effort) persist to DB."""
     if st.session_state.get("exam_submitted", False):
@@ -1772,6 +1783,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         if st.session_state.learn_started:
             if st.button("Session beenden", use_container_width=True):
                 _reset_learning_state()
+                st.session_state.page = "learn"
                 st.rerun()
 
         st.divider()
@@ -2386,7 +2398,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
         st.caption("Aufklappen, um richtige Lösung + Wiki-Erklärung zu sehen.")
 
         labels = ["A", "B", "C", "D"]
-        for d in result["details"]:
+        for d in (result.get("details") or []):
             q = d["q"]
             qid = d["qid"]
             sel = d["selected"]

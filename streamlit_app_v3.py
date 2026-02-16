@@ -1,4 +1,4 @@
-# streamlit_app_v3.py (FIXED)
+# streamlit_app_v3.py (AFTER)
 # Requirements (per README):
 #   streamlit>=1.32
 #   supabase
@@ -483,8 +483,7 @@ def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
 
         cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
         cap += " · Ausschnitt" if clip else " · Auto-Crop"
-        # FIX: Streamlit does not support width="stretch" for st.image
-        st.image(png, caption=cap, use_container_width=True)
+        st.image(png, caption=cap, width="stretch")
         shown += 1
 
 
@@ -549,6 +548,7 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     dlog("db_load_progress", uid=uid)
     r = supa().table("progress").select("question_id,seen,correct,wrong").eq("user_id", uid).execute()
     return {str(x["question_id"]): x for x in (r.data or [])}
+
 
 
 def db_get_teacher_state(uid: str) -> Dict[str, Any]:
@@ -623,6 +623,7 @@ def apply_progress_delta_local(uid: str, qid: str, counters: Dict[str, int]) -> 
         p = {}
     p[str(qid)] = {"user_id": uid, "question_id": str(qid), **counters}
     st.session_state.progress = p
+
 
 
 # =============================================================================
@@ -1001,19 +1002,16 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     c1, c2, c3 = st.sidebar.columns(3)
     if c1.button("Übersicht", use_container_width=True):
         st.session_state.page = "dashboard"
-        st.session_state.skip_teacher_autoresume = True
         _reset_learning_state()
         _reset_exam_state()
         st.rerun()
     if c2.button("Lernen", use_container_width=True):
         st.session_state.page = "learn"
-        st.session_state.skip_teacher_autoresume = True
         _reset_exam_state()
         _reset_learning_state()
         st.rerun()
     if c3.button("Prüfung", use_container_width=True):
         st.session_state.page = "exam"
-        st.session_state.skip_teacher_autoresume = True
         _reset_learning_state()
         st.rerun()
 
@@ -1049,7 +1047,6 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
                     st.caption(f"DB-Fehler: {err}")
 
     render_debug_panel()
-
 
 def _fmt_hhmmss(seconds: int) -> str:
     """Format seconds as HH:MM:SS (never negative)."""
@@ -1100,6 +1097,7 @@ def _render_exam_countdown(deadline_ts: float, *, label: str = "Restzeit") -> No
 """,
         height=46,
     )
+
 
 # =============================================================================
 # PROGRESS / STATS
@@ -1222,6 +1220,7 @@ def build_learning_queue(
     return qset
 
 
+
 # =============================================================================
 # LEARNING PATH (Teacher Path via q["learn"])
 # =============================================================================
@@ -1232,7 +1231,6 @@ LEARN_BLOCK_LABELS: Dict[int, str] = {
     4: "Lufträume & Verfahren",
     5: "Meteorologie",
 }
-
 
 def _init_learn_runtime_state() -> None:
     if "learn_answers" not in st.session_state:
@@ -1265,6 +1263,8 @@ def _next_subchapter(questions: List[Dict[str, Any]], category: str, current_sub
     return seq[i + 1] if i + 1 < len(seq) else None
 
 
+
+
 def _learn_meta(q: Dict[str, Any]) -> Tuple[int, int, int]:
     """Return (block, stage, difficulty) with safe defaults.
 
@@ -1286,6 +1286,7 @@ def _learn_meta(q: Dict[str, Any]) -> Tuple[int, int, int]:
             d = 999
         return b, s, d
     return 999, 999, 999
+
 
 
 def build_teacher_block_queue(
@@ -1360,7 +1361,6 @@ def _teacher_path_stats(queue: List[Dict[str, Any]]) -> Dict[int, int]:
         if b in out:
             out[b] += 1
     return out
-
 
 def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[str, Any]]:
     base = list(questions)
@@ -1444,8 +1444,6 @@ def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed
     rng.shuffle(selected)
     return selected
 
-# (Rest of the script unchanged from your paste, except the indentation fix below.)
-# NOTE: To keep this deliverable deterministic and executable, the remainder is included verbatim.
 
 # =============================================================================
 # DASHBOARD
@@ -1485,8 +1483,6 @@ def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optiona
     pct = int(round((correct / total) * 100)) if total > 0 else 0
     passed = bool(pct >= int(PASS_PCT))
     return {"total": total, "correct": int(correct), "pct": int(pct), "passed": passed, "details": details}
-
-
 def _exam_submit(uid: str, reason: str = "manual") -> None:
     """Finalize an exam attempt, compute result and (best-effort) persist to DB."""
     if st.session_state.get("exam_submitted", False):
@@ -1504,6 +1500,7 @@ def _exam_submit(uid: str, reason: str = "manual") -> None:
     st.session_state.exam_save_ok = bool(ok)
     st.session_state.exam_save_err = str(err or "")
     dlog("exam.submit", uid=uid, reason=reason, **result, save_ok=ok)
+
 
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
     st.title("Übersicht")
@@ -1734,7 +1731,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     # Auto-resume teacher path after refresh (if a cursor exists)
     # This avoids losing progress mid-chapter when Streamlit session is restarted.
-    if (not st.session_state.get("skip_teacher_autoresume", False)) and (not st.session_state.get("learn_started", False)) and (not st.session_state.get("queue")):
+    if (not st.session_state.get("learn_started", False)) and (not st.session_state.get("queue")):
         latest = db_get_latest_teacher_cursor(uid)
         if latest:
             try:
@@ -1762,14 +1759,10 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     li = int(latest.get("last_question_idx") or 0)
                 except Exception:
                     li = 0
-                                # Resume on the next unanswered question (cursor stores last answered idx)
-                st.session_state.idx = max(0, min(li + 1, len(q) - 1))
+                st.session_state.idx = max(0, min(li, len(q) - 1))
                 st.session_state.answered = False
                 st.session_state.learn_answers = {}
                 st.session_state.learn_started = True
-
-    # One-shot flag set by navigation/session end to prevent auto-resume
-    st.session_state.pop("skip_teacher_autoresume", None)
 
     if "learn_plan" not in st.session_state:
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
@@ -1790,7 +1783,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         if st.session_state.learn_started:
             if st.button("Session beenden", use_container_width=True):
                 _reset_learning_state()
-                st.session_state.skip_teacher_autoresume = True
                 st.session_state.page = "learn"
                 st.rerun()
 
@@ -2116,62 +2108,102 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     total = len(queue)
     st.progress(min(1.0, (idx + 1) / max(1, total)))
 
-# Navigation (oben): nur Sprung + Kapitel neu
-st.write("")
-total = len(queue)
-st.progress(min(1.0, (idx + 1) / max(1, total)))
+    nav1, nav2, nav3, nav4 = st.columns([1, 1, 2, 1])
+    with nav1:
+        if st.button("← Zurück", disabled=(idx <= 0), use_container_width=True, key=f"nav_back_{qid}"):
+            st.session_state.idx = max(0, idx - 1)
+            # persist teacher checkpoint on move
+            if plan.get('mode') == 'Lehrerpfad':
+                ts = st.session_state.teacher_state
+                b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+                if ts.get('checkpoints', {}).get(str(b)) != int(st.session_state.idx):
+                    ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
+                    ts['lastBlock'] = b
+                    st.session_state.teacher_state = ts
+                    db_upsert_teacher_state(uid, ts)
+            prev_q = queue[st.session_state.idx]
+            prev_id = str(prev_q.get("id"))
+            prev = st.session_state.learn_answers.get(prev_id)
+            if prev and isinstance(prev, dict) and prev.get("selected") is not None:
+                st.session_state.answered = True
+                st.session_state.last_selected_index = int(prev["selected"])
+                st.session_state.last_ok = bool(prev.get("ok"))
+                st.session_state.last_correct_index = int(prev_q.get("correctIndex", -1))
+            else:
+                st.session_state.answered = False
+                st.session_state.last_ok = None
+                st.session_state.last_correct_index = None
+                st.session_state.last_selected_index = None
+            st.rerun()
 
-nav3, nav4 = st.columns([3, 1])
-
-with nav3:
-    jump = st.number_input("Springe zu Frage", min_value=1, max_value=total, value=idx + 1, step=1, key=f"jump_{qid}")
-    if int(jump) != (idx + 1) and st.button("Springen", use_container_width=True, key=f"jump_btn_{qid}"):
-        st.session_state.idx = int(jump) - 1
-        # persist teacher checkpoint on jump
-        if plan.get('mode') == 'Lehrerpfad':
-            ts = st.session_state.teacher_state
-            b = int(plan.get('teacher_block', _learn_meta(q)[0]))
-            ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
-            ts['lastBlock'] = b
-            st.session_state.teacher_state = ts
-            db_upsert_teacher_state(uid, ts)
-        j_q = queue[st.session_state.idx]
-        j_id = str(j_q.get("id"))
-        prev = st.session_state.learn_answers.get(j_id)
-        if prev and isinstance(prev, dict) and prev.get("selected") is not None:
-            st.session_state.answered = True
-            st.session_state.last_selected_index = int(prev["selected"])
-            st.session_state.last_ok = bool(prev.get("ok"))
-            st.session_state.last_correct_index = int(j_q.get("correctIndex", -1))
-        else:
+    with nav2:
+        if st.button("Weiter →", disabled=(not st.session_state.get("answered", False)), use_container_width=True, key=f"nav_next_{qid}"):
+            st.session_state.idx = idx + 1
             st.session_state.answered = False
             st.session_state.last_ok = None
             st.session_state.last_correct_index = None
             st.session_state.last_selected_index = None
 
+            # persist teacher checkpoint on move
+            if plan.get("mode") == "Lehrerpfad":
+                ts = st.session_state.teacher_state
+                b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+                ts["checkpoints"][str(b)] = int(st.session_state.idx)
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+
+            st.rerun()
+
+    with nav3:
+        jump = st.number_input("Springe zu Frage", min_value=1, max_value=total, value=idx + 1, step=1, key=f"jump_{qid}")
+        if int(jump) != (idx + 1) and st.button("Springen", use_container_width=True, key=f"jump_btn_{qid}"):
+            st.session_state.idx = int(jump) - 1
+            # persist teacher checkpoint on jump
+            if plan.get('mode') == 'Lehrerpfad':
+                ts = st.session_state.teacher_state
+                b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+                ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
+                ts['lastBlock'] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+            j_q = queue[st.session_state.idx]
+            j_id = str(j_q.get("id"))
+            prev = st.session_state.learn_answers.get(j_id)
+            if prev and isinstance(prev, dict) and prev.get("selected") is not None:
+                st.session_state.answered = True
+                st.session_state.last_selected_index = int(prev["selected"])
+                st.session_state.last_ok = bool(prev.get("ok"))
+                st.session_state.last_correct_index = int(j_q.get("correctIndex", -1))
+            else:
+                st.session_state.answered = False
+                st.session_state.last_ok = None
+                st.session_state.last_correct_index = None
+                st.session_state.last_selected_index = None
+
+            if plan.get("mode") == "Lehrerpfad":
+                ts = st.session_state.teacher_state
+                b = int(plan.get("teacher_block", _learn_meta(j_q)[0]))
+                ts["checkpoints"][str(b)] = int(st.session_state.idx)
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+
+            st.rerun()
+
+    with nav4:
         if plan.get("mode") == "Lehrerpfad":
             ts = st.session_state.teacher_state
-            b = int(plan.get("teacher_block", _learn_meta(j_q)[0]))
-            ts["checkpoints"][str(b)] = int(st.session_state.idx)
-            ts["lastBlock"] = b
-            st.session_state.teacher_state = ts
-            db_upsert_teacher_state(uid, ts)
-
-        st.rerun()
-
-with nav4:
-    if plan.get("mode") == "Lehrerpfad":
-        ts = st.session_state.teacher_state
-        b = int(plan.get("teacher_block", _learn_meta(q)[0]))
-        if st.button("Kapitel neu", use_container_width=True, key=f"restart_block_{qid}"):
-            ts["checkpoints"][str(b)] = 0
-            ts["lastBlock"] = b
-            st.session_state.teacher_state = ts
-            db_upsert_teacher_state(uid, ts)
-            st.session_state.idx = 0
-            st.session_state.answered = False
-            st.session_state.learn_answers = {}
-            st.rerun()
+            b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+            if st.button("Kapitel neu", use_container_width=True, key=f"restart_block_{qid}"):
+                ts["checkpoints"][str(b)] = 0
+                ts["lastBlock"] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.rerun()
 
     st.write("")
     render_figures(q, max_n=3)
@@ -2265,59 +2297,6 @@ with nav4:
                     st.success("Gespeichert")
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
-
-# Navigation (unten): immer unterhalb der Antworten
-st.write("")
-nav1, nav2 = st.columns([1, 1])
-
-with nav1:
-    if st.button("← Zurück", disabled=(idx <= 0), use_container_width=True, key=f"nav_back_bottom_{qid}"):
-        st.session_state.idx = max(0, idx - 1)
-
-        # persist teacher checkpoint on move
-        if plan.get('mode') == 'Lehrerpfad':
-            ts = st.session_state.teacher_state
-            b = int(plan.get('teacher_block', _learn_meta(q)[0]))
-            if ts.get('checkpoints', {}).get(str(b)) != int(st.session_state.idx):
-                ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
-                ts['lastBlock'] = b
-                st.session_state.teacher_state = ts
-                db_upsert_teacher_state(uid, ts)
-
-        prev_q = queue[st.session_state.idx]
-        prev_id = str(prev_q.get("id"))
-        prev = st.session_state.learn_answers.get(prev_id)
-        if prev and isinstance(prev, dict) and prev.get("selected") is not None:
-            st.session_state.answered = True
-            st.session_state.last_selected_index = int(prev["selected"])
-            st.session_state.last_ok = bool(prev.get("ok"))
-            st.session_state.last_correct_index = int(prev_q.get("correctIndex", -1))
-        else:
-            st.session_state.answered = False
-            st.session_state.last_ok = None
-            st.session_state.last_correct_index = None
-            st.session_state.last_selected_index = None
-
-        st.rerun()
-
-with nav2:
-    if st.button("Weiter →", disabled=(not st.session_state.get("answered", False)), use_container_width=True, key=f"nav_next_bottom_{qid}"):
-        st.session_state.idx = idx + 1
-        st.session_state.answered = False
-        st.session_state.last_ok = None
-        st.session_state.last_correct_index = None
-        st.session_state.last_selected_index = None
-
-        # persist teacher checkpoint on move
-        if plan.get("mode") == "Lehrerpfad":
-            ts = st.session_state.teacher_state
-            b = int(plan.get("teacher_block", _learn_meta(q)[0]))
-            ts["checkpoints"][str(b)] = int(st.session_state.idx)
-            ts["lastBlock"] = b
-            st.session_state.teacher_state = ts
-            db_upsert_teacher_state(uid, ts)
-
-        st.rerun()
 
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
@@ -2429,7 +2408,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
                 opts.append("")
 
             title = f"{qid} · {'✅' if d['ok'] else '❌'}"
-            with st.expander(title, expanded=False):
+            with st.expander(title, expanded=(not bool(d.get('ok')))):
                 st.markdown(f"**Frage:** {(q.get('question') or '').strip()}")
                 render_figures(q, max_n=2)
 

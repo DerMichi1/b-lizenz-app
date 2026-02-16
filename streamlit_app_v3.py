@@ -14,6 +14,7 @@ import time
 import math
 import pandas as pd
 from pathlib import Path
+from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
 import streamlit as st
@@ -1446,6 +1447,50 @@ def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed
 # =============================================================================
 # DASHBOARD
 # =============================================================================
+def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optional[int]]) -> Dict[str, Any]:
+    """Compute exam result from the queued questions and the recorded answers."""
+    total = int(len(qlist) or 0)
+    correct = 0
+    for q in qlist:
+        qid = str(q.get("id") or "")
+        if not qid:
+            continue
+        sel = answers.get(qid, None)
+        try:
+            sel_i = int(sel) if sel is not None else None
+        except Exception:
+            sel_i = None
+        try:
+            ci = int(q.get("correctIndex"))
+        except Exception:
+            ci = None
+        if sel_i is not None and ci is not None and sel_i == ci:
+            correct += 1
+
+    pct = int(round((correct / total) * 100)) if total > 0 else 0
+    passed = bool(pct >= int(PASS_PCT))
+    return {"total": total, "correct": int(correct), "pct": int(pct), "passed": passed}
+
+
+def _exam_submit(uid: str, reason: str = "manual") -> None:
+    """Finalize an exam attempt, compute result and (best-effort) persist to DB."""
+    if st.session_state.get("exam_submitted", False):
+        return
+
+    qlist: List[Dict[str, Any]] = st.session_state.get("exam_queue", []) or []
+    answers: Dict[str, Optional[int]] = st.session_state.get("exam_answers", {}) or {}
+
+    result = _exam_compute_result(qlist, answers)
+    st.session_state.exam_result = result
+    st.session_state.exam_done = True
+    st.session_state.exam_submitted = True
+
+    ok, err = db_insert_exam_run(uid, total=int(result["total"]), correct=int(result["correct"]), passed=bool(result["passed"]))
+    st.session_state.exam_save_ok = bool(ok)
+    st.session_state.exam_save_err = str(err or "")
+    dlog("exam.submit", uid=uid, reason=reason, **result, save_ok=ok)
+
+
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
     st.title("Übersicht")
 

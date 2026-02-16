@@ -2116,102 +2116,62 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     total = len(queue)
     st.progress(min(1.0, (idx + 1) / max(1, total)))
 
-    nav1, nav2, nav3, nav4 = st.columns([1, 1, 2, 1])
-    with nav1:
-        if st.button("← Zurück", disabled=(idx <= 0), use_container_width=True, key=f"nav_back_{qid}"):
-            st.session_state.idx = max(0, idx - 1)
-            # persist teacher checkpoint on move
-            if plan.get('mode') == 'Lehrerpfad':
-                ts = st.session_state.teacher_state
-                b = int(plan.get('teacher_block', _learn_meta(q)[0]))
-                if ts.get('checkpoints', {}).get(str(b)) != int(st.session_state.idx):
-                    ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
-                    ts['lastBlock'] = b
-                    st.session_state.teacher_state = ts
-                    db_upsert_teacher_state(uid, ts)
-            prev_q = queue[st.session_state.idx]
-            prev_id = str(prev_q.get("id"))
-            prev = st.session_state.learn_answers.get(prev_id)
-            if prev and isinstance(prev, dict) and prev.get("selected") is not None:
-                st.session_state.answered = True
-                st.session_state.last_selected_index = int(prev["selected"])
-                st.session_state.last_ok = bool(prev.get("ok"))
-                st.session_state.last_correct_index = int(prev_q.get("correctIndex", -1))
-            else:
-                st.session_state.answered = False
-                st.session_state.last_ok = None
-                st.session_state.last_correct_index = None
-                st.session_state.last_selected_index = None
-            st.rerun()
+# Navigation (oben): nur Sprung + Kapitel neu
+st.write("")
+total = len(queue)
+st.progress(min(1.0, (idx + 1) / max(1, total)))
 
-    with nav2:
-        if st.button("Weiter →", disabled=(not st.session_state.get("answered", False)), use_container_width=True, key=f"nav_next_{qid}"):
-            st.session_state.idx = idx + 1
+nav3, nav4 = st.columns([3, 1])
+
+with nav3:
+    jump = st.number_input("Springe zu Frage", min_value=1, max_value=total, value=idx + 1, step=1, key=f"jump_{qid}")
+    if int(jump) != (idx + 1) and st.button("Springen", use_container_width=True, key=f"jump_btn_{qid}"):
+        st.session_state.idx = int(jump) - 1
+        # persist teacher checkpoint on jump
+        if plan.get('mode') == 'Lehrerpfad':
+            ts = st.session_state.teacher_state
+            b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+            ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
+            ts['lastBlock'] = b
+            st.session_state.teacher_state = ts
+            db_upsert_teacher_state(uid, ts)
+        j_q = queue[st.session_state.idx]
+        j_id = str(j_q.get("id"))
+        prev = st.session_state.learn_answers.get(j_id)
+        if prev and isinstance(prev, dict) and prev.get("selected") is not None:
+            st.session_state.answered = True
+            st.session_state.last_selected_index = int(prev["selected"])
+            st.session_state.last_ok = bool(prev.get("ok"))
+            st.session_state.last_correct_index = int(j_q.get("correctIndex", -1))
+        else:
             st.session_state.answered = False
             st.session_state.last_ok = None
             st.session_state.last_correct_index = None
             st.session_state.last_selected_index = None
 
-            # persist teacher checkpoint on move
-            if plan.get("mode") == "Lehrerpfad":
-                ts = st.session_state.teacher_state
-                b = int(plan.get("teacher_block", _learn_meta(q)[0]))
-                ts["checkpoints"][str(b)] = int(st.session_state.idx)
-                ts["lastBlock"] = b
-                st.session_state.teacher_state = ts
-                db_upsert_teacher_state(uid, ts)
-
-            st.rerun()
-
-    with nav3:
-        jump = st.number_input("Springe zu Frage", min_value=1, max_value=total, value=idx + 1, step=1, key=f"jump_{qid}")
-        if int(jump) != (idx + 1) and st.button("Springen", use_container_width=True, key=f"jump_btn_{qid}"):
-            st.session_state.idx = int(jump) - 1
-            # persist teacher checkpoint on jump
-            if plan.get('mode') == 'Lehrerpfad':
-                ts = st.session_state.teacher_state
-                b = int(plan.get('teacher_block', _learn_meta(q)[0]))
-                ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
-                ts['lastBlock'] = b
-                st.session_state.teacher_state = ts
-                db_upsert_teacher_state(uid, ts)
-            j_q = queue[st.session_state.idx]
-            j_id = str(j_q.get("id"))
-            prev = st.session_state.learn_answers.get(j_id)
-            if prev and isinstance(prev, dict) and prev.get("selected") is not None:
-                st.session_state.answered = True
-                st.session_state.last_selected_index = int(prev["selected"])
-                st.session_state.last_ok = bool(prev.get("ok"))
-                st.session_state.last_correct_index = int(j_q.get("correctIndex", -1))
-            else:
-                st.session_state.answered = False
-                st.session_state.last_ok = None
-                st.session_state.last_correct_index = None
-                st.session_state.last_selected_index = None
-
-            if plan.get("mode") == "Lehrerpfad":
-                ts = st.session_state.teacher_state
-                b = int(plan.get("teacher_block", _learn_meta(j_q)[0]))
-                ts["checkpoints"][str(b)] = int(st.session_state.idx)
-                ts["lastBlock"] = b
-                st.session_state.teacher_state = ts
-                db_upsert_teacher_state(uid, ts)
-
-            st.rerun()
-
-    with nav4:
         if plan.get("mode") == "Lehrerpfad":
             ts = st.session_state.teacher_state
-            b = int(plan.get("teacher_block", _learn_meta(q)[0]))
-            if st.button("Kapitel neu", use_container_width=True, key=f"restart_block_{qid}"):
-                ts["checkpoints"][str(b)] = 0
-                ts["lastBlock"] = b
-                st.session_state.teacher_state = ts
-                db_upsert_teacher_state(uid, ts)
-                st.session_state.idx = 0
-                st.session_state.answered = False
-                st.session_state.learn_answers = {}
-                st.rerun()
+            b = int(plan.get("teacher_block", _learn_meta(j_q)[0]))
+            ts["checkpoints"][str(b)] = int(st.session_state.idx)
+            ts["lastBlock"] = b
+            st.session_state.teacher_state = ts
+            db_upsert_teacher_state(uid, ts)
+
+        st.rerun()
+
+with nav4:
+    if plan.get("mode") == "Lehrerpfad":
+        ts = st.session_state.teacher_state
+        b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+        if st.button("Kapitel neu", use_container_width=True, key=f"restart_block_{qid}"):
+            ts["checkpoints"][str(b)] = 0
+            ts["lastBlock"] = b
+            st.session_state.teacher_state = ts
+            db_upsert_teacher_state(uid, ts)
+            st.session_state.idx = 0
+            st.session_state.answered = False
+            st.session_state.learn_answers = {}
+            st.rerun()
 
     st.write("")
     render_figures(q, max_n=3)
@@ -2305,6 +2265,59 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     st.success("Gespeichert")
                 else:
                     st.error("Speichern fehlgeschlagen (notes Tabelle/RLS prüfen).")
+
+# Navigation (unten): immer unterhalb der Antworten
+st.write("")
+nav1, nav2 = st.columns([1, 1])
+
+with nav1:
+    if st.button("← Zurück", disabled=(idx <= 0), use_container_width=True, key=f"nav_back_bottom_{qid}"):
+        st.session_state.idx = max(0, idx - 1)
+
+        # persist teacher checkpoint on move
+        if plan.get('mode') == 'Lehrerpfad':
+            ts = st.session_state.teacher_state
+            b = int(plan.get('teacher_block', _learn_meta(q)[0]))
+            if ts.get('checkpoints', {}).get(str(b)) != int(st.session_state.idx):
+                ts.setdefault('checkpoints', {})[str(b)] = int(st.session_state.idx)
+                ts['lastBlock'] = b
+                st.session_state.teacher_state = ts
+                db_upsert_teacher_state(uid, ts)
+
+        prev_q = queue[st.session_state.idx]
+        prev_id = str(prev_q.get("id"))
+        prev = st.session_state.learn_answers.get(prev_id)
+        if prev and isinstance(prev, dict) and prev.get("selected") is not None:
+            st.session_state.answered = True
+            st.session_state.last_selected_index = int(prev["selected"])
+            st.session_state.last_ok = bool(prev.get("ok"))
+            st.session_state.last_correct_index = int(prev_q.get("correctIndex", -1))
+        else:
+            st.session_state.answered = False
+            st.session_state.last_ok = None
+            st.session_state.last_correct_index = None
+            st.session_state.last_selected_index = None
+
+        st.rerun()
+
+with nav2:
+    if st.button("Weiter →", disabled=(not st.session_state.get("answered", False)), use_container_width=True, key=f"nav_next_bottom_{qid}"):
+        st.session_state.idx = idx + 1
+        st.session_state.answered = False
+        st.session_state.last_ok = None
+        st.session_state.last_correct_index = None
+        st.session_state.last_selected_index = None
+
+        # persist teacher checkpoint on move
+        if plan.get("mode") == "Lehrerpfad":
+            ts = st.session_state.teacher_state
+            b = int(plan.get("teacher_block", _learn_meta(q)[0]))
+            ts["checkpoints"][str(b)] = int(st.session_state.idx)
+            ts["lastBlock"] = b
+            st.session_state.teacher_state = ts
+            db_upsert_teacher_state(uid, ts)
+
+        st.rerun()
 
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:

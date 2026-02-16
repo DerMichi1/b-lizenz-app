@@ -1002,16 +1002,19 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     c1, c2, c3 = st.sidebar.columns(3)
     if c1.button("Übersicht", use_container_width=True):
         st.session_state.page = "dashboard"
+        st.session_state.skip_teacher_autoresume = True
         _reset_learning_state()
         _reset_exam_state()
         st.rerun()
     if c2.button("Lernen", use_container_width=True):
         st.session_state.page = "learn"
+        st.session_state.skip_teacher_autoresume = True
         _reset_exam_state()
         _reset_learning_state()
         st.rerun()
     if c3.button("Prüfung", use_container_width=True):
         st.session_state.page = "exam"
+        st.session_state.skip_teacher_autoresume = True
         _reset_learning_state()
         st.rerun()
 
@@ -1731,7 +1734,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     # Auto-resume teacher path after refresh (if a cursor exists)
     # This avoids losing progress mid-chapter when Streamlit session is restarted.
-    if (not st.session_state.get("learn_started", False)) and (not st.session_state.get("queue")):
+    if (not st.session_state.get("skip_teacher_autoresume", False)) and (not st.session_state.get("learn_started", False)) and (not st.session_state.get("queue")):
         latest = db_get_latest_teacher_cursor(uid)
         if latest:
             try:
@@ -1759,10 +1762,14 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     li = int(latest.get("last_question_idx") or 0)
                 except Exception:
                     li = 0
-                st.session_state.idx = max(0, min(li, len(q) - 1))
+                                # Resume on the next unanswered question (cursor stores last answered idx)
+                st.session_state.idx = max(0, min(li + 1, len(q) - 1))
                 st.session_state.answered = False
                 st.session_state.learn_answers = {}
                 st.session_state.learn_started = True
+
+    # One-shot flag set by navigation/session end to prevent auto-resume
+    st.session_state.pop("skip_teacher_autoresume", None)
 
     if "learn_plan" not in st.session_state:
         st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
@@ -1783,6 +1790,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         if st.session_state.learn_started:
             if st.button("Session beenden", use_container_width=True):
                 _reset_learning_state()
+                st.session_state.skip_teacher_autoresume = True
                 st.session_state.page = "learn"
                 st.rerun()
 
@@ -2408,7 +2416,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
                 opts.append("")
 
             title = f"{qid} · {'✅' if d['ok'] else '❌'}"
-            with st.expander(title, expanded=(not bool(d.get('ok')))):
+            with st.expander(title, expanded=False):
                 st.markdown(f"**Frage:** {(q.get('question') or '').strip()}")
                 render_figures(q, max_n=2)
 

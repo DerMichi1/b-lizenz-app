@@ -1,4 +1,4 @@
-# streamlit_app_v3.py (AFTER)
+# streamlit_app_v3.py (FIXED)
 # Requirements (per README):
 #   streamlit>=1.32
 #   supabase
@@ -483,7 +483,8 @@ def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
 
         cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
         cap += " · Ausschnitt" if clip else " · Auto-Crop"
-        st.image(png, caption=cap, width="stretch")
+        # FIX: Streamlit does not support width="stretch" for st.image
+        st.image(png, caption=cap, use_container_width=True)
         shown += 1
 
 
@@ -548,7 +549,6 @@ def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
     dlog("db_load_progress", uid=uid)
     r = supa().table("progress").select("question_id,seen,correct,wrong").eq("user_id", uid).execute()
     return {str(x["question_id"]): x for x in (r.data or [])}
-
 
 
 def db_get_teacher_state(uid: str) -> Dict[str, Any]:
@@ -623,7 +623,6 @@ def apply_progress_delta_local(uid: str, qid: str, counters: Dict[str, int]) -> 
         p = {}
     p[str(qid)] = {"user_id": uid, "question_id": str(qid), **counters}
     st.session_state.progress = p
-
 
 
 # =============================================================================
@@ -1051,6 +1050,7 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
 
     render_debug_panel()
 
+
 def _fmt_hhmmss(seconds: int) -> str:
     """Format seconds as HH:MM:SS (never negative)."""
     try:
@@ -1100,7 +1100,6 @@ def _render_exam_countdown(deadline_ts: float, *, label: str = "Restzeit") -> No
 """,
         height=46,
     )
-
 
 # =============================================================================
 # PROGRESS / STATS
@@ -1223,7 +1222,6 @@ def build_learning_queue(
     return qset
 
 
-
 # =============================================================================
 # LEARNING PATH (Teacher Path via q["learn"])
 # =============================================================================
@@ -1234,6 +1232,7 @@ LEARN_BLOCK_LABELS: Dict[int, str] = {
     4: "Lufträume & Verfahren",
     5: "Meteorologie",
 }
+
 
 def _init_learn_runtime_state() -> None:
     if "learn_answers" not in st.session_state:
@@ -1266,8 +1265,6 @@ def _next_subchapter(questions: List[Dict[str, Any]], category: str, current_sub
     return seq[i + 1] if i + 1 < len(seq) else None
 
 
-
-
 def _learn_meta(q: Dict[str, Any]) -> Tuple[int, int, int]:
     """Return (block, stage, difficulty) with safe defaults.
 
@@ -1289,7 +1286,6 @@ def _learn_meta(q: Dict[str, Any]) -> Tuple[int, int, int]:
             d = 999
         return b, s, d
     return 999, 999, 999
-
 
 
 def build_teacher_block_queue(
@@ -1364,6 +1360,7 @@ def _teacher_path_stats(queue: List[Dict[str, Any]]) -> Dict[int, int]:
         if b in out:
             out[b] += 1
     return out
+
 
 def build_exam_queue(questions: List[Dict[str, Any]], n: int = 40) -> List[Dict[str, Any]]:
     base = list(questions)
@@ -1447,6 +1444,8 @@ def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed
     rng.shuffle(selected)
     return selected
 
+# (Rest of the script unchanged from your paste, except the indentation fix below.)
+# NOTE: To keep this deliverable deterministic and executable, the remainder is included verbatim.
 
 # =============================================================================
 # DASHBOARD
@@ -1486,6 +1485,8 @@ def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optiona
     pct = int(round((correct / total) * 100)) if total > 0 else 0
     passed = bool(pct >= int(PASS_PCT))
     return {"total": total, "correct": int(correct), "pct": int(pct), "passed": passed, "details": details}
+
+
 def _exam_submit(uid: str, reason: str = "manual") -> None:
     """Finalize an exam attempt, compute result and (best-effort) persist to DB."""
     if st.session_state.get("exam_submitted", False):
@@ -1503,7 +1504,6 @@ def _exam_submit(uid: str, reason: str = "manual") -> None:
     st.session_state.exam_save_ok = bool(ok)
     st.session_state.exam_save_err = str(err or "")
     dlog("exam.submit", uid=uid, reason=reason, **result, save_ok=ok)
-
 
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
     st.title("Übersicht")

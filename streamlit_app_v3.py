@@ -14,12 +14,19 @@ import time
 import math
 import pandas as pd
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from typing import Any, Dict, List, Optional, Tuple
 
 import streamlit as st
 import streamlit.components.v1 as components
 from supabase import Client, create_client
+
+# FSRS (optional - if not installed, FSRS mode is disabled gracefully)
+try:
+    from fsrs import Scheduler as FsrsScheduler, Card as FsrsCard, Rating as FsrsRating  # type: ignore
+    _FSRS_AVAILABLE = True
+except Exception:
+    _FSRS_AVAILABLE = False
 
 # =============================================================================
 # CONFIG / FILES
@@ -798,6 +805,28 @@ def db_reset_user_data(uid: str) -> Tuple[bool, str]:
         s.table("notes").delete().eq("user_id", uid).execute()
         s.table("progress").delete().eq("user_id", uid).execute()
         s.table("exam_runs").delete().eq("user_id", uid).execute()
+        # FSRS-related (best-effort, tables may not exist on older DBs)
+        try:
+            s.table("card_state").delete().eq("user_id", uid).execute()
+        except Exception:
+            pass
+        try:
+            s.table("review_logs").delete().eq("user_id", uid).execute()
+        except Exception:
+            pass
+        # Per-question progress + teacher cursor (best-effort)
+        try:
+            s.table("user_question_progress").delete().eq("user_id", uid).execute()
+        except Exception:
+            pass
+        try:
+            s.table("user_teacherpath_cursor").delete().eq("user_id", uid).execute()
+        except Exception:
+            pass
+        try:
+            s.table("learn_state").delete().eq("user_id", uid).execute()
+        except Exception:
+            pass
         dlog("db_reset_user_data.ok")
         return True, ""
     except Exception as e:
@@ -922,6 +951,296 @@ def render_ai_chat(q: Dict[str, Any], qid: str) -> None:
 
 
 # =============================================================================
+# FSRS (Free Spaced Repetition Scheduler) - learning mode "Wiederholung"
+# =============================================================================
+# Rating values follow py-fsrs:
+#   1 = Again  (forgot)
+#   2 = Hard
+#   3 = Good
+#   4 = Easy
+# State values: 1=Learning, 2=Review, 3=Relearning
+
+def fsrs_available() -> bool:
+    return bool(_FSRS_AVAILABLE)
+
+
+@st.cache_resource(show_spinner=False)
+def fsrs_scheduler() -> Any:
+    """Singleton FSRS scheduler with default parameters (FSRS-6 weights)."""
+    if not _FSRS_AVAILABLE:
+        return None
+    return FsrsScheduler()
+
+
+def _card_to_row(card: Any, uid: str, qid: str) -> Dict[str, Any]:
+    """Serialize a py-fsrs Card to a row for the card_state table."""
+    d = card.to_dict()
+    return {
+        "user_id": uid,
+        "question_id": qid,
+        "state": int(d.get("state") or 1),
+        "step": int(d.get("step") or 0),
+        "stability": d.get("stability"),
+        "difficulty": d.get("difficulty"),
+        "due": d.get("due"),
+        "last_review": d.get("last_review"),
+        "card_json": d,
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+    }
+
+
+def _row_to_card(row: Dict[str, Any]) -> Any:
+    """Restore a py-fsrs Card from a card_state row (preferring card_json)."""
+    if not _FSRS_AVAILABLE:
+        return None
+    cj = row.get("card_json") or {}
+    if isinstance(cj, dict) and cj:
+        try:
+            return FsrsCard.from_dict(cj)
+        except Exception:
+            pass
+    # Fallback: build a fresh card (treat as new)
+    return FsrsCard()
+
+
+def db_get_card_state(uid: str, qid: str) -> Optional[Dict[str, Any]]:
+    try:
+        r = (
+            supa()
+            .table("card_state")
+            .select("*")
+            .eq("user_id", uid)
+            .eq("question_id", qid)
+            .limit(1)
+            .execute()
+        )
+        rows = getattr(r, "data", None) or []
+        return rows[0] if rows else None
+    except Exception as e:
+        dlog("db_get_card_state.err", err=str(e))
+        return None
+
+
+def db_upsert_card_state(uid: str, qid: str, card: Any, *,
+                         response_ms: Optional[int],
+                         rating: int,
+                         is_lapse: bool) -> None:
+    """Persist updated FSRS card. Best-effort."""
+    try:
+        row = _card_to_row(card, uid, qid)
+        # Increment counters via RPC-less round-trip
+        existing = db_get_card_state(uid, qid)
+        review_count = int((existing or {}).get("review_count") or 0) + 1
+        lapse_count = int((existing or {}).get("lapse_count") or 0) + (1 if is_lapse else 0)
+        row.update({
+            "review_count": review_count,
+            "lapse_count": lapse_count,
+            "last_rating": int(rating),
+            "last_response_ms": int(response_ms) if response_ms is not None else None,
+        })
+        supa().table("card_state").upsert(row, on_conflict="user_id,question_id").execute()
+    except Exception as e:
+        dlog("db_upsert_card_state.err", err=str(e))
+
+
+def db_insert_review_log(uid: str, qid: str, rating: int,
+                         response_ms: Optional[int],
+                         state_before: Optional[int],
+                         state_after: Optional[int]) -> None:
+    """Log a single review event. Best-effort."""
+    try:
+        supa().table("review_logs").insert({
+            "user_id": uid,
+            "question_id": qid,
+            "rating": int(rating),
+            "response_ms": int(response_ms) if response_ms is not None else None,
+            "state_before": int(state_before) if state_before is not None else None,
+            "state_after": int(state_after) if state_after is not None else None,
+        }).execute()
+    except Exception as e:
+        dlog("db_insert_review_log.err", err=str(e))
+
+
+def db_count_due_cards(uid: str, until: Optional[datetime] = None) -> int:
+    """Count cards in card_state with due <= until (default: now)."""
+    if until is None:
+        until = datetime.now(timezone.utc)
+    try:
+        r = (
+            supa()
+            .table("card_state")
+            .select("question_id", count="exact")
+            .eq("user_id", uid)
+            .lte("due", until.isoformat())
+            .execute()
+        )
+        return int(getattr(r, "count", None) or 0)
+    except Exception as e:
+        dlog("db_count_due_cards.err", err=str(e))
+        return 0
+
+
+def db_load_due_question_ids(uid: str, until: Optional[datetime] = None) -> List[str]:
+    """Return all question_ids whose card is due (<= until)."""
+    if until is None:
+        until = datetime.now(timezone.utc)
+    try:
+        r = (
+            supa()
+            .table("card_state")
+            .select("question_id,due")
+            .eq("user_id", uid)
+            .lte("due", until.isoformat())
+            .order("due", desc=False)
+            .execute()
+        )
+        return [str(row["question_id"]) for row in (r.data or [])]
+    except Exception as e:
+        dlog("db_load_due_question_ids.err", err=str(e))
+        return []
+
+
+def db_load_existing_card_ids(uid: str) -> set:
+    """Return set of question_ids that already have a card_state row for this user."""
+    try:
+        r = supa().table("card_state").select("question_id").eq("user_id", uid).execute()
+        return {str(row["question_id"]) for row in (r.data or [])}
+    except Exception as e:
+        dlog("db_load_existing_card_ids.err", err=str(e))
+        return set()
+
+
+def build_fsrs_queue(
+    questions: List[Dict[str, Any]],
+    uid: str,
+    *,
+    new_per_session: int = 10,
+    max_per_session: int = 50,
+) -> List[Dict[str, Any]]:
+    """Build a review queue: due cards first, then up to N new cards."""
+    if not _FSRS_AVAILABLE:
+        return []
+
+    by_id = {str(q.get("id")): q for q in questions}
+
+    # Due cards (already in card_state, due <= now)
+    due_ids = db_load_due_question_ids(uid)
+    due_qs = [by_id[qid] for qid in due_ids if qid in by_id]
+
+    # New cards (no card_state row yet)
+    seen_ids = db_load_existing_card_ids(uid)
+    new_qs = [q for q in questions if str(q.get("id")) not in seen_ids]
+    random.shuffle(new_qs)
+    new_qs = new_qs[:max(0, int(new_per_session))]
+
+    queue = list(due_qs) + list(new_qs)
+    return queue[:max(1, int(max_per_session))]
+
+
+def fsrs_rating_from_correctness(ok: bool) -> int:
+    """Default rating mapping when user only chose A/B/C/D without explicit rating."""
+    return int(FsrsRating.Good.value) if ok else int(FsrsRating.Again.value)
+
+
+def fsrs_review(uid: str, qid: str, rating: int, response_ms: Optional[int]) -> None:
+    """Run FSRS review_card and persist new state + review log."""
+    if not _FSRS_AVAILABLE:
+        return
+    sched = fsrs_scheduler()
+    if sched is None:
+        return
+
+    existing = db_get_card_state(uid, qid)
+    card = _row_to_card(existing) if existing else FsrsCard()
+    state_before = int(getattr(card, "state", 1) or 1)
+
+    # py-fsrs Rating enum from int
+    try:
+        r = FsrsRating(int(rating))
+    except Exception:
+        r = FsrsRating.Good
+
+    new_card, _log = sched.review_card(card, r)
+    state_after = int(getattr(new_card, "state", 1) or 1)
+
+    # A "lapse" = card was in Review (2) and got rated Again (1) -> moved to Relearning
+    is_lapse = (state_before == 2 and int(rating) == 1)
+
+    db_upsert_card_state(uid, qid, new_card,
+                         response_ms=response_ms,
+                         rating=int(rating),
+                         is_lapse=is_lapse)
+    db_insert_review_log(uid, qid, rating=int(rating),
+                         response_ms=response_ms,
+                         state_before=state_before,
+                         state_after=state_after)
+
+
+# =============================================================================
+# Streak & Heatmap (uses review_logs + falls back to user_question_progress)
+# =============================================================================
+def db_load_review_dates(uid: str, since_days: int = 120) -> List[str]:
+    """Return list of YYYY-MM-DD strings (one per review event) in the last N days."""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=int(since_days))
+    out: List[str] = []
+    # Primary source: review_logs (FSRS era)
+    try:
+        r = (
+            supa()
+            .table("review_logs")
+            .select("review_datetime")
+            .eq("user_id", uid)
+            .gte("review_datetime", cutoff.isoformat())
+            .execute()
+        )
+        for row in (r.data or []):
+            ts = row.get("review_datetime") or ""
+            if isinstance(ts, str) and len(ts) >= 10:
+                out.append(ts[:10])
+    except Exception as e:
+        dlog("db_load_review_dates.review_logs.err", err=str(e))
+
+    # Fallback / complement: user_question_progress.last_answer_at (pre-FSRS data)
+    try:
+        r = (
+            supa()
+            .table("user_question_progress")
+            .select("last_answer_at")
+            .eq("user_id", uid)
+            .gte("last_answer_at", cutoff.isoformat())
+            .execute()
+        )
+        for row in (r.data or []):
+            ts = row.get("last_answer_at") or ""
+            if isinstance(ts, str) and len(ts) >= 10:
+                out.append(ts[:10])
+    except Exception as e:
+        dlog("db_load_review_dates.uqp.err", err=str(e))
+
+    return out
+
+
+def compute_streak(dates_iso: List[str]) -> int:
+    """Compute consecutive-day streak ending today (or yesterday if not yet today).
+
+    A streak counts days where the user did at least one review.
+    """
+    days = set(dates_iso)
+    if not days:
+        return 0
+    today = datetime.now(timezone.utc).date()
+    # Allow grace: if today not in days but yesterday is, streak still counts
+    cur = today if today.isoformat() in days else (today - timedelta(days=1))
+    if cur.isoformat() not in days:
+        return 0
+    streak = 0
+    while cur.isoformat() in days:
+        streak += 1
+        cur = cur - timedelta(days=1)
+    return streak
+
+
+# =============================================================================
 # UI / STYLES
 # =============================================================================
 def inject_css() -> None:
@@ -933,9 +1252,12 @@ def inject_css() -> None:
   --pp-bg: rgba(255,255,255,0.055);
   --pp-bg2: rgba(255,255,255,0.075);
   --pp-text-muted: rgba(255,255,255,0.78);
+  --pp-good: #2ecc71;
+  --pp-bad:  #e74c3c;
+  --pp-warn: #f39c12;
 }
 .block-container { padding-top: 1.2rem; max-width: 1180px; }
-div.stButton > button { width:100%; padding:0.85rem 1rem; border-radius:14px; font-size:1rem; }
+div.stButton > button { width:100%; padding:0.95rem 1rem; border-radius:14px; font-size:1rem; min-height:48px; }
 div.stButton > button:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
 div.stButton > button:active { transform: translateY(0px); }
 
@@ -952,9 +1274,151 @@ hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
 h1{margin-bottom:0.6rem !important;}
 h2{margin-top:1.2rem !important;}
 .stMarkdown{margin-top:0.25rem;}
+
+/* Streak / FSRS pills */
+.pp-streak { display:inline-flex; align-items:center; gap:0.4rem; padding:0.3rem 0.7rem; border-radius:999px;
+  border:1px solid var(--pp-border); background: rgba(243,156,18,0.10); color:#ffd27a; font-weight:700; }
+.pp-due    { display:inline-flex; align-items:center; gap:0.4rem; padding:0.3rem 0.7rem; border-radius:999px;
+  border:1px solid var(--pp-border); background: rgba(46,204,113,0.10); color:#a8f0c1; font-weight:700; }
+
+/* Heatmap (90 days) */
+.pp-heatmap { display:grid; grid-auto-flow: column; grid-template-rows: repeat(7, 14px); gap:3px; }
+.pp-heatmap div { width:14px; height:14px; border-radius:3px; background: rgba(255,255,255,0.06); }
+.pp-heatmap div.l1 { background:#1f4032; }
+.pp-heatmap div.l2 { background:#2f6b4f; }
+.pp-heatmap div.l3 { background:#3fa471; }
+.pp-heatmap div.l4 { background:#4fd292; }
+
+/* Mobile: compact spacing + larger touch targets */
+@media (max-width: 640px){
+  .block-container { padding-top: 0.6rem; padding-left:0.6rem; padding-right:0.6rem; }
+  div.stButton > button { padding:1.05rem 0.8rem; font-size:1.02rem; min-height:54px; }
+  .pp-card, .pp-card2, .pp-kpi { padding: 0.8rem 0.85rem; }
+  h1{ font-size: 1.5rem; }
+  h2{ font-size: 1.2rem; }
+  .pp-heatmap { grid-template-rows: repeat(7, 11px); gap:2px; }
+  .pp-heatmap div { width:11px; height:11px; }
+}
 </style>
 """,
         unsafe_allow_html=True,
+    )
+
+
+def render_heatmap_html(dates_iso: List[str], days: int = 90) -> str:
+    """Render a 90-day GitHub-style heatmap from a list of YYYY-MM-DD strings."""
+    from collections import Counter
+    counts = Counter(dates_iso)
+    today = datetime.now(timezone.utc).date()
+    start = today - timedelta(days=int(days) - 1)
+    # Align start to Monday for nicer columns
+    start = start - timedelta(days=start.weekday())
+    cells = []
+    cur = start
+    while cur <= today:
+        n = counts.get(cur.isoformat(), 0)
+        if n == 0:
+            cls = ""
+        elif n <= 2:
+            cls = "l1"
+        elif n <= 5:
+            cls = "l2"
+        elif n <= 10:
+            cls = "l3"
+        else:
+            cls = "l4"
+        cells.append(
+            f'<div class="{cls}" title="{cur.isoformat()}: {n} Antworten"></div>'
+        )
+        cur = cur + timedelta(days=1)
+    return f'<div class="pp-heatmap">{"".join(cells)}</div>'
+
+
+def inject_keyboard_shortcuts(*, mode: str = "answer") -> None:
+    """Bind 1/2/3/4 + N keys to Streamlit buttons via parent-DOM lookup.
+
+    mode = "answer"  -> 1..4 click answer buttons "A) ..", "B) ..", etc.; "n" -> "Weiter →"
+    mode = "rate"    -> 1..4 click FSRS rating buttons (Nochmal/Schwer/Gut/Einfach); "n" -> "Weiter →"
+
+    Implementation note: Streamlit's components.html() runs in an iframe but on
+    the same origin as the parent app on Streamlit Cloud, so we can reach into
+    window.parent.document and click buttons by their text content. If the
+    browser blocks parent access, key shortcuts simply do nothing (graceful).
+    """
+    if mode == "rate":
+        # FSRS rating prefixes (emojis + space)
+        targets = {
+            "1": "🔁 Nochmal",
+            "2": "😬 Schwer",
+            "3": "🙂 Gut",
+            "4": "😎 Einfach",
+        }
+    else:
+        # Answer A/B/C/D
+        targets = {
+            "1": "A) ",
+            "2": "B) ",
+            "3": "C) ",
+            "4": "D) ",
+        }
+    next_label = "Weiter →"
+
+    import json as _json
+    targets_js = _json.dumps(targets, ensure_ascii=False)
+    next_js = _json.dumps(next_label, ensure_ascii=False)
+
+    components.html(
+        f"""
+<script>
+(function() {{
+  const TARGETS = {targets_js};
+  const NEXT_LABEL = {next_js};
+
+  function getParentDoc() {{
+    try {{ return window.parent.document; }} catch(e) {{ return null; }}
+  }}
+
+  function clickByText(prefix) {{
+    const doc = getParentDoc();
+    if (!doc) return false;
+    const buttons = doc.querySelectorAll('button');
+    for (const b of buttons) {{
+      const t = (b.innerText || '').trim();
+      if (t.startsWith(prefix)) {{
+        b.click();
+        return true;
+      }}
+    }}
+    return false;
+  }}
+
+  function onKey(e) {{
+    // ignore typing in inputs
+    const ae = (getParentDoc() || document).activeElement;
+    const tag = ae && ae.tagName ? ae.tagName.toUpperCase() : '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || (ae && ae.isContentEditable)) return;
+
+    const k = e.key;
+    if (TARGETS[k]) {{
+      if (clickByText(TARGETS[k])) e.preventDefault();
+    }} else if (k === 'n' || k === 'N' || k === 'Enter') {{
+      if (clickByText(NEXT_LABEL)) e.preventDefault();
+    }}
+  }}
+
+  // Bind to parent doc so keys work even when iframe isn't focused
+  const doc = getParentDoc();
+  if (doc) {{
+    if (window._kbShortcutsBound) {{
+      doc.removeEventListener('keydown', window._kbShortcutsBound, true);
+    }}
+    doc.addEventListener('keydown', onKey, true);
+    window._kbShortcutsBound = onKey;
+  }}
+}})();
+</script>
+""",
+        height=0,
     )
 
 
@@ -969,6 +1433,8 @@ def _reset_learning_state() -> None:
         "learn_started",
         "learn_plan",
         "ai_chat",
+        "q_shown_at",
+        "fsrs_rated",
     ]:
         st.session_state.pop(k, None)
 
@@ -1559,6 +2025,44 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
     )
 
     # ----------------------------
+    # Streak + FSRS Due + 90-Tage-Heatmap
+    # ----------------------------
+    review_dates = db_load_review_dates(uid, since_days=120)
+    streak = compute_streak(review_dates)
+    due_n = db_count_due_cards(uid) if fsrs_available() else 0
+
+    sc1, sc2 = st.columns([1, 1])
+    with sc1:
+        flame = "🔥" if streak > 0 else "·"
+        st.markdown(
+            f'<div class="pp-card2"><b>Lern-Serie</b><br>'
+            f'<span class="pp-streak">{flame} {streak} Tag{"e" if streak != 1 else ""} in Folge</span>'
+            f'<div class="pp-muted" style="margin-top:0.4rem">Antworte täglich mindestens eine Frage, um die Serie zu halten.</div></div>',
+            unsafe_allow_html=True,
+        )
+    with sc2:
+        if fsrs_available():
+            st.markdown(
+                f'<div class="pp-card2"><b>Spaced Repetition</b><br>'
+                f'<span class="pp-due">📚 {due_n} fällig</span>'
+                f'<div class="pp-muted" style="margin-top:0.4rem">Karten, die FSRS heute zur Wiederholung empfiehlt.</div></div>',
+                unsafe_allow_html=True,
+            )
+        else:
+            st.markdown(
+                '<div class="pp-card2"><b>Spaced Repetition</b><br>'
+                '<span class="pp-muted">FSRS-Modul nicht installiert (<code>pip install fsrs</code>).</span></div>',
+                unsafe_allow_html=True,
+            )
+
+    # 90-Tage-Heatmap
+    with st.container():
+        st.markdown('<div class="pp-card" style="margin-top:0.6rem"><b>Letzte 90 Tage</b>', unsafe_allow_html=True)
+        st.markdown(render_heatmap_html(review_dates, days=90), unsafe_allow_html=True)
+        st.markdown('<div class="pp-muted" style="margin-top:0.4rem">Jede Box = ein Tag. Dunkler = mehr Antworten.</div></div>', unsafe_allow_html=True)
+    st.write("")
+
+    # ----------------------------
     # Visualisierung: Fortschritt / Trefferquote pro Kategorie
     # ----------------------------
     try:
@@ -1596,8 +2100,28 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         pass
 
     st.write("")
+    # FSRS-Wiederholungs-Button als prominentester CTA, wenn fällige Karten existieren
+    if fsrs_available() and due_n > 0:
+        if st.button(f"📚 {due_n} fällige Karten wiederholen (FSRS)", type="primary", use_container_width=True):
+            _reset_learning_state()
+            st.session_state.page = "learn"
+            st.session_state.skip_teacher_autoresume = True
+            st.session_state.learn_plan = {
+                "mode": "FSRS",
+                "category": "Alle",
+                "subchapter": "Alle",
+                "only_unseen": False,
+                "only_wrong": False,
+            }
+            st.session_state.queue = build_fsrs_queue(questions, uid, new_per_session=10, max_per_session=60)
+            st.session_state.idx = 0
+            st.session_state.answered = False
+            st.session_state.learn_answers = {}
+            st.session_state.learn_started = True
+            st.rerun()
+
     cA, cB = st.columns([1, 1])
-    if cA.button("Weiterlernen", type="primary"):
+    if cA.button("Weiterlernen"):
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.skip_teacher_autoresume = True
@@ -1827,7 +2351,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     _has_explicit_plan = (
         isinstance(_existing_plan, dict)
         and (
-            _existing_plan.get("mode") in ("Zufällig", "Lehrerpfad")
+            _existing_plan.get("mode") in ("Zufällig", "Lehrerpfad", "FSRS")
             or _existing_plan.get("category") not in (None, "", "Alle")
             or _existing_plan.get("subchapter") not in (None, "", "Alle")
             or bool(_existing_plan.get("only_unseen"))
@@ -1952,11 +2476,25 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     if not st.session_state.learn_started:
         plan = st.session_state.learn_plan
 
+        modes = ["Zufällig", "Lehrerpfad"]
+        if fsrs_available():
+            modes.append("Wiederholung (FSRS)")
+
+        # Map plan mode -> radio label
+        cur_mode = plan.get("mode", "Zufällig")
+        if cur_mode == "FSRS":
+            cur_label = "Wiederholung (FSRS)"
+        elif cur_mode == "Lehrerpfad":
+            cur_label = "Lehrerpfad"
+        else:
+            cur_label = "Zufällig"
+        idx_mode = modes.index(cur_label) if cur_label in modes else 0
+
         mode_ui = st.radio(
             "Lernmodus",
-            ["Zufällig", "Lehrerpfad"],
+            modes,
             horizontal=True,
-            index=0 if plan.get("mode", "Zufällig") == "Zufällig" else 1,
+            index=idx_mode,
         )
 
         if mode_ui == "Zufällig":
@@ -2006,6 +2544,52 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 st.session_state.page = "dashboard"
                 _reset_learning_state()
                 st.rerun()
+
+        elif mode_ui == "Wiederholung (FSRS)":
+            st.markdown("### Wiederholung (Spaced Repetition)")
+            due_n = db_count_due_cards(uid)
+            seen_n = len(db_load_existing_card_ids(uid))
+            new_avail = max(0, len(questions) - seen_n)
+            st.markdown(
+                f'<div class="pp-card2"><b>Status</b>'
+                f'<div class="pp-muted" style="margin-top:0.3rem">'
+                f'Heute fällig: <b>{due_n}</b> · Bereits gestartet: <b>{seen_n}</b> · Neu verfügbar: <b>{new_avail}</b>'
+                f'</div></div>',
+                unsafe_allow_html=True,
+            )
+
+            new_per = st.slider("Neue Karten in dieser Session", min_value=0, max_value=30, value=10, step=1)
+            max_per = st.slider("Maximale Kartenanzahl in dieser Session", min_value=10, max_value=120, value=60, step=10)
+
+            c1, c2 = st.columns([1, 1])
+            start_disabled = (due_n == 0 and new_avail == 0)
+            if c1.button("Wiederholung starten", type="primary", use_container_width=True, disabled=start_disabled):
+                st.session_state.learn_plan = {
+                    "mode": "FSRS",
+                    "category": "Alle",
+                    "subchapter": "Alle",
+                    "only_unseen": False,
+                    "only_wrong": False,
+                }
+                st.session_state.queue = build_fsrs_queue(
+                    questions, uid,
+                    new_per_session=int(new_per),
+                    max_per_session=int(max_per),
+                )
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
+                st.rerun()
+            if c2.button("Zur Übersicht", use_container_width=True, key="fsrs_to_dashboard"):
+                st.session_state.page = "dashboard"
+                _reset_learning_state()
+                st.rerun()
+
+            if start_disabled:
+                st.caption("Aktuell sind keine Karten fällig und keine neuen Karten verfügbar. Lerne ein paar Fragen über Zufällig oder Lehrerpfad — sie werden automatisch in den FSRS-Kreislauf aufgenommen.")
+            else:
+                st.caption("Tipp: Beim Antworten zählt nur, ob du richtig liegst. Optional kannst du die Antwort danach als 'Schwer' oder 'Einfach' markieren — FSRS plant die nächste Wiederholung entsprechend.")
 
         else:
             st.markdown("### Lehrerpfad (vom Einfachen zum Komplexen)")
@@ -2103,6 +2687,33 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                         st.rerun()
             else:
                 if st.button("Zurück zur Lernübersicht", type="primary"):
+                    _reset_learning_state()
+                    st.rerun()
+
+        elif plan.get("mode") == "FSRS":
+            # FSRS-Session beendet: zeige Stats + Optionen
+            answers_local = st.session_state.get("learn_answers") or {}
+            total = len(answers_local)
+            correct = sum(1 for v in answers_local.values() if isinstance(v, dict) and v.get("ok"))
+            pct = int(round((correct / total) * 100)) if total else 0
+            st.markdown(
+                f'<div class="pp-card"><b>FSRS-Wiederholung abgeschlossen</b>'
+                f'<div class="pp-muted" style="margin-top:0.3rem">{correct}/{total} richtig ({pct}%) · '
+                f'Noch fällig: <b>{db_count_due_cards(uid)}</b></div></div>',
+                unsafe_allow_html=True,
+            )
+            a1, a2 = st.columns([1, 1])
+            with a1:
+                more_due = db_count_due_cards(uid)
+                if st.button(f"Weiter wiederholen ({more_due} fällig)", type="primary",
+                             disabled=(more_due == 0), use_container_width=True):
+                    st.session_state.queue = build_fsrs_queue(questions, uid, new_per_session=10, max_per_session=60)
+                    st.session_state.idx = 0
+                    st.session_state.answered = False
+                    st.session_state.learn_answers = {}
+                    st.rerun()
+            with a2:
+                if st.button("Zurück zur Lernübersicht", use_container_width=True):
                     _reset_learning_state()
                     st.rerun()
 
@@ -2207,13 +2818,25 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         b, s, d = _learn_meta(q)
         block_label = LEARN_BLOCK_LABELS.get(b, f"Block {b}")
         st.caption(f"Lehrerpfad · {block_label} | Stufe {s} · Schwierigkeit {d} · {idx+1}/{len(queue)}")
+    elif plan.get("mode") == "FSRS":
+        # Kennzeichne FSRS-Karten (neu vs. fällig) wenn möglich
+        cs = db_get_card_state(uid, qid) if fsrs_available() else None
+        if cs is None:
+            tag = "🆕 neu"
+        else:
+            try:
+                state_n = int(cs.get("state") or 1)
+            except Exception:
+                state_n = 1
+            tag = {1: "🌱 lernend", 2: "🔁 wiederholen", 3: "♻️ aufholen"}.get(state_n, "🔁")
+        st.caption(f"Wiederholung (FSRS) · {tag} · {q.get('category','')} · {q.get('subchapter','')} · {idx+1}/{len(queue)}")
     else:
         st.caption(f"{plan.get('category','Alle')} · {plan.get('subchapter','Alle')} · {idx+1}/{len(queue)}")
 
     # Question card
     st.markdown(
         f"""<div class="pp-card"><div><b>{(q.get("question") or "").strip()}</b></div>
-<div class="pp-muted">{q.get("category","")} · {q.get("subchapter","")} · ID {qid}</div></div>""",
+<div class="pp-muted">{q.get("category","")} · {q.get("subchapter","")} · ID {qid} <span style="opacity:0.6">· ⌨ 1-4 antworten · N für Weiter</span></div></div>""",
         unsafe_allow_html=True,
     )
 
@@ -2324,12 +2947,27 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     labels = ["A", "B", "C", "D"]
 
+    # Track when this question was shown (for response-latency)
+    if not st.session_state.get("answered", False):
+        # Reset timestamp the first time we render this specific question unanswered
+        ts_key = f"q_shown_at__{qid}__{idx}"
+        if st.session_state.get("q_shown_at_key") != ts_key:
+            st.session_state.q_shown_at = time.time()
+            st.session_state.q_shown_at_key = ts_key
+
     # Answer buttons
     if not st.session_state.get("answered", False):
+        # Keyboard shortcuts: 1/2/3/4 = A/B/C/D
+        inject_keyboard_shortcuts(mode="answer")
         for i_opt in range(4):
             opt = options[i_opt]
             if st.button(f"{labels[i_opt]}) {opt}", key=f"learn_{qid}_{i_opt}", use_container_width=True):
                 ok = (i_opt == correct_index)
+
+                # Compute response latency in ms
+                shown_at = float(st.session_state.get("q_shown_at") or time.time())
+                response_ms = max(0, int((time.time() - shown_at) * 1000))
+                st.session_state.last_response_ms = response_ms
 
                 counters = db_upsert_progress(uid, qid, ok)
                 apply_progress_delta_local(uid, qid, counters)
@@ -2342,6 +2980,15 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                         db_upsert_teacher_cursor(uid, str(b_cur), qid, int(st.session_state.idx))
                 except Exception:
                     pass
+
+                # FSRS: jede Antwort (egal welcher Modus) updated den Card-State.
+                # So baut sich der Wiederholungs-Stapel automatisch auf, sobald
+                # Michi überhaupt Fragen beantwortet — auch im Lehrerpfad/Zufalls-Modus.
+                # Im FSRS-Modus selbst zeigen wir zusätzlich die manuelle Override-UI.
+                if fsrs_available():
+                    default_rating = fsrs_rating_from_correctness(ok)
+                    fsrs_review(uid, qid, rating=default_rating, response_ms=response_ms)
+                    st.session_state.fsrs_rated = int(default_rating)
 
                 st.session_state.answered = True
                 st.session_state.last_ok = ok
@@ -2371,6 +3018,44 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             st.error("Falsch")
             if corr_i is not None and 0 <= int(corr_i) < len(options):
                 st.info(f"Richtig ist: {labels[int(corr_i)]}) {options[int(corr_i)]}")
+
+        # FSRS rating override (only in FSRS mode)
+        if plan.get("mode") == "FSRS" and fsrs_available():
+            # Keyboard shortcuts in rate mode: 1/2/3/4 = Nochmal/Schwer/Gut/Einfach
+            inject_keyboard_shortcuts(mode="rate")
+            applied = int(st.session_state.get("fsrs_rated") or 0)
+            applied_label = {1: "Nochmal", 2: "Schwer", 3: "Gut", 4: "Einfach"}.get(applied, "—")
+            st.markdown(
+                f'<div class="pp-card2"><b>FSRS-Bewertung</b>'
+                f'<div class="pp-muted" style="margin-top:0.3rem">Aktuell: <b>{applied_label}</b>. '
+                f'Du kannst sie unten überschreiben — die nächste Wiederholung wird entsprechend angepasst.</div></div>',
+                unsafe_allow_html=True,
+            )
+            r1, r2, r3, r4 = st.columns([1, 1, 1, 1])
+            if r1.button("🔁 Nochmal", key=f"fsrs_again_{qid}", use_container_width=True):
+                fsrs_review(uid, qid, rating=1, response_ms=int(st.session_state.get("last_response_ms") or 0))
+                st.session_state.fsrs_rated = 1
+                st.toast("Bewertung: Nochmal")
+            if r2.button("😬 Schwer", key=f"fsrs_hard_{qid}", use_container_width=True):
+                fsrs_review(uid, qid, rating=2, response_ms=int(st.session_state.get("last_response_ms") or 0))
+                st.session_state.fsrs_rated = 2
+                st.toast("Bewertung: Schwer")
+            if r3.button("🙂 Gut", key=f"fsrs_good_{qid}", use_container_width=True):
+                fsrs_review(uid, qid, rating=3, response_ms=int(st.session_state.get("last_response_ms") or 0))
+                st.session_state.fsrs_rated = 3
+                st.toast("Bewertung: Gut")
+            if r4.button("😎 Einfach", key=f"fsrs_easy_{qid}", use_container_width=True):
+                fsrs_review(uid, qid, rating=4, response_ms=int(st.session_state.get("last_response_ms") or 0))
+                st.session_state.fsrs_rated = 4
+                st.toast("Bewertung: Einfach")
+
+            # Show response latency (small)
+            ms = int(st.session_state.get("last_response_ms") or 0)
+            if ms > 0:
+                st.caption(f"Antwortzeit: {ms/1000:.1f}s")
+        else:
+            # Non-FSRS: still allow N/Enter to advance
+            inject_keyboard_shortcuts(mode="answer")
 
         w = get_wiki(q)
         with st.expander("Wiki (kurz + Merksatz + Links)", expanded=True):

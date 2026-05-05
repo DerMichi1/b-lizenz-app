@@ -1600,12 +1600,50 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
     if cA.button("Weiterlernen", type="primary"):
         _reset_learning_state()
         st.session_state.page = "learn"
-        st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": False}
+        st.session_state.skip_teacher_autoresume = True
+        st.session_state.learn_plan = {
+            "mode": "Zufällig",
+            "category": "Alle",
+            "subchapter": "Alle",
+            "only_unseen": False,
+            "only_wrong": False,
+        }
+        st.session_state.queue = build_learning_queue(
+            questions=questions,
+            progress=progress,
+            category="Alle",
+            subchapter="Alle",
+            only_unseen=False,
+            only_wrong=False,
+        )
+        st.session_state.idx = 0
+        st.session_state.answered = False
+        st.session_state.learn_answers = {}
+        st.session_state.learn_started = True
         st.rerun()
     if cB.button("Falsche wiederholen"):
         _reset_learning_state()
         st.session_state.page = "learn"
-        st.session_state.learn_plan = {"mode": "Zufällig", "category": "Alle", "subchapter": "Alle", "only_unseen": False, "only_wrong": True}
+        st.session_state.skip_teacher_autoresume = True
+        st.session_state.learn_plan = {
+            "mode": "Zufällig",
+            "category": "Alle",
+            "subchapter": "Alle",
+            "only_unseen": False,
+            "only_wrong": True,
+        }
+        st.session_state.queue = build_learning_queue(
+            questions=questions,
+            progress=progress,
+            category="Alle",
+            subchapter="Alle",
+            only_unseen=False,
+            only_wrong=True,
+        )
+        st.session_state.idx = 0
+        st.session_state.answered = False
+        st.session_state.learn_answers = {}
+        st.session_state.learn_started = True
         st.rerun()
     if st.button("Prüfung starten (40)"):
         st.session_state.page = "exam"
@@ -1628,12 +1666,26 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         if st.button("Jetzt starten (nur falsch)", use_container_width=True):
             _reset_learning_state()
             st.session_state.page = "learn"
+            st.session_state.skip_teacher_autoresume = True
             st.session_state.learn_plan = {
+                "mode": "Zufällig",
                 "category": target["category"],
                 "subchapter": target["subchapter"],
                 "only_unseen": False,
                 "only_wrong": True,
             }
+            st.session_state.queue = build_learning_queue(
+                questions=questions,
+                progress=progress,
+                category=target["category"],
+                subchapter=target["subchapter"],
+                only_unseen=False,
+                only_wrong=True,
+            )
+            st.session_state.idx = 0
+            st.session_state.answered = False
+            st.session_state.learn_answers = {}
+            st.session_state.learn_started = True
             st.rerun()
     else:
         st.caption("Noch nicht genug Daten für eine Empfehlung (mind. 6 Antworten pro Unterkapitel).")
@@ -1651,12 +1703,28 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             if a2.button("Üben", key=f"wrong_{r['qid']}"):
                 _reset_learning_state()
                 st.session_state.page = "learn"
+                st.session_state.skip_teacher_autoresume = True
+                _cat_w = r["category"] or "Alle"
+                _sub_w = r["subchapter"] or "Alle"
                 st.session_state.learn_plan = {
-                    "category": r["category"] or "Alle",
-                    "subchapter": r["subchapter"] or "Alle",
+                    "mode": "Zufällig",
+                    "category": _cat_w,
+                    "subchapter": _sub_w,
                     "only_unseen": False,
                     "only_wrong": True,
                 }
+                st.session_state.queue = build_learning_queue(
+                    questions=questions,
+                    progress=progress,
+                    category=_cat_w,
+                    subchapter=_sub_w,
+                    only_unseen=False,
+                    only_wrong=True,
+                )
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
                 st.rerun()
 
     st.write("")
@@ -1677,7 +1745,26 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             if c2.button("Üben", key=f"sub_{cat}::{sub}"):
                 _reset_learning_state()
                 st.session_state.page = "learn"
-                st.session_state.learn_plan = {"category": cat, "subchapter": sub, "only_unseen": False, "only_wrong": False}
+                st.session_state.skip_teacher_autoresume = True
+                st.session_state.learn_plan = {
+                    "mode": "Zufällig",
+                    "category": cat,
+                    "subchapter": sub,
+                    "only_unseen": False,
+                    "only_wrong": False,
+                }
+                st.session_state.queue = build_learning_queue(
+                    questions=questions,
+                    progress=progress,
+                    category=cat,
+                    subchapter=sub,
+                    only_unseen=False,
+                    only_wrong=False,
+                )
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
                 st.rerun()
 
     st.write("")
@@ -1734,7 +1821,26 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
     # Auto-resume teacher path after refresh (if a cursor exists)
     # This avoids losing progress mid-chapter when Streamlit session is restarted.
-    if (not st.session_state.get("skip_teacher_autoresume", False)) and (not st.session_state.get("learn_started", False)) and (not st.session_state.get("queue")):
+    # WICHTIG: Auto-Resume darf NIEMALS einen explizit gesetzten Plan überschreiben
+    # (z.B. wenn der User vom Dashboard mit konkreter Kategorie/Unterkapitel kommt).
+    _existing_plan = st.session_state.get("learn_plan")
+    _has_explicit_plan = (
+        isinstance(_existing_plan, dict)
+        and (
+            _existing_plan.get("mode") in ("Zufällig", "Lehrerpfad")
+            or _existing_plan.get("category") not in (None, "", "Alle")
+            or _existing_plan.get("subchapter") not in (None, "", "Alle")
+            or bool(_existing_plan.get("only_unseen"))
+            or bool(_existing_plan.get("only_wrong"))
+            or _existing_plan.get("teacher_block") is not None
+        )
+    )
+    if (
+        (not st.session_state.get("skip_teacher_autoresume", False))
+        and (not st.session_state.get("learn_started", False))
+        and (not st.session_state.get("queue"))
+        and (not _has_explicit_plan)
+    ):
         latest = db_get_latest_teacher_cursor(uid)
         if latest:
             try:

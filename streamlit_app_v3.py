@@ -428,6 +428,253 @@ def _infer_figures_from_text(q: Dict[str, Any]) -> List[Dict[str, Any]]:
     return [{"figure": int(m.group(1))}]
 
 
+def render_zoomable_image(png_bytes: bytes, caption: str = "", key: str = "") -> None:
+    """Render PNG mit interaktivem Zoom (Mausrad, Pinch, Drag, Doppelklick = Reset).
+
+    Verwendet eine selbst-enthaltene HTML-Komponente — keine externen Libraries.
+    Jede Komponente läuft in ihrem eigenen iframe-Scope, daher konfliktfrei.
+    """
+    import base64 as _b64
+    import struct as _struct
+    import html as _html
+
+    # PNG-Dimensionen aus Header parsen (Bytes 16..23: width, height als Big-Endian uint32)
+    nat_w, nat_h = 800, 600
+    if len(png_bytes) >= 24 and png_bytes[:8] == b"\x89PNG\r\n\x1a\n":
+        try:
+            nat_w, nat_h = _struct.unpack(">II", png_bytes[16:24])
+        except Exception:
+            pass
+
+    # Iframe-Höhe: aspect-ratio-aware, gedeckelt auf vernünftige Werte.
+    # Annahme: Container in Streamlit ist ca. 700px breit auf Desktop.
+    container_w = 700
+    aspect = nat_h / max(1, nat_w)
+    img_h = int(min(560, max(260, container_w * aspect)))
+    iframe_h = img_h + 80  # +80 für Controls + Caption
+
+    b64 = _b64.b64encode(png_bytes).decode("ascii")
+    src = f"data:image/png;base64,{b64}"
+    cap_safe = _html.escape(caption or "")
+
+    html = f"""
+<style>
+  .pp-zoom-wrap {{ position: relative; width: 100%; }}
+  .pp-zoom-controls {{ display: flex; gap: 6px; margin-bottom: 6px; align-items: center; flex-wrap: wrap; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
+  .pp-zoom-controls button {{
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+    color: white; padding: 6px 12px; border-radius: 8px; cursor: pointer;
+    font-size: 13px; min-height: 34px; transition: background 0.15s;
+  }}
+  .pp-zoom-controls button:hover {{ background: rgba(255,255,255,0.16); }}
+  .pp-zoom-controls button:active {{ background: rgba(255,255,255,0.22); }}
+  .pp-zoom-pct {{ color: rgba(255,255,255,0.75); font-size: 13px; min-width: 56px; text-align: center;
+    padding: 4px 8px; background: rgba(255,255,255,0.04); border-radius: 6px; }}
+  .pp-zoom-hint {{ color: rgba(255,255,255,0.5); font-size: 12px; margin-left: auto; }}
+  .pp-zoom-container {{
+    position: relative; width: 100%; height: {img_h}px;
+    overflow: hidden; background: #ffffff;
+    border-radius: 8px; cursor: grab;
+    touch-action: none; user-select: none;
+    border: 1px solid rgba(255,255,255,0.10);
+  }}
+  .pp-zoom-container.is-grabbing {{ cursor: grabbing; }}
+  .pp-zoom-container img {{
+    position: absolute; top: 0; left: 0;
+    transform-origin: 0 0;
+    user-select: none; -webkit-user-drag: none; pointer-events: none;
+    will-change: transform;
+  }}
+  .pp-zoom-caption {{ color: rgba(255,255,255,0.7); font-size: 13px; margin-top: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }}
+  @media (max-width: 640px) {{
+    .pp-zoom-hint {{ display: none; }}
+    .pp-zoom-controls button {{ font-size: 14px; padding: 7px 11px; }}
+  }}
+</style>
+
+<div class="pp-zoom-wrap">
+  <div class="pp-zoom-controls">
+    <button type="button" id="pp_in">＋ Zoom</button>
+    <button type="button" id="pp_out">− Zoom</button>
+    <button type="button" id="pp_reset">Zurücksetzen</button>
+    <span class="pp-zoom-pct" id="pp_pct">100%</span>
+    <span class="pp-zoom-hint">Mausrad / Pinch zoomt · Doppelklick = Reset · Klicken & Ziehen = Verschieben</span>
+  </div>
+  <div class="pp-zoom-container" id="pp_zc">
+    <img id="pp_img" src="{src}" alt="" draggable="false" />
+  </div>
+  <div class="pp-zoom-caption">{cap_safe}</div>
+</div>
+
+<script>
+(function() {{
+  const container = document.getElementById('pp_zc');
+  const img = document.getElementById('pp_img');
+  const pct = document.getElementById('pp_pct');
+  const btnIn = document.getElementById('pp_in');
+  const btnOut = document.getElementById('pp_out');
+  const btnReset = document.getElementById('pp_reset');
+
+  // Layout-Modell:
+  //   baseScale   = scale, der das Bild "fit" in den Container bringt (initial)
+  //   scale       = User-Zoom-Faktor (1.0 = fit, > 1.0 = reingezoomt)
+  //   tx, ty      = Translate (in Container-Pixeln)
+  // Effektiver transform = translate(tx, ty) scale(scale * baseScale)
+  let baseScale = 1, scale = 1, tx = 0, ty = 0;
+  const MAX_SCALE = 8;
+  const MIN_SCALE = 1;
+
+  function fitImage() {{
+    const cw = container.clientWidth;
+    const ch = container.clientHeight;
+    const iw = img.naturalWidth || cw;
+    const ih = img.naturalHeight || ch;
+    baseScale = Math.min(cw / iw, ch / ih);
+    if (!isFinite(baseScale) || baseScale <= 0) baseScale = 1;
+    scale = 1;
+    tx = (cw - iw * baseScale) / 2;
+    ty = (ch - ih * baseScale) / 2;
+    apply();
+  }}
+
+  function apply() {{
+    img.style.transform = 'translate(' + tx + 'px, ' + ty + 'px) scale(' + (scale * baseScale) + ')';
+    pct.textContent = Math.round(scale * 100) + '%';
+  }}
+
+  function clampScale(s) {{
+    return Math.min(MAX_SCALE, Math.max(MIN_SCALE, s));
+  }}
+
+  function zoomAt(cx, cy, factor) {{
+    // Nach dem Zoom soll der Pixel an (cx, cy) im Container weiterhin bei (cx, cy) sein.
+    const newScale = clampScale(scale * factor);
+    if (newScale === scale) return;
+    const k = newScale / scale;
+    tx = cx - (cx - tx) * k;
+    ty = cy - (cy - ty) * k;
+    scale = newScale;
+    apply();
+  }}
+
+  // Buttons
+  btnIn.addEventListener('click', function() {{
+    zoomAt(container.clientWidth / 2, container.clientHeight / 2, 1.4);
+  }});
+  btnOut.addEventListener('click', function() {{
+    zoomAt(container.clientWidth / 2, container.clientHeight / 2, 1 / 1.4);
+  }});
+  btnReset.addEventListener('click', fitImage);
+
+  // Mausrad zum Zoomen (am Cursor zentriert)
+  container.addEventListener('wheel', function(e) {{
+    e.preventDefault();
+    const r = container.getBoundingClientRect();
+    const cx = e.clientX - r.left;
+    const cy = e.clientY - r.top;
+    const factor = e.deltaY < 0 ? 1.15 : (1 / 1.15);
+    zoomAt(cx, cy, factor);
+  }}, {{ passive: false }});
+
+  // Maus-Drag (Pan)
+  let isDown = false, lastX = 0, lastY = 0;
+  container.addEventListener('mousedown', function(e) {{
+    isDown = true;
+    lastX = e.clientX; lastY = e.clientY;
+    container.classList.add('is-grabbing');
+    e.preventDefault();
+  }});
+  window.addEventListener('mouseup', function() {{
+    isDown = false;
+    container.classList.remove('is-grabbing');
+  }});
+  window.addEventListener('mousemove', function(e) {{
+    if (!isDown) return;
+    tx += e.clientX - lastX;
+    ty += e.clientY - lastY;
+    lastX = e.clientX; lastY = e.clientY;
+    apply();
+  }});
+
+  // Doppelklick = Reset
+  container.addEventListener('dblclick', function(e) {{
+    e.preventDefault();
+    fitImage();
+  }});
+
+  // Touch: Pan (1 Finger) + Pinch (2 Finger)
+  let touchMode = null;          // 'pan' | 'pinch' | null
+  let lastTouchX = 0, lastTouchY = 0;
+  let lastPinchDist = 0;
+
+  function touchDist(t) {{
+    const dx = t[0].clientX - t[1].clientX;
+    const dy = t[0].clientY - t[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }}
+  function touchMid(t) {{
+    return {{
+      x: (t[0].clientX + t[1].clientX) / 2,
+      y: (t[0].clientY + t[1].clientY) / 2
+    }};
+  }}
+
+  container.addEventListener('touchstart', function(e) {{
+    if (e.touches.length === 1) {{
+      touchMode = 'pan';
+      lastTouchX = e.touches[0].clientX;
+      lastTouchY = e.touches[0].clientY;
+    }} else if (e.touches.length === 2) {{
+      touchMode = 'pinch';
+      lastPinchDist = touchDist(e.touches);
+    }}
+  }}, {{ passive: true }});
+
+  container.addEventListener('touchmove', function(e) {{
+    e.preventDefault();
+    if (touchMode === 'pan' && e.touches.length === 1) {{
+      const t = e.touches[0];
+      tx += t.clientX - lastTouchX;
+      ty += t.clientY - lastTouchY;
+      lastTouchX = t.clientX; lastTouchY = t.clientY;
+      apply();
+    }} else if (touchMode === 'pinch' && e.touches.length === 2) {{
+      const dist = touchDist(e.touches);
+      if (lastPinchDist > 0) {{
+        const factor = dist / lastPinchDist;
+        const r = container.getBoundingClientRect();
+        const m = touchMid(e.touches);
+        zoomAt(m.x - r.left, m.y - r.top, factor);
+      }}
+      lastPinchDist = dist;
+    }}
+  }}, {{ passive: false }});
+
+  container.addEventListener('touchend', function() {{
+    touchMode = null;
+    lastPinchDist = 0;
+  }});
+
+  // Initial Fit, sobald das Bild geladen ist
+  if (img.complete && img.naturalWidth) {{
+    fitImage();
+  }} else {{
+    img.addEventListener('load', fitImage);
+  }}
+
+  // Bei Window-Resize neu fitten
+  let resizeTimer = null;
+  window.addEventListener('resize', function() {{
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fitImage, 120);
+  }});
+}})();
+</script>
+"""
+    components.html(html, height=iframe_h)
+
+
 def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
     figs = _infer_figures_from_text(q)
     if not figs:
@@ -490,7 +737,7 @@ def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
 
         cap = f"Abbildung {fig_no_int} (Bilder.pdf Seite {page_1based})"
         cap += " · Ausschnitt" if clip else " · Auto-Crop"
-        st.image(png, caption=cap, width="stretch")
+        render_zoomable_image(png, caption=cap, key=f"zimg_{fig_no_int}_{page_1based}_{shown}")
         shown += 1
 
 

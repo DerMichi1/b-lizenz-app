@@ -81,6 +81,44 @@ def _license_label(lic: Optional[str] = None) -> str:
     return "A-Schein" if (lic or _lic()) == "A" else "B-Schein"
 
 
+def _exam_config(license_code: Optional[str] = None) -> Dict[str, Any]:
+    """Offizielle DHV-Theorieprüfungs-Parameter (Quelle: DHV-APO 2024 + dhv.de).
+
+    A-Schein (beschränkter Luftfahrerschein):
+        4 Sachgebiete × 30 Fragen = 120 Fragen, 120 Minuten,
+        max. 7 falsche pro Sachgebiet.
+
+    B-Schein (unbeschränkter Luftfahrerschein):
+        4 Sachgebiete × 40 Fragen = 160 Fragen, 90 Minuten,
+        max. 10 falsche pro Sachgebiet.
+
+    Bestanden ist die Prüfung nur dann, wenn JEDES Sachgebiet einzeln
+    innerhalb der erlaubten Fehlergrenze liegt — die DHV-Bestehensregel
+    rechnet nicht in Gesamt-Prozent, sondern pro Sachgebiet.
+
+    Quellen:
+    - DHV-APO 2024 (Anhang 4.1/4.2)
+    - https://www.dhv.de/fliegen/gleitschirm/pruefung/
+    - sky-team.de Theorie-Übersicht (Spiegel der DHV-Vorgaben)
+    """
+    lic = "A" if (license_code or _lic()) == "A" else "B"
+    if lic == "A":
+        return {
+            "license": "A",
+            "questions_per_category": 30,
+            "total_questions": 120,
+            "duration_min": 120,
+            "max_wrong_per_category": 7,
+        }
+    return {
+        "license": "B",
+        "questions_per_category": 40,
+        "total_questions": 160,
+        "duration_min": 90,
+        "max_wrong_per_category": 10,
+    }
+
+
 def _questions_path_for_license(license_code: Optional[str] = None) -> Path:
     """Return the question catalog for A/B.
 
@@ -2553,23 +2591,122 @@ def build_exam_queue_balanced(questions: List[Dict[str, Any]], n: int = 40, seed
     return selected
 
 
+def build_exam_queue_official(
+    questions: List[Dict[str, Any]],
+    license_code: Optional[str] = None,
+    seed: Optional[int] = None,
+) -> List[Dict[str, Any]]:
+    """Baut eine Prüfungs-Queue exakt nach DHV-Vorgabe (APO 2024).
+
+    Pro Sachgebiet (Hauptkapitel) werden GENAU `questions_per_category` Fragen
+    gezogen — A-Schein: 30 pro Sachgebiet, B-Schein: 40 pro Sachgebiet. Innerhalb
+    eines Sachgebiets werden die Unterkapitel proportional zur verfügbaren
+    Fragenanzahl gezogen, damit alle Subchapters fair vertreten sind.
+
+    Reihenfolge der zurückgegebenen Liste: pro Sachgebiet gemischt, dann sortiert
+    nach Sachgebiet (Hauptkapitel-Name alphabetisch). So sieht der Prüfling die
+    Sachgebiete zwar gemischt aufeinanderfolgend, aber konsistent in derselben
+    Reihenfolge wie die Auswertung am Ende.
+    """
+    cfg = _exam_config(license_code)
+    n_per_cat = int(cfg["questions_per_category"])
+    rng = random.Random(seed)
+
+    # Gruppiere Fragen nach Hauptkapitel und Unterkapitel
+    by_cat: Dict[str, Dict[str, List[Dict[str, Any]]]] = {}
+    for q in questions:
+        cat = (q.get("category") or "").strip() or "Unbekannt"
+        sub = (q.get("subchapter") or "").strip() or "Allgemein"
+        by_cat.setdefault(cat, {}).setdefault(sub, []).append(q)
+
+    cats = sorted(by_cat.keys())
+    if not cats:
+        return []
+
+    selected: List[Dict[str, Any]] = []
+
+    for cat in cats:
+        subs = sorted(by_cat[cat].keys())
+        if not subs:
+            continue
+
+        # Verfügbar pro Subchapter
+        avail = {s: len(by_cat[cat][s]) for s in subs}
+        total_avail = sum(avail.values())
+
+        # Wenn weniger Fragen verfügbar als gefordert, alle nehmen
+        target = min(n_per_cat, total_avail)
+
+        # Proportionale Aufteilung nach verfügbaren Fragen pro Subchapter
+        raw = {s: (target * avail[s] / total_avail) if total_avail else 0.0 for s in subs}
+        sub_target = {s: int(math.floor(raw[s])) for s in subs}
+        rem = target - sum(sub_target.values())
+        order = sorted(subs, key=lambda s: (raw[s] - math.floor(raw[s]), avail[s]), reverse=True)
+        for s in order:
+            if rem <= 0:
+                break
+            sub_target[s] += 1
+            rem -= 1
+
+        # Subchapter mit 0 Quote, aber verfügbaren Fragen, von Donor abziehen
+        if target > 1 and len(subs) > 1:
+            zeros = [s for s in subs if sub_target[s] == 0 and avail[s] > 0]
+            for s in zeros:
+                donor = max(subs, key=lambda d: sub_target[d])
+                if sub_target[donor] <= 1:
+                    break
+                sub_target[donor] -= 1
+                sub_target[s] += 1
+
+        # Aus jedem Subchapter zufällig auswählen
+        cat_bucket: List[Dict[str, Any]] = []
+        for s in subs:
+            pool = list(by_cat[cat][s])
+            rng.shuffle(pool)
+            take = min(sub_target[s], len(pool))
+            cat_bucket.extend(pool[:take])
+
+        rng.shuffle(cat_bucket)
+        selected.extend(cat_bucket)
+
+    return selected
+
+
 # =============================================================================
 # DASHBOARD
 # =============================================================================
 def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optional[int]]) -> Dict[str, Any]:
-    """Compute exam result from the queued questions and the recorded answers.
+    """Berechnet das Prüfungsergebnis nach offizieller DHV-Regel (APO 2024).
 
-    IMPORTANT: The UI expects result['details'] to exist and to contain items shaped like:
+    Bestanden ist die Prüfung dann, wenn JEDES Sachgebiet einzeln innerhalb der
+    Fehlergrenze liegt: A-Schein max. 7 falsche pro Sachgebiet, B-Schein max. 10.
+
+    Liefert pro Sachgebiet (per_category):
+      - total: Anzahl gestellter Fragen in diesem Sachgebiet
+      - correct: korrekt beantwortet
+      - wrong: falsch / nicht beantwortet
+      - max_wrong: erlaubte Höchstgrenze laut DHV
+      - passed: bool (wrong <= max_wrong)
+
+    Globaler `passed`-Status: True genau dann, wenn alle Sachgebiete bestanden sind.
+
+    UI erwartet weiterhin result['details'] mit Items:
       {"qid": str, "q": question_dict, "selected": Optional[int], "correct": int, "ok": bool}
     """
+    cfg = _exam_config()
+    max_wrong = int(cfg["max_wrong_per_category"])
+
     total = int(len(qlist) or 0)
     correct = 0
     details: List[Dict[str, Any]] = []
+    per_cat_acc: Dict[str, Dict[str, int]] = {}
 
     for q in qlist:
         qid = str(q.get("id") or "")
         if not qid:
             continue
+
+        cat = (q.get("category") or "").strip() or "Unbekannt"
 
         sel = answers.get(qid, None)
         try:
@@ -2586,11 +2723,43 @@ def _exam_compute_result(qlist: List[Dict[str, Any]], answers: Dict[str, Optiona
         if ok:
             correct += 1
 
+        bucket = per_cat_acc.setdefault(cat, {"total": 0, "correct": 0, "wrong": 0})
+        bucket["total"] += 1
+        if ok:
+            bucket["correct"] += 1
+        else:
+            bucket["wrong"] += 1
+
         details.append({"qid": qid, "q": q, "selected": sel_i, "correct": ci, "ok": ok})
 
+    # Pro Sachgebiet: bestanden, wenn wrong <= max_wrong
+    per_category: Dict[str, Dict[str, Any]] = {}
+    all_passed = True if per_cat_acc else False
+    for cat, acc in per_cat_acc.items():
+        cat_passed = bool(int(acc["wrong"]) <= max_wrong)
+        per_category[cat] = {
+            "total": int(acc["total"]),
+            "correct": int(acc["correct"]),
+            "wrong": int(acc["wrong"]),
+            "max_wrong": max_wrong,
+            "passed": cat_passed,
+        }
+        if not cat_passed:
+            all_passed = False
+
     pct = int(round((correct / total) * 100)) if total > 0 else 0
-    passed = bool(pct >= int(PASS_PCT))
-    return {"total": total, "correct": int(correct), "pct": int(pct), "passed": passed, "details": details}
+
+    return {
+        "total": total,
+        "correct": int(correct),
+        "wrong": int(total - correct),
+        "pct": int(pct),
+        "passed": bool(all_passed),
+        "max_wrong_per_category": max_wrong,
+        "license": cfg["license"],
+        "per_category": per_category,
+        "details": details,
+    }
 def _exam_submit(uid: str, reason: str = "manual") -> None:
     """Finalize an exam attempt, compute result and (best-effort) persist to DB."""
     if st.session_state.get("exam_submitted", False):
@@ -2862,7 +3031,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.learn_answers = {}
         st.session_state.learn_started = True
         st.rerun()
-    if cC.button("📝 Prüfung starten (40)"):
+    if cC.button(f"📝 Prüfung starten ({int(_exam_config(cur_lic)['total_questions'])})"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
@@ -3897,6 +4066,13 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
     cur_lic = _lic()
     lic_label = _license_label(cur_lic)
     lic_icon = "📗" if cur_lic == "A" else "📘"
+    cfg = _exam_config(cur_lic)
+    n_total = int(cfg["total_questions"])
+    n_per_cat = int(cfg["questions_per_category"])
+    duration_min = int(cfg["duration_min"])
+    duration_sec = duration_min * 60
+    max_wrong = int(cfg["max_wrong_per_category"])
+
     st.markdown(
         f'<div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.2rem">'
         f'<h1 style="margin:0">Prüfungssimulation</h1>'
@@ -3904,34 +4080,43 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
         f'</div>',
         unsafe_allow_html=True,
     )
-    st.caption(f"40 Fragen · {int(EXAM_DURATION_SEC/60)} Minuten Zeit · Fragen werden ausschließlich aus dem {lic_label} gezogen.")
+    st.caption(
+        f"{n_total} Fragen · 4 Sachgebiete à {n_per_cat} Fragen · {duration_min} Minuten · "
+        f"Bestanden bei max. {max_wrong} Fehlern pro Sachgebiet (DHV-Regel)."
+    )
 
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
 
     if not st.session_state.exam_started:
         st.markdown(
-            f"""<div class="pp-card2" style="margin-top:0.8rem"><b>Bedingungen</b>
-<div class="pp-muted" style="margin-top:0.3rem">40 zufällige Fragen · {int(EXAM_DURATION_SEC/60)} Minuten Gesamtzeit · Antworten frei änderbar · Abgabe automatisch bei Zeitablauf oder manuell.</div></div>""",
+            f"""<div class="pp-card2" style="margin-top:0.8rem"><b>Bedingungen ({lic_label})</b>
+<div class="pp-muted" style="margin-top:0.3rem">
+<b>{n_total} Fragen</b> · 4 Sachgebiete (Technik, Flugpraxis, Luftrecht, Meteorologie) à {n_per_cat} Fragen<br>
+<b>{duration_min} Minuten</b> Gesamtzeit · Antworten frei änderbar · Abgabe automatisch bei Zeitablauf oder manuell<br>
+<b>Bestehen:</b> max. {max_wrong} falsche Antworten pro Sachgebiet — entsprechend DHV-APO 2024
+</div></div>""",
             unsafe_allow_html=True,
         )
         c1, c2 = st.columns([1, 1])
         if c1.button("Prüfung starten", type="primary"):
             _reset_exam_state()
-            st.session_state.exam_queue = build_exam_queue_balanced(questions, n=40, seed=int(time.time()))
+            st.session_state.exam_queue = build_exam_queue_official(
+                questions, license_code=cur_lic, seed=int(time.time())
+            )
             st.session_state.exam_idx = 0
             st.session_state.exam_started = True
             st.session_state.exam_done = False
             st.session_state.exam_submitted = False
             st.session_state.exam_answers = {}
-            st.session_state.exam_deadline_ts = float(time.time()) + float(EXAM_DURATION_SEC)
+            st.session_state.exam_deadline_ts = float(time.time()) + float(duration_sec)
             st.rerun()
         if c2.button("Zurück zum Dashboard", key="exam_start_to_dashboard"):
             st.session_state.page = "dashboard"
             _reset_exam_state()
             st.rerun()
         st.stop()
-    deadline = float(st.session_state.get("exam_deadline_ts") or (time.time() + EXAM_DURATION_SEC))
+    deadline = float(st.session_state.get("exam_deadline_ts") or (time.time() + duration_sec))
     remaining = int(round(deadline - time.time()))
 
     if remaining <= 0 and not st.session_state.get("exam_done", False):
@@ -3969,14 +4154,50 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
             st.session_state.exam_result = result
 
         correct = int(result["correct"])
+        wrong = int(result.get("wrong", total - correct))
         pct = int(result["pct"])
         passed = bool(result["passed"])
+        per_cat = result.get("per_category", {}) or {}
+        max_wrong_res = int(result.get("max_wrong_per_category", max_wrong))
 
+        # Gesamt-Ergebnis-Karte
+        status_word = "BESTANDEN" if passed else "NICHT bestanden"
+        status_color = "var(--pp-good)" if passed else "var(--pp-bad)"
         st.markdown(
-            f"""<div class="pp-card"><div><b>Ergebnis</b></div>
-<div class="pp-muted">{pct}% ({correct}/{total}) — {'BESTANDEN' if passed else 'NICHT bestanden'} (Schwelle {int(PASS_PCT)}%)</div></div>""",
+            f"""<div class="pp-card"><div style="display:flex;align-items:baseline;gap:0.7rem;flex-wrap:wrap">
+<b style="font-size:1.1rem">Ergebnis</b>
+<span class="pp-pill" style="border-color:{status_color};color:{status_color};font-weight:700">{status_word}</span>
+</div>
+<div class="pp-muted" style="margin-top:0.4rem">
+{correct} von {total} richtig ({pct}%) — Bestehensregel: max. {max_wrong_res} Fehler pro Sachgebiet
+</div></div>""",
             unsafe_allow_html=True,
         )
+
+        # Pro-Sachgebiet-Auswertung (DHV-Bestehensregel)
+        if per_cat:
+            st.markdown('<div style="margin-top:0.7rem"></div>', unsafe_allow_html=True)
+            st.markdown("##### Auswertung pro Sachgebiet")
+            for cat in sorted(per_cat.keys()):
+                row = per_cat[cat]
+                c_total = int(row.get("total") or 0)
+                c_corr = int(row.get("correct") or 0)
+                c_wrong = int(row.get("wrong") or 0)
+                c_passed = bool(row.get("passed"))
+                c_status = "✅ bestanden" if c_passed else "❌ nicht bestanden"
+                c_color = "var(--pp-good)" if c_passed else "var(--pp-bad)"
+                st.markdown(
+                    f'<div class="pp-card2" style="margin-top:0.4rem">'
+                    f'<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem">'
+                    f'<b>{cat}</b>'
+                    f'<span style="color:{c_color};font-weight:600">{c_status}</span>'
+                    f'</div>'
+                    f'<div class="pp-muted" style="margin-top:0.25rem">'
+                    f'{c_corr} richtig · {c_wrong} falsch von {c_total} (Limit: {max_wrong_res} Fehler)'
+                    f'</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
 
         if st.session_state.get("exam_save_ok") is False:
             st.warning("Prüfungsergebnis konnte nicht gespeichert werden (Supabase/RLS).")

@@ -12,6 +12,7 @@ import re
 import uuid
 import time
 import math
+import html as html_lib
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -214,23 +215,99 @@ REQUIRED: Dict[str, Dict[str, int]] = {
 }
 
 
-def required_structure(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
-    """Display/progress structure for the current license.
+def _module_structure_from_questions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+    """Build module/submodule counts from the active question file.
 
-    B-Schein keeps the existing fixed REQUIRED structure.
-    A-Schein uses the actual categories/subchapters from questions_A.json,
-    because our A setup is already ordered via category/subchapter + learn.block.
+    This is the single display structure for A- and B-Schein.
+    No hard-coded B-Schein module map is used for dashboard, start cards,
+    evaluation or topic selection.
     """
-    if _lic() != "A":
-        return REQUIRED
-
     out: Dict[str, Dict[str, int]] = {}
     for q in questions:
-        cat = (q.get("category") or "Ohne Kategorie").strip() or "Ohne Kategorie"
-        sub = (q.get("subchapter") or "Ohne Unterkapitel").strip() or "Ohne Unterkapitel"
+        cat = (q.get("category") or "Ohne Modul").strip() or "Ohne Modul"
+        sub = (q.get("subchapter") or "Allgemein").strip() or "Allgemein"
         out.setdefault(cat, {})
         out[cat][sub] = out[cat].get(sub, 0) + 1
     return out
+
+
+def required_structure(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+    """Display/progress structure for the current license.
+
+    A-Schein and B-Schein intentionally use the same logic: the structure is
+    derived from the currently loaded JSON file. This prevents B-Schein modules
+    from leaking into the A-Schein dashboard or evaluations.
+    """
+    return _module_structure_from_questions(questions)
+
+
+@st.cache_data(show_spinner=False)
+def _catalog_summary_for_license(license_code: str) -> Dict[str, Any]:
+    """Lightweight summary for the license selection screen.
+
+    Reads the same JSON catalog the app will use after the selection.
+    """
+    lic = "A" if license_code == "A" else "B"
+    path = _questions_path_for_license(lic)
+    if not path.exists():
+        return {
+            "license": lic,
+            "available": False,
+            "path": str(path),
+            "total": 0,
+            "modules": [],
+            "submodule_count": 0,
+        }
+
+    try:
+        data = json.loads(path.read_text("utf-8"))
+    except Exception:
+        data = []
+
+    if not isinstance(data, list):
+        data = []
+
+    modules = _module_structure_from_questions(data)
+    module_rows = []
+    for cat, subs in modules.items():
+        module_rows.append(
+            {
+                "name": cat,
+                "questions": sum(int(v) for v in subs.values()),
+                "submodules": len(subs),
+            }
+        )
+
+    return {
+        "license": lic,
+        "available": True,
+        "path": str(path),
+        "total": len(data),
+        "modules": module_rows,
+        "submodule_count": sum(int(m["submodules"]) for m in module_rows),
+    }
+
+
+def _module_preview_html(summary: Dict[str, Any], limit: int = 5) -> str:
+    """Compact, escaped HTML list for actual modules from the active catalog."""
+    modules = summary.get("modules") or []
+    if not modules:
+        return '<div class="pp-muted">Keine Module gefunden.</div>'
+
+    rows = []
+    for m in modules[:limit]:
+        name = html_lib.escape(str(m.get("name") or "Modul"))
+        questions_n = int(m.get("questions") or 0)
+        subs_n = int(m.get("submodules") or 0)
+        rows.append(
+            f'<div class="pp-module-row"><span>{name}</span>'
+            f'<small>{questions_n} Fragen · {subs_n} Themen</small></div>'
+        )
+
+    rest = len(modules) - limit
+    if rest > 0:
+        rows.append(f'<div class="pp-muted" style="margin-top:0.35rem">+ {rest} weitere Module</div>')
+    return "".join(rows)
 
 
 # =============================================================================
@@ -1673,6 +1750,14 @@ div.stButton > button:active { transform: translateY(0px); }
 hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
 .small { font-size: 0.9rem; opacity: 0.85; }
 .pp-pill { display:inline-block; padding: 0.25rem 0.55rem; border:1px solid var(--pp-border); border-radius:999px; background: rgba(255,255,255,0.03); font-size:0.85rem; margin-right:0.4rem;}
+.pp-hero { border:1px solid var(--pp-border); border-radius:22px; padding:1.15rem 1.25rem; background: linear-gradient(135deg, rgba(255,255,255,0.095), rgba(255,255,255,0.035)); box-shadow: 0 12px 34px rgba(0,0,0,0.28); margin-bottom: 1rem; }
+.pp-hero small { color: var(--pp-text-muted); font-size:0.94rem; }
+.pp-module-row { display:flex; justify-content:space-between; gap:0.75rem; align-items:center; padding:0.48rem 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+.pp-module-row:last-child { border-bottom:none; }
+.pp-module-row span { font-weight:650; line-height:1.25; }
+.pp-module-row small { color: var(--pp-text-muted); white-space:nowrap; }
+.pp-section-head { display:flex; justify-content:space-between; gap:1rem; align-items:end; margin-top:1.3rem; margin-bottom:0.4rem; }
+.pp-section-head .pp-muted { margin-top:0.2rem; }
 h1{margin-bottom:0.6rem !important;}
 h2{margin-top:1.2rem !important;}
 .stMarkdown{margin-top:0.25rem;}
@@ -2158,7 +2243,26 @@ LEARN_BLOCK_LABELS: Dict[int, str] = LEARN_BLOCK_LABELS_B
 
 
 def learn_block_labels() -> Dict[int, str]:
-    return LEARN_BLOCK_LABELS_A if _lic() == "A" else LEARN_BLOCK_LABELS_B
+    """Teacher-path chapter labels for the active catalog.
+
+    Both licenses use the same mechanism: read the existing learn.block values
+    from the active JSON and only then apply friendly labels.
+    """
+    base = LEARN_BLOCK_LABELS_A if _lic() == "A" else LEARN_BLOCK_LABELS_B
+    try:
+        qs = load_questions_file()
+        blocks = sorted({
+            int((q.get("learn") or {}).get("block"))
+            for q in qs
+            if isinstance(q.get("learn"), dict) and str((q.get("learn") or {}).get("block", "")).strip()
+        })
+    except Exception:
+        blocks = sorted(base.keys())
+
+    if not blocks:
+        blocks = sorted(base.keys())
+
+    return {b: base.get(b, f"Kapitel {b}") for b in blocks}
 
 
 def teacher_path_version() -> str:
@@ -2436,7 +2540,21 @@ def _exam_submit(uid: str, reason: str = "manual") -> None:
 
 
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
-    st.title("Übersicht")
+    lic_label = _license_label()
+    module_map = required_structure(questions)
+    module_count = len(module_map)
+    topic_count = sum(len(subs) for subs in module_map.values())
+
+    st.markdown(
+        f"""
+<div class="pp-hero">
+  <small>Aktive Lernumgebung</small>
+  <h1 style="margin:0.15rem 0 0.25rem 0">{lic_label}</h1>
+  <div class="pp-muted">{len(questions)} Fragen · {module_count} Module · {topic_count} Themen · Fortschritt und Auswertungen sind strikt nach Schein getrennt.</div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
     qidx = index_questions(questions)
     stats = compute_progress_by_cluster(qidx, progress)
@@ -2488,9 +2606,6 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         unsafe_allow_html=True,
     )
 
-    # ----------------------------
-    # Streak + FSRS Due + 90-Tage-Heatmap
-    # ----------------------------
     review_dates = db_load_review_dates(uid, since_days=120)
     streak = compute_streak(review_dates)
     due_n = db_count_due_cards(uid) if fsrs_available() else 0
@@ -2501,7 +2616,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.markdown(
             f'<div class="pp-card2"><b>Lern-Serie</b><br>'
             f'<span class="pp-streak">{flame} {streak} Tag{"e" if streak != 1 else ""} in Folge</span>'
-            f'<div class="pp-muted" style="margin-top:0.4rem">Antworte täglich mindestens eine Frage, um die Serie zu halten.</div></div>',
+            f'<div class="pp-muted" style="margin-top:0.4rem">Eine beantwortete Frage pro Tag hält die Serie aktiv.</div></div>',
             unsafe_allow_html=True,
         )
     with sc2:
@@ -2519,24 +2634,22 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
                 unsafe_allow_html=True,
             )
 
-    # 90-Tage-Heatmap
     with st.container():
-        st.markdown('<div class="pp-card" style="margin-top:0.6rem"><b>Letzte 90 Tage</b>', unsafe_allow_html=True)
+        st.markdown('<div class="pp-card" style="margin-top:0.6rem"><b>Aktivität der letzten 90 Tage</b>', unsafe_allow_html=True)
         st.markdown(render_heatmap_html(review_dates, days=90), unsafe_allow_html=True)
         st.markdown('<div class="pp-muted" style="margin-top:0.4rem">Jede Box = ein Tag. Dunkler = mehr Antworten.</div></div>', unsafe_allow_html=True)
     st.write("")
 
-    # ----------------------------
-    # Visualisierung: Fortschritt / Trefferquote pro Kategorie
-    # ----------------------------
     try:
         rows = []
-        for cat, subs in stats.items():
+        for cat in module_map.keys():
+            subs = stats.get(cat, {})
             total_q = 0
             learned_q = 0
             corr = 0
             wrong = 0
-            for sub, s in subs.items():
+            for sub in module_map[cat].keys():
+                s = subs.get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
                 total_q += int(s.get("total") or 0)
                 learned_q += int(s.get("learned") or 0)
                 corr += int(s.get("correct_total") or 0)
@@ -2546,25 +2659,29 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             acc = (corr / attempts) if attempts else 0.0
             rows.append(
                 {
-                    "Kategorie": cat,
+                    "Modul": cat,
                     "Abdeckung_%": int(round(coverage * 100)),
                     "Trefferquote_%": int(round(acc * 100)),
                 }
             )
-        df = pd.DataFrame(rows).sort_values("Kategorie")
+        df = pd.DataFrame(rows)
         left, right = st.columns(2)
         with left:
-            st.markdown("### Abdeckung nach Kategorie")
-            st.bar_chart(df.set_index("Kategorie")[["Abdeckung_%"]], height=240)
+            st.markdown("### Abdeckung nach Modul")
+            if not df.empty:
+                st.bar_chart(df.set_index("Modul")[["Abdeckung_%"]], height=240)
+            else:
+                st.caption("Noch keine Module gefunden.")
         with right:
-            st.markdown("### Trefferquote nach Kategorie")
-            st.bar_chart(df.set_index("Kategorie")[["Trefferquote_%"]], height=240)
+            st.markdown("### Trefferquote nach Modul")
+            if not df.empty:
+                st.bar_chart(df.set_index("Modul")[["Trefferquote_%"]], height=240)
+            else:
+                st.caption("Noch keine Auswertung möglich.")
     except Exception:
-        # Charts sind nice-to-have; UI darf nicht crashen, falls Daten fehlen.
         pass
 
     st.write("")
-    # Smart-Wiederholen-Button als prominentester CTA, wenn fällige Fragen existieren
     if fsrs_available() and due_n > 0:
         if st.button(f"📚 {due_n} Frage{'n' if due_n != 1 else ''} jetzt smart wiederholen", type="primary", use_container_width=True):
             _reset_learning_state()
@@ -2584,8 +2701,8 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             st.session_state.learn_started = True
             st.rerun()
 
-    cA, cB = st.columns([1, 1])
-    if cA.button("Weiterlernen"):
+    cA, cB, cC = st.columns([1, 1, 1])
+    if cA.button("Weiterlernen", type="primary"):
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.skip_teacher_autoresume = True
@@ -2609,7 +2726,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.learn_answers = {}
         st.session_state.learn_started = True
         st.rerun()
-    if cB.button("Falsche wiederholen"):
+    if cB.button("Fehler trainieren"):
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.skip_teacher_autoresume = True
@@ -2633,24 +2750,23 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.learn_answers = {}
         st.session_state.learn_started = True
         st.rerun()
-    if st.button("Prüfung starten (40)"):
+    if cC.button("Prüfung starten"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
 
-
     st.write("")
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
     target = weak[0] if weak else None
-    st.markdown("## Wo solltest du als Nächstes ansetzen?")
+    st.markdown("## Nächster sinnvoller Fokus")
     if target:
         acc = int(round(target["accuracy"] * 100))
         st.markdown(
-            f"""<div class="pp-card2"><b>Vorschlag</b>
-<div class="pp-muted">Hier hast du am meisten Luft nach oben: <b>{target['category']} · {target['subchapter']}</b> — aktuell {acc}% richtig bei {target['attempts']} Versuchen.</div></div>""",
+            f"""<div class="pp-card2"><b>Empfehlung</b>
+<div class="pp-muted">Trainiere als Nächstes: <b>{html_lib.escape(target['category'])} · {html_lib.escape(target['subchapter'])}</b> — aktuell {acc}% richtig bei {target['attempts']} Versuchen.</div></div>""",
             unsafe_allow_html=True,
         )
-        if st.button("Übung starten (nur falsche Fragen)", use_container_width=True):
+        if st.button("Diesen Bereich trainieren", use_container_width=True):
             _reset_learning_state()
             st.session_state.page = "learn"
             st.session_state.skip_teacher_autoresume = True
@@ -2675,13 +2791,13 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             st.session_state.learn_started = True
             st.rerun()
     else:
-        st.caption("Noch nicht genug Daten für einen Vorschlag (mindestens 6 Antworten pro Unterkapitel nötig).")
+        st.caption("Noch nicht genug Daten für eine saubere Empfehlung. Beantworte pro Thema mindestens ein paar Fragen.")
 
     st.write("")
-    st.markdown("## Deine häufigsten Fehler")
+    st.markdown("## Häufigste Fehler")
     wrong_rows = top_wrong_questions(questions, progress, topn=10)
     if not wrong_rows:
-        st.caption("Noch keine falsch beantworteten Fragen — sehr gut.")
+        st.caption("Noch keine falsch beantworteten Fragen.")
     else:
         for r in wrong_rows:
             q_short = r["question"][:140] + ("…" if len(r["question"]) > 140 else "")
@@ -2715,44 +2831,60 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
                 st.rerun()
 
     st.write("")
-    st.markdown("## Themen im Überblick")
-    for cat, subs in required_structure(questions).items():
-        st.markdown(f"### {cat}")
-        for sub, expected_total in subs.items():
-            s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
-            total = expected_total if expected_total else s["total"]
-            learned = int(s["learned"])
-            attempts = int(s["correct_total"]) + int(s["wrong_total"])
-            acc = int(round((int(s["correct_total"]) / attempts) * 100)) if attempts else 0
-            learned_pct = int(round((learned / total) * 100)) if total else 0
+    st.markdown(
+        f"""
+<div class="pp-section-head">
+  <div><h2 style="margin:0">Module</h2><div class="pp-muted">Aus der aktiven Datei <code>{html_lib.escape(QUESTIONS_PATH.name)}</code> geladen.</div></div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
-            line = f"{sub} ({total} Fragen) — bisher gesehen {learned_pct}% · Trefferquote {acc}% · {attempts} Versuche"
-            c1, c2 = st.columns([4, 1])
-            c1.caption(line)
-            if c2.button("Üben", key=f"sub_{cat}::{sub}"):
-                _reset_learning_state()
-                st.session_state.page = "learn"
-                st.session_state.skip_teacher_autoresume = True
-                st.session_state.learn_plan = {
-                    "mode": "Zufällig",
-                    "category": cat,
-                    "subchapter": sub,
-                    "only_unseen": False,
-                    "only_wrong": False,
-                }
-                st.session_state.queue = build_learning_queue(
-                    questions=questions,
-                    progress=progress,
-                    category=cat,
-                    subchapter=sub,
-                    only_unseen=False,
-                    only_wrong=False,
-                )
-                st.session_state.idx = 0
-                st.session_state.answered = False
-                st.session_state.learn_answers = {}
-                st.session_state.learn_started = True
-                st.rerun()
+    module_items = list(module_map.items())
+    if module_items:
+        tabs = st.tabs([cat for cat, _ in module_items])
+        for tab, (cat, subs) in zip(tabs, module_items):
+            with tab:
+                for sub, expected_total in subs.items():
+                    s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
+                    total = int(expected_total) if expected_total else int(s["total"])
+                    learned = int(s["learned"])
+                    attempts = int(s["correct_total"]) + int(s["wrong_total"])
+                    acc = int(round((int(s["correct_total"]) / attempts) * 100)) if attempts else 0
+                    learned_pct = int(round((learned / total) * 100)) if total else 0
+
+                    c1, c2 = st.columns([4, 1])
+                    c1.markdown(
+                        f"**{sub}**  \n"
+                        f"<span class='pp-muted'>{total} Fragen · {learned_pct}% gesehen · {acc}% Trefferquote · {attempts} Versuche</span>",
+                        unsafe_allow_html=True,
+                    )
+                    if c2.button("Üben", key=f"sub_{cat}::{sub}"):
+                        _reset_learning_state()
+                        st.session_state.page = "learn"
+                        st.session_state.skip_teacher_autoresume = True
+                        st.session_state.learn_plan = {
+                            "mode": "Zufällig",
+                            "category": cat,
+                            "subchapter": sub,
+                            "only_unseen": False,
+                            "only_wrong": False,
+                        }
+                        st.session_state.queue = build_learning_queue(
+                            questions=questions,
+                            progress=progress,
+                            category=cat,
+                            subchapter=sub,
+                            only_unseen=False,
+                            only_wrong=False,
+                        )
+                        st.session_state.idx = 0
+                        st.session_state.answered = False
+                        st.session_state.learn_answers = {}
+                        st.session_state.learn_started = True
+                        st.rerun()
+    else:
+        st.caption("Keine Module gefunden.")
 
     st.write("")
     st.markdown("## Letzte Prüfungen")
@@ -2761,7 +2893,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             total = int(r.get("total") or 0)
             corr = int(r.get("correct") or 0)
             pct = int(round((corr / total) * 100)) if total else 0
-            ok = "✓ bestanden" if bool(r.get("passed")) else "✗ nicht bestanden"
+            ok = "bestanden" if bool(r.get("passed")) else "nicht bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
     else:
         st.caption("Noch keine Prüfungen abgelegt.")
@@ -3586,6 +3718,9 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     title = (li.get("title") or "Link").strip()
                     url = (li.get("url") or "").strip()
                     locator = (li.get("locator") or "").strip()
+                    page = li.get("page", None)
+                    if not locator and page not in (None, ""):
+                        locator = f"Seite {page}"
                     if url:
                         extra = f" — {locator}" if locator else ""
                         st.markdown(f"- [{title}]({url}){extra}")
@@ -3787,6 +3922,9 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
                         title2 = (li.get("title") or "Link").strip()
                         url = (li.get("url") or "").strip()
                         locator = (li.get("locator") or "").strip()
+                        page = li.get("page", None)
+                        if not locator and page not in (None, ""):
+                            locator = f"Seite {page}"
                         if url:
                             extra = f" — {locator}" if locator else ""
                             st.markdown(f"- [{title2}]({url}){extra}")
@@ -3926,71 +4064,88 @@ if "license" not in st.session_state and st.session_state.page != "license_selec
 
 
 def page_select_license() -> None:
-    """Startseite: Auswahl A-Schein / B-Schein."""
+    """Startseite: Auswahl A-Schein / B-Schein mit echten Modulen aus den JSON-Dateien."""
     inject_css()
-    st.markdown(
-        '<div style="margin-top:1rem"></div>',
-        unsafe_allow_html=True,
-    )
-    st.title("Welchen Schein möchtest du lernen?")
-    st.markdown(
-        '<div class="pp-muted" style="margin-bottom:1.2rem">'
-        "Du hast zwei voneinander getrennte Lernumgebungen: einen A-Schein-Bereich und einen "
-        "B-Schein-Bereich. Fortschritt, Notizen, Prüfungen und Wiederholungen werden für jeden "
-        "Schein separat geführt. Du kannst jederzeit über die Seitenleiste wechseln."
-        "</div>",
-        unsafe_allow_html=True,
-    )
 
-    a_avail = _question_catalog_exists_for_license("A")
-    b_avail = _question_catalog_exists_for_license("B")
+    a_summary = _catalog_summary_for_license("A")
+    b_summary = _catalog_summary_for_license("B")
+
+    st.markdown(
+        """
+<div class="pp-hero">
+  <small>Gleitschirm Lernapp</small>
+  <h1 style="margin:0.15rem 0 0.25rem 0">Wähle deine Lernumgebung</h1>
+  <div class="pp-muted">A-Schein und B-Schein laufen getrennt: eigene Fragen, eigene Module, eigene Auswertung, eigener Fortschritt.</div>
+</div>
+""",
+        unsafe_allow_html=True,
+    )
 
     c1, c2 = st.columns([1, 1])
 
     with c1:
+        a_modules = _module_preview_html(a_summary, limit=6)
+        a_total = int(a_summary.get("total") or 0)
+        a_mod_count = len(a_summary.get("modules") or [])
+        a_topic_count = int(a_summary.get("submodule_count") or 0)
         st.markdown(
-            f'<div class="pp-card" style="min-height:200px"><div style="font-size:2rem">📗</div>'
-            f'<h2 style="margin:0.3rem 0 0.5rem 0">A-Schein</h2>'
-            f'<div class="pp-muted">Grundschein Gleitschirm. Themen: Gerätekunde, Aerodynamik, '
-            f'Flugpraxis, Luftrecht, Meteorologie. Ideal für Schüler und frische A-Lizenzler.</div>'
-            f'</div>',
+            f"""
+<div class="pp-card" style="min-height:310px">
+  <div style="font-size:2rem">📗</div>
+  <h2 style="margin:0.3rem 0 0.3rem 0">A-Schein</h2>
+  <div class="pp-muted" style="margin-bottom:0.7rem">Grundausbildung Gleitschirm: Technik, Flugpraxis, Luftrecht und Wetter – direkt aus <code>questions_A.json</code>.</div>
+  <div class="pp-pill">{a_total} Fragen</div><div class="pp-pill">{a_mod_count} Module</div><div class="pp-pill">{a_topic_count} Themen</div>
+  <div style="margin-top:0.8rem">{a_modules}</div>
+</div>
+""",
             unsafe_allow_html=True,
         )
-        if st.button("📗 A-Schein lernen", type="primary", use_container_width=True, disabled=not a_avail, key="lic_pick_a"):
+        if st.button("A-Schein öffnen", type="primary", use_container_width=True, disabled=not bool(a_summary.get("available")), key="lic_pick_a"):
             st.session_state.license = "A"
             st.session_state.page = "dashboard"
             st.session_state.skip_teacher_autoresume = True
+            _reset_learning_state()
+            _reset_exam_state()
             _refresh_license_paths()
-            # Fortschritt + Teacher-State der A-Lizenz nachladen
             try:
                 st.session_state.teacher_state = db_get_teacher_state(uid) or {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
             except Exception:
                 st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
             st.rerun()
-        if not a_avail:
-            st.caption("⚠ Datei `questions_A.json` fehlt im App-Verzeichnis.")
+        if not bool(a_summary.get("available")):
+            st.caption("Datei `questions_A.json` fehlt im App-Verzeichnis.")
 
     with c2:
+        b_modules = _module_preview_html(b_summary, limit=6)
+        b_total = int(b_summary.get("total") or 0)
+        b_mod_count = len(b_summary.get("modules") or [])
+        b_topic_count = int(b_summary.get("submodule_count") or 0)
         st.markdown(
-            f'<div class="pp-card" style="min-height:200px"><div style="font-size:2rem">📘</div>'
-            f'<h2 style="margin:0.3rem 0 0.5rem 0">B-Schein</h2>'
-            f'<div class="pp-muted">Aufbauschein Gleitschirm. Mehr Tiefe in Flugpraxis, '
-            f'Wetter, Luftrecht und Verhalten in besonderen Situationen.</div>'
-            f'</div>',
+            f"""
+<div class="pp-card" style="min-height:310px">
+  <div style="font-size:2rem">📘</div>
+  <h2 style="margin:0.3rem 0 0.3rem 0">B-Schein</h2>
+  <div class="pp-muted" style="margin-bottom:0.7rem">Aufbauausbildung: alle Module werden direkt aus <code>questions.json</code> gelesen – keine Sonderlogik.</div>
+  <div class="pp-pill">{b_total} Fragen</div><div class="pp-pill">{b_mod_count} Module</div><div class="pp-pill">{b_topic_count} Themen</div>
+  <div style="margin-top:0.8rem">{b_modules}</div>
+</div>
+""",
             unsafe_allow_html=True,
         )
-        if st.button("📘 B-Schein lernen", type="primary", use_container_width=True, disabled=not b_avail, key="lic_pick_b"):
+        if st.button("B-Schein öffnen", type="primary", use_container_width=True, disabled=not bool(b_summary.get("available")), key="lic_pick_b"):
             st.session_state.license = "B"
             st.session_state.page = "dashboard"
             st.session_state.skip_teacher_autoresume = True
+            _reset_learning_state()
+            _reset_exam_state()
             _refresh_license_paths()
             try:
                 st.session_state.teacher_state = db_get_teacher_state(uid) or {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
             except Exception:
                 st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
             st.rerun()
-        if not b_avail:
-            st.caption("⚠ Datei `questions.json` fehlt im App-Verzeichnis.")
+        if not bool(b_summary.get("available")):
+            st.caption("Datei `questions.json` fehlt im App-Verzeichnis.")
 
     st.stop()
 

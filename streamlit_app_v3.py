@@ -39,6 +39,8 @@ QUESTIONS_PATH_B = APP_DIR / "questions.json"
 BILDER_PDF_B = APP_DIR / "Bilder.pdf"
 FIGURE_MAP_PATH_B = APP_DIR / "figure_map.json"
 
+# A-Schein nutzt die bestehende Datei questions_A.json.
+# Die angereicherten Wiki-Infos liegen direkt in dieser Datei.
 QUESTIONS_PATH_A = APP_DIR / "questions_A.json"
 BILDER_PDF_A = APP_DIR / "Bilder_A.pdf"
 FIGURE_MAP_PATH_A = APP_DIR / "figure_map_A.json"
@@ -66,7 +68,7 @@ def _refresh_license_paths() -> None:
     """Aktualisiere die globalen Pfad-Aliase basierend auf der aktuellen Lizenz."""
     global QUESTIONS_PATH, BILDER_PDF, FIGURE_MAP_PATH
     if _lic() == "A":
-        QUESTIONS_PATH = QUESTIONS_PATH_A
+        QUESTIONS_PATH = _questions_path_for_license("A")
         BILDER_PDF = BILDER_PDF_A
         FIGURE_MAP_PATH = FIGURE_MAP_PATH_A
     else:
@@ -77,6 +79,19 @@ def _refresh_license_paths() -> None:
 
 def _license_label(lic: Optional[str] = None) -> str:
     return "A-Schein" if (lic or _lic()) == "A" else "B-Schein"
+
+
+def _questions_path_for_license(license_code: Optional[str] = None) -> Path:
+    """Return the question catalog for A/B.
+
+    A-Schein nutzt questions_A.json, B-Schein nutzt questions.json.
+    """
+    lic = "A" if (license_code or _lic()) == "A" else "B"
+    return QUESTIONS_PATH_A if lic == "A" else QUESTIONS_PATH_B
+
+
+def _question_catalog_exists_for_license(license_code: str) -> bool:
+    return _questions_path_for_license(license_code).exists()
 
 
 def cfg(path: str, default: str = "") -> str:
@@ -199,6 +214,25 @@ REQUIRED: Dict[str, Dict[str, int]] = {
 }
 
 
+def required_structure(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
+    """Display/progress structure for the current license.
+
+    B-Schein keeps the existing fixed REQUIRED structure.
+    A-Schein uses the actual categories/subchapters from questions_A.json,
+    because our A setup is already ordered via category/subchapter + learn.block.
+    """
+    if _lic() != "A":
+        return REQUIRED
+
+    out: Dict[str, Dict[str, int]] = {}
+    for q in questions:
+        cat = (q.get("category") or "Ohne Kategorie").strip() or "Ohne Kategorie"
+        sub = (q.get("subchapter") or "Ohne Unterkapitel").strip() or "Ohne Unterkapitel"
+        out.setdefault(cat, {})
+        out[cat][sub] = out[cat].get(sub, 0) + 1
+    return out
+
+
 # =============================================================================
 # SUPABASE CLIENT (DB only)
 # =============================================================================
@@ -220,7 +254,7 @@ def supa() -> Client:
 @st.cache_data(show_spinner=False)
 def _load_questions_for_license(license_code: str) -> List[Dict[str, Any]]:
     """Load questions.json for the given license code ('A' or 'B'). Cached per license."""
-    path = QUESTIONS_PATH_A if license_code == "A" else QUESTIONS_PATH_B
+    path = _questions_path_for_license(license_code)
     if not path.exists():
         raise FileNotFoundError(f"Frage-Datei fehlt: {path}")
     data = json.loads(path.read_text("utf-8"))
@@ -257,7 +291,8 @@ def get_wiki(q: Dict[str, Any]) -> Dict[str, Any]:
             "explanation": (w.get("explanation") or "").strip(),
             "merksatz": (w.get("merksatz") or "").strip(),
             "links": links if isinstance(links, list) else [],
-            "reliability_note": (w.get("reliability_note") or "").strip(),
+            "reliability_note": (w.get("reliability_note") or w.get("source_review") or "").strip(),
+            "source_review": (w.get("source_review") or "").strip(),
         }
     return {"explanation": "", "merksatz": "", "links": [], "reliability_note": ""}
 
@@ -799,7 +834,7 @@ def render_figures(q: Dict[str, Any], max_n: int = 3) -> None:
 # =============================================================================
 def require_login() -> None:
     if not getattr(getattr(st, "user", None), "is_logged_in", False):
-        st.title("B-Lizenz Lernapp")
+        st.title("Gleitschirm Lernapp")
         st.caption("Bitte mit Google anmelden.")
         st.button("Mit Google anmelden", on_click=st.login, use_container_width=True)
         st.stop()
@@ -2103,13 +2138,31 @@ def build_learning_queue(
 # =============================================================================
 # LEARNING PATH (Teacher Path via q["learn"])
 # =============================================================================
-LEARN_BLOCK_LABELS: Dict[int, str] = {
+LEARN_BLOCK_LABELS_B: Dict[int, str] = {
     1: "Grundlagen (Sprache/Zahlen)",
     2: "Karte/Navigation/Planung",
     3: "System & Grundregeln",
     4: "Lufträume & Verfahren",
     5: "Meteorologie",
 }
+
+LEARN_BLOCK_LABELS_A: Dict[int, str] = {
+    1: "Technik, Gerätekunde & Aerodynamik",
+    2: "Luftraum & Meteorologie",
+    3: "Flugpraxis, Human Factors & Umwelt",
+    4: "Luftrecht, Lizenzen & Prüfung",
+}
+
+# Backward-compat for older helper calls; runtime UI uses learn_block_labels().
+LEARN_BLOCK_LABELS: Dict[int, str] = LEARN_BLOCK_LABELS_B
+
+
+def learn_block_labels() -> Dict[int, str]:
+    return LEARN_BLOCK_LABELS_A if _lic() == "A" else LEARN_BLOCK_LABELS_B
+
+
+def teacher_path_version() -> str:
+    return "teacherPath_a_v1" if _lic() == "A" else "teacherPath_v2"
 
 def _init_learn_runtime_state() -> None:
     if "learn_answers" not in st.session_state:
@@ -2234,7 +2287,8 @@ def build_learning_queue_teacher_path(
 
 def _teacher_path_stats(queue: List[Dict[str, Any]]) -> Dict[int, int]:
     """Count items per block in a queue."""
-    out: Dict[int, int] = {k: 0 for k in LEARN_BLOCK_LABELS.keys()}
+    labels = learn_block_labels()
+    out: Dict[int, int] = {k: 0 for k in labels.keys()}
     for q in queue:
         b, _, _ = _learn_meta(q)
         if b in out:
@@ -2662,7 +2716,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
 
     st.write("")
     st.markdown("## Themen im Überblick")
-    for cat, subs in REQUIRED.items():
+    for cat, subs in required_structure(questions).items():
         st.markdown(f"### {cat}")
         for sub, expected_total in subs.items():
             s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
@@ -2738,13 +2792,13 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         if not isinstance(ts, dict):
             ts = {}
         if "pathVersion" not in ts:
-            ts["pathVersion"] = "teacherPath_v2"
+            ts["pathVersion"] = teacher_path_version()
         if "unlockedBlock" not in ts or not isinstance(ts.get("unlockedBlock"), int):
             ts["unlockedBlock"] = 1
         if "checkpoints" not in ts or not isinstance(ts.get("checkpoints"), dict):
-            ts["checkpoints"] = {str(b): 0 for b in sorted(LEARN_BLOCK_LABELS.keys())}
+            ts["checkpoints"] = {str(b): 0 for b in sorted(learn_block_labels().keys())}
         else:
-            for b in sorted(LEARN_BLOCK_LABELS.keys()):
+            for b in sorted(learn_block_labels().keys()):
                 ts["checkpoints"].setdefault(str(b), 0)
         if "lastBlock" not in ts or not isinstance(ts.get("lastBlock"), int):
             ts["lastBlock"] = 1
@@ -2840,8 +2894,9 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
         unlocked = int(ts.get("unlockedBlock", 1))
 
         st.markdown("**Lehrerpfad – Kapitel**")
-        for b in sorted(LEARN_BLOCK_LABELS.keys()):
-            label = LEARN_BLOCK_LABELS[b]
+        labels = learn_block_labels()
+        for b in sorted(labels.keys()):
+            label = labels[b]
             cp = int((ts.get("checkpoints", {}) or {}).get(str(b), 0))
             disabled = b > unlocked
             btn = st.button(
@@ -3010,7 +3065,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             unlocked = int(ts.get("unlockedBlock", 1))
             last_block = int(ts.get("lastBlock", 1))
             cp = int((ts.get("checkpoints", {}) or {}).get(str(last_block), 0))
-            last_label = LEARN_BLOCK_LABELS.get(last_block, f"Kapitel {last_block}")
+            last_label = learn_block_labels().get(last_block, f"Kapitel {last_block}")
             st.markdown(
                 f'<div class="pp-card2"><b>Dein Stand</b>'
                 f'<div class="pp-muted" style="margin-top:0.3rem">'
@@ -3199,18 +3254,18 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                 # und ggf. das nächste freischalten.
                 ts["checkpoints"][str(b)] = len(queue)
                 ts["lastBlock"] = b
-                if int(ts.get("unlockedBlock", 1)) <= b and b < max(LEARN_BLOCK_LABELS.keys()):
+                if int(ts.get("unlockedBlock", 1)) <= b and b < max(learn_block_labels().keys()):
                     ts["unlockedBlock"] = b + 1
                     ts["checkpoints"].setdefault(str(b + 1), 0)
                 st.session_state.teacher_state = ts
                 db_upsert_teacher_state(uid, ts)
 
-                cur_label = LEARN_BLOCK_LABELS.get(b, f"Kapitel {b}")
+                cur_label = learn_block_labels().get(b, f"Kapitel {b}")
                 st.success(f"🎉 Du hast das Kapitel **{cur_label}** abgeschlossen!")
 
-                nxt_b = b + 1 if b < max(LEARN_BLOCK_LABELS.keys()) else None
+                nxt_b = b + 1 if b < max(learn_block_labels().keys()) else None
                 if nxt_b and nxt_b <= int(ts.get("unlockedBlock", 1)):
-                    nxt_label = LEARN_BLOCK_LABELS.get(nxt_b, f"Kapitel {nxt_b}")
+                    nxt_label = learn_block_labels().get(nxt_b, f"Kapitel {nxt_b}")
                     st.markdown(
                         f'<div class="pp-card2" style="margin-top:0.6rem"><b>Freigeschaltet: {nxt_label}</b>'
                         f'<div class="pp-muted" style="margin-top:0.3rem">Du kannst direkt weitermachen oder erst eine Pause einlegen.</div></div>',
@@ -3268,7 +3323,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
     # Header
     if plan.get("mode") == "Lehrerpfad":
         b, s, d = _learn_meta(q)
-        block_label = LEARN_BLOCK_LABELS.get(b, f"Kapitel {b}")
+        block_label = learn_block_labels().get(b, f"Kapitel {b}")
         st.caption(f"Lehrerpfad · {block_label} · Frage {idx+1} von {len(queue)}")
     elif plan.get("mode") == "FSRS":
         cs = db_get_card_state(uid, qid) if fsrs_available() else None
@@ -3517,7 +3572,7 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
             if w["explanation"]:
                 st.markdown(w["explanation"])
             else:
-                st.error(f"Wiki-Inhalt ist leer für {qid}. Prüfe questions.json → wiki.explanation.")
+                st.error(f"Wiki-Inhalt ist leer für {qid}. Prüfe die aktive Frage-Datei → wiki.explanation.")
 
             if w["merksatz"]:
                 st.markdown(f"**Merksatz:** {w['merksatz']}")
@@ -3805,7 +3860,7 @@ def run_selftest(questions: List[Dict[str, Any]]) -> List[str]:
 
     v = validate_questions(questions)
     if any(vv > 0 for vv in v.values()):
-        issues.append(f"questions.json Validation: {v}")
+        issues.append(f"{QUESTIONS_PATH.name} Validation: {v}")
 
     fmap = load_figure_map()
     if fmap:
@@ -3841,11 +3896,11 @@ def run_selftest(questions: List[Dict[str, Any]]) -> List[str]:
 # =============================================================================
 # MAIN
 # =============================================================================
-st.set_page_config(page_title="B-Lizenz Lernapp", layout="wide")
+st.set_page_config(page_title="Gleitschirm Lernapp", layout="wide")
 inject_css()
 
-if not QUESTIONS_PATH.exists():
-    st.error("questions.json fehlt")
+if not (_question_catalog_exists_for_license("A") or _question_catalog_exists_for_license("B")):
+    st.error("Frage-Dateien fehlen: questions_A.json oder questions.json")
     st.stop()
 
 require_login()
@@ -3887,8 +3942,8 @@ def page_select_license() -> None:
         unsafe_allow_html=True,
     )
 
-    a_avail = QUESTIONS_PATH_A.exists()
-    b_avail = QUESTIONS_PATH_B.exists()
+    a_avail = _question_catalog_exists_for_license("A")
+    b_avail = _question_catalog_exists_for_license("B")
 
     c1, c2 = st.columns([1, 1])
 
@@ -3953,7 +4008,7 @@ val = validate_questions(questions)
 if any(v > 0 for v in val.values()):
     st.sidebar.markdown("## Daten-Checks")
     st.sidebar.warning(
-        f"questions.json hat Probleme: "
+        f"{QUESTIONS_PATH.name} hat Probleme: "
         f"missing_id={val['missing_id']}, "
         f"bad_correctIndex={val['bad_correctIndex']}, "
         f"bad_options={val['bad_options']}, "

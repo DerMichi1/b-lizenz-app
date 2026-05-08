@@ -32,9 +32,51 @@ except Exception:
 # CONFIG / FILES
 # =============================================================================
 APP_DIR = Path(__file__).parent
-QUESTIONS_PATH = APP_DIR / "questions.json"
-BILDER_PDF = APP_DIR / "Bilder.pdf"  # PDF with figures
-FIGURE_MAP_PATH = APP_DIR / "figure_map.json"  # {"47": {"page":14,"clip":[...]}}
+
+# License-aware Datei-Pfade
+# B-Schein (Bestand) und A-Schein (neu) haben getrennte Frage-Kataloge.
+QUESTIONS_PATH_B = APP_DIR / "questions.json"
+BILDER_PDF_B = APP_DIR / "Bilder.pdf"
+FIGURE_MAP_PATH_B = APP_DIR / "figure_map.json"
+
+QUESTIONS_PATH_A = APP_DIR / "questions_A.json"
+BILDER_PDF_A = APP_DIR / "Bilder_A.pdf"
+FIGURE_MAP_PATH_A = APP_DIR / "figure_map_A.json"
+
+# Backward-compat-Aliase (werden zur Laufzeit auf die richtige Lizenz umgebogen
+# durch _refresh_license_paths()).
+QUESTIONS_PATH = QUESTIONS_PATH_B
+BILDER_PDF = BILDER_PDF_B
+FIGURE_MAP_PATH = FIGURE_MAP_PATH_B
+
+
+def _lic() -> str:
+    """Aktuelle Lizenz ('A' oder 'B') aus der Streamlit-Session.
+
+    Default 'B' für Backward-Compat (bestehende Daten in der DB sind als 'B' markiert).
+    """
+    try:
+        v = st.session_state.get("license") if hasattr(st, "session_state") else None
+    except Exception:
+        v = None
+    return "A" if (v == "A") else "B"
+
+
+def _refresh_license_paths() -> None:
+    """Aktualisiere die globalen Pfad-Aliase basierend auf der aktuellen Lizenz."""
+    global QUESTIONS_PATH, BILDER_PDF, FIGURE_MAP_PATH
+    if _lic() == "A":
+        QUESTIONS_PATH = QUESTIONS_PATH_A
+        BILDER_PDF = BILDER_PDF_A
+        FIGURE_MAP_PATH = FIGURE_MAP_PATH_A
+    else:
+        QUESTIONS_PATH = QUESTIONS_PATH_B
+        BILDER_PDF = BILDER_PDF_B
+        FIGURE_MAP_PATH = FIGURE_MAP_PATH_B
+
+
+def _license_label(lic: Optional[str] = None) -> str:
+    return "A-Schein" if (lic or _lic()) == "A" else "B-Schein"
 
 
 def cfg(path: str, default: str = "") -> str:
@@ -176,19 +218,24 @@ def supa() -> Client:
 # QUESTIONS / WIKI / AI (single source of truth: questions.json)
 # =============================================================================
 @st.cache_data(show_spinner=False)
-def load_questions_file() -> List[Dict[str, Any]]:
-    """Load questions from bundled questions.json ONLY (cached)."""
-    if not QUESTIONS_PATH.exists():
-        raise FileNotFoundError(f"questions.json fehlt: {QUESTIONS_PATH}")
-
-    data = json.loads(QUESTIONS_PATH.read_text("utf-8"))
+def _load_questions_for_license(license_code: str) -> List[Dict[str, Any]]:
+    """Load questions.json for the given license code ('A' or 'B'). Cached per license."""
+    path = QUESTIONS_PATH_A if license_code == "A" else QUESTIONS_PATH_B
+    if not path.exists():
+        raise FileNotFoundError(f"Frage-Datei fehlt: {path}")
+    data = json.loads(path.read_text("utf-8"))
     if not isinstance(data, list):
-        raise ValueError("questions.json muss eine Liste sein.")
+        raise ValueError(f"{path.name} muss eine Liste sein.")
     return data
 
 
+def load_questions_file() -> List[Dict[str, Any]]:
+    """Load questions for the current license (delegates to cached loader)."""
+    return _load_questions_for_license(_lic())
+
+
 def load_questions() -> List[Dict[str, Any]]:
-    """Runtime questions: prefer override (session_state) else file."""
+    """Runtime questions: prefer override (session_state) else file for current license."""
     override = st.session_state.get("questions_override")
     if isinstance(override, list) and override:
         return override
@@ -344,6 +391,18 @@ def autocrop_png(png_bytes: bytes, margin: int = 14) -> bytes:
 
 
 @st.cache_data(show_spinner=False)
+def _load_figure_map_for_license(license_code: str) -> Dict[str, Any]:
+    """Load figure_map for the given license. Cached per license."""
+    path = FIGURE_MAP_PATH_A if license_code == "A" else FIGURE_MAP_PATH_B
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text("utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
 def load_figure_map() -> Dict[str, Any]:
     """
     Supports BOTH formats:
@@ -356,13 +415,7 @@ def load_figure_map() -> Dict[str, Any]:
         "47": { "page": 14, "clip": [x0,y0,x1,y1] }
       }
     """
-    if not FIGURE_MAP_PATH.exists():
-        return {}
-    try:
-        data = json.loads(FIGURE_MAP_PATH.read_text("utf-8"))
-        return data if isinstance(data, dict) else {}
-    except Exception:
-        return {}
+    return _load_figure_map_for_license(_lic())
 
 
 @st.cache_data(show_spinner=False)
@@ -799,16 +852,33 @@ def ensure_user_registered(claims: Dict[str, str]) -> None:
 # DB: progress + notes + exam_runs
 # =============================================================================
 def db_load_progress(uid: str) -> Dict[str, Dict[str, Any]]:
-    dlog("db_load_progress", uid=uid)
-    r = supa().table("progress").select("question_id,seen,correct,wrong").eq("user_id", uid).execute()
+    lic = _lic()
+    dlog("db_load_progress", uid=uid, license=lic)
+    r = (
+        supa()
+        .table("progress")
+        .select("question_id,seen,correct,wrong")
+        .eq("user_id", uid)
+        .eq("license", lic)
+        .execute()
+    )
     return {str(x["question_id"]): x for x in (r.data or [])}
 
 
 
 def db_get_teacher_state(uid: str) -> Dict[str, Any]:
     """Load persistent teacher-path state for a user. Returns dict (may be empty)."""
+    lic = _lic()
     try:
-        resp = supa().table("learn_state").select("teacher_state").eq("user_id", uid).limit(1).execute()
+        resp = (
+            supa()
+            .table("learn_state")
+            .select("teacher_state")
+            .eq("user_id", uid)
+            .eq("license", lic)
+            .limit(1)
+            .execute()
+        )
         rows = getattr(resp, "data", None) or []
         if rows:
             return rows[0].get("teacher_state") or {}
@@ -819,29 +889,31 @@ def db_get_teacher_state(uid: str) -> Dict[str, Any]:
 
 def db_upsert_teacher_state(uid: str, teacher_state: Dict[str, Any]) -> None:
     """Persist teacher-path state for a user. Best-effort; app works without it."""
+    lic = _lic()
     try:
         supa().table("learn_state").upsert(
-            {"user_id": uid, "teacher_state": teacher_state},
-            on_conflict="user_id",
+            {"user_id": uid, "license": lic, "teacher_state": teacher_state},
+            on_conflict="user_id,license",
         ).execute()
     except Exception:
-        # ignore hard failures; UI still works without persistence
         return
 
 
 def db_upsert_progress(uid: str, qid: str, ok: bool) -> Dict[str, int]:
     """
-    Returns the new counters for this (uid,qid) so caller can update local session_state
+    Returns the new counters for this (uid,qid,license) so caller can update local session_state
     without reloading whole progress table.
     """
+    lic = _lic()
     s = supa()
-    dlog("db_upsert_progress.begin", uid=uid, qid=qid, ok=ok)
+    dlog("db_upsert_progress.begin", uid=uid, qid=qid, ok=ok, license=lic)
 
     r = (
         s.table("progress")
         .select("seen,correct,wrong")
         .eq("user_id", uid)
         .eq("question_id", qid)
+        .eq("license", lic)
         .limit(1)
         .execute()
     )
@@ -854,7 +926,7 @@ def db_upsert_progress(uid: str, qid: str, ok: bool) -> Dict[str, int]:
 
         s.table("progress").update(
             {"seen": new_seen, "correct": new_correct, "wrong": new_wrong}
-        ).eq("user_id", uid).eq("question_id", qid).execute()
+        ).eq("user_id", uid).eq("question_id", qid).eq("license", lic).execute()
 
         dlog("db_upsert_progress.update", seen=new_seen, correct=new_correct, wrong=new_wrong)
         return {"seen": new_seen, "correct": new_correct, "wrong": new_wrong}
@@ -864,7 +936,8 @@ def db_upsert_progress(uid: str, qid: str, ok: bool) -> Dict[str, int]:
         new_correct = 1 if ok else 0
         new_wrong = 0 if ok else 1
         s.table("progress").insert(
-            {"user_id": uid, "question_id": qid, "seen": new_seen, "correct": new_correct, "wrong": new_wrong}
+            {"user_id": uid, "question_id": qid, "license": lic,
+             "seen": new_seen, "correct": new_correct, "wrong": new_wrong}
         ).execute()
         dlog("db_upsert_progress.insert", seen=new_seen, correct=new_correct, wrong=new_wrong)
         return {"seen": new_seen, "correct": new_correct, "wrong": new_wrong}
@@ -889,15 +962,15 @@ def apply_progress_delta_local(uid: str, qid: str, counters: Dict[str, int]) -> 
 
 def db_upsert_user_question_progress(uid: str, q: Dict[str, Any], ok: bool) -> None:
     """Persist per-question progress (seen/correct/wrong + is_correct_once). Best-effort."""
+    lic = _lic()
     qid = str(q.get("id"))
     chapter = str(_learn_meta(q)[0]) if q else None
     subchapter = str(q.get("subchapter") or "") if q else None
 
     try:
-        # load existing counters (to increment reliably without RPC)
         resp = supa().table("user_question_progress").select(
             "seen_count,correct_count,wrong_count,is_correct_once"
-        ).eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+        ).eq("user_id", uid).eq("question_id", qid).eq("license", lic).limit(1).execute()
         rows = getattr(resp, "data", None) or []
         if rows:
             row = rows[0]
@@ -915,6 +988,7 @@ def db_upsert_user_question_progress(uid: str, q: Dict[str, Any], ok: bool) -> N
             {
                 "user_id": uid,
                 "question_id": qid,
+                "license": lic,
                 "chapter": chapter,
                 "subchapter": subchapter,
                 "seen_count": seen,
@@ -923,7 +997,7 @@ def db_upsert_user_question_progress(uid: str, q: Dict[str, Any], ok: bool) -> N
                 "is_correct_once": once,
                 "last_answer_at": datetime.utcnow().isoformat(),
             },
-            on_conflict="user_id,question_id",
+            on_conflict="user_id,question_id,license",
         ).execute()
     except Exception:
         return
@@ -933,40 +1007,55 @@ def db_get_not_correct_once_question_ids(uid: str, question_ids: List[str]) -> L
     """Return question_ids where user has not yet answered correctly at least once."""
     if not question_ids:
         return []
+    lic = _lic()
     try:
-        resp = supa().table("user_question_progress").select("question_id,is_correct_once") \
-            .eq("user_id", uid).in_("question_id", list(map(str, question_ids))).execute()
+        resp = (
+            supa().table("user_question_progress")
+            .select("question_id,is_correct_once")
+            .eq("user_id", uid)
+            .eq("license", lic)
+            .in_("question_id", list(map(str, question_ids)))
+            .execute()
+        )
         rows = getattr(resp, "data", None) or []
         correct_once = {str(r.get("question_id")) for r in rows if bool(r.get("is_correct_once"))}
         return [str(qid) for qid in question_ids if str(qid) not in correct_once]
     except Exception:
-        # if query fails, be conservative: do not block unlock
         return []
 
 
 def db_upsert_teacher_cursor(uid: str, chapter: str, last_qid: str, last_idx: int) -> None:
     """Persist the last position in a teacher-path chapter (refresh-safe). Best-effort."""
+    lic = _lic()
     try:
         supa().table("user_teacherpath_cursor").upsert(
             {
                 "user_id": uid,
                 "chapter": str(chapter),
+                "license": lic,
                 "last_question_id": str(last_qid),
                 "last_question_idx": int(last_idx),
                 "updated_at": datetime.utcnow().isoformat(),
             },
-            on_conflict="user_id,chapter",
+            on_conflict="user_id,chapter,license",
         ).execute()
     except Exception:
         return
 
 
 def db_get_latest_teacher_cursor(uid: str) -> Optional[Dict[str, Any]]:
-    """Return the most recently updated teacher-path cursor row for a user."""
+    """Return the most recently updated teacher-path cursor row for a user (current license)."""
+    lic = _lic()
     try:
-        resp = supa().table("user_teacherpath_cursor").select(
-            "chapter,last_question_id,last_question_idx,updated_at"
-        ).eq("user_id", uid).order("updated_at", desc=True).limit(1).execute()
+        resp = (
+            supa().table("user_teacherpath_cursor")
+            .select("chapter,last_question_id,last_question_idx,updated_at")
+            .eq("user_id", uid)
+            .eq("license", lic)
+            .order("updated_at", desc=True)
+            .limit(1)
+            .execute()
+        )
         rows = getattr(resp, "data", None) or []
         return rows[0] if rows else None
     except Exception:
@@ -974,14 +1063,16 @@ def db_get_latest_teacher_cursor(uid: str) -> Optional[Dict[str, Any]]:
 
 
 def db_get_note(uid: str, qid: str) -> str:
+    lic = _lic()
     try:
-        dlog("db_get_note", uid=uid, qid=qid)
+        dlog("db_get_note", uid=uid, qid=qid, license=lic)
         r = (
             supa()
             .table("notes")
             .select("note_text")
             .eq("user_id", uid)
             .eq("question_id", qid)
+            .eq("license", lic)
             .limit(1)
             .execute()
         )
@@ -994,15 +1085,24 @@ def db_get_note(uid: str, qid: str) -> str:
 
 
 def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
+    lic = _lic()
     try:
-        dlog("db_upsert_note.begin", uid=uid, qid=qid)
+        dlog("db_upsert_note.begin", uid=uid, qid=qid, license=lic)
         s = supa()
         note_text = (note_text or "").strip()
-        r = s.table("notes").select("user_id").eq("user_id", uid).eq("question_id", qid).limit(1).execute()
+        r = (
+            s.table("notes")
+            .select("user_id")
+            .eq("user_id", uid)
+            .eq("question_id", qid)
+            .eq("license", lic)
+            .limit(1)
+            .execute()
+        )
         if r.data:
-            s.table("notes").update({"note_text": note_text}).eq("user_id", uid).eq("question_id", qid).execute()
+            s.table("notes").update({"note_text": note_text}).eq("user_id", uid).eq("question_id", qid).eq("license", lic).execute()
         else:
-            s.table("notes").insert({"user_id": uid, "question_id": qid, "note_text": note_text}).execute()
+            s.table("notes").insert({"user_id": uid, "question_id": qid, "license": lic, "note_text": note_text}).execute()
         dlog("db_upsert_note.ok")
         return True
     except Exception as e:
@@ -1012,10 +1112,11 @@ def db_upsert_note(uid: str, qid: str, note_text: str) -> bool:
 
 def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> Tuple[bool, str]:
     """Insert exam run. Returns (ok, error_message)."""
+    lic = _lic()
     try:
-        dlog("db_insert_exam_run", uid=uid, total=total, correct=correct, passed=passed)
+        dlog("db_insert_exam_run", uid=uid, total=total, correct=correct, passed=passed, license=lic)
         supa().table("exam_runs").insert(
-            {"user_id": uid, "total": int(total), "correct": int(correct), "passed": bool(passed)}
+            {"user_id": uid, "license": lic, "total": int(total), "correct": int(correct), "passed": bool(passed)}
         ).execute()
         return True, ""
     except Exception as e:
@@ -1024,13 +1125,15 @@ def db_insert_exam_run(uid: str, total: int, correct: int, passed: bool) -> Tupl
 
 
 def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
+    lic = _lic()
     try:
-        dlog("db_list_exam_runs", uid=uid, limit=limit)
+        dlog("db_list_exam_runs", uid=uid, limit=limit, license=lic)
         r = (
             supa()
             .table("exam_runs")
             .select("*")
             .eq("user_id", uid)
+            .eq("license", lic)
             .order("created_at", desc=True)
             .limit(limit)
             .execute()
@@ -1042,36 +1145,35 @@ def db_list_exam_runs(uid: str, limit: int = 50) -> List[Dict[str, Any]]:
 
 
 def db_reset_user_data(uid: str) -> Tuple[bool, str]:
-    """Delete all user-owned learning data (progress, notes, exam_runs).
-    Keeps app_users entry intact (login mapping).
+    """Delete user-owned learning data for the CURRENT license only.
+    Keeps app_users entry intact, and other-license data untouched.
     Returns (ok, error_message).
     """
+    lic = _lic()
     try:
-        dlog("db_reset_user_data.begin", uid=uid)
+        dlog("db_reset_user_data.begin", uid=uid, license=lic)
         s = supa()
-        s.table("notes").delete().eq("user_id", uid).execute()
-        s.table("progress").delete().eq("user_id", uid).execute()
-        s.table("exam_runs").delete().eq("user_id", uid).execute()
-        # FSRS-related (best-effort, tables may not exist on older DBs)
+        s.table("notes").delete().eq("user_id", uid).eq("license", lic).execute()
+        s.table("progress").delete().eq("user_id", uid).eq("license", lic).execute()
+        s.table("exam_runs").delete().eq("user_id", uid).eq("license", lic).execute()
         try:
-            s.table("card_state").delete().eq("user_id", uid).execute()
+            s.table("card_state").delete().eq("user_id", uid).eq("license", lic).execute()
         except Exception:
             pass
         try:
-            s.table("review_logs").delete().eq("user_id", uid).execute()
-        except Exception:
-            pass
-        # Per-question progress + teacher cursor (best-effort)
-        try:
-            s.table("user_question_progress").delete().eq("user_id", uid).execute()
+            s.table("review_logs").delete().eq("user_id", uid).eq("license", lic).execute()
         except Exception:
             pass
         try:
-            s.table("user_teacherpath_cursor").delete().eq("user_id", uid).execute()
+            s.table("user_question_progress").delete().eq("user_id", uid).eq("license", lic).execute()
         except Exception:
             pass
         try:
-            s.table("learn_state").delete().eq("user_id", uid).execute()
+            s.table("user_teacherpath_cursor").delete().eq("user_id", uid).eq("license", lic).execute()
+        except Exception:
+            pass
+        try:
+            s.table("learn_state").delete().eq("user_id", uid).eq("license", lic).execute()
         except Exception:
             pass
         dlog("db_reset_user_data.ok")
@@ -1251,6 +1353,7 @@ def _row_to_card(row: Dict[str, Any]) -> Any:
 
 
 def db_get_card_state(uid: str, qid: str) -> Optional[Dict[str, Any]]:
+    lic = _lic()
     try:
         r = (
             supa()
@@ -1258,6 +1361,7 @@ def db_get_card_state(uid: str, qid: str) -> Optional[Dict[str, Any]]:
             .select("*")
             .eq("user_id", uid)
             .eq("question_id", qid)
+            .eq("license", lic)
             .limit(1)
             .execute()
         )
@@ -1273,9 +1377,10 @@ def db_upsert_card_state(uid: str, qid: str, card: Any, *,
                          rating: int,
                          is_lapse: bool) -> None:
     """Persist updated FSRS card. Best-effort."""
+    lic = _lic()
     try:
         row = _card_to_row(card, uid, qid)
-        # Increment counters via RPC-less round-trip
+        row["license"] = lic
         existing = db_get_card_state(uid, qid)
         review_count = int((existing or {}).get("review_count") or 0) + 1
         lapse_count = int((existing or {}).get("lapse_count") or 0) + (1 if is_lapse else 0)
@@ -1285,7 +1390,7 @@ def db_upsert_card_state(uid: str, qid: str, card: Any, *,
             "last_rating": int(rating),
             "last_response_ms": int(response_ms) if response_ms is not None else None,
         })
-        supa().table("card_state").upsert(row, on_conflict="user_id,question_id").execute()
+        supa().table("card_state").upsert(row, on_conflict="user_id,question_id,license").execute()
     except Exception as e:
         dlog("db_upsert_card_state.err", err=str(e))
 
@@ -1295,10 +1400,12 @@ def db_insert_review_log(uid: str, qid: str, rating: int,
                          state_before: Optional[int],
                          state_after: Optional[int]) -> None:
     """Log a single review event. Best-effort."""
+    lic = _lic()
     try:
         supa().table("review_logs").insert({
             "user_id": uid,
             "question_id": qid,
+            "license": lic,
             "rating": int(rating),
             "response_ms": int(response_ms) if response_ms is not None else None,
             "state_before": int(state_before) if state_before is not None else None,
@@ -1312,12 +1419,14 @@ def db_count_due_cards(uid: str, until: Optional[datetime] = None) -> int:
     """Count cards in card_state with due <= until (default: now)."""
     if until is None:
         until = datetime.now(timezone.utc)
+    lic = _lic()
     try:
         r = (
             supa()
             .table("card_state")
             .select("question_id", count="exact")
             .eq("user_id", uid)
+            .eq("license", lic)
             .lte("due", until.isoformat())
             .execute()
         )
@@ -1331,12 +1440,14 @@ def db_load_due_question_ids(uid: str, until: Optional[datetime] = None) -> List
     """Return all question_ids whose card is due (<= until)."""
     if until is None:
         until = datetime.now(timezone.utc)
+    lic = _lic()
     try:
         r = (
             supa()
             .table("card_state")
             .select("question_id,due")
             .eq("user_id", uid)
+            .eq("license", lic)
             .lte("due", until.isoformat())
             .order("due", desc=False)
             .execute()
@@ -1348,9 +1459,17 @@ def db_load_due_question_ids(uid: str, until: Optional[datetime] = None) -> List
 
 
 def db_load_existing_card_ids(uid: str) -> set:
-    """Return set of question_ids that already have a card_state row for this user."""
+    """Return set of question_ids that already have a card_state row for this user/license."""
+    lic = _lic()
     try:
-        r = supa().table("card_state").select("question_id").eq("user_id", uid).execute()
+        r = (
+            supa()
+            .table("card_state")
+            .select("question_id")
+            .eq("user_id", uid)
+            .eq("license", lic)
+            .execute()
+        )
         return {str(row["question_id"]) for row in (r.data or [])}
     except Exception as e:
         dlog("db_load_existing_card_ids.err", err=str(e))
@@ -1429,14 +1548,15 @@ def fsrs_review(uid: str, qid: str, rating: int, response_ms: Optional[int]) -> 
 def db_load_review_dates(uid: str, since_days: int = 120) -> List[str]:
     """Return list of YYYY-MM-DD strings (one per review event) in the last N days."""
     cutoff = datetime.now(timezone.utc) - timedelta(days=int(since_days))
+    lic = _lic()
     out: List[str] = []
-    # Primary source: review_logs (FSRS era)
     try:
         r = (
             supa()
             .table("review_logs")
             .select("review_datetime")
             .eq("user_id", uid)
+            .eq("license", lic)
             .gte("review_datetime", cutoff.isoformat())
             .execute()
         )
@@ -1447,13 +1567,13 @@ def db_load_review_dates(uid: str, since_days: int = 120) -> List[str]:
     except Exception as e:
         dlog("db_load_review_dates.review_logs.err", err=str(e))
 
-    # Fallback / complement: user_question_progress.last_answer_at (pre-FSRS data)
     try:
         r = (
             supa()
             .table("user_question_progress")
             .select("last_answer_at")
             .eq("user_id", uid)
+            .eq("license", lic)
             .gte("last_answer_at", cutoff.isoformat())
             .execute()
         )
@@ -1731,6 +1851,25 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     st.sidebar.write(claims.get("email") or claims.get("name") or "User")
     st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
 
+    # ----------------------------
+    # Aktueller Schein + Wechsel
+    # ----------------------------
+    cur_lic = _lic()
+    st.sidebar.markdown("## Aktueller Schein")
+    st.sidebar.markdown(
+        f'<div style="padding:0.55rem 0.75rem;border:1px solid rgba(255,255,255,0.18);'
+        f'border-radius:10px;background:rgba(255,255,255,0.04);font-weight:600;">'
+        f'{"📘" if cur_lic == "B" else "📗"} {_license_label(cur_lic)}'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
+    if st.sidebar.button("Schein wechseln", use_container_width=True, key="nav_switch_license"):
+        st.session_state.page = "license_select"
+        st.session_state.skip_teacher_autoresume = True
+        _reset_learning_state()
+        _reset_exam_state()
+        st.rerun()
+
     st.sidebar.markdown("## Navigation")
     c1, c2, c3 = st.sidebar.columns(3)
     if c1.button("Übersicht", use_container_width=True):
@@ -1754,10 +1893,14 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
     st.sidebar.markdown("## Tools")
     st.sidebar.checkbox("Debug logs", key="debug_on", value=bool(st.session_state.get("debug_on", False)))
 
-    # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten)
+    # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten, nur aktuelle Lizenz)
     st.sidebar.markdown("## Wartung")
-    with st.sidebar.expander("Fortschritt zurücksetzen", expanded=False):
-        st.caption("Löscht deinen kompletten Lernfortschritt: Antworten, Notizen, Prüfungs-Historie und Wiederholungs-Plan. Die Fragen selbst bleiben erhalten.")
+    with st.sidebar.expander(f"Fortschritt {_license_label(cur_lic)} zurücksetzen", expanded=False):
+        st.caption(
+            f"Löscht deinen kompletten Fortschritt für den **{_license_label(cur_lic)}**: "
+            "Antworten, Notizen, Prüfungs-Historie und Wiederholungs-Plan. "
+            "Der andere Schein bleibt unberührt. Die Fragen selbst bleiben erhalten."
+        )
         confirm = st.checkbox("Ich weiß, dass das nicht rückgängig gemacht werden kann.", key="reset_confirm")
         token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
         do_reset = st.button(
@@ -3711,6 +3854,99 @@ ensure_user_registered(claims)
 uid = stable_user_id(claims)
 st.session_state.uid = uid
 
+# ----------------------------------------------------------------------------
+# License-Select: Startseite — User muss zuerst A oder B wählen
+# ----------------------------------------------------------------------------
+if "page" not in st.session_state:
+    # Prüfen, ob Lizenz schon in der Session steht (z.B. nach späterem Wechsel) oder
+    # ob der User direkt auf die Auswahl-Seite soll.
+    if "license" not in st.session_state:
+        st.session_state.page = "license_select"
+    else:
+        st.session_state.page = "dashboard"
+
+# Wenn keine Lizenz gesetzt -> immer auf Auswahl-Seite zwingen
+if "license" not in st.session_state and st.session_state.page != "license_select":
+    st.session_state.page = "license_select"
+
+
+def page_select_license() -> None:
+    """Startseite: Auswahl A-Schein / B-Schein."""
+    inject_css()
+    st.markdown(
+        '<div style="margin-top:1rem"></div>',
+        unsafe_allow_html=True,
+    )
+    st.title("Welchen Schein möchtest du lernen?")
+    st.markdown(
+        '<div class="pp-muted" style="margin-bottom:1.2rem">'
+        "Du hast zwei voneinander getrennte Lernumgebungen: einen A-Schein-Bereich und einen "
+        "B-Schein-Bereich. Fortschritt, Notizen, Prüfungen und Wiederholungen werden für jeden "
+        "Schein separat geführt. Du kannst jederzeit über die Seitenleiste wechseln."
+        "</div>",
+        unsafe_allow_html=True,
+    )
+
+    a_avail = QUESTIONS_PATH_A.exists()
+    b_avail = QUESTIONS_PATH_B.exists()
+
+    c1, c2 = st.columns([1, 1])
+
+    with c1:
+        st.markdown(
+            f'<div class="pp-card" style="min-height:200px"><div style="font-size:2rem">📗</div>'
+            f'<h2 style="margin:0.3rem 0 0.5rem 0">A-Schein</h2>'
+            f'<div class="pp-muted">Grundschein Gleitschirm. Themen: Gerätekunde, Aerodynamik, '
+            f'Flugpraxis, Luftrecht, Meteorologie. Ideal für Schüler und frische A-Lizenzler.</div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+        if st.button("📗 A-Schein lernen", type="primary", use_container_width=True, disabled=not a_avail, key="lic_pick_a"):
+            st.session_state.license = "A"
+            st.session_state.page = "dashboard"
+            st.session_state.skip_teacher_autoresume = True
+            _refresh_license_paths()
+            # Fortschritt + Teacher-State der A-Lizenz nachladen
+            try:
+                st.session_state.teacher_state = db_get_teacher_state(uid) or {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
+            except Exception:
+                st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
+            st.rerun()
+        if not a_avail:
+            st.caption("⚠ Datei `questions_A.json` fehlt im App-Verzeichnis.")
+
+    with c2:
+        st.markdown(
+            f'<div class="pp-card" style="min-height:200px"><div style="font-size:2rem">📘</div>'
+            f'<h2 style="margin:0.3rem 0 0.5rem 0">B-Schein</h2>'
+            f'<div class="pp-muted">Aufbauschein Gleitschirm. Mehr Tiefe in Flugpraxis, '
+            f'Wetter, Luftrecht und Verhalten in besonderen Situationen.</div>'
+            f'</div>',
+            unsafe_allow_html=True,
+        )
+        if st.button("📘 B-Schein lernen", type="primary", use_container_width=True, disabled=not b_avail, key="lic_pick_b"):
+            st.session_state.license = "B"
+            st.session_state.page = "dashboard"
+            st.session_state.skip_teacher_autoresume = True
+            _refresh_license_paths()
+            try:
+                st.session_state.teacher_state = db_get_teacher_state(uid) or {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
+            except Exception:
+                st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
+            st.rerun()
+        if not b_avail:
+            st.caption("⚠ Datei `questions.json` fehlt im App-Verzeichnis.")
+
+    st.stop()
+
+
+# Wenn license_select aktiv ist: zeige NUR die Auswahlseite, lade keine Fragen.
+if st.session_state.page == "license_select":
+    page_select_license()
+
+# --------- Ab hier: Lizenz steht fest ---------
+_refresh_license_paths()
+
 questions = load_questions()
 
 val = validate_questions(questions)
@@ -3741,9 +3977,6 @@ if wants_selftest:
 
 progress = db_load_progress(uid)
 st.session_state.progress = progress
-
-if "page" not in st.session_state:
-    st.session_state.page = "dashboard"
 
 nav_sidebar(claims)
 

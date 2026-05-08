@@ -12,7 +12,6 @@ import re
 import uuid
 import time
 import math
-import html as html_lib
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
@@ -93,6 +92,47 @@ def _questions_path_for_license(license_code: Optional[str] = None) -> Path:
 
 def _question_catalog_exists_for_license(license_code: str) -> bool:
     return _questions_path_for_license(license_code).exists()
+
+
+def _switch_to_license(target_lic: str) -> None:
+    """Sauberer License-Wechsel: alte license-spezifische Session-State-Reste entsorgen,
+    Pfade neu setzen, Caches leeren, Teacher-State der neuen Lizenz nachladen.
+
+    Wird aufgerufen von page_select_license() und vom Wechsel-Button in nav_sidebar().
+    """
+    target_lic = "A" if target_lic == "A" else "B"
+
+    # Alte license-spezifische Session-Keys wegwerfen
+    for key in (
+        "queue", "idx", "answered", "learn_answers", "learn_started",
+        "learn_plan", "teacher_state", "exam_run_id", "exam_started",
+        "exam_idx", "exam_answers", "exam_deadline", "exam_finished",
+        "exam_seed", "exam_questions", "exam_result", "exam_done",
+        "exam_submitted", "exam_queue", "exam_deadline_ts",
+        "questions_override", "progress",
+    ):
+        st.session_state.pop(key, None)
+
+    # Neue Lizenz aktivieren
+    st.session_state.license = target_lic
+    st.session_state.page = "dashboard"
+    st.session_state.skip_teacher_autoresume = True
+    _refresh_license_paths()
+
+    # Caches der Frage-Datei leeren (sicher ist sicher)
+    try:
+        _load_questions_for_license.clear()
+    except Exception:
+        pass
+
+    # Teacher-State der neuen Lizenz nachladen
+    try:
+        uid_local = str(st.session_state.get("uid") or "")
+        st.session_state.teacher_state = db_get_teacher_state(uid_local) or {
+            "unlockedBlock": 1, "lastBlock": 1, "checkpoints": {},
+        }
+    except Exception:
+        st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
 
 
 def cfg(path: str, default: str = "") -> str:
@@ -215,99 +255,23 @@ REQUIRED: Dict[str, Dict[str, int]] = {
 }
 
 
-def _module_structure_from_questions(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
-    """Build module/submodule counts from the active question file.
-
-    This is the single display structure for A- and B-Schein.
-    No hard-coded B-Schein module map is used for dashboard, start cards,
-    evaluation or topic selection.
-    """
-    out: Dict[str, Dict[str, int]] = {}
-    for q in questions:
-        cat = (q.get("category") or "Ohne Modul").strip() or "Ohne Modul"
-        sub = (q.get("subchapter") or "Allgemein").strip() or "Allgemein"
-        out.setdefault(cat, {})
-        out[cat][sub] = out[cat].get(sub, 0) + 1
-    return out
-
-
 def required_structure(questions: List[Dict[str, Any]]) -> Dict[str, Dict[str, int]]:
     """Display/progress structure for the current license.
 
-    A-Schein and B-Schein intentionally use the same logic: the structure is
-    derived from the currently loaded JSON file. This prevents B-Schein modules
-    from leaking into the A-Schein dashboard or evaluations.
+    B-Schein keeps the existing fixed REQUIRED structure.
+    A-Schein uses the actual categories/subchapters from questions_A.json,
+    because our A setup is already ordered via category/subchapter + learn.block.
     """
-    return _module_structure_from_questions(questions)
+    if _lic() != "A":
+        return REQUIRED
 
-
-@st.cache_data(show_spinner=False)
-def _catalog_summary_for_license(license_code: str) -> Dict[str, Any]:
-    """Lightweight summary for the license selection screen.
-
-    Reads the same JSON catalog the app will use after the selection.
-    """
-    lic = "A" if license_code == "A" else "B"
-    path = _questions_path_for_license(lic)
-    if not path.exists():
-        return {
-            "license": lic,
-            "available": False,
-            "path": str(path),
-            "total": 0,
-            "modules": [],
-            "submodule_count": 0,
-        }
-
-    try:
-        data = json.loads(path.read_text("utf-8"))
-    except Exception:
-        data = []
-
-    if not isinstance(data, list):
-        data = []
-
-    modules = _module_structure_from_questions(data)
-    module_rows = []
-    for cat, subs in modules.items():
-        module_rows.append(
-            {
-                "name": cat,
-                "questions": sum(int(v) for v in subs.values()),
-                "submodules": len(subs),
-            }
-        )
-
-    return {
-        "license": lic,
-        "available": True,
-        "path": str(path),
-        "total": len(data),
-        "modules": module_rows,
-        "submodule_count": sum(int(m["submodules"]) for m in module_rows),
-    }
-
-
-def _module_preview_html(summary: Dict[str, Any], limit: int = 5) -> str:
-    """Compact, escaped HTML list for actual modules from the active catalog."""
-    modules = summary.get("modules") or []
-    if not modules:
-        return '<div class="pp-muted">Keine Module gefunden.</div>'
-
-    rows = []
-    for m in modules[:limit]:
-        name = html_lib.escape(str(m.get("name") or "Modul"))
-        questions_n = int(m.get("questions") or 0)
-        subs_n = int(m.get("submodules") or 0)
-        rows.append(
-            f'<div class="pp-module-row"><span>{name}</span>'
-            f'<small>{questions_n} Fragen · {subs_n} Themen</small></div>'
-        )
-
-    rest = len(modules) - limit
-    if rest > 0:
-        rows.append(f'<div class="pp-muted" style="margin-top:0.35rem">+ {rest} weitere Module</div>')
-    return "".join(rows)
+    out: Dict[str, Dict[str, int]] = {}
+    for q in questions:
+        cat = (q.get("category") or "Ohne Kategorie").strip() or "Ohne Kategorie"
+        sub = (q.get("subchapter") or "Ohne Unterkapitel").strip() or "Ohne Unterkapitel"
+        out.setdefault(cat, {})
+        out[cat][sub] = out[cat].get(sub, 0) + 1
+    return out
 
 
 # =============================================================================
@@ -1723,69 +1687,180 @@ def compute_streak(dates_iso: List[str]) -> int:
 # UI / STYLES
 # =============================================================================
 def inject_css() -> None:
+    """Modernes Glassmorphism-Design mit lizenz-spezifischer Akzentfarbe.
+
+    A-Schein = Smaragdgrün (📗), B-Schein = Skyblau (📘).
+    Die Akzentfarbe steckt in --pp-accent und wechselt automatisch beim License-Switch.
+    """
+    lic = _lic()
+    accent = "#34d399" if lic == "A" else "#60a5fa"
+    accent_soft = "rgba(52,211,153,0.12)" if lic == "A" else "rgba(96,165,250,0.12)"
+    accent_glow = "rgba(52,211,153,0.35)" if lic == "A" else "rgba(96,165,250,0.35)"
+
     st.markdown(
-        """
+        f"""
 <style>
-:root{
-  --pp-border: rgba(255,255,255,0.14);
-  --pp-bg: rgba(255,255,255,0.055);
-  --pp-bg2: rgba(255,255,255,0.075);
-  --pp-text-muted: rgba(255,255,255,0.78);
-  --pp-good: #2ecc71;
-  --pp-bad:  #e74c3c;
-  --pp-warn: #f39c12;
-}
-.block-container { padding-top: 1.2rem; max-width: 1180px; }
-div.stButton > button { width:100%; padding:0.95rem 1rem; border-radius:14px; font-size:1rem; min-height:48px; }
-div.stButton > button:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
-div.stButton > button:active { transform: translateY(0px); }
+:root{{
+  --pp-accent: {accent};
+  --pp-accent-soft: {accent_soft};
+  --pp-accent-glow: {accent_glow};
+  --pp-border: rgba(255,255,255,0.10);
+  --pp-border-strong: rgba(255,255,255,0.18);
+  --pp-bg: rgba(255,255,255,0.035);
+  --pp-bg2: rgba(255,255,255,0.06);
+  --pp-bg-hover: rgba(255,255,255,0.085);
+  --pp-text: #f3f4f6;
+  --pp-text-muted: rgba(243,244,246,0.66);
+  --pp-good: #34d399;
+  --pp-bad:  #f87171;
+  --pp-warn: #fbbf24;
+}}
 
-.pp-card { box-shadow: 0 10px 30px rgba(0,0,0,0.28); border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg); }
-.pp-card2 { box-shadow: 0 10px 30px rgba(0,0,0,0.22); border:1px solid var(--pp-border); border-radius:16px; padding:1rem 1.1rem; background: var(--pp-bg2); }
-.pp-muted { color: var(--pp-text-muted); font-size:0.95rem; }
-.pp-kpi { box-shadow: 0 10px 30px rgba(0,0,0,0.22); border:1px solid var(--pp-border); border-radius:16px; padding:0.9rem 1rem; background: var(--pp-bg); }
-.pp-grid { display:grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap:0.8rem; }
-@media (max-width: 1100px){ .pp-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 700px){ .pp-grid{ grid-template-columns: 1fr; } }
-hr { border:none; height:1px; background: var(--pp-border); margin: 1rem 0; }
-.small { font-size: 0.9rem; opacity: 0.85; }
-.pp-pill { display:inline-block; padding: 0.25rem 0.55rem; border:1px solid var(--pp-border); border-radius:999px; background: rgba(255,255,255,0.03); font-size:0.85rem; margin-right:0.4rem;}
-.pp-hero { border:1px solid var(--pp-border); border-radius:22px; padding:1.15rem 1.25rem; background: linear-gradient(135deg, rgba(255,255,255,0.095), rgba(255,255,255,0.035)); box-shadow: 0 12px 34px rgba(0,0,0,0.28); margin-bottom: 1rem; }
-.pp-hero small { color: var(--pp-text-muted); font-size:0.94rem; }
-.pp-module-row { display:flex; justify-content:space-between; gap:0.75rem; align-items:center; padding:0.48rem 0; border-bottom:1px solid rgba(255,255,255,0.08); }
-.pp-module-row:last-child { border-bottom:none; }
-.pp-module-row span { font-weight:650; line-height:1.25; }
-.pp-module-row small { color: var(--pp-text-muted); white-space:nowrap; }
-.pp-section-head { display:flex; justify-content:space-between; gap:1rem; align-items:end; margin-top:1.3rem; margin-bottom:0.4rem; }
-.pp-section-head .pp-muted { margin-top:0.2rem; }
-h1{margin-bottom:0.6rem !important;}
-h2{margin-top:1.2rem !important;}
-.stMarkdown{margin-top:0.25rem;}
+.block-container {{ padding-top: 1.4rem; max-width: 1200px; }}
 
-/* Streak / FSRS pills */
-.pp-streak { display:inline-flex; align-items:center; gap:0.4rem; padding:0.3rem 0.7rem; border-radius:999px;
-  border:1px solid var(--pp-border); background: rgba(243,156,18,0.10); color:#ffd27a; font-weight:700; }
-.pp-due    { display:inline-flex; align-items:center; gap:0.4rem; padding:0.3rem 0.7rem; border-radius:999px;
-  border:1px solid var(--pp-border); background: rgba(46,204,113,0.10); color:#a8f0c1; font-weight:700; }
+h1 {{ font-weight: 700 !important; letter-spacing: -0.02em; margin-bottom: 0.4rem !important; }}
+h2 {{ font-weight: 600 !important; letter-spacing: -0.01em; margin-top: 1.4rem !important; margin-bottom: 0.6rem !important; }}
+h3 {{ font-weight: 600 !important; }}
+.stMarkdown {{ margin-top: 0.15rem; }}
+
+/* Buttons */
+div.stButton > button {{
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  min-height: 46px;
+  border: 1px solid var(--pp-border-strong);
+  background: var(--pp-bg);
+  transition: all 160ms ease;
+}}
+div.stButton > button:hover {{
+  border-color: var(--pp-accent);
+  background: var(--pp-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}}
+div.stButton > button:active {{ transform: translateY(0); }}
+div.stButton > button[kind="primary"] {{
+  background: var(--pp-accent-soft);
+  border-color: var(--pp-accent);
+  color: var(--pp-text);
+}}
+div.stButton > button[kind="primary"]:hover {{
+  box-shadow: 0 0 0 1px var(--pp-accent), 0 6px 20px var(--pp-accent-glow);
+}}
+
+/* Cards mit Glassmorphism */
+.pp-card {{
+  border: 1px solid var(--pp-border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  background: var(--pp-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: border-color 160ms ease;
+}}
+.pp-card:hover {{ border-color: var(--pp-border-strong); }}
+.pp-card2 {{
+  border: 1px solid var(--pp-border);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  background: var(--pp-bg2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}}
+.pp-muted {{ color: var(--pp-text-muted); font-size: 0.92rem; line-height: 1.5; }}
+.small {{ font-size: 0.88rem; opacity: 0.82; }}
+
+/* KPI Tiles */
+.pp-kpi {{
+  border: 1px solid var(--pp-border);
+  border-radius: 14px;
+  padding: 0.95rem 1.05rem;
+  background: var(--pp-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 200ms ease;
+}}
+.pp-kpi:hover {{
+  border-color: var(--pp-accent);
+  background: var(--pp-bg-hover);
+  transform: translateY(-2px);
+}}
+.pp-kpi b {{ font-size: 0.82rem; font-weight: 600; color: var(--pp-text-muted); text-transform: uppercase; letter-spacing: 0.04em; }}
+.pp-kpi-value {{ display: block; font-size: 1.85rem; font-weight: 700; line-height: 1.15; margin: 0.2rem 0 0.3rem; letter-spacing: -0.02em; }}
+.pp-grid {{ display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.8rem; }}
+@media (max-width: 1100px) {{ .pp-grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); }} }}
+@media (max-width: 640px) {{ .pp-grid {{ grid-template-columns: 1fr; }} }}
+
+/* Pills */
+.pp-pill {{
+  display: inline-block;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid var(--pp-border-strong);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.025);
+  font-size: 0.82rem;
+  margin-right: 0.4rem;
+}}
+.pp-pill-accent {{
+  border-color: var(--pp-accent);
+  background: var(--pp-accent-soft);
+  color: var(--pp-accent);
+  font-weight: 600;
+}}
+
+.pp-streak {{
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.32rem 0.75rem; border-radius: 999px;
+  border: 1px solid rgba(251,191,36,0.4);
+  background: rgba(251,191,36,0.08);
+  color: #fcd34d; font-weight: 600;
+}}
+.pp-due {{
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  padding: 0.32rem 0.75rem; border-radius: 999px;
+  border: 1px solid var(--pp-accent);
+  background: var(--pp-accent-soft);
+  color: var(--pp-accent); font-weight: 600;
+}}
+
+/* License-Badge in Sidebar */
+.pp-lic-badge {{
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--pp-accent);
+  border-radius: 12px;
+  background: var(--pp-accent-soft);
+  font-weight: 600; font-size: 0.95rem;
+  color: var(--pp-text);
+  margin-bottom: 0.6rem;
+}}
+.pp-lic-badge .pp-lic-icon {{ font-size: 1.3rem; }}
 
 /* Heatmap (90 days) */
-.pp-heatmap { display:grid; grid-auto-flow: column; grid-template-rows: repeat(7, 14px); gap:3px; }
-.pp-heatmap div { width:14px; height:14px; border-radius:3px; background: rgba(255,255,255,0.06); }
-.pp-heatmap div.l1 { background:#1f4032; }
-.pp-heatmap div.l2 { background:#2f6b4f; }
-.pp-heatmap div.l3 { background:#3fa471; }
-.pp-heatmap div.l4 { background:#4fd292; }
+.pp-heatmap {{ display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 13px); gap: 3px; }}
+.pp-heatmap div {{ width: 13px; height: 13px; border-radius: 3px; background: rgba(255,255,255,0.045); transition: transform 120ms ease; }}
+.pp-heatmap div:hover {{ transform: scale(1.25); }}
+.pp-heatmap div.l1 {{ background: rgba(52,211,153,0.25); }}
+.pp-heatmap div.l2 {{ background: rgba(52,211,153,0.45); }}
+.pp-heatmap div.l3 {{ background: rgba(52,211,153,0.7); }}
+.pp-heatmap div.l4 {{ background: var(--pp-accent); }}
 
-/* Mobile: compact spacing + larger touch targets */
-@media (max-width: 640px){
-  .block-container { padding-top: 0.6rem; padding-left:0.6rem; padding-right:0.6rem; }
-  div.stButton > button { padding:1.05rem 0.8rem; font-size:1.02rem; min-height:54px; }
-  .pp-card, .pp-card2, .pp-kpi { padding: 0.8rem 0.85rem; }
-  h1{ font-size: 1.5rem; }
-  h2{ font-size: 1.2rem; }
-  .pp-heatmap { grid-template-rows: repeat(7, 11px); gap:2px; }
-  .pp-heatmap div { width:11px; height:11px; }
-}
+hr {{ border: none; height: 1px; background: var(--pp-border); margin: 1.1rem 0; }}
+
+@media (max-width: 640px) {{
+  .block-container {{ padding-top: 0.6rem; padding-left: 0.7rem; padding-right: 0.7rem; }}
+  div.stButton > button {{ padding: 1rem 0.85rem; font-size: 1rem; min-height: 52px; }}
+  .pp-card, .pp-card2, .pp-kpi {{ padding: 0.85rem 0.9rem; }}
+  .pp-kpi-value {{ font-size: 1.55rem; }}
+  h1 {{ font-size: 1.55rem; }}
+  h2 {{ font-size: 1.18rem; }}
+  .pp-heatmap {{ grid-template-rows: repeat(7, 10px); gap: 2px; }}
+  .pp-heatmap div {{ width: 10px; height: 10px; }}
+}}
 </style>
 """,
         unsafe_allow_html=True,
@@ -1967,19 +2042,17 @@ def _reset_exam_state() -> None:
 
 
 def nav_sidebar(claims: Dict[str, str]) -> None:
-    st.sidebar.markdown("## Account")
-    st.sidebar.write(claims.get("email") or claims.get("name") or "User")
-    st.sidebar.button("Logout", on_click=st.logout, use_container_width=True)
+    cur_lic = _lic()
+    lic_icon = "📗" if cur_lic == "A" else "📘"
+    lic_label = _license_label(cur_lic)
 
     # ----------------------------
-    # Aktueller Schein + Wechsel
+    # Aktive Lizenz (prominent oben)
     # ----------------------------
-    cur_lic = _lic()
-    st.sidebar.markdown("## Aktueller Schein")
     st.sidebar.markdown(
-        f'<div style="padding:0.55rem 0.75rem;border:1px solid rgba(255,255,255,0.18);'
-        f'border-radius:10px;background:rgba(255,255,255,0.04);font-weight:600;">'
-        f'{"📘" if cur_lic == "B" else "📗"} {_license_label(cur_lic)}'
+        f'<div class="pp-lic-badge">'
+        f'<span class="pp-lic-icon">{lic_icon}</span>'
+        f'<span>{lic_label}</span>'
         f'</div>',
         unsafe_allow_html=True,
     )
@@ -1990,38 +2063,55 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
         _reset_exam_state()
         st.rerun()
 
-    st.sidebar.markdown("## Navigation")
-    c1, c2, c3 = st.sidebar.columns(3)
-    if c1.button("Übersicht", use_container_width=True):
+    st.sidebar.markdown("---")
+
+    # ----------------------------
+    # Navigation
+    # ----------------------------
+    st.sidebar.markdown("### Navigation")
+    if st.sidebar.button("📊 Dashboard", use_container_width=True, key="nav_dash"):
         st.session_state.page = "dashboard"
         st.session_state.skip_teacher_autoresume = True
         _reset_learning_state()
         _reset_exam_state()
         st.rerun()
-    if c2.button("Lernen", use_container_width=True):
+    if st.sidebar.button("📚 Lernen", use_container_width=True, key="nav_learn"):
         st.session_state.page = "learn"
         st.session_state.skip_teacher_autoresume = True
         _reset_exam_state()
         _reset_learning_state()
         st.rerun()
-    if c3.button("Prüfung", use_container_width=True):
+    if st.sidebar.button("📝 Prüfung", use_container_width=True, key="nav_exam"):
         st.session_state.page = "exam"
         st.session_state.skip_teacher_autoresume = True
         _reset_learning_state()
         st.rerun()
 
-    st.sidebar.markdown("## Tools")
-    st.sidebar.checkbox("Debug logs", key="debug_on", value=bool(st.session_state.get("debug_on", False)))
+    st.sidebar.markdown("---")
 
-    # Wartung: Fortschritt zurücksetzen (nur userbezogene Daten, nur aktuelle Lizenz)
-    st.sidebar.markdown("## Wartung")
-    with st.sidebar.expander(f"Fortschritt {_license_label(cur_lic)} zurücksetzen", expanded=False):
+    # ----------------------------
+    # Account
+    # ----------------------------
+    st.sidebar.markdown("### Account")
+    st.sidebar.caption(claims.get("email") or claims.get("name") or "Eingeloggt")
+    st.sidebar.button("Abmelden", on_click=st.logout, use_container_width=True, key="nav_logout")
+
+    # ----------------------------
+    # Einstellungen
+    # ----------------------------
+    with st.sidebar.expander("⚙️ Einstellungen", expanded=False):
+        st.checkbox("Debug-Logs anzeigen", key="debug_on", value=bool(st.session_state.get("debug_on", False)))
+
+    # ----------------------------
+    # Datenschutz / Reset (nur aktuelle Lizenz)
+    # ----------------------------
+    with st.sidebar.expander(f"🗑️ {lic_label} zurücksetzen", expanded=False):
         st.caption(
-            f"Löscht deinen kompletten Fortschritt für den **{_license_label(cur_lic)}**: "
+            f"Löscht deinen kompletten Fortschritt für den **{lic_label}**: "
             "Antworten, Notizen, Prüfungs-Historie und Wiederholungs-Plan. "
-            "Der andere Schein bleibt unberührt. Die Fragen selbst bleiben erhalten."
+            "Der jeweils andere Schein bleibt unberührt."
         )
-        confirm = st.checkbox("Ich weiß, dass das nicht rückgängig gemacht werden kann.", key="reset_confirm")
+        confirm = st.checkbox("Ich weiß: das lässt sich nicht rückgängig machen.", key="reset_confirm")
         token = st.text_input("Tippe RESET zur Bestätigung", value="", key="reset_token")
         do_reset = st.button(
             "Jetzt zurücksetzen",
@@ -2031,8 +2121,8 @@ def nav_sidebar(claims: Dict[str, str]) -> None:
             key="reset_do",
         )
         if do_reset:
-            uid = str(st.session_state.get("uid") or "")
-            ok, err = db_reset_user_data(uid)
+            uid_local = str(st.session_state.get("uid") or "")
+            ok, err = db_reset_user_data(uid_local)
             if ok:
                 st.session_state.progress = {}
                 _reset_learning_state()
@@ -2243,26 +2333,7 @@ LEARN_BLOCK_LABELS: Dict[int, str] = LEARN_BLOCK_LABELS_B
 
 
 def learn_block_labels() -> Dict[int, str]:
-    """Teacher-path chapter labels for the active catalog.
-
-    Both licenses use the same mechanism: read the existing learn.block values
-    from the active JSON and only then apply friendly labels.
-    """
-    base = LEARN_BLOCK_LABELS_A if _lic() == "A" else LEARN_BLOCK_LABELS_B
-    try:
-        qs = load_questions_file()
-        blocks = sorted({
-            int((q.get("learn") or {}).get("block"))
-            for q in qs
-            if isinstance(q.get("learn"), dict) and str((q.get("learn") or {}).get("block", "")).strip()
-        })
-    except Exception:
-        blocks = sorted(base.keys())
-
-    if not blocks:
-        blocks = sorted(base.keys())
-
-    return {b: base.get(b, f"Kapitel {b}") for b in blocks}
+    return LEARN_BLOCK_LABELS_A if _lic() == "A" else LEARN_BLOCK_LABELS_B
 
 
 def teacher_path_version() -> str:
@@ -2540,19 +2611,23 @@ def _exam_submit(uid: str, reason: str = "manual") -> None:
 
 
 def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
-    lic_label = _license_label()
-    module_map = required_structure(questions)
-    module_count = len(module_map)
-    topic_count = sum(len(subs) for subs in module_map.values())
+    cur_lic = _lic()
+    lic_label = _license_label(cur_lic)
+    lic_icon = "📗" if cur_lic == "A" else "📘"
 
+    # Header mit License-Pille
     st.markdown(
-        f"""
-<div class="pp-hero">
-  <small>Aktive Lernumgebung</small>
-  <h1 style="margin:0.15rem 0 0.25rem 0">{lic_label}</h1>
-  <div class="pp-muted">{len(questions)} Fragen · {module_count} Module · {topic_count} Themen · Fortschritt und Auswertungen sind strikt nach Schein getrennt.</div>
-</div>
-""",
+        f'<div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.2rem">'
+        f'<h1 style="margin:0">Dashboard</h1>'
+        f'<span class="pp-pill pp-pill-accent">{lic_icon} {lic_label}</span>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        f'<div class="pp-muted" style="margin-bottom:1.2rem">'
+        f'Dein Lernfortschritt im {lic_label}. Alle Zahlen, Listen und Vorschläge auf dieser '
+        f'Seite beziehen sich ausschließlich auf den aktuell gewählten Schein.'
+        f'</div>',
         unsafe_allow_html=True,
     )
 
@@ -2594,62 +2669,92 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         avg7 = 0
         trend7 = 0
 
+    # ----------------------------
+    # KPI-Reihe (modern)
+    # ----------------------------
     st.markdown(
         f"""
 <div class="pp-grid">
-  <div class="pp-kpi"><b>Abdeckung</b><br>{overall}%<div class="pp-muted">Fragen mindestens 1× gesehen</div></div>
-  <div class="pp-kpi"><b>Trefferquote</b><br>{accuracy_total}%<div class="pp-muted">{c_total} richtig · {w_total} falsch</div></div>
-  <div class="pp-kpi"><b>Prüfungen</b><br>{exam_attempts} Versuche<div class="pp-muted">Passrate {pass_rate}% · Ø7 {avg7}% · Trend {('+' if trend7>0 else '')}{trend7}</div></div>
-  <div class="pp-kpi"><b>Beste Prüfung</b><br>{best}%<div class="pp-muted">Letzte: {('-' if last_pct is None else str(last_pct)+'%')}</div></div>
+  <div class="pp-kpi">
+    <b>Gelernt</b>
+    <span class="pp-kpi-value">{overall}%</span>
+    <div class="pp-muted">Mindestens 1× gesehen</div>
+  </div>
+  <div class="pp-kpi">
+    <b>Trefferquote</b>
+    <span class="pp-kpi-value">{accuracy_total}%</span>
+    <div class="pp-muted">{c_total} richtig · {w_total} falsch</div>
+  </div>
+  <div class="pp-kpi">
+    <b>Prüfungen</b>
+    <span class="pp-kpi-value">{exam_attempts}</span>
+    <div class="pp-muted">Bestanden: {pass_rate}% · Ø7: {avg7}% · {('+' if trend7>0 else '')}{trend7}</div>
+  </div>
+  <div class="pp-kpi">
+    <b>Beste Prüfung</b>
+    <span class="pp-kpi-value">{best}%</span>
+    <div class="pp-muted">Letzte: {('—' if last_pct is None else str(last_pct)+'%')}</div>
+  </div>
 </div>
 """,
         unsafe_allow_html=True,
     )
 
+    # ----------------------------
+    # Streak + Heute fällig + Heatmap
+    # ----------------------------
     review_dates = db_load_review_dates(uid, since_days=120)
     streak = compute_streak(review_dates)
     due_n = db_count_due_cards(uid) if fsrs_available() else 0
 
+    st.markdown('<div style="height:0.8rem"></div>', unsafe_allow_html=True)
     sc1, sc2 = st.columns([1, 1])
     with sc1:
         flame = "🔥" if streak > 0 else "·"
+        streak_word = "Tag" if streak == 1 else "Tage"
         st.markdown(
-            f'<div class="pp-card2"><b>Lern-Serie</b><br>'
-            f'<span class="pp-streak">{flame} {streak} Tag{"e" if streak != 1 else ""} in Folge</span>'
-            f'<div class="pp-muted" style="margin-top:0.4rem">Eine beantwortete Frage pro Tag hält die Serie aktiv.</div></div>',
+            f'<div class="pp-card2"><b>Streak</b><br>'
+            f'<span class="pp-streak">{flame} {streak} {streak_word} in Folge</span>'
+            f'<div class="pp-muted" style="margin-top:0.4rem">Beantworte täglich mindestens eine Frage, um deine Serie zu halten.</div></div>',
             unsafe_allow_html=True,
         )
     with sc2:
         if fsrs_available():
+            due_word = "Karte" if due_n == 1 else "Karten"
             st.markdown(
-                f'<div class="pp-card2"><b>Smart wiederholen</b><br>'
-                f'<span class="pp-due">📚 {due_n} fällig</span>'
-                f'<div class="pp-muted" style="margin-top:0.4rem">Fragen, die du heute am ehesten vergessen würdest.</div></div>',
+                f'<div class="pp-card2"><b>Heute fällig</b><br>'
+                f'<span class="pp-due">📚 {due_n} {due_word}</span>'
+                f'<div class="pp-muted" style="margin-top:0.4rem">Wiederholungen, die du heute am ehesten vergessen würdest.</div></div>',
                 unsafe_allow_html=True,
             )
         else:
             st.markdown(
-                '<div class="pp-card2"><b>Smart wiederholen</b><br>'
-                '<span class="pp-muted">Modul nicht installiert (<code>pip install fsrs</code>).</span></div>',
+                '<div class="pp-card2"><b>Heute fällig</b><br>'
+                '<span class="pp-muted">FSRS-Modul nicht installiert (<code>pip install fsrs</code>).</span></div>',
                 unsafe_allow_html=True,
             )
 
+    # 90-Tage-Heatmap
     with st.container():
-        st.markdown('<div class="pp-card" style="margin-top:0.6rem"><b>Aktivität der letzten 90 Tage</b>', unsafe_allow_html=True)
+        st.markdown('<div class="pp-card" style="margin-top:0.7rem"><b>Letzte 90 Tage</b>', unsafe_allow_html=True)
         st.markdown(render_heatmap_html(review_dates, days=90), unsafe_allow_html=True)
         st.markdown('<div class="pp-muted" style="margin-top:0.4rem">Jede Box = ein Tag. Dunkler = mehr Antworten.</div></div>', unsafe_allow_html=True)
     st.write("")
 
+    # ----------------------------
+    # Module-Übersicht: Charts pro Hauptkapitel der AKTUELLEN Lizenz
+    # ----------------------------
+    st.markdown(f"## Module im {lic_label}")
+    st.caption(f"Diese Hauptkapitel sind im {lic_label} enthalten. Die Werte unten zählen ausschließlich Antworten aus diesem Schein.")
+
     try:
         rows = []
-        for cat in module_map.keys():
-            subs = stats.get(cat, {})
+        for cat, subs in stats.items():
             total_q = 0
             learned_q = 0
             corr = 0
             wrong = 0
-            for sub in module_map[cat].keys():
-                s = subs.get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
+            for sub, s in subs.items():
                 total_q += int(s.get("total") or 0)
                 learned_q += int(s.get("learned") or 0)
                 corr += int(s.get("correct_total") or 0)
@@ -2659,31 +2764,38 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             acc = (corr / attempts) if attempts else 0.0
             rows.append(
                 {
-                    "Modul": cat,
+                    "Kategorie": cat,
+                    "Fragen": total_q,
                     "Abdeckung_%": int(round(coverage * 100)),
                     "Trefferquote_%": int(round(acc * 100)),
                 }
             )
-        df = pd.DataFrame(rows)
-        left, right = st.columns(2)
-        with left:
-            st.markdown("### Abdeckung nach Modul")
-            if not df.empty:
-                st.bar_chart(df.set_index("Modul")[["Abdeckung_%"]], height=240)
-            else:
-                st.caption("Noch keine Module gefunden.")
-        with right:
-            st.markdown("### Trefferquote nach Modul")
-            if not df.empty:
-                st.bar_chart(df.set_index("Modul")[["Trefferquote_%"]], height=240)
-            else:
-                st.caption("Noch keine Auswertung möglich.")
+        if rows:
+            df = pd.DataFrame(rows).sort_values("Kategorie")
+            left, right = st.columns(2)
+            with left:
+                st.markdown("##### Abdeckung")
+                st.bar_chart(df.set_index("Kategorie")[["Abdeckung_%"]], height=260)
+            with right:
+                st.markdown("##### Trefferquote")
+                st.bar_chart(df.set_index("Kategorie")[["Trefferquote_%"]], height=260)
+        else:
+            st.caption("Noch keine Module geladen — bitte Frage-Datei prüfen.")
     except Exception:
+        # Charts sind nice-to-have; UI darf nicht crashen, falls Daten fehlen.
         pass
 
     st.write("")
+
+    # ----------------------------
+    # Quick Actions
+    # ----------------------------
+    st.markdown("## Schnell weiter")
+
+    # Fällige Wiederholungen als prominentester CTA
     if fsrs_available() and due_n > 0:
-        if st.button(f"📚 {due_n} Frage{'n' if due_n != 1 else ''} jetzt smart wiederholen", type="primary", use_container_width=True):
+        due_word = "Karte" if due_n == 1 else "Karten"
+        if st.button(f"📚 {due_n} fällige {due_word} jetzt wiederholen", type="primary", use_container_width=True):
             _reset_learning_state()
             st.session_state.page = "learn"
             st.session_state.skip_teacher_autoresume = True
@@ -2702,7 +2814,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             st.rerun()
 
     cA, cB, cC = st.columns([1, 1, 1])
-    if cA.button("Weiterlernen", type="primary"):
+    if cA.button("▶ Weiterlernen"):
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.skip_teacher_autoresume = True
@@ -2726,7 +2838,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.learn_answers = {}
         st.session_state.learn_started = True
         st.rerun()
-    if cB.button("Fehler trainieren"):
+    if cB.button("⚠ Fehler korrigieren"):
         _reset_learning_state()
         st.session_state.page = "learn"
         st.session_state.skip_teacher_autoresume = True
@@ -2750,23 +2862,25 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
         st.session_state.learn_answers = {}
         st.session_state.learn_started = True
         st.rerun()
-    if cC.button("Prüfung starten"):
+    if cC.button("📝 Prüfung starten (40)"):
         st.session_state.page = "exam"
         _reset_exam_state()
         st.rerun()
 
+
     st.write("")
     weak = weakest_subchapters(stats, min_seen=6, topn=8)
     target = weak[0] if weak else None
-    st.markdown("## Nächster sinnvoller Fokus")
+    st.markdown("## Wo solltest du als Nächstes ansetzen?")
     if target:
         acc = int(round(target["accuracy"] * 100))
         st.markdown(
             f"""<div class="pp-card2"><b>Empfehlung</b>
-<div class="pp-muted">Trainiere als Nächstes: <b>{html_lib.escape(target['category'])} · {html_lib.escape(target['subchapter'])}</b> — aktuell {acc}% richtig bei {target['attempts']} Versuchen.</div></div>""",
+<div class="pp-muted" style="margin-top:0.3rem">Hier hast du am meisten Luft nach oben:<br>
+<b>{target['category']} · {target['subchapter']}</b> — aktuell {acc}% richtig bei {target['attempts']} Versuchen.</div></div>""",
             unsafe_allow_html=True,
         )
-        if st.button("Diesen Bereich trainieren", use_container_width=True):
+        if st.button("Übung dazu starten (nur falsche Fragen)", use_container_width=True):
             _reset_learning_state()
             st.session_state.page = "learn"
             st.session_state.skip_teacher_autoresume = True
@@ -2791,13 +2905,13 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             st.session_state.learn_started = True
             st.rerun()
     else:
-        st.caption("Noch nicht genug Daten für eine saubere Empfehlung. Beantworte pro Thema mindestens ein paar Fragen.")
+        st.caption("Noch nicht genug Daten für eine Empfehlung (mindestens 6 Antworten pro Unterkapitel nötig).")
 
     st.write("")
     st.markdown("## Häufigste Fehler")
     wrong_rows = top_wrong_questions(questions, progress, topn=10)
     if not wrong_rows:
-        st.caption("Noch keine falsch beantworteten Fragen.")
+        st.caption("Noch keine falsch beantworteten Fragen — sehr gut.")
     else:
         for r in wrong_rows:
             q_short = r["question"][:140] + ("…" if len(r["question"]) > 140 else "")
@@ -2831,60 +2945,44 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
                 st.rerun()
 
     st.write("")
-    st.markdown(
-        f"""
-<div class="pp-section-head">
-  <div><h2 style="margin:0">Module</h2><div class="pp-muted">Aus der aktiven Datei <code>{html_lib.escape(QUESTIONS_PATH.name)}</code> geladen.</div></div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
+    st.markdown("## Themen im Überblick")
+    for cat, subs in required_structure(questions).items():
+        st.markdown(f"### {cat}")
+        for sub, expected_total in subs.items():
+            s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
+            total = expected_total if expected_total else s["total"]
+            learned = int(s["learned"])
+            attempts = int(s["correct_total"]) + int(s["wrong_total"])
+            acc = int(round((int(s["correct_total"]) / attempts) * 100)) if attempts else 0
+            learned_pct = int(round((learned / total) * 100)) if total else 0
 
-    module_items = list(module_map.items())
-    if module_items:
-        tabs = st.tabs([cat for cat, _ in module_items])
-        for tab, (cat, subs) in zip(tabs, module_items):
-            with tab:
-                for sub, expected_total in subs.items():
-                    s = stats.get(cat, {}).get(sub, {"total": 0, "learned": 0, "correct_total": 0, "wrong_total": 0})
-                    total = int(expected_total) if expected_total else int(s["total"])
-                    learned = int(s["learned"])
-                    attempts = int(s["correct_total"]) + int(s["wrong_total"])
-                    acc = int(round((int(s["correct_total"]) / attempts) * 100)) if attempts else 0
-                    learned_pct = int(round((learned / total) * 100)) if total else 0
-
-                    c1, c2 = st.columns([4, 1])
-                    c1.markdown(
-                        f"**{sub}**  \n"
-                        f"<span class='pp-muted'>{total} Fragen · {learned_pct}% gesehen · {acc}% Trefferquote · {attempts} Versuche</span>",
-                        unsafe_allow_html=True,
-                    )
-                    if c2.button("Üben", key=f"sub_{cat}::{sub}"):
-                        _reset_learning_state()
-                        st.session_state.page = "learn"
-                        st.session_state.skip_teacher_autoresume = True
-                        st.session_state.learn_plan = {
-                            "mode": "Zufällig",
-                            "category": cat,
-                            "subchapter": sub,
-                            "only_unseen": False,
-                            "only_wrong": False,
-                        }
-                        st.session_state.queue = build_learning_queue(
-                            questions=questions,
-                            progress=progress,
-                            category=cat,
-                            subchapter=sub,
-                            only_unseen=False,
-                            only_wrong=False,
-                        )
-                        st.session_state.idx = 0
-                        st.session_state.answered = False
-                        st.session_state.learn_answers = {}
-                        st.session_state.learn_started = True
-                        st.rerun()
-    else:
-        st.caption("Keine Module gefunden.")
+            line = f"{sub} ({total} Fragen) — bisher gesehen {learned_pct}% · Trefferquote {acc}% · {attempts} Versuche"
+            c1, c2 = st.columns([4, 1])
+            c1.caption(line)
+            if c2.button("Üben", key=f"sub_{cat}::{sub}"):
+                _reset_learning_state()
+                st.session_state.page = "learn"
+                st.session_state.skip_teacher_autoresume = True
+                st.session_state.learn_plan = {
+                    "mode": "Zufällig",
+                    "category": cat,
+                    "subchapter": sub,
+                    "only_unseen": False,
+                    "only_wrong": False,
+                }
+                st.session_state.queue = build_learning_queue(
+                    questions=questions,
+                    progress=progress,
+                    category=cat,
+                    subchapter=sub,
+                    only_unseen=False,
+                    only_wrong=False,
+                )
+                st.session_state.idx = 0
+                st.session_state.answered = False
+                st.session_state.learn_answers = {}
+                st.session_state.learn_started = True
+                st.rerun()
 
     st.write("")
     st.markdown("## Letzte Prüfungen")
@@ -2893,7 +2991,7 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
             total = int(r.get("total") or 0)
             corr = int(r.get("correct") or 0)
             pct = int(round((corr / total) * 100)) if total else 0
-            ok = "bestanden" if bool(r.get("passed")) else "nicht bestanden"
+            ok = "✓ bestanden" if bool(r.get("passed")) else "✗ nicht bestanden"
             st.caption(f"{pct}% ({corr}/{total}) — {ok}")
     else:
         st.caption("Noch keine Prüfungen abgelegt.")
@@ -2903,7 +3001,16 @@ def page_dashboard(uid: str, questions: List[Dict[str, Any]], progress: Dict[str
 # LEARN
 # =============================================================================
 def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Dict[str, Any]]) -> None:
-    st.title("Lernen")
+    cur_lic = _lic()
+    lic_label = _license_label(cur_lic)
+    lic_icon = "📗" if cur_lic == "A" else "📘"
+    st.markdown(
+        f'<div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.2rem">'
+        f'<h1 style="margin:0">Lernen</h1>'
+        f'<span class="pp-pill pp-pill-accent">{lic_icon} {lic_label}</span>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
     _init_learn_runtime_state()
 
     # ----------------------------
@@ -3718,9 +3825,6 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
                     title = (li.get("title") or "Link").strip()
                     url = (li.get("url") or "").strip()
                     locator = (li.get("locator") or "").strip()
-                    page = li.get("page", None)
-                    if not locator and page not in (None, ""):
-                        locator = f"Seite {page}"
                     if url:
                         extra = f" — {locator}" if locator else ""
                         st.markdown(f"- [{title}]({url}){extra}")
@@ -3790,15 +3894,25 @@ def page_learn(uid: str, questions: List[Dict[str, Any]], progress: Dict[str, Di
 
 
 def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
-    st.title("Prüfungssimulation (40)")
+    cur_lic = _lic()
+    lic_label = _license_label(cur_lic)
+    lic_icon = "📗" if cur_lic == "A" else "📘"
+    st.markdown(
+        f'<div style="display:flex;align-items:baseline;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.2rem">'
+        f'<h1 style="margin:0">Prüfungssimulation</h1>'
+        f'<span class="pp-pill pp-pill-accent">{lic_icon} {lic_label}</span>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
+    st.caption(f"40 Fragen · {int(EXAM_DURATION_SEC/60)} Minuten Zeit · Fragen werden ausschließlich aus dem {lic_label} gezogen.")
 
     if "exam_started" not in st.session_state:
         st.session_state.exam_started = False
 
     if not st.session_state.exam_started:
         st.markdown(
-            f"""<div class="pp-card2"><b>Regeln</b>
-<div class="pp-muted">40 zufällige Fragen · {int(EXAM_DURATION_SEC/60)} Minuten Gesamtzeit · Antworten frei ändern · Abgabe am Ende.</div></div>""",
+            f"""<div class="pp-card2" style="margin-top:0.8rem"><b>Bedingungen</b>
+<div class="pp-muted" style="margin-top:0.3rem">40 zufällige Fragen · {int(EXAM_DURATION_SEC/60)} Minuten Gesamtzeit · Antworten frei änderbar · Abgabe automatisch bei Zeitablauf oder manuell.</div></div>""",
             unsafe_allow_html=True,
         )
         c1, c2 = st.columns([1, 1])
@@ -3812,7 +3926,7 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
             st.session_state.exam_answers = {}
             st.session_state.exam_deadline_ts = float(time.time()) + float(EXAM_DURATION_SEC)
             st.rerun()
-        if c2.button("Zur Übersicht", key="exam_start_to_dashboard"):
+        if c2.button("Zurück zum Dashboard", key="exam_start_to_dashboard"):
             st.session_state.page = "dashboard"
             _reset_exam_state()
             st.rerun()
@@ -3922,9 +4036,6 @@ def page_exam(uid: str, questions: List[Dict[str, Any]]) -> None:
                         title2 = (li.get("title") or "Link").strip()
                         url = (li.get("url") or "").strip()
                         locator = (li.get("locator") or "").strip()
-                        page = li.get("page", None)
-                        if not locator and page not in (None, ""):
-                            locator = f"Seite {page}"
                         if url:
                             extra = f" — {locator}" if locator else ""
                             st.markdown(f"- [{title2}]({url}){extra}")
@@ -4064,88 +4175,82 @@ if "license" not in st.session_state and st.session_state.page != "license_selec
 
 
 def page_select_license() -> None:
-    """Startseite: Auswahl A-Schein / B-Schein mit echten Modulen aus den JSON-Dateien."""
+    """Welcome-Screen: Schein wählen (A oder B). Modernes Card-Layout."""
     inject_css()
-
-    a_summary = _catalog_summary_for_license("A")
-    b_summary = _catalog_summary_for_license("B")
-
+    st.markdown('<div style="margin-top:1.2rem"></div>', unsafe_allow_html=True)
+    st.title("Womit möchtest du heute weitermachen?")
     st.markdown(
-        """
-<div class="pp-hero">
-  <small>Gleitschirm Lernapp</small>
-  <h1 style="margin:0.15rem 0 0.25rem 0">Wähle deine Lernumgebung</h1>
-  <div class="pp-muted">A-Schein und B-Schein laufen getrennt: eigene Fragen, eigene Module, eigene Auswertung, eigener Fortschritt.</div>
-</div>
-""",
+        '<div class="pp-muted" style="margin-bottom:1.4rem;max-width:560px">'
+        "A-Schein und B-Schein laufen vollständig getrennt — eigener Fortschritt, "
+        "eigene Notizen, eigene Wiederholungen, eigene Prüfungs-Historie. "
+        "Wechsel jederzeit über die Seitenleiste."
+        "</div>",
         unsafe_allow_html=True,
     )
 
-    c1, c2 = st.columns([1, 1])
+    a_avail = _question_catalog_exists_for_license("A")
+    b_avail = _question_catalog_exists_for_license("B")
+
+    try:
+        n_a = len(_load_questions_for_license("A")) if a_avail else 0
+    except Exception:
+        n_a = 0
+    try:
+        n_b = len(_load_questions_for_license("B")) if b_avail else 0
+    except Exception:
+        n_b = 0
+
+    c1, c2 = st.columns([1, 1], gap="medium")
 
     with c1:
-        a_modules = _module_preview_html(a_summary, limit=6)
-        a_total = int(a_summary.get("total") or 0)
-        a_mod_count = len(a_summary.get("modules") or [])
-        a_topic_count = int(a_summary.get("submodule_count") or 0)
         st.markdown(
             f"""
-<div class="pp-card" style="min-height:310px">
-  <div style="font-size:2rem">📗</div>
-  <h2 style="margin:0.3rem 0 0.3rem 0">A-Schein</h2>
-  <div class="pp-muted" style="margin-bottom:0.7rem">Grundausbildung Gleitschirm: Technik, Flugpraxis, Luftrecht und Wetter – direkt aus <code>questions_A.json</code>.</div>
-  <div class="pp-pill">{a_total} Fragen</div><div class="pp-pill">{a_mod_count} Module</div><div class="pp-pill">{a_topic_count} Themen</div>
-  <div style="margin-top:0.8rem">{a_modules}</div>
+<div class="pp-card" style="min-height:220px;border-color:rgba(52,211,153,0.35)">
+  <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem">
+    <div style="font-size:1.8rem">📗</div>
+    <div>
+      <h2 style="margin:0;font-size:1.45rem">A-Schein</h2>
+      <div class="pp-muted" style="font-size:0.85rem">Beschränkte Lizenz · Grundausbildung</div>
+    </div>
+  </div>
+  <div class="pp-muted" style="margin-top:0.6rem">
+    Gerätekunde, Aerodynamik, Flugpraxis, Luftrecht und Meteorologie.
+    {n_a} Fragen, ideal für Schüler und frische A-Lizenzler.
+  </div>
 </div>
 """,
             unsafe_allow_html=True,
         )
-        if st.button("A-Schein öffnen", type="primary", use_container_width=True, disabled=not bool(a_summary.get("available")), key="lic_pick_a"):
-            st.session_state.license = "A"
-            st.session_state.page = "dashboard"
-            st.session_state.skip_teacher_autoresume = True
-            _reset_learning_state()
-            _reset_exam_state()
-            _refresh_license_paths()
-            try:
-                st.session_state.teacher_state = db_get_teacher_state(uid) or {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
-            except Exception:
-                st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
+        if st.button("A-Schein lernen →", type="primary", use_container_width=True, disabled=not a_avail, key="lic_pick_a"):
+            _switch_to_license("A")
             st.rerun()
-        if not bool(a_summary.get("available")):
-            st.caption("Datei `questions_A.json` fehlt im App-Verzeichnis.")
+        if not a_avail:
+            st.caption("⚠ Datei `questions_A.json` fehlt im App-Verzeichnis.")
 
     with c2:
-        b_modules = _module_preview_html(b_summary, limit=6)
-        b_total = int(b_summary.get("total") or 0)
-        b_mod_count = len(b_summary.get("modules") or [])
-        b_topic_count = int(b_summary.get("submodule_count") or 0)
         st.markdown(
             f"""
-<div class="pp-card" style="min-height:310px">
-  <div style="font-size:2rem">📘</div>
-  <h2 style="margin:0.3rem 0 0.3rem 0">B-Schein</h2>
-  <div class="pp-muted" style="margin-bottom:0.7rem">Aufbauausbildung: alle Module werden direkt aus <code>questions.json</code> gelesen – keine Sonderlogik.</div>
-  <div class="pp-pill">{b_total} Fragen</div><div class="pp-pill">{b_mod_count} Module</div><div class="pp-pill">{b_topic_count} Themen</div>
-  <div style="margin-top:0.8rem">{b_modules}</div>
+<div class="pp-card" style="min-height:220px;border-color:rgba(96,165,250,0.35)">
+  <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.5rem">
+    <div style="font-size:1.8rem">📘</div>
+    <div>
+      <h2 style="margin:0;font-size:1.45rem">B-Schein</h2>
+      <div class="pp-muted" style="font-size:0.85rem">Unbeschränkte Lizenz · Aufbau</div>
+    </div>
+  </div>
+  <div class="pp-muted" style="margin-top:0.6rem">
+    Mehr Tiefe in Flugpraxis, Wetter, Luftrecht und Verhalten in besonderen Situationen.
+    {n_b} Fragen für die unbeschränkte Lizenz.
+  </div>
 </div>
 """,
             unsafe_allow_html=True,
         )
-        if st.button("B-Schein öffnen", type="primary", use_container_width=True, disabled=not bool(b_summary.get("available")), key="lic_pick_b"):
-            st.session_state.license = "B"
-            st.session_state.page = "dashboard"
-            st.session_state.skip_teacher_autoresume = True
-            _reset_learning_state()
-            _reset_exam_state()
-            _refresh_license_paths()
-            try:
-                st.session_state.teacher_state = db_get_teacher_state(uid) or {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
-            except Exception:
-                st.session_state.teacher_state = {"unlockedBlock": 1, "lastBlock": 1, "checkpoints": {}}
+        if st.button("B-Schein lernen →", type="primary", use_container_width=True, disabled=not b_avail, key="lic_pick_b"):
+            _switch_to_license("B")
             st.rerun()
-        if not bool(b_summary.get("available")):
-            st.caption("Datei `questions.json` fehlt im App-Verzeichnis.")
+        if not b_avail:
+            st.caption("⚠ Datei `questions.json` fehlt im App-Verzeichnis.")
 
     st.stop()
 
